@@ -1,0 +1,896 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56d950c01a6274438f8999a8bf6fb6c, type: 3}
+  m_Name: Design_EL-01
+  m_EditorClassIdentifier: Fatiro.Runtime::Fatiro.Content.HouseDesign
+  designId: EL-01
+  version: 1
+  displayName: Inzovu
+  meaning: elephant
+  description: An elephant standing on four thick legs. Its ears are shade canopies
+    and its trunk carries rainwater to a cistern.
+  lesson: Cantilevered canopies must be tied down against wind uplift, and roofs
+    need drains sized for heavy rain.
+  difficulty: 2
+  accentColor: {r: 0.55, g: 0.62, b: 0.7, a: 1}
+  sortOrder: 1
+  foundationName: Elephant feet
+  foundationInspiration: Wide soft pads spread a huge weight
+  foundationBearing: 1.4
+  foundationSlopeResistance: 0.2
+  foundationGrip: 1
+  uphillReferenceZ: -2.5
+  members:
+  - id: EL-FOOT-BL
+    displayName: Back-left foot
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: -3, y: 0, z: -2.5}
+    aGroundRelative: 1
+    b: {x: -3, y: 0, z: -2.5}
+    bGroundRelative: 1
+    thickness: 0.4
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.6, y: 0.4, z: 1.6}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Wide elephant feet keep bearing pressure low on soft soil.
+  - id: EL-FOOT-BR
+    displayName: Back-right foot
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 3, y: 0, z: -2.5}
+    aGroundRelative: 1
+    b: {x: 3, y: 0, z: -2.5}
+    bGroundRelative: 1
+    thickness: 0.4
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.6, y: 0.4, z: 1.6}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: EL-FOOT-FL
+    displayName: Front-left foot
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: -3, y: 0, z: 2.5}
+    aGroundRelative: 1
+    b: {x: -3, y: 0, z: 2.5}
+    bGroundRelative: 1
+    thickness: 0.4
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.6, y: 0.4, z: 1.6}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: EL-FOOT-FR
+    displayName: Front-right foot
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 3, y: 0, z: 2.5}
+    aGroundRelative: 1
+    b: {x: 3, y: 0, z: 2.5}
+    bGroundRelative: 1
+    thickness: 0.4
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.6, y: 0.4, z: 1.6}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: EL-CISTERN
+    displayName: Trunk cistern
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 0, y: 0, z: 5.6}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: 5.6}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.4, y: 0.3, z: 1.4}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Collects water from the trunk downpipe.
+  - id: EL-LEG-BL
+    displayName: Back-left leg
+    kind: 1
+    stage: 1
+    shape: 1
+    a: {x: -3, y: 0.4, z: -2.5}
+    aGroundRelative: 1
+    b: {x: -3, y: 3, z: -2.5}
+    bGroundRelative: 0
+    thickness: 0.55
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - EL-FOOT-BL
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Thick legs carry the whole body.
+  - id: EL-LEG-BR
+    displayName: Back-right leg
+    kind: 1
+    stage: 1
+    shape: 1
+    a: {x: 3, y: 0.4, z: -2.5}
+    aGroundRelative: 1
+    b: {x: 3, y: 3, z: -2.5}
+    bGroundRelative: 0
+    thickness: 0.55
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - EL-FOOT-BR
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Thick legs carry the whole body.
+  - id: EL-LEG-FL
+    displayName: Front-left leg
+    kind: 1
+    stage: 1
+    shape: 1
+    a: {x: -3, y: 0.4, z: 2.5}
+    aGroundRelative: 1
+    b: {x: -3, y: 3, z: 2.5}
+    bGroundRelative: 0
+    thickness: 0.55
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - EL-FOOT-FL
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Thick legs carry the whole body.
+  - id: EL-LEG-FR
+    displayName: Front-right leg
+    kind: 1
+    stage: 1
+    shape: 1
+    a: {x: 3, y: 0.4, z: 2.5}
+    aGroundRelative: 1
+    b: {x: 3, y: 3, z: 2.5}
+    bGroundRelative: 0
+    thickness: 0.55
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - EL-FOOT-FR
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Thick legs carry the whole body.
+  - id: EL-BELLY-F
+    displayName: Front belly beam
+    kind: 2
+    stage: 1
+    shape: 1
+    a: {x: -3, y: 3, z: 2.5}
+    aGroundRelative: 0
+    b: {x: 3, y: 3, z: 2.5}
+    bGroundRelative: 0
+    thickness: 0.35
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - EL-LEG-FL
+    - EL-LEG-FR
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 7.5
+    isRoof: 0
+    hint: Carries the floor of the elephant's belly.
+  - id: EL-BELLY-B
+    displayName: Back belly beam
+    kind: 2
+    stage: 1
+    shape: 1
+    a: {x: -3, y: 3, z: -2.5}
+    aGroundRelative: 0
+    b: {x: 3, y: 3, z: -2.5}
+    bGroundRelative: 0
+    thickness: 0.35
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - EL-LEG-BL
+    - EL-LEG-BR
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 7.5
+    isRoof: 0
+    hint: Carries the floor of the elephant's belly.
+  - id: EL-BELLY-L
+    displayName: Left belly beam
+    kind: 2
+    stage: 1
+    shape: 1
+    a: {x: -3, y: 3, z: -2.5}
+    aGroundRelative: 0
+    b: {x: -3, y: 3, z: 2.5}
+    bGroundRelative: 0
+    thickness: 0.35
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - EL-LEG-BL
+    - EL-LEG-FL
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 7.5
+    isRoof: 0
+    hint: Carries the floor of the elephant's belly.
+  - id: EL-BELLY-R
+    displayName: Right belly beam
+    kind: 2
+    stage: 1
+    shape: 1
+    a: {x: 3, y: 3, z: -2.5}
+    aGroundRelative: 0
+    b: {x: 3, y: 3, z: 2.5}
+    bGroundRelative: 0
+    thickness: 0.35
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - EL-LEG-BR
+    - EL-LEG-FR
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 7.5
+    isRoof: 0
+    hint: Carries the floor of the elephant's belly.
+  - id: EL-BODY-B
+    displayName: Rear body arch
+    kind: 3
+    stage: 1
+    shape: 2
+    a: {x: -3, y: 3, z: -2.5}
+    aGroundRelative: 0
+    b: {x: 3, y: 3, z: -2.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - EL-BELLY-B
+    extraSupports: []
+    required: 1
+    crownHeight: 6
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: EL-BODY-M
+    displayName: Middle body arch
+    kind: 3
+    stage: 1
+    shape: 2
+    a: {x: -3, y: 3, z: 0}
+    aGroundRelative: 0
+    b: {x: 3, y: 3, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - EL-BELLY-L
+    - EL-BELLY-R
+    extraSupports: []
+    required: 1
+    crownHeight: 6.2
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: EL-BODY-F
+    displayName: Front body arch
+    kind: 3
+    stage: 1
+    shape: 2
+    a: {x: -3, y: 3, z: 2.5}
+    aGroundRelative: 0
+    b: {x: 3, y: 3, z: 2.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - EL-BELLY-F
+    extraSupports: []
+    required: 1
+    crownHeight: 6
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: EL-EAR-L-SPAR
+    displayName: Left ear spar
+    kind: 4
+    stage: 1
+    shape: 1
+    a: {x: -2.4, y: 5, z: 2.5}
+    aGroundRelative: 0
+    b: {x: -6.2, y: 5.4, z: 2.1}
+    bGroundRelative: 0
+    thickness: 0.28
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - EL-BODY-F
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Holds the ear canopy out from the body. Wind tries to lift it.
+  - id: EL-EAR-R-SPAR
+    displayName: Right ear spar
+    kind: 4
+    stage: 1
+    shape: 1
+    a: {x: 2.4, y: 5, z: 2.5}
+    aGroundRelative: 0
+    b: {x: 6.2, y: 5.4, z: 2.1}
+    bGroundRelative: 0
+    thickness: 0.28
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - EL-BODY-F
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Holds the ear canopy out from the body. Wind tries to lift it.
+  - id: EL-LEGBRACE-L
+    displayName: Left leg brace
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: -3, y: 0.6, z: -2.5}
+    aGroundRelative: 1
+    b: {x: -3, y: 2.9, z: 2.5}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - EL-LEG-BL
+    - EL-LEG-FL
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: EL-LEGBRACE-R
+    displayName: Right leg brace
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: 3, y: 0.6, z: -2.5}
+    aGroundRelative: 1
+    b: {x: 3, y: 2.9, z: 2.5}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - EL-LEG-BR
+    - EL-LEG-FR
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: EL-LEGBRACE-F
+    displayName: Front leg brace
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: -3, y: 0.6, z: 2.5}
+    aGroundRelative: 1
+    b: {x: 3, y: 2.9, z: 2.5}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - EL-LEG-FL
+    - EL-LEG-FR
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: EL-LEGBRACE-B
+    displayName: Back leg brace
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: -3, y: 0.6, z: -2.5}
+    aGroundRelative: 1
+    b: {x: 3, y: 2.9, z: -2.5}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - EL-LEG-BL
+    - EL-LEG-BR
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: EL-EARTIE-L
+    displayName: Left ear tie-down
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: -3, y: 3, z: 2.5}
+    aGroundRelative: 0
+    b: {x: -5, y: 5.25, z: 2.25}
+    bGroundRelative: 0
+    thickness: 0.1
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - EL-EAR-L-SPAR
+    - EL-LEG-FL
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Ties the ear down so wind cannot rip it off.
+  - id: EL-EARTIE-R
+    displayName: Right ear tie-down
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: 3, y: 3, z: 2.5}
+    aGroundRelative: 0
+    b: {x: 5, y: 5.25, z: 2.25}
+    bGroundRelative: 0
+    thickness: 0.1
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - EL-EAR-R-SPAR
+    - EL-LEG-FR
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Ties the ear down so wind cannot rip it off.
+  - id: EL-ROOF-LB
+    displayName: Left rear roof
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: -1.55, y: 5.3, z: -1.25}
+    aGroundRelative: 0
+    b: {x: -1.55, y: 5.3, z: -1.25}
+    bGroundRelative: 0
+    thickness: 0.1
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - EL-BODY-B
+    - EL-BODY-M
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3.3, y: 0.1, z: 2.6}
+    panelEuler: {x: 0, y: 0, z: 28}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 
+  - id: EL-ROOF-LF
+    displayName: Left front roof
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: -1.55, y: 5.3, z: 1.25}
+    aGroundRelative: 0
+    b: {x: -1.55, y: 5.3, z: 1.25}
+    bGroundRelative: 0
+    thickness: 0.1
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - EL-BODY-M
+    - EL-BODY-F
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3.3, y: 0.1, z: 2.6}
+    panelEuler: {x: 0, y: 0, z: 28}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 
+  - id: EL-EAR-L
+    displayName: Left ear canopy
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: -4.3, y: 5.15, z: 2.2}
+    aGroundRelative: 0
+    b: {x: -4.3, y: 5.15, z: 2.2}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - EL-EAR-L-SPAR
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3.8, y: 0.06, z: 3}
+    panelEuler: {x: 0, y: 0, z: -6}
+    tributaryArea: 0
+    isRoof: 1
+    hint: A big shade canopy. Catches rain and wind.
+  - id: EL-ROOF-RB
+    displayName: Right rear roof
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: 1.55, y: 5.3, z: -1.25}
+    aGroundRelative: 0
+    b: {x: 1.55, y: 5.3, z: -1.25}
+    bGroundRelative: 0
+    thickness: 0.1
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - EL-BODY-B
+    - EL-BODY-M
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3.3, y: 0.1, z: 2.6}
+    panelEuler: {x: 0, y: 0, z: -28}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 
+  - id: EL-ROOF-RF
+    displayName: Right front roof
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: 1.55, y: 5.3, z: 1.25}
+    aGroundRelative: 0
+    b: {x: 1.55, y: 5.3, z: 1.25}
+    bGroundRelative: 0
+    thickness: 0.1
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - EL-BODY-M
+    - EL-BODY-F
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3.3, y: 0.1, z: 2.6}
+    panelEuler: {x: 0, y: 0, z: -28}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 
+  - id: EL-EAR-R
+    displayName: Right ear canopy
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: 4.3, y: 5.15, z: 2.2}
+    aGroundRelative: 0
+    b: {x: 4.3, y: 5.15, z: 2.2}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - EL-EAR-R-SPAR
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3.8, y: 0.06, z: 3}
+    panelEuler: {x: 0, y: 0, z: 6}
+    tributaryArea: 0
+    isRoof: 1
+    hint: A big shade canopy. Catches rain and wind.
+  - id: EL-TRUNK
+    displayName: Trunk downpipe
+    kind: 7
+    stage: 4
+    shape: 1
+    a: {x: 0, y: 4.6, z: 3}
+    aGroundRelative: 0
+    b: {x: 0, y: 0.5, z: 5.6}
+    bGroundRelative: 1
+    thickness: 0.25
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - steel
+    - concrete
+    supports:
+    - EL-BODY-F
+    - EL-CISTERN
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Carries all roof water to the cistern. Too small and the roof floods.
+  - id: EL-REAR-WALL
+    displayName: Rear wall
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 0, y: 4.4, z: -2.55}
+    aGroundRelative: 0
+    b: {x: 0, y: 4.4, z: -2.55}
+    bGroundRelative: 0
+    thickness: 0.1
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - EL-BODY-B
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5.6, y: 0.1, z: 2.6}
+    panelEuler: {x: 90, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: EL-FACE
+    displayName: Face wall
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 0, y: 4.4, z: 2.55}
+    aGroundRelative: 0
+    b: {x: 0, y: 4.4, z: 2.55}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - EL-BODY-F
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5.6, y: 0.08, z: 2.6}
+    panelEuler: {x: 90, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  focusCases: 0200000003000000
+  skin:
+    m_AssetGUID: 3a653bd0a5e09684b970e25a4b1d220d
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0

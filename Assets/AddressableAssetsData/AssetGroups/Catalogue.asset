@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Catalogue
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Catalogue
+  m_GUID: 3e26c75cb18a58e40a010546939f01ae
+  m_SerializeEntries:
+  - m_GUID: 28c56f198a9a4cc4aa3807715fdbe571
+    m_Address: Materials/concrete
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - material
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45142a974b270974a994d34be50d3c9a
+    m_Address: Materials/steel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - material
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c29db127f19cbb4687fdfe909cd9f78
+    m_Address: Designs/PN-01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - design
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 994d6736e2beaf640ad4ef7a10dacf42
+    m_Address: Designs/CR-01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - design
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba5d19302c2d9864cb53699ba8c05996
+    m_Address: Designs/EL-01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - design
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9f99188baa59a642a24b0e0cdc7454a
+    m_Address: Materials/timber
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - material
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3a15137f9b98c442ba151bd4530ee0f
+    m_Address: Materials/bamboo
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - material
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4173ecae0d68af43bbf16cf7bfe6976
+    m_Address: Materials/earth-block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - material
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: bdf72cbff2089094aa8180c7f3227ba6, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d94f8da1807d4a64e8ad66808fa08e7d, type: 2}
+    - {fileID: 11400000, guid: 4488fa70a399eee4e80478242020f91e, type: 2}

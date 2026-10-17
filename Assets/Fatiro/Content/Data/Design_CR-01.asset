@@ -1,0 +1,1052 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56d950c01a6274438f8999a8bf6fb6c, type: 3}
+  m_Name: Design_CR-01
+  m_EditorClassIdentifier: Fatiro.Runtime::Fatiro.Content.HouseDesign
+  designId: CR-01
+  version: 1
+  displayName: Imodoka
+  meaning: car
+  description: A sports-car pod lifted on raked spider stilts that step down the
+    hillside.
+  lesson: On a slope the downhill stilts are longest and buckle first; bracing and
+    stronger material fix them.
+  difficulty: 1
+  accentColor: {r: 0.9, g: 0.25, b: 0.25, a: 1}
+  sortOrder: 2
+  foundationName: Spider feet
+  foundationInspiration: Raked spider legs grip the slope
+  foundationBearing: 1
+  foundationSlopeResistance: 0.8
+  foundationGrip: 1.2
+  uphillReferenceZ: -3.5
+  members:
+  - id: CR-PAD-L0
+    displayName: Uphill left spider foot
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: -2.07, y: 0, z: -3.5}
+    aGroundRelative: 1
+    b: {x: -2.07, y: 0, z: -3.5}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.9, y: 0.3, z: 0.9}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Raked spider feet grip the slope.
+  - id: CR-STILT-L0
+    displayName: Uphill left stilt
+    kind: 1
+    stage: 1
+    shape: 1
+    a: {x: -2.07, y: 0.3, z: -3.5}
+    aGroundRelative: 1
+    b: {x: -1.8, y: 2.2, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.18
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - CR-PAD-L0
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Lifts the car off the hillside.
+  - id: CR-PAD-L1
+    displayName: Middle left spider foot
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: -2.07, y: 0, z: 0}
+    aGroundRelative: 1
+    b: {x: -2.07, y: 0, z: 0}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.9, y: 0.3, z: 0.9}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Raked spider feet grip the slope.
+  - id: CR-STILT-L1
+    displayName: Middle left stilt
+    kind: 1
+    stage: 1
+    shape: 1
+    a: {x: -2.07, y: 0.3, z: 0}
+    aGroundRelative: 1
+    b: {x: -1.8, y: 2.2, z: 0}
+    bGroundRelative: 0
+    thickness: 0.18
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - CR-PAD-L1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Lifts the car off the hillside.
+  - id: CR-PAD-L2
+    displayName: Downhill left spider foot
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: -2.07, y: 0, z: 3.5}
+    aGroundRelative: 1
+    b: {x: -2.07, y: 0, z: 3.5}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.9, y: 0.3, z: 0.9}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Raked spider feet grip the slope.
+  - id: CR-STILT-L2
+    displayName: Downhill left stilt
+    kind: 1
+    stage: 1
+    shape: 1
+    a: {x: -2.07, y: 0.3, z: 3.5}
+    aGroundRelative: 1
+    b: {x: -1.8, y: 2.2, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.18
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - CR-PAD-L2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: The longest stilt on the slope. Slender stilts buckle.
+  - id: CR-PAD-R0
+    displayName: Uphill right spider foot
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 2.07, y: 0, z: -3.5}
+    aGroundRelative: 1
+    b: {x: 2.07, y: 0, z: -3.5}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.9, y: 0.3, z: 0.9}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Raked spider feet grip the slope.
+  - id: CR-STILT-R0
+    displayName: Uphill right stilt
+    kind: 1
+    stage: 1
+    shape: 1
+    a: {x: 2.07, y: 0.3, z: -3.5}
+    aGroundRelative: 1
+    b: {x: 1.8, y: 2.2, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.18
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - CR-PAD-R0
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Lifts the car off the hillside.
+  - id: CR-PAD-R1
+    displayName: Middle right spider foot
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 2.07, y: 0, z: 0}
+    aGroundRelative: 1
+    b: {x: 2.07, y: 0, z: 0}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.9, y: 0.3, z: 0.9}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Raked spider feet grip the slope.
+  - id: CR-STILT-R1
+    displayName: Middle right stilt
+    kind: 1
+    stage: 1
+    shape: 1
+    a: {x: 2.07, y: 0.3, z: 0}
+    aGroundRelative: 1
+    b: {x: 1.8, y: 2.2, z: 0}
+    bGroundRelative: 0
+    thickness: 0.18
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - CR-PAD-R1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Lifts the car off the hillside.
+  - id: CR-PAD-R2
+    displayName: Downhill right spider foot
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 2.07, y: 0, z: 3.5}
+    aGroundRelative: 1
+    b: {x: 2.07, y: 0, z: 3.5}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.9, y: 0.3, z: 0.9}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Raked spider feet grip the slope.
+  - id: CR-STILT-R2
+    displayName: Downhill right stilt
+    kind: 1
+    stage: 1
+    shape: 1
+    a: {x: 2.07, y: 0.3, z: 3.5}
+    aGroundRelative: 1
+    b: {x: 1.8, y: 2.2, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.18
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - CR-PAD-R2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: The longest stilt on the slope. Slender stilts buckle.
+  - id: CR-DECK-L0
+    displayName: Left chassis beam 1
+    kind: 2
+    stage: 1
+    shape: 1
+    a: {x: -1.8, y: 2.2, z: -3.5}
+    aGroundRelative: 0
+    b: {x: -1.8, y: 2.2, z: 0}
+    bGroundRelative: 0
+    thickness: 0.22
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - CR-STILT-L0
+    - CR-STILT-L1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 6.3
+    isRoof: 0
+    hint: 
+  - id: CR-DECK-L1
+    displayName: Left chassis beam 2
+    kind: 2
+    stage: 1
+    shape: 1
+    a: {x: -1.8, y: 2.2, z: 0}
+    aGroundRelative: 0
+    b: {x: -1.8, y: 2.2, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.22
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - CR-STILT-L1
+    - CR-STILT-L2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 6.3
+    isRoof: 0
+    hint: 
+  - id: CR-DECK-R0
+    displayName: Right chassis beam 1
+    kind: 2
+    stage: 1
+    shape: 1
+    a: {x: 1.8, y: 2.2, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 1.8, y: 2.2, z: 0}
+    bGroundRelative: 0
+    thickness: 0.22
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - CR-STILT-R0
+    - CR-STILT-R1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 6.3
+    isRoof: 0
+    hint: 
+  - id: CR-DECK-R1
+    displayName: Right chassis beam 2
+    kind: 2
+    stage: 1
+    shape: 1
+    a: {x: 1.8, y: 2.2, z: 0}
+    aGroundRelative: 0
+    b: {x: 1.8, y: 2.2, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.22
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - CR-STILT-R1
+    - CR-STILT-R2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 6.3
+    isRoof: 0
+    hint: 
+  - id: CR-CROSS-0
+    displayName: Uphill cross beam
+    kind: 2
+    stage: 1
+    shape: 1
+    a: {x: -1.8, y: 2.2, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 1.8, y: 2.2, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.22
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - CR-STILT-L0
+    - CR-STILT-R0
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 3
+    isRoof: 0
+    hint: 
+  - id: CR-BODY-0
+    displayName: Uphill body hoop
+    kind: 3
+    stage: 1
+    shape: 2
+    a: {x: -1.8, y: 2.2, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 1.8, y: 2.2, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.18
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - CR-CROSS-0
+    extraSupports: []
+    required: 1
+    crownHeight: 3.8
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Gives the car its rounded body.
+  - id: CR-CROSS-1
+    displayName: Middle cross beam
+    kind: 2
+    stage: 1
+    shape: 1
+    a: {x: -1.8, y: 2.2, z: 0}
+    aGroundRelative: 0
+    b: {x: 1.8, y: 2.2, z: 0}
+    bGroundRelative: 0
+    thickness: 0.22
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - CR-STILT-L1
+    - CR-STILT-R1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 3
+    isRoof: 0
+    hint: 
+  - id: CR-BODY-1
+    displayName: Middle body hoop
+    kind: 3
+    stage: 1
+    shape: 2
+    a: {x: -1.8, y: 2.2, z: 0}
+    aGroundRelative: 0
+    b: {x: 1.8, y: 2.2, z: 0}
+    bGroundRelative: 0
+    thickness: 0.18
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - CR-CROSS-1
+    extraSupports: []
+    required: 1
+    crownHeight: 4
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Gives the car its rounded body.
+  - id: CR-CROSS-2
+    displayName: Downhill cross beam
+    kind: 2
+    stage: 1
+    shape: 1
+    a: {x: -1.8, y: 2.2, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 1.8, y: 2.2, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.22
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - CR-STILT-L2
+    - CR-STILT-R2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 3
+    isRoof: 0
+    hint: 
+  - id: CR-BODY-2
+    displayName: Downhill body hoop
+    kind: 3
+    stage: 1
+    shape: 2
+    a: {x: -1.8, y: 2.2, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 1.8, y: 2.2, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.18
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - CR-CROSS-2
+    extraSupports: []
+    required: 1
+    crownHeight: 3.2
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Gives the car its rounded body.
+  - id: CR-BRACE-L0
+    displayName: Left uphill X-brace
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: -2.07, y: 0.5, z: -3.5}
+    aGroundRelative: 1
+    b: {x: -1.8, y: 2.1000001, z: 0}
+    bGroundRelative: 0
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - CR-STILT-L0
+    - CR-STILT-L1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: CR-BRACE-L1
+    displayName: Left downhill X-brace
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: -2.07, y: 0.5, z: 0}
+    aGroundRelative: 1
+    b: {x: -1.8, y: 2.1000001, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - CR-STILT-L1
+    - CR-STILT-L2
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Braces the long downhill stilts against shaking.
+  - id: CR-BRACE-R0
+    displayName: Right uphill X-brace
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: 2.07, y: 0.5, z: -3.5}
+    aGroundRelative: 1
+    b: {x: 1.8, y: 2.1000001, z: 0}
+    bGroundRelative: 0
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - CR-STILT-R0
+    - CR-STILT-R1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: CR-BRACE-R1
+    displayName: Right downhill X-brace
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: 2.07, y: 0.5, z: 0}
+    aGroundRelative: 1
+    b: {x: 1.8, y: 2.1000001, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - CR-STILT-R1
+    - CR-STILT-R2
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Braces the long downhill stilts against shaking.
+  - id: CR-SWAY-0
+    displayName: Uphill sway brace
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: -2.07, y: 0.5, z: -3.5}
+    aGroundRelative: 1
+    b: {x: 1.8, y: 2.1000001, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - CR-STILT-L0
+    - CR-STILT-R0
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: CR-SWAY-1
+    displayName: Middle sway brace
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: -2.07, y: 0.5, z: 0}
+    aGroundRelative: 1
+    b: {x: 1.8, y: 2.1000001, z: 0}
+    bGroundRelative: 0
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - CR-STILT-L1
+    - CR-STILT-R1
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: CR-SWAY-2
+    displayName: Downhill sway brace
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: -2.07, y: 0.5, z: 3.5}
+    aGroundRelative: 1
+    b: {x: 1.8, y: 2.1000001, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - CR-STILT-L2
+    - CR-STILT-R2
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: CR-ROOF-REAR
+    displayName: Rear roof
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: 0, y: 3.85, z: -1.75}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.85, z: -1.75}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - CR-BODY-0
+    - CR-BODY-1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3.4, y: 0.08, z: 3.6}
+    panelEuler: {x: -3, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 
+  - id: CR-ROOF-FRONT
+    displayName: Windscreen roof
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: 0, y: 3.6, z: 1.75}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.6, z: 1.75}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - CR-BODY-1
+    - CR-BODY-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3.4, y: 0.08, z: 3.7}
+    panelEuler: {x: 13, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 
+  - id: CR-TAIL
+    displayName: Tail panel
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: 0, y: 3, z: -3.9}
+    aGroundRelative: 0
+    b: {x: 0, y: 3, z: -3.9}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - CR-BODY-0
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3.4, y: 0.08, z: 1.8}
+    panelEuler: {x: -65, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: CR-HOOD
+    displayName: Bonnet
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: 0, y: 2.75, z: 4.1}
+    aGroundRelative: 0
+    b: {x: 0, y: 2.75, z: 4.1}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - CR-BODY-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3.4, y: 0.08, z: 1.6}
+    panelEuler: {x: 40, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 
+  - id: CR-FLOOR-0
+    displayName: Floor panel 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 0, y: 2.33, z: -1.75}
+    aGroundRelative: 0
+    b: {x: 0, y: 2.33, z: -1.75}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - CR-DECK-L0
+    - CR-DECK-R0
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3.6, y: 0.08, z: 3.5}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: CR-WINDOW-L0
+    displayName: Left window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: -1.8, y: 3, z: -1.75}
+    aGroundRelative: 0
+    b: {x: -1.8, y: 3, z: -1.75}
+    bGroundRelative: 0
+    thickness: 0.05
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - CR-DECK-L0
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.05, z: 3.4}
+    panelEuler: {x: 0, y: 0, z: 90}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: CR-WINDOW-R0
+    displayName: Right window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 1.8, y: 3, z: -1.75}
+    aGroundRelative: 0
+    b: {x: 1.8, y: 3, z: -1.75}
+    bGroundRelative: 0
+    thickness: 0.05
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - CR-DECK-R0
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.05, z: 3.4}
+    panelEuler: {x: 0, y: 0, z: 90}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: CR-FLOOR-1
+    displayName: Floor panel 2
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 0, y: 2.33, z: 1.75}
+    aGroundRelative: 0
+    b: {x: 0, y: 2.33, z: 1.75}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - CR-DECK-L1
+    - CR-DECK-R1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3.6, y: 0.08, z: 3.5}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: CR-WINDOW-L1
+    displayName: Left window 2
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: -1.8, y: 3, z: 1.75}
+    aGroundRelative: 0
+    b: {x: -1.8, y: 3, z: 1.75}
+    bGroundRelative: 0
+    thickness: 0.05
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - CR-DECK-L1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.05, z: 3.4}
+    panelEuler: {x: 0, y: 0, z: 90}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: CR-WINDOW-R1
+    displayName: Right window 2
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 1.8, y: 3, z: 1.75}
+    aGroundRelative: 0
+    b: {x: 1.8, y: 3, z: 1.75}
+    bGroundRelative: 0
+    thickness: 0.05
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - CR-DECK-R1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.05, z: 3.4}
+    panelEuler: {x: 0, y: 0, z: 90}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  focusCases: 04000000
+  skin:
+    m_AssetGUID: d1c4c982d321b414ab3c82f1a8e98fad
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0

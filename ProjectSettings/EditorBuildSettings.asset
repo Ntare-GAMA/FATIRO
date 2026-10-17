@@ -6,9 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Fatiro/Scenes/Fatiro.unity
+    guid: 4bdcce4b5052bfa488b26c8360197f24
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: e2146111f6f1178449e161f2e706f0c5, type: 2}
+    com.unity.addressableassets: {fileID: 11400000, guid: eb628da8d1f1bbe43834ce16c15ed719, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 30197f6d805d07845897f4f3333d882d, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0e05d8f972d474e42899b8505813ff0f, type: 2}

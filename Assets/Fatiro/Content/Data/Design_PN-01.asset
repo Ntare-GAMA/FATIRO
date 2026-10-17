@@ -1,0 +1,1210 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56d950c01a6274438f8999a8bf6fb6c, type: 3}
+  m_Name: Design_PN-01
+  m_EditorClassIdentifier: Fatiro.Runtime::Fatiro.Content.HouseDesign
+  designId: PN-01
+  version: 1
+  displayName: Ingwe
+  meaning: panther
+  description: A black panther crouched down the hillside. Six rib arches form its
+    body; its head is a viewing room cantilevered over the slope.
+  lesson: Rib arches need bracing to resist shaking, and cantilevers need depth,
+    strength or a prop.
+  difficulty: 3
+  accentColor: {r: 0.55, g: 0.35, b: 0.95, a: 1}
+  sortOrder: 0
+  foundationName: Paw strips
+  foundationInspiration: Panther paws spread weight along the ground
+  foundationBearing: 1.2
+  foundationSlopeResistance: 0.4
+  foundationGrip: 1.1
+  uphillReferenceZ: -4
+  members:
+  - id: PN-PAW-1
+    displayName: Paw strip footing 1
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 0, y: 0, z: -4}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: -4}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5.8, y: 0.35, z: 0.9}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Spreads the rib's thrust into the hillside.
+  - id: PN-PAW-2
+    displayName: Paw strip footing 2
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 0, y: 0, z: -2.4}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: -2.4}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5.8, y: 0.35, z: 0.9}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Spreads the rib's thrust into the hillside.
+  - id: PN-PAW-3
+    displayName: Paw strip footing 3
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 0, y: 0, z: -0.8}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: -0.8}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5.8, y: 0.35, z: 0.9}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Spreads the rib's thrust into the hillside.
+  - id: PN-PAW-4
+    displayName: Paw strip footing 4
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 0, y: 0, z: 0.8}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: 0.8}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5.8, y: 0.35, z: 0.9}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Spreads the rib's thrust into the hillside.
+  - id: PN-PAW-5
+    displayName: Paw strip footing 5
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 0, y: 0, z: 2.4}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: 2.4}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5.8, y: 0.35, z: 0.9}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Spreads the rib's thrust into the hillside.
+  - id: PN-PAW-6
+    displayName: Paw strip footing 6
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 0, y: 0, z: 4}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: 4}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5.8, y: 0.35, z: 0.9}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Spreads the rib's thrust into the hillside.
+  - id: PN-RIB-1
+    displayName: Rib arch 1
+    kind: 3
+    stage: 1
+    shape: 2
+    a: {x: -2.6, y: 0.35, z: -4}
+    aGroundRelative: 1
+    b: {x: 2.6, y: 0.35, z: -4}
+    bGroundRelative: 1
+    thickness: 0.25
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - PN-PAW-1
+    extraSupports: []
+    required: 1
+    crownHeight: 4.2
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Strong under its own weight, but tips over sideways unless braced.
+  - id: PN-RIB-2
+    displayName: Rib arch 2
+    kind: 3
+    stage: 1
+    shape: 2
+    a: {x: -2.6, y: 0.35, z: -2.4}
+    aGroundRelative: 1
+    b: {x: 2.6, y: 0.35, z: -2.4}
+    bGroundRelative: 1
+    thickness: 0.25
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - PN-PAW-2
+    extraSupports: []
+    required: 1
+    crownHeight: 4
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Strong under its own weight, but tips over sideways unless braced.
+  - id: PN-RIB-3
+    displayName: Rib arch 3
+    kind: 3
+    stage: 1
+    shape: 2
+    a: {x: -2.6, y: 0.35, z: -0.8}
+    aGroundRelative: 1
+    b: {x: 2.6, y: 0.35, z: -0.8}
+    bGroundRelative: 1
+    thickness: 0.25
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - PN-PAW-3
+    extraSupports: []
+    required: 1
+    crownHeight: 3.8
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Strong under its own weight, but tips over sideways unless braced.
+  - id: PN-RIB-4
+    displayName: Rib arch 4
+    kind: 3
+    stage: 1
+    shape: 2
+    a: {x: -2.6, y: 0.35, z: 0.8}
+    aGroundRelative: 1
+    b: {x: 2.6, y: 0.35, z: 0.8}
+    bGroundRelative: 1
+    thickness: 0.25
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - PN-PAW-4
+    extraSupports: []
+    required: 1
+    crownHeight: 3.6
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Strong under its own weight, but tips over sideways unless braced.
+  - id: PN-RIB-5
+    displayName: Rib arch 5
+    kind: 3
+    stage: 1
+    shape: 2
+    a: {x: -2.6, y: 0.35, z: 2.4}
+    aGroundRelative: 1
+    b: {x: 2.6, y: 0.35, z: 2.4}
+    bGroundRelative: 1
+    thickness: 0.25
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - PN-PAW-5
+    extraSupports: []
+    required: 1
+    crownHeight: 3.4
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Strong under its own weight, but tips over sideways unless braced.
+  - id: PN-RIB-6
+    displayName: Rib arch 6
+    kind: 3
+    stage: 1
+    shape: 2
+    a: {x: -2.6, y: 0.35, z: 4}
+    aGroundRelative: 1
+    b: {x: 2.6, y: 0.35, z: 4}
+    bGroundRelative: 1
+    thickness: 0.25
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - PN-PAW-6
+    extraSupports: []
+    required: 1
+    crownHeight: 3.3
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Strong under its own weight, but tips over sideways unless braced.
+  - id: PN-SPINE-1
+    displayName: Spine beam 1
+    kind: 2
+    stage: 1
+    shape: 1
+    a: {x: 0, y: 4.2, z: -4}
+    aGroundRelative: 0
+    b: {x: 0, y: 4, z: -2.4}
+    bGroundRelative: 0
+    thickness: 0.22
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - PN-RIB-1
+    - PN-RIB-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Ties neighbouring ribs together along the back.
+  - id: PN-SPINE-2
+    displayName: Spine beam 2
+    kind: 2
+    stage: 1
+    shape: 1
+    a: {x: 0, y: 4, z: -2.4}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.8, z: -0.8}
+    bGroundRelative: 0
+    thickness: 0.22
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - PN-RIB-2
+    - PN-RIB-3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Ties neighbouring ribs together along the back.
+  - id: PN-SPINE-3
+    displayName: Spine beam 3
+    kind: 2
+    stage: 1
+    shape: 1
+    a: {x: 0, y: 3.8, z: -0.8}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.6, z: 0.8}
+    bGroundRelative: 0
+    thickness: 0.22
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - PN-RIB-3
+    - PN-RIB-4
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Ties neighbouring ribs together along the back.
+  - id: PN-SPINE-4
+    displayName: Spine beam 4
+    kind: 2
+    stage: 1
+    shape: 1
+    a: {x: 0, y: 3.6, z: 0.8}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.4, z: 2.4}
+    bGroundRelative: 0
+    thickness: 0.22
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - PN-RIB-4
+    - PN-RIB-5
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Ties neighbouring ribs together along the back.
+  - id: PN-SPINE-5
+    displayName: Spine beam 5
+    kind: 2
+    stage: 1
+    shape: 1
+    a: {x: 0, y: 3.4, z: 2.4}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.3, z: 4}
+    bGroundRelative: 0
+    thickness: 0.22
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - PN-RIB-5
+    - PN-RIB-6
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Ties neighbouring ribs together along the back.
+  - id: PN-FOREPAW-L
+    displayName: Left forepaw pad
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: -0.9, y: 0, z: 6.6}
+    aGroundRelative: 1
+    b: {x: -0.9, y: 0, z: 6.6}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 1, y: 0.3, z: 1}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Optional footing for a prop under the head.
+  - id: PN-FOREPAW-R
+    displayName: Right forepaw pad
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 0.9, y: 0, z: 6.6}
+    aGroundRelative: 1
+    b: {x: 0.9, y: 0, z: 6.6}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - earth-block
+    - steel
+    supports: []
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 1, y: 0.3, z: 1}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Optional footing for a prop under the head.
+  - id: PN-FORELEG-L
+    displayName: Left foreleg prop
+    kind: 1
+    stage: 1
+    shape: 1
+    a: {x: -0.9, y: 0.3, z: 6.6}
+    aGroundRelative: 1
+    b: {x: -0.9, y: 3.05, z: 6.6}
+    bGroundRelative: 0
+    thickness: 0.26
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - PN-FOREPAW-L
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Props the head so it no longer acts as a cantilever.
+  - id: PN-FORELEG-R
+    displayName: Right foreleg prop
+    kind: 1
+    stage: 1
+    shape: 1
+    a: {x: 0.9, y: 0.3, z: 6.6}
+    aGroundRelative: 1
+    b: {x: 0.9, y: 3.05, z: 6.6}
+    bGroundRelative: 0
+    thickness: 0.26
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - PN-FOREPAW-R
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Props the head so it no longer acts as a cantilever.
+  - id: PN-HEAD
+    displayName: Head cantilever
+    kind: 4
+    stage: 1
+    shape: 1
+    a: {x: 0, y: 3.25, z: 4}
+    aGroundRelative: 0
+    b: {x: 0, y: 3, z: 7.2}
+    bGroundRelative: 0
+    thickness: 0.32
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - PN-RIB-6
+    extraSupports:
+    - PN-FORELEG-L
+    - PN-FORELEG-R
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 9.6
+    isRoof: 0
+    hint: The viewing room hangs 3.2 m over the slope. People on it bend it hard.
+  - id: PN-BRACE-L1
+    displayName: Left flank brace 1
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: -2.6, y: 0.5, z: -4}
+    aGroundRelative: 1
+    b: {x: -2.3, y: 1.15, z: -2.4}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - PN-RIB-1
+    - PN-RIB-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Stops the ribs falling like dominoes in an earthquake.
+  - id: PN-BRACE-R1
+    displayName: Right flank brace 1
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: 2.6, y: 0.5, z: -4}
+    aGroundRelative: 1
+    b: {x: 2.3, y: 1.15, z: -2.4}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - PN-RIB-1
+    - PN-RIB-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Stops the ribs falling like dominoes in an earthquake.
+  - id: PN-BRACE-L2
+    displayName: Left flank brace 2
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: -2.6, y: 0.5, z: -2.4}
+    aGroundRelative: 1
+    b: {x: -2.3, y: 1.15, z: -0.8}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - PN-RIB-2
+    - PN-RIB-3
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Stops the ribs falling like dominoes in an earthquake.
+  - id: PN-BRACE-R2
+    displayName: Right flank brace 2
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: 2.6, y: 0.5, z: -2.4}
+    aGroundRelative: 1
+    b: {x: 2.3, y: 1.15, z: -0.8}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - PN-RIB-2
+    - PN-RIB-3
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Stops the ribs falling like dominoes in an earthquake.
+  - id: PN-BRACE-L3
+    displayName: Left flank brace 3
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: -2.6, y: 0.5, z: -0.8}
+    aGroundRelative: 1
+    b: {x: -2.3, y: 1.15, z: 0.8}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - PN-RIB-3
+    - PN-RIB-4
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Stops the ribs falling like dominoes in an earthquake.
+  - id: PN-BRACE-R3
+    displayName: Right flank brace 3
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: 2.6, y: 0.5, z: -0.8}
+    aGroundRelative: 1
+    b: {x: 2.3, y: 1.15, z: 0.8}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - PN-RIB-3
+    - PN-RIB-4
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Stops the ribs falling like dominoes in an earthquake.
+  - id: PN-BRACE-L4
+    displayName: Left flank brace 4
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: -2.6, y: 0.5, z: 0.8}
+    aGroundRelative: 1
+    b: {x: -2.3, y: 1.15, z: 2.4}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - PN-RIB-4
+    - PN-RIB-5
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Stops the ribs falling like dominoes in an earthquake.
+  - id: PN-BRACE-R4
+    displayName: Right flank brace 4
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: 2.6, y: 0.5, z: 0.8}
+    aGroundRelative: 1
+    b: {x: 2.3, y: 1.15, z: 2.4}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - PN-RIB-4
+    - PN-RIB-5
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Stops the ribs falling like dominoes in an earthquake.
+  - id: PN-BRACE-L5
+    displayName: Left flank brace 5
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: -2.6, y: 0.5, z: 2.4}
+    aGroundRelative: 1
+    b: {x: -2.3, y: 1.15, z: 4}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - PN-RIB-5
+    - PN-RIB-6
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Stops the ribs falling like dominoes in an earthquake.
+  - id: PN-BRACE-R5
+    displayName: Right flank brace 5
+    kind: 5
+    stage: 2
+    shape: 1
+    a: {x: 2.6, y: 0.5, z: 2.4}
+    aGroundRelative: 1
+    b: {x: 2.3, y: 1.15, z: 4}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - PN-RIB-5
+    - PN-RIB-6
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Stops the ribs falling like dominoes in an earthquake.
+  - id: PN-SKIN-L1
+    displayName: Left skin panel 1
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: -1.45, y: 3.5, z: -3.2}
+    aGroundRelative: 0
+    b: {x: -1.45, y: 3.5, z: -3.2}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-RIB-1
+    - PN-RIB-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 2.9, y: 0.08, z: 1.6}
+    panelEuler: {x: 7.12501, y: 0, z: 38}
+    tributaryArea: 0
+    isRoof: 1
+    hint: Thatched skin between two ribs.
+  - id: PN-SKIN-R1
+    displayName: Right skin panel 1
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: 1.45, y: 3.5, z: -3.2}
+    aGroundRelative: 0
+    b: {x: 1.45, y: 3.5, z: -3.2}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-RIB-1
+    - PN-RIB-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 2.9, y: 0.08, z: 1.6}
+    panelEuler: {x: 7.12501, y: 0, z: -38}
+    tributaryArea: 0
+    isRoof: 1
+    hint: Thatched skin between two ribs.
+  - id: PN-SKIN-L2
+    displayName: Left skin panel 2
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: -1.45, y: 3.3000002, z: -1.6}
+    aGroundRelative: 0
+    b: {x: -1.45, y: 3.3000002, z: -1.6}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-RIB-2
+    - PN-RIB-3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 2.9, y: 0.08, z: 1.6}
+    panelEuler: {x: 7.1250176, y: 0, z: 38}
+    tributaryArea: 0
+    isRoof: 1
+    hint: Thatched skin between two ribs.
+  - id: PN-SKIN-R2
+    displayName: Right skin panel 2
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: 1.45, y: 3.3000002, z: -1.6}
+    aGroundRelative: 0
+    b: {x: 1.45, y: 3.3000002, z: -1.6}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-RIB-2
+    - PN-RIB-3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 2.9, y: 0.08, z: 1.6}
+    panelEuler: {x: 7.1250176, y: 0, z: -38}
+    tributaryArea: 0
+    isRoof: 1
+    hint: Thatched skin between two ribs.
+  - id: PN-SKIN-L3
+    displayName: Left skin panel 3
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: -1.45, y: 3.1, z: 0}
+    aGroundRelative: 0
+    b: {x: -1.45, y: 3.1, z: 0}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-RIB-3
+    - PN-RIB-4
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 2.9, y: 0.08, z: 1.6}
+    panelEuler: {x: 7.125018, y: 0, z: 38}
+    tributaryArea: 0
+    isRoof: 1
+    hint: Thatched skin between two ribs.
+  - id: PN-SKIN-R3
+    displayName: Right skin panel 3
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: 1.45, y: 3.1, z: 0}
+    aGroundRelative: 0
+    b: {x: 1.45, y: 3.1, z: 0}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-RIB-3
+    - PN-RIB-4
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 2.9, y: 0.08, z: 1.6}
+    panelEuler: {x: 7.125018, y: 0, z: -38}
+    tributaryArea: 0
+    isRoof: 1
+    hint: Thatched skin between two ribs.
+  - id: PN-SKIN-L4
+    displayName: Left skin panel 4
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: -1.45, y: 2.9, z: 1.6}
+    aGroundRelative: 0
+    b: {x: -1.45, y: 2.9, z: 1.6}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-RIB-4
+    - PN-RIB-5
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 2.9, y: 0.08, z: 1.6}
+    panelEuler: {x: 7.125009, y: 0, z: 38}
+    tributaryArea: 0
+    isRoof: 1
+    hint: Thatched skin between two ribs.
+  - id: PN-SKIN-R4
+    displayName: Right skin panel 4
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: 1.45, y: 2.9, z: 1.6}
+    aGroundRelative: 0
+    b: {x: 1.45, y: 2.9, z: 1.6}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-RIB-4
+    - PN-RIB-5
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 2.9, y: 0.08, z: 1.6}
+    panelEuler: {x: 7.125009, y: 0, z: -38}
+    tributaryArea: 0
+    isRoof: 1
+    hint: Thatched skin between two ribs.
+  - id: PN-SKIN-L5
+    displayName: Left skin panel 5
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: -1.45, y: 2.75, z: 3.2}
+    aGroundRelative: 0
+    b: {x: -1.45, y: 2.75, z: 3.2}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-RIB-5
+    - PN-RIB-6
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 2.9, y: 0.08, z: 1.6}
+    panelEuler: {x: 3.5763397, y: 0, z: 38}
+    tributaryArea: 0
+    isRoof: 1
+    hint: Thatched skin between two ribs.
+  - id: PN-SKIN-R5
+    displayName: Right skin panel 5
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: 1.45, y: 2.75, z: 3.2}
+    aGroundRelative: 0
+    b: {x: 1.45, y: 2.75, z: 3.2}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-RIB-5
+    - PN-RIB-6
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 2.9, y: 0.08, z: 1.6}
+    panelEuler: {x: 3.5763397, y: 0, z: -38}
+    tributaryArea: 0
+    isRoof: 1
+    hint: Thatched skin between two ribs.
+  - id: PN-HEAD-ROOF
+    displayName: Head roof
+    kind: 6
+    stage: 3
+    shape: 3
+    a: {x: 0, y: 3.5, z: 5.6}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.5, z: 5.6}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: bamboo
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-HEAD
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3, y: 0.08, z: 3.2}
+    panelEuler: {x: 4, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 
+  - id: PN-HAUNCH-WALL
+    displayName: Haunch wall
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 0, y: 2.3, z: -4.1}
+    aGroundRelative: 0
+    b: {x: 0, y: 2.3, z: -4.1}
+    bGroundRelative: 0
+    thickness: 0.1
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-RIB-1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.4, y: 0.1, z: 3.4}
+    panelEuler: {x: 90, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  - id: PN-FACE-GLASS
+    displayName: Face screen
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 0, y: 1.9, z: 4.1}
+    aGroundRelative: 0
+    b: {x: 0, y: 1.9, z: 4.1}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-RIB-6
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.4, y: 0.06, z: 2.8}
+    panelEuler: {x: 90, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+  focusCases: 0400000001000000
+  skin:
+    m_AssetGUID: 9ba54b9758b8ffb47943219df985da53
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
