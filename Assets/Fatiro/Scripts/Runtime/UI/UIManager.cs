@@ -29,6 +29,7 @@ namespace Fatiro.UI
         private LoadingOverlay loading;
         private ToastOverlay toasts;
         private DebugOverlay debug;
+        private CameraPermissionOverlay camera;
         private bool showingHistory;
 
         public void Initialise(ISimulationController simulation, IEventBus events, AudioManager audio, IContentCatalogue catalogue,
@@ -66,6 +67,7 @@ namespace Fatiro.UI
             paused = Add(new PausedOverlay(context));
             loading = Add(new LoadingOverlay(context));
             debug = Add(new DebugOverlay(context, catalogue, pools));
+            camera = Add(new CameraPermissionOverlay(context));
             toasts = Add(new ToastOverlay(context));
             toasts.SetVisible(true);
 
@@ -119,6 +121,7 @@ namespace Fatiro.UI
             paused.Root.SetAsLastSibling();
             loading.Root.SetAsLastSibling();
             debug.Root.SetAsLastSibling();
+            camera.Root.SetAsLastSibling();
             toasts.Root.SetAsLastSibling();
         }
     }

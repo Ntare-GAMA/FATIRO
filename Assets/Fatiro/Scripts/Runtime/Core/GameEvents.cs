@@ -192,4 +192,10 @@ namespace Fatiro.Core
     }
 
     public readonly struct SettingsChanged { }
+
+    public readonly struct CameraPermissionResult
+    {
+        public CameraPermissionResult(bool granted) => Granted = granted;
+        public bool Granted { get; }
+    }
 }

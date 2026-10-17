@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Fatiro.Core;
 using Fatiro.Data;
 using Fatiro.Domain;
+using Fatiro.States;
 using UnityEngine;
 
 namespace Fatiro.Audio
@@ -54,7 +55,10 @@ namespace Fatiro.Audio
             events.Subscribe<StageCompleted>(message => Play(message.BuildComplete ? Cues.BuildComplete : Cues.StageComplete));
             events.Subscribe<LoadTestStarted>(OnLoadTestStarted);
             events.Subscribe<LoadTestCompleted>(OnLoadTestCompleted);
-            events.Subscribe<TrackingLostTooLong>(_ => Play(Cues.Warning));
+            events.Subscribe<StateChanged>(message =>
+            {
+                if (message.Current == SimulationStateId.Paused && message.Previous != SimulationStateId.Paused) Play(Cues.Warning);
+            });
             events.Subscribe<SessionEnded>(message => Play(message.Score.Passed ? Cues.SessionPass : Cues.SessionFail));
             events.Subscribe<SettingsChanged>(_ => ApplyMute());
         }

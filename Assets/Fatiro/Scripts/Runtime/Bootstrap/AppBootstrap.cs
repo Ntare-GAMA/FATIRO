@@ -93,11 +93,7 @@ namespace Fatiro.Bootstrap
             simulation = new SimulationManager(context, inputRouter);
             uiManager.Initialise(simulation, events, audioManager, catalogue, PoolStats);
 
-            CameraPermission.Request(granted =>
-            {
-                if (!granted)
-                    events.Publish(new ToastRequested("Fatiro AR needs the camera to place the hillside on your table. Allow camera access in Settings.", ToastKind.Error));
-            });
+            CameraPermission.Request(granted => events.Publish(new CameraPermissionResult(granted)));
 
             Debug.Log($"[Fatiro] Ready: {designs.Count} designs, {materials.Count} materials, {clips.Count} sounds. Data at {Application.persistentDataPath}");
         }

@@ -94,7 +94,7 @@ namespace Fatiro.EditorTools
             var report = BuildPipeline.BuildPlayer(options);
             if (report.summary.result != UnityEditor.Build.Reporting.BuildResult.Succeeded)
                 throw new BuildFailedException($"Android build failed: {report.summary.result} ({report.summary.totalErrors} errors)");
-            Debug.Log($"[Fatiro] APK built: {options.locationPathName} ({report.summary.totalSize / (1024 * 1024)} MB)");
+            Debug.Log($"[Fatiro] APK built: {options.locationPathName} ({new FileInfo(options.locationPathName).Length / (1024 * 1024)} MB)");
         }
 
         // ---- Settings -------------------------------------------------------------------

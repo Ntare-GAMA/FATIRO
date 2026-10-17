@@ -33,3 +33,13 @@ Recordings/
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 ServerData/
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/Android/
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/Android.meta
+
+# Test-runner and XR build artifacts
+/[Aa]ssets/[Rr]esources/PerformanceTestRun*
+/[Aa]ssets/XR/Temp/
+/[Aa]ssets/XR/Temp.meta
+
+# Android native build cache
+.utmp/

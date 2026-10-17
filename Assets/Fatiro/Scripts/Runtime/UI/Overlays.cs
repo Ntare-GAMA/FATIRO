@@ -56,7 +56,6 @@ namespace Fatiro.UI
             {
                 if (!message.BuildComplete) queue.Enqueue(($"√ {EnumText.StageName(message.Stage)} stage complete", ToastKind.Success));
             });
-            Ui.Events.Subscribe<TrackingLostTooLong>(_ => queue.Enqueue(("Tracking lost: move the device slowly", ToastKind.Warning)));
         }
 
         public override void Tick()
@@ -105,6 +104,41 @@ namespace Fatiro.UI
             message.text = Simulation.PausedByTracking
                 ? "AR tracking was lost.\nMove the device slowly over the table until it reconnects."
                 : "The simulation is paused. Your structure is safe.";
+        }
+    }
+
+    /// <summary>Explains why the camera is needed when permission is denied, with a way to grant it (FR-01).</summary>
+    public sealed class CameraPermissionOverlay : UIScreen
+    {
+        public CameraPermissionOverlay(UIContext context) : base(context) { }
+
+        protected override void OnBuild()
+        {
+            UIKit.Panel(Root, Theme.Backdrop, "Backdrop", false).rectTransform.Stretch();
+            var card = UIKit.Card(Root, Theme.Surface, 56, 26);
+            var rect = (RectTransform)card.transform;
+            rect.anchorMin = new Vector2(0.06f, 0.5f);
+            rect.anchorMax = new Vector2(0.94f, 0.5f);
+            rect.sizeDelta = new Vector2(0, 900);
+            UIKit.Label(card.transform, "Camera needed", Theme.Heading, Theme.Accent, TextAnchor.MiddleCenter, FontStyle.Bold);
+            var text = UIKit.Label(card.transform,
+                "Fatiro AR uses the camera to find your table and anchor the hillside site on it, so you can walk around the house you build.\n\n" +
+                "Nothing is recorded or uploaded: camera frames stay on this phone.", Theme.Body, align: TextAnchor.MiddleCenter);
+            UIKit.Size(text.gameObject, minHeight: 380);
+            UIKit.Button(card.transform, "Allow camera", () =>
+            {
+                Click();
+                AR.CameraPermission.Request(granted => Ui.Events.Publish(new CameraPermissionResult(granted)));
+            });
+            UIKit.Button(card.transform, "Open app settings", () => { Click(); AR.CameraPermission.OpenAppSettings(); }, ButtonStyle.Secondary);
+
+            Ui.Events.Subscribe<CameraPermissionResult>(message => SetVisible(!message.Granted));
+        }
+
+        public override void Tick()
+        {
+            // The learner may grant access from system settings and come back.
+            if (AR.CameraPermission.IsGranted) SetVisible(false);
         }
     }
 
