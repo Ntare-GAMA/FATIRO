@@ -37,6 +37,9 @@ namespace Fatiro.Bootstrap
         private SimulationManager simulation;
         private SimulationContext context;
 
+        /// <summary>The controller once start-up has finished; null until then. Used by tests and tooling.</summary>
+        public ISimulationController Simulation => simulation;
+
         private async void Start()
         {
             Application.targetFrameRate = targetFrameRate;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2761713872696424604}
   - component: {fileID: 5142063531881676468}
   - component: {fileID: 7819465956932093327}
-  - component: {fileID: 7924069318805543323}
+  - component: {fileID: 3421819427833402154}
   m_Layer: 0
   m_Name: FX_Debris
   m_TagString: Untagged
@@ -91,7 +91,7 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7924069318805543323
+--- !u!114 &3421819427833402154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8418425134389444646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: a705e3ac8e88b5a4d924be3dc5bec335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Fatiro.Runtime::Fatiro.World.DebrisPiece
   effectRenderer: {fileID: 7819465956932093327}

@@ -102,8 +102,8 @@ namespace Fatiro.World
         private T Create<T>(GameObject prefab, System.Action<PooledEffect> release) where T : PooledEffect
         {
             var instance = Instantiate(prefab, storage);
-            var effect = instance.GetComponent<T>();
-            if (effect == null) effect = instance.AddComponent<T>();
+            if (!instance.TryGetComponent<T>(out var effect))
+                throw new System.InvalidOperationException($"Effect prefab '{prefab.name}' has no {typeof(T).Name} component.");
             effect.BindPool(release);
             return effect;
         }

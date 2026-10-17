@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1934954559625195818}
   - component: {fileID: 3473510694647589460}
   - component: {fileID: 997566072930390974}
-  - component: {fileID: 5459651104969453350}
+  - component: {fileID: 8379506724381750777}
   m_Layer: 0
   m_Name: FX_RainDrop
   m_TagString: Untagged
@@ -91,7 +91,7 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5459651104969453350
+--- !u!114 &8379506724381750777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1451666052108237667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 0f59ce52fa1219f4fa3c41b5becdaac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Fatiro.Runtime::Fatiro.World.RainDrop
   effectRenderer: {fileID: 997566072930390974}

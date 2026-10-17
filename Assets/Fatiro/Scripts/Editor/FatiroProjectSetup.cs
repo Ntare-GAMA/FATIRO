@@ -522,7 +522,6 @@ namespace Fatiro.EditorTools
 
         private static List<HouseDesign> CreateDesigns(Dictionary<string, GameObject> skins)
         {
-            var settings = AddressableAssetSettingsDefaultObject.GetSettings(true);
             var accents = new Dictionary<string, Color>
             {
                 { Blueprints.PantherId, new Color(0.55f, 0.35f, 0.95f) },
