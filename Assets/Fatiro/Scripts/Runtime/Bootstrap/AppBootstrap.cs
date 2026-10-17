@@ -57,6 +57,11 @@ namespace Fatiro.Bootstrap
                 materials = await catalogue.LoadMaterialsAsync();
                 designs = await catalogue.LoadDesignsAsync();
                 clips = await catalogue.LoadAudioAsync();
+                UIKit.UseFonts(
+                    await catalogue.LoadAsync<Font>(AssetKeys.DisplayFont, AssetScope.App),
+                    await catalogue.LoadAsync<Font>(AssetKeys.BodyFont, AssetScope.App),
+                    await catalogue.LoadAsync<Font>(AssetKeys.BoldFont, AssetScope.App),
+                    await catalogue.LoadAsync<Font>(AssetKeys.ItalicFont, AssetScope.App));
             }
             catch (Exception exception)
             {

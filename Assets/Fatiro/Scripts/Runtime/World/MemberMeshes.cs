@@ -78,8 +78,8 @@ namespace Fatiro.World
             footA + span * t + Vector3.up * (4f * rise * t * (1f - t));
 
         /// <summary>
-        /// Sloped site plot: a wedge whose top falls by tan(slope) per metre towards +Z, with stepped
-        /// terrace lines every metre so the slope reads clearly at table scale.
+        /// Sloped site plot: a wedge whose top falls by tan(slope) per metre towards +Z, striped like
+        /// Rwandan tea terraces over red laterite so the slope reads clearly at table scale.
         /// </summary>
         public static Mesh BuildPlot(float minX, float maxX, float minZ, float maxZ, System.Func<float, float> groundY, float baseY)
         {
@@ -90,15 +90,17 @@ namespace Fatiro.World
             var triangles = new List<int>();
 
             const int rows = 24;
-            var light = new Color(0.62f, 0.42f, 0.29f);
-            var dark = new Color(0.52f, 0.34f, 0.23f);
+            // Tea terraces: alternating greens, with a red laterite path every fourth step.
+            var light = new Color(0.45f, 0.64f, 0.30f);
+            var dark = new Color(0.34f, 0.53f, 0.24f);
+            var path = new Color(0.62f, 0.33f, 0.20f);
 
             // Top surface in strips so alternate metres can be shaded like terraces.
             for (var row = 0; row < rows; row++)
             {
                 var z0 = Mathf.Lerp(minZ, maxZ, (float)row / rows);
                 var z1 = Mathf.Lerp(minZ, maxZ, (float)(row + 1) / rows);
-                var tint = row % 2 == 0 ? light : dark;
+                var tint = row % 4 == 3 ? path : row % 2 == 0 ? light : dark;
                 var a = new Vector3(minX, groundY(z0), z0);
                 var b = new Vector3(maxX, groundY(z0), z0);
                 var d = new Vector3(minX, groundY(z1), z1);
@@ -106,7 +108,7 @@ namespace Fatiro.World
                 AddQuad(vertices, normals, colors, triangles, a, b, new Vector3(maxX, groundY(z1), z1), d, up, tint);
             }
 
-            var side = new Color(0.36f, 0.24f, 0.17f);
+            var side = new Color(0.55f, 0.24f, 0.14f);
             // Front (downhill) and back faces.
             AddQuad(vertices, normals, colors, triangles,
                 new Vector3(minX, baseY, maxZ), new Vector3(maxX, baseY, maxZ),

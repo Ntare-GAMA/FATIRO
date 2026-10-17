@@ -375,14 +375,60 @@ namespace Fatiro.EditorTools
             var structure = new GameObject("Structure").transform;
             structure.SetParent(content, false);
 
+            // Banana trees along the plot edges, clear of every design's footprint.
+            var lit = Shader.Find("Universal Render Pipeline/Lit");
+            var leaf = SaveMaterial("BananaLeaf", lit, new Color(0.36f, 0.62f, 0.22f), smoothness: 0.35f);
+            var trunk = SaveMaterial("BananaTrunk", lit, new Color(0.45f, 0.42f, 0.22f), smoothness: 0.1f);
+            var treePositions = new[]
+            {
+                new Vector2(-7.3f, -5.4f), new Vector2(7.3f, -4.6f), new Vector2(-7.4f, -0.8f), new Vector2(7.4f, 0.6f),
+                new Vector2(-7.2f, 4.2f), new Vector2(7.3f, 4.8f), new Vector2(-4.6f, 8.0f), new Vector2(5.2f, 8.0f)
+            };
+            var trees = new List<Transform>();
+            var treeRoot = new GameObject("Trees").transform;
+            treeRoot.SetParent(content, false);
+            for (var i = 0; i < treePositions.Length; i++)
+            {
+                var tree = new GameObject($"Banana tree {i + 1}").transform;
+                tree.SetParent(treeRoot, false);
+                tree.localPosition = new Vector3(treePositions[i].x, 0f, treePositions[i].y);
+                tree.localRotation = Quaternion.Euler(0f, i * 47f, 0f);
+                var height = 2.2f + (i % 3) * 0.35f;
+                TreePiece(tree, PrimitiveType.Cylinder, trunk, new Vector3(0f, height * 0.5f, 0f), new Vector3(0.28f, height * 0.5f, 0.28f), Vector3.zero);
+                for (var blade = 0; blade < 5; blade++)
+                {
+                    var yaw = blade * 72f;
+                    var outward = Quaternion.Euler(0f, yaw, 0f) * Vector3.forward;
+                    TreePiece(tree, PrimitiveType.Cube, leaf, new Vector3(0f, height + 0.15f, 0f) + outward * 0.75f,
+                        new Vector3(0.45f, 0.05f, 1.7f), new Vector3(-28f, yaw, 0f));
+                }
+                trees.Add(tree);
+            }
+
             var site = root.AddComponent<SiteController>();
             var serialized = new SerializedObject(site);
             serialized.FindProperty("content").objectReferenceValue = content;
             serialized.FindProperty("structureRoot").objectReferenceValue = structure;
             serialized.FindProperty("plotFilter").objectReferenceValue = plot.GetComponent<MeshFilter>();
             serialized.FindProperty("plotCollider").objectReferenceValue = plot.GetComponent<MeshCollider>();
+            var treeArray = serialized.FindProperty("trees");
+            treeArray.arraySize = trees.Count;
+            for (var i = 0; i < trees.Count; i++) treeArray.GetArrayElementAtIndex(i).objectReferenceValue = trees[i];
             serialized.ApplyModifiedPropertiesWithoutUndo();
             return SavePrefab(root, $"{PrefabsFolder}/Site_Plot.prefab");
+        }
+
+        private static void TreePiece(Transform parent, PrimitiveType type, Material material, Vector3 position, Vector3 scale, Vector3 euler)
+        {
+            var piece = GameObject.CreatePrimitive(type);
+            Object.DestroyImmediate(piece.GetComponent<Collider>());
+            piece.transform.SetParent(parent, false);
+            piece.transform.localPosition = position;
+            piece.transform.localEulerAngles = euler;
+            piece.transform.localScale = scale;
+            var renderer = piece.GetComponent<MeshRenderer>();
+            renderer.sharedMaterial = material;
+            renderer.shadowCastingMode = ShadowCastingMode.Off;
         }
 
         private static GameObject EffectPrefab<T>(string name, PrimitiveType primitive, Material material) where T : PooledEffect
@@ -587,6 +633,13 @@ namespace Fatiro.EditorTools
             Entry(settings, prefabs.Debris, session, AssetKeys.DebrisPrefab);
             Entry(settings, prefabs.RainDrop, session, AssetKeys.RainDropPrefab);
             Entry(settings, prefabs.Spark, session, AssetKeys.SparkPrefab);
+
+            // Typefaces (SIL Open Font License): DM Serif Display for titles, Lato for text.
+            var ui = Group(settings, "Interface", BundledAssetGroupSchema.BundlePackingMode.PackTogether);
+            Entry(settings, AssetDatabase.LoadAssetAtPath<Font>($"{Generated}/Fonts/DMSerifDisplay-Regular.ttf"), ui, AssetKeys.DisplayFont);
+            Entry(settings, AssetDatabase.LoadAssetAtPath<Font>($"{Generated}/Fonts/Lato-Regular.ttf"), ui, AssetKeys.BodyFont);
+            Entry(settings, AssetDatabase.LoadAssetAtPath<Font>($"{Generated}/Fonts/Lato-Bold.ttf"), ui, AssetKeys.BoldFont);
+            Entry(settings, AssetDatabase.LoadAssetAtPath<Font>($"{Generated}/Fonts/Lato-Italic.ttf"), ui, AssetKeys.ItalicFont);
 
             // One bundle per skin so a finished build loads only its own creature.
             var skinGroup = Group(settings, "Creature Skins", BundledAssetGroupSchema.BundlePackingMode.PackSeparately);

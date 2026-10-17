@@ -36,6 +36,10 @@ namespace Fatiro.Content
         public const string DebrisPrefab = "FX/Debris";
         public const string RainDropPrefab = "FX/RainDrop";
         public const string SparkPrefab = "FX/Spark";
+        public const string DisplayFont = "UI/Fonts/Display";
+        public const string BodyFont = "UI/Fonts/Body";
+        public const string BoldFont = "UI/Fonts/Bold";
+        public const string ItalicFont = "UI/Fonts/Italic";
     }
 
     public interface IContentCatalogue

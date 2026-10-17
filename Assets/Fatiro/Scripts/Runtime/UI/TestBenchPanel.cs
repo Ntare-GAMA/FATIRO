@@ -39,11 +39,12 @@ namespace Fatiro.UI
             BuildResults();
 
             var bench = UIKit.Card(Root, Theme.Surface, 26, 12, "Test bench");
-            ((RectTransform)bench.transform).Dock(TextAnchor.LowerCenter, 620, 24);
+            ((RectTransform)bench.transform).Dock(TextAnchor.LowerCenter, 650, 24);
+            UIKit.ImigongoBand(bench.transform, 16);
 
             var header = UIKit.HStack(bench.transform, 12);
             UIKit.Size(header.gameObject, minHeight: 100, preferredHeight: 100);
-            var title = UIKit.Label(header.transform, "Load test bench", Theme.Subheading, Theme.Accent, style: FontStyle.Bold);
+            var title = UIKit.Display(header.transform, "Igerageza  ·  Test bench", Theme.Subheading + 4);
             UIKit.Size(title.gameObject, flexibleWidth: 2.4f);
             UIKit.Button(header.transform, "Move site", () => { Click(); Simulation.Reposition(); }, ButtonStyle.Ghost, 100, 26);
             UIKit.Button(header.transform, "Pause", () => { Click(); Simulation.Pause(); }, ButtonStyle.Ghost, 100, 26);
@@ -81,13 +82,13 @@ namespace Fatiro.UI
 
         private void BuildResults()
         {
-            var card = UIKit.Card(Root, new Color(0.08f, 0.10f, 0.12f, 0.95f), 28, 8, "Results");
+            var card = UIKit.Card(Root, Theme.Surface, 28, 8, "Results");
             var rect = (RectTransform)card.transform;
             rect.Dock(TextAnchor.UpperCenter, 0, 30);
             UIKit.FitHeight(card.gameObject);
             verdict = UIKit.Label(card.transform, string.Empty, Theme.Subheading, style: FontStyle.Bold);
             resultDetails = UIKit.Label(card.transform, string.Empty, Theme.Small);
-            UIKit.Label(card.transform, LoadTestBanner.Legend(), 24);
+            UIKit.Legend(card.transform);
             resultsCard = card.gameObject;
             resultsCard.SetActive(false);
         }
@@ -149,8 +150,8 @@ namespace Fatiro.UI
             {
                 var before = message.Previous.PeakUtilisation;
                 var arrow = result.PeakUtilisation < before ? UIKit.Colour("better", Theme.Success) : UIKit.Colour("worse", Theme.Danger);
-                text.Append($"   ·   before {before * 100f:0}% → now {result.PeakUtilisation * 100f:0}% ({arrow})");
-                text.Append($"\nFailed members: before {message.Previous.Failed.Count} → now {result.Failed.Count}");
+                text.Append($"   ·   before {before * 100f:0}% to now {result.PeakUtilisation * 100f:0}% ({arrow})");
+                text.Append($"\nFailed members: before {message.Previous.Failed.Count} to now {result.Failed.Count}");
             }
             if (result.LoadCase.Kind == LoadCaseKind.Rain)
                 text.Append($"\nRoof runoff {result.RunoffLitresPerHour:0} L/h, collected {result.DrainedLitresPerHour:0} L/h");

@@ -31,24 +31,31 @@ namespace Fatiro.UI
         protected override void OnBuild()
         {
             UIKit.Panel(Root, Theme.Backdrop, "Backdrop", false).rectTransform.Stretch();
-            var scroll = UIKit.Scroll(Root, out var content);
-            ((RectTransform)scroll.transform).Stretch(56, 120, 56, 60);
-            var column = content.GetComponent<VerticalLayoutGroup>();
-            column.spacing = 30;
+            var scroll = UIKit.Scroll(Root, out var page);
+            ((RectTransform)scroll.transform).Stretch();
+            page.GetComponent<VerticalLayoutGroup>().spacing = 0;
 
-            UIKit.Label(content, "FATIRO AR", Theme.Title + 24, Theme.Accent, TextAnchor.MiddleCenter, FontStyle.Bold);
-            UIKit.Label(content, "Experimental Housing Structures Simulator", Theme.Subheading, align: TextAnchor.MiddleCenter);
-            UIKit.Label(content, "<i>urufatiro</i> — Kinyarwanda for “foundation”", Theme.Small, Theme.Muted, TextAnchor.MiddleCenter);
+            // A landscape of a thousand hills, edged with an Imigongo band.
+            var banner = UIKit.Rect("Thousand hills", page).gameObject.AddComponent<Image>();
+            banner.sprite = RwandaArt.Hills;
+            banner.raycastTarget = false;
+            UIKit.Size(banner.gameObject, minHeight: 560, preferredHeight: 560);
+            UIKit.ImigongoBand(page, 54);
 
-            var how = UIKit.Card(content, Theme.Surface, 40, 16);
-            UIKit.Label(how.transform, "How it works", Theme.Subheading, Theme.Accent, style: FontStyle.Bold);
-            UIKit.Label(how.transform,
-                "1. Scan a table and place a sloped hillside site.\n" +
-                "2. Build a creature-inspired house (panther, elephant or car) member by member, in the right order.\n" +
-                "3. Load-test it with earthquakes, wind, rain and people.\n" +
-                "4. Watch what fails, reinforce it, and test again.", Theme.Body);
-            UIKit.Label(how.transform, "Educational simulator: results are simplified and not for real construction decisions.",
-                Theme.Small, Theme.Muted, style: FontStyle.Italic);
+            var content = UIKit.VStack(page, 30, 60, "Content").transform;
+
+            UIKit.Label(content, "MURAKAZA NEZA  ·  WELCOME", 26, Theme.Accent, style: FontStyle.Bold);
+            var title = UIKit.Display(content, "Fatiro", 150, Theme.Primary);
+            UIKit.Size(title.gameObject, minHeight: 150);
+            UIKit.Label(content, "Experimental houses, tested on a thousand hills.", Theme.Subheading);
+            UIKit.Label(content, "From <i>urufatiro</i>, Kinyarwanda for “foundation”. Build boldly, fail safely on screen, and learn why.",
+                Theme.Body, Theme.Muted);
+
+            var steps = UIKit.VStack(content, 22, name: "Steps");
+            AddStep(steps.transform, "1", "Find a table", "Scan it with your phone and set down a sloped Rwandan hillside.");
+            AddStep(steps.transform, "2", "Build in order", "Raise a panther, an elephant or a car, member by member.");
+            AddStep(steps.transform, "3", "Shake it", "Earthquakes, wind, heavy rain and people push on every member.");
+            AddStep(steps.transform, "4", "Reinforce", "See what failed, brace it or change its material, and test again.");
 
             var learner = UIKit.Card(content, Theme.Surface, 32, 14);
             var row = UIKit.HStack(learner.transform, 20);
@@ -67,7 +74,24 @@ namespace Fatiro.UI
             soundButton = UIKit.Button(settings.transform, string.Empty, ToggleSound, ButtonStyle.Ghost);
             debugButton = UIKit.Button(settings.transform, string.Empty, ToggleDebug, ButtonStyle.Ghost);
 
+            UIKit.Label(content, "An educational simulator. Its structural results are simplified and are not for real construction decisions.",
+                24, Theme.Muted, style: FontStyle.Italic);
+            UIKit.ImigongoBand(page, 30);
+
             BuildProfilePanel();
+        }
+
+        private static void AddStep(Transform parent, string number, string title, string text)
+        {
+            var row = UIKit.HStack(parent, 26, name: "Step " + number);
+            row.childForceExpandWidth = false;
+            row.childAlignment = TextAnchor.UpperLeft;
+            var numeral = UIKit.Display(row.transform, number, 96, Theme.Accent, TextAnchor.UpperCenter);
+            UIKit.Size(numeral.gameObject, minWidth: 80, preferredWidth: 80);
+            var words = UIKit.VStack(row.transform, 4);
+            UIKit.Size(words.gameObject, flexibleWidth: 1);
+            UIKit.Label(words.transform, title, Theme.Subheading, Theme.Primary, style: FontStyle.Bold);
+            UIKit.Label(words.transform, text, Theme.Body, Theme.Muted);
         }
 
         protected override void OnShow()
@@ -123,7 +147,7 @@ namespace Fatiro.UI
             rect.anchorMax = new Vector2(0.95f, 0.88f);
             rect.offsetMin = rect.offsetMax = Vector2.zero;
 
-            UIKit.Label(card.transform, "Who is learning?", Theme.Heading, Theme.Accent, style: FontStyle.Bold);
+            UIKit.Display(card.transform, "Who is learning?", Theme.Heading + 10);
             UIKit.Label(card.transform, "Profiles stay on this device. Only a display name is stored.", Theme.Small, Theme.Muted);
 
             var scroll = UIKit.Scroll(card.transform, out profileList);
@@ -160,7 +184,7 @@ namespace Fatiro.UI
                 UIKit.Size(row.gameObject, minHeight: Theme.TouchTarget, preferredHeight: Theme.TouchTarget);
                 var selected = active != null && active.learnerId == profile.learnerId;
                 var target = profile;
-                var pick = UIKit.Button(row.transform, selected ? $"√ {profile.displayName}" : profile.displayName, () =>
+                var pick = UIKit.Button(row.transform, profile.displayName, () =>
                 {
                     Click();
                     Session.Data.SelectProfile(target);

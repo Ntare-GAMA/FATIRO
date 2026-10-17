@@ -40,12 +40,12 @@ namespace Fatiro.UI
             BuildTopBar();
             BuildTray();
 
-            var drag = UIKit.Panel(Root, Theme.Accent, "Drag label");
+            var drag = UIKit.Panel(Root, Theme.Sun, "Drag label");
             drag.raycastTarget = false;
             dragLabel = drag.rectTransform;
             dragLabel.anchorMin = dragLabel.anchorMax = Vector2.zero;
             dragLabel.sizeDelta = new Vector2(420, 90);
-            dragText = UIKit.Label(dragLabel, string.Empty, Theme.Small, new Color(0.1f, 0.07f, 0.03f), TextAnchor.MiddleCenter, FontStyle.Bold);
+            dragText = UIKit.Label(dragLabel, string.Empty, Theme.Small, Theme.Ink, TextAnchor.MiddleCenter, FontStyle.Bold);
             dragText.rectTransform.Stretch(12, 4, 12, 4);
             drag.gameObject.SetActive(false);
 
@@ -74,7 +74,8 @@ namespace Fatiro.UI
         private void BuildTopBar()
         {
             var card = UIKit.Card(Root, Theme.Surface, 28, 12, "Top bar");
-            ((RectTransform)card.transform).Dock(TextAnchor.UpperCenter, 400, 30);
+            ((RectTransform)card.transform).Dock(TextAnchor.UpperCenter, 430, 30);
+            UIKit.ImigongoBand(card.transform, 16);
 
             var header = UIKit.HStack(card.transform, 14);
             UIKit.Size(header.gameObject, minHeight: 110, preferredHeight: 110);
@@ -102,7 +103,7 @@ namespace Fatiro.UI
             progressRow.childForceExpandHeight = false;
             progressRow.childAlignment = TextAnchor.MiddleLeft;
             UIKit.Size(progressRow.gameObject, minHeight: 44);
-            progressFill = UIKit.ProgressBar(progressRow.transform, Theme.Accent);
+            progressFill = UIKit.ProgressBar(progressRow.transform, Theme.Leaf);
             UIKit.Size(progressFill.parent.gameObject, minHeight: 22, preferredHeight: 22, flexibleWidth: 3);
             progressText = UIKit.Label(progressRow.transform, string.Empty, Theme.Small, Theme.Muted, TextAnchor.MiddleRight);
             UIKit.Size(progressText.gameObject, flexibleWidth: 1);
@@ -141,9 +142,9 @@ namespace Fatiro.UI
             {
                 var done = tasks.RequiredRemaining(stage) == 0;
                 var currentStage = !tasks.IsComplete && stage == tasks.CurrentStage;
-                chip.color = currentStage ? Theme.Accent : done ? new Color(0.12f, 0.36f, 0.25f, 1f) : Theme.SurfaceRaised;
-                label.color = currentStage ? new Color(0.1f, 0.07f, 0.03f) : done ? Theme.Text : Theme.Muted;
-                label.text = (done ? "√ " : string.Empty) + EnumText.StageName(stage);
+                chip.color = currentStage ? Theme.Sun : done ? Theme.Primary : Theme.SurfaceRaised;
+                label.color = currentStage ? Theme.Ink : done ? Theme.OnPrimary : Theme.Muted;
+                label.text = EnumText.StageName(stage);
             }
 
             UIKit.SetProgress(progressFill, tasks.Progress);
@@ -176,7 +177,7 @@ namespace Fatiro.UI
                 card.GetComponent<Image>().raycastTarget = true;
                 card.childAlignment = TextAnchor.UpperLeft;
 
-                UIKit.Label(card.transform, spec.DisplayName, 28, isSelected ? Theme.Accent : Theme.Text, style: FontStyle.Bold);
+                UIKit.Label(card.transform, spec.DisplayName, 28, isSelected ? Theme.Primary : Theme.Ink, style: FontStyle.Bold);
                 UIKit.Label(card.transform, $"{spec.Kind} · {EnumText.StageName(spec.Stage)}", 22, Theme.Muted);
                 var check = Session.Tasks.CanPlace(spec);
                 var note = !spec.Required ? UIKit.Colour("Optional reinforcement", Theme.Teal)
@@ -233,7 +234,7 @@ namespace Fatiro.UI
 
         protected override void OnBuild()
         {
-            var layout = UIKit.Card(Root, new Color(0.08f, 0.10f, 0.12f, 0.97f), 32, 12, "Inspector");
+            var layout = UIKit.Card(Root, Theme.Surface, 32, 12, "Inspector");
             card = (RectTransform)layout.transform;
             card.anchorMin = new Vector2(0.04f, 0.5f);
             card.anchorMax = new Vector2(0.96f, 0.5f);
@@ -241,7 +242,7 @@ namespace Fatiro.UI
             card.anchoredPosition = new Vector2(0, 40);
             UIKit.FitHeight(card.gameObject);
 
-            heading = UIKit.Label(card, string.Empty, Theme.Subheading, Theme.Accent, style: FontStyle.Bold);
+            heading = UIKit.Display(card, string.Empty, Theme.Heading, Theme.Primary);
             details = UIKit.Label(card, string.Empty, Theme.Small);
             UIKit.Label(card, "Material", Theme.Small, Theme.Muted, style: FontStyle.Bold);
             materials = UIKit.HStack(card, 10, name: "Materials").GetComponent<RectTransform>();

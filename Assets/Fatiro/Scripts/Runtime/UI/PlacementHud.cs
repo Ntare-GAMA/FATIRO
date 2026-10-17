@@ -25,10 +25,13 @@ namespace Fatiro.UI
         protected override void OnBuild()
         {
             var card = UIKit.Card(Root, Theme.Surface, 34, 12);
-            ((RectTransform)card.transform).Dock(TextAnchor.UpperCenter, 430, 40);
+            ((RectTransform)card.transform).Dock(TextAnchor.UpperCenter, 460, 40);
+            UIKit.ImigongoBand(card.transform, 16);
 
             var statusRow = UIKit.HStack(card.transform, 18);
             statusRow.childForceExpandWidth = false;
+            statusRow.childForceExpandHeight = false;
+            statusRow.childAlignment = TextAnchor.MiddleLeft;
             UIKit.Size(statusRow.gameObject, minHeight: 60);
             statusDot = UIKit.Panel(statusRow.transform, Theme.Warning, "Dot");
             UIKit.Size(statusDot.gameObject, minWidth: 34, preferredWidth: 34, minHeight: 34, preferredHeight: 34);

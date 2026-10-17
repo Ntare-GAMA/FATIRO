@@ -41,20 +41,28 @@ namespace Fatiro.UI
         {
             card = UIKit.Panel(Root, Theme.SurfaceRaised, "Toast");
             var rect = card.rectTransform;
-            rect.anchorMin = new Vector2(0.06f, 0.5f);
-            rect.anchorMax = new Vector2(0.94f, 0.5f);
-            rect.sizeDelta = new Vector2(0, 150);
-            rect.anchoredPosition = new Vector2(0, -80);
+            rect.anchorMin = new Vector2(0.06f, 0.66f);
+            rect.anchorMax = new Vector2(0.94f, 0.66f);
+            rect.sizeDelta = new Vector2(0, 120);
             card.raycastTarget = false;
             label = UIKit.Label(card.transform, string.Empty, Theme.Body, align: TextAnchor.MiddleCenter, style: FontStyle.Bold);
             label.rectTransform.Stretch(30, 10, 30, 10);
             card.gameObject.SetActive(false);
 
             Ui.Events.Subscribe<ToastRequested>(message => queue.Enqueue((message.Message, message.Kind)));
+            Ui.Events.Subscribe<StateChanged>(message =>
+            {
+                // Messages about a build belong to that build; drop them when leaving it.
+                if (message.Current == SimulationStateId.Start || message.Current == SimulationStateId.Setup || message.Current == SimulationStateId.Ended)
+                {
+                    queue.Clear();
+                    card.gameObject.SetActive(false);
+                }
+            });
             Ui.Events.Subscribe<PlacementRejected>(message => queue.Enqueue(("× " + message.Reason, ToastKind.Error)));
             Ui.Events.Subscribe<StageCompleted>(message =>
             {
-                if (!message.BuildComplete) queue.Enqueue(($"√ {EnumText.StageName(message.Stage)} stage complete", ToastKind.Success));
+                if (!message.BuildComplete) queue.Enqueue(($"{EnumText.StageName(message.Stage)} stage complete", ToastKind.Success));
             });
         }
 
@@ -67,9 +75,9 @@ namespace Fatiro.UI
             label.text = message;
             card.color = kind switch
             {
-                ToastKind.Success => new Color(0.10f, 0.32f, 0.21f, 0.97f),
-                ToastKind.Warning => new Color(0.40f, 0.31f, 0.08f, 0.97f),
-                ToastKind.Error => new Color(0.42f, 0.12f, 0.13f, 0.97f),
+                ToastKind.Success => new Color(0.851f, 0.910f, 0.769f, 0.98f),
+                ToastKind.Warning => new Color(0.976f, 0.898f, 0.663f, 0.98f),
+                ToastKind.Error => new Color(0.953f, 0.835f, 0.796f, 0.98f),
                 _ => Theme.SurfaceRaised
             };
             hideAt = Time.unscaledTime + (queue.Count > 1 ? Lifetime * 0.6f : Lifetime);
@@ -92,7 +100,7 @@ namespace Fatiro.UI
             rect.anchorMin = new Vector2(0.08f, 0.5f);
             rect.anchorMax = new Vector2(0.92f, 0.5f);
             rect.sizeDelta = new Vector2(0, 640);
-            UIKit.Label(card.transform, "Paused", Theme.Heading, Theme.Accent, TextAnchor.MiddleCenter, FontStyle.Bold);
+            UIKit.Display(card.transform, "Paused", Theme.Heading + 14, Theme.Primary, TextAnchor.MiddleCenter);
             message = UIKit.Label(card.transform, string.Empty, Theme.Body, align: TextAnchor.MiddleCenter);
             UIKit.Size(message.gameObject, minHeight: 160);
             UIKit.Button(card.transform, "Resume", () => { Click(); Simulation.Resume(); });
@@ -120,7 +128,7 @@ namespace Fatiro.UI
             rect.anchorMin = new Vector2(0.06f, 0.5f);
             rect.anchorMax = new Vector2(0.94f, 0.5f);
             rect.sizeDelta = new Vector2(0, 900);
-            UIKit.Label(card.transform, "Camera needed", Theme.Heading, Theme.Accent, TextAnchor.MiddleCenter, FontStyle.Bold);
+            UIKit.Display(card.transform, "Camera needed", Theme.Heading + 14, Theme.Primary, TextAnchor.MiddleCenter);
             var text = UIKit.Label(card.transform,
                 "Fatiro AR uses the camera to find your table and anchor the hillside site on it, so you can walk around the house you build.\n\n" +
                 "Nothing is recorded or uploaded: camera frames stay on this phone.", Theme.Body, align: TextAnchor.MiddleCenter);
@@ -153,13 +161,10 @@ namespace Fatiro.UI
         {
             var card = UIKit.Card(Root, Theme.Surface, 28, 10);
             ((RectTransform)card.transform).Dock(TextAnchor.UpperCenter, 230, 40);
-            title = UIKit.Label(card.transform, string.Empty, Theme.Subheading, Theme.Accent, TextAnchor.MiddleCenter, FontStyle.Bold);
-            UIKit.Label(card.transform, Legend(), Theme.Small, align: TextAnchor.MiddleCenter);
+            title = UIKit.Display(card.transform, string.Empty, Theme.Subheading + 6, Theme.Primary, TextAnchor.MiddleCenter);
+            UIKit.Legend(card.transform).childAlignment = TextAnchor.MiddleCenter;
             Ui.Events.Subscribe<LoadTestStarted>(message => title.text = $"Testing: {LoadCaseFactory.Create(message.Config).Describe()}");
         }
-
-        public static string Legend() =>
-            $"{UIKit.Colour("■ under 70% safe", Theme.Success)}    {UIKit.Colour("■ 70–100% near limit", Theme.Warning)}    {UIKit.Colour("■ over 100% fails", Theme.Danger)}";
     }
 
     /// <summary>Developer overlay: frame rate, Addressables handles and pool usage (evidence for NFR-01).</summary>
@@ -180,14 +185,14 @@ namespace Fatiro.UI
 
         protected override void OnBuild()
         {
-            var panel = UIKit.Panel(Root, new Color(0, 0, 0, 0.6f), "Debug");
+            var panel = UIKit.Panel(Root, new Color(0.08f, 0.12f, 0.08f, 0.82f), "Debug");
             panel.raycastTarget = false;
             var rect = panel.rectTransform;
             rect.anchorMin = rect.anchorMax = new Vector2(0, 0.5f);
             rect.pivot = new Vector2(0, 0.5f);
             rect.anchoredPosition = new Vector2(12, 120);
             rect.sizeDelta = new Vector2(560, 470);
-            text = UIKit.Label(panel.transform, string.Empty, 24);
+            text = UIKit.Label(panel.transform, string.Empty, 24, Theme.OnPrimary);
             text.rectTransform.Stretch(18, 14, 18, 14);
             text.alignment = TextAnchor.UpperLeft;
         }

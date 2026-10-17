@@ -22,6 +22,8 @@ namespace Fatiro.World
         [SerializeField] private Transform structureRoot;
         [SerializeField] private MeshFilter plotFilter;
         [SerializeField] private MeshCollider plotCollider;
+        [Tooltip("Decorative banana trees; their X/Z are kept and their height follows the slope.")]
+        [SerializeField] private Transform[] trees = new Transform[0];
 
         private Mesh plotMesh;
         private Coroutine shake;
@@ -45,6 +47,11 @@ namespace Fatiro.World
             plotMesh = MemberMeshes.BuildPlot(PlotMinX, PlotMaxX, PlotMinZ, PlotMaxZ, Ground, baseY);
             plotFilter.sharedMesh = plotMesh;
             if (plotCollider != null) plotCollider.sharedMesh = plotMesh;
+            foreach (var tree in trees)
+            {
+                var position = tree.localPosition;
+                tree.localPosition = new Vector3(position.x, Ground(position.z), position.z);
+            }
 
             // Sit the bottom of the plot on the table surface.
             contentRestPosition = new Vector3(0f, -baseY, 0f);

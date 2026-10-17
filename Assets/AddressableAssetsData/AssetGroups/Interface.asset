@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Interface
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Interface
+  m_GUID: 58b581582f496324197e26d8d3f778c3
+  m_SerializeEntries:
+  - m_GUID: 3ff7a374e2223864982ebab1f2e9c872
+    m_Address: UI/Fonts/Display
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e6bd9d213def994596116144105844d
+    m_Address: UI/Fonts/Italic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0a76c08c5b08354cbf73ec15765990c
+    m_Address: UI/Fonts/Bold
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3c0da3cca2c59b40bcabeb35ce19e0f
+    m_Address: UI/Fonts/Body
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: bdf72cbff2089094aa8180c7f3227ba6, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d6a600d9daaf9a14d9ed19d539968285, type: 2}
+    - {fileID: 11400000, guid: dc08ba4d8be03324b89c98b34d9f3cce, type: 2}

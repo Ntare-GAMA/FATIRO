@@ -12,6 +12,7 @@ namespace Fatiro.UI
     public sealed class CompletionScreen : UIScreen
     {
         private Text outcome;
+        private Text outcomeEnglish;
         private Text total;
         private Text summary;
         private readonly List<(Text label, RectTransform fill)> bars = new List<(Text, RectTransform)>();
@@ -24,29 +25,36 @@ namespace Fatiro.UI
         protected override void OnBuild()
         {
             UIKit.Panel(Root, Theme.Backdrop, "Backdrop", false).rectTransform.Stretch();
-            var scroll = UIKit.Scroll(Root, out var content);
-            ((RectTransform)scroll.transform).Stretch(56, 100, 56, 330);
-            content.GetComponent<VerticalLayoutGroup>().spacing = 24;
+            var scroll = UIKit.Scroll(Root, out var page);
+            ((RectTransform)scroll.transform).Stretch(0, 0, 0, 350);
+            page.GetComponent<VerticalLayoutGroup>().spacing = 0;
+            var banner = UIKit.Rect("Hills", page).gameObject.AddComponent<Image>();
+            banner.sprite = RwandaArt.Hills;
+            banner.raycastTarget = false;
+            UIKit.Size(banner.gameObject, minHeight: 360, preferredHeight: 360);
+            UIKit.ImigongoBand(page, 40);
+            var content = UIKit.VStack(page, 24, 56, "Content").transform;
 
-            outcome = UIKit.Label(content, string.Empty, Theme.Title, align: TextAnchor.MiddleCenter, style: FontStyle.Bold);
-            total = UIKit.Label(content, string.Empty, Theme.Title + 40, Theme.Accent, TextAnchor.MiddleCenter, FontStyle.Bold);
+            outcome = UIKit.Display(content, string.Empty, Theme.Title + 10, Theme.Primary, TextAnchor.MiddleCenter);
+            outcomeEnglish = UIKit.Label(content, string.Empty, Theme.Subheading, Theme.Accent, TextAnchor.MiddleCenter, FontStyle.Bold);
+            total = UIKit.Display(content, string.Empty, Theme.Title + 70, Theme.Primary, TextAnchor.MiddleCenter);
             summary = UIKit.Label(content, string.Empty, Theme.Body, Theme.Muted, TextAnchor.MiddleCenter);
 
             var breakdown = UIKit.Card(content, Theme.Surface, 36, 14);
-            UIKit.Label(breakdown.transform, "Score breakdown", Theme.Subheading, Theme.Accent, style: FontStyle.Bold);
+            UIKit.Display(breakdown.transform, "Score", Theme.Heading, Theme.Accent);
             for (var i = 0; i < 3; i++)
             {
                 var label = UIKit.Label(breakdown.transform, string.Empty, Theme.Body);
-                var fill = UIKit.ProgressBar(breakdown.transform, i == 0 ? Theme.Teal : i == 1 ? Theme.Success : Theme.Accent, 26);
+                var fill = UIKit.ProgressBar(breakdown.transform, i == 0 ? Theme.Teal : i == 1 ? Theme.Primary : Theme.Sun, 26);
                 bars.Add((label, fill));
             }
 
             var details = UIKit.Card(content, Theme.Surface, 36, 10);
-            UIKit.Label(details.transform, "Performance", Theme.Subheading, Theme.Accent, style: FontStyle.Bold);
+            UIKit.Display(details.transform, "How you did", Theme.Heading, Theme.Accent);
             metrics = UIKit.Label(details.transform, string.Empty, Theme.Body);
 
-            var footer = UIKit.VStack(Root, 16);
-            ((RectTransform)footer.transform).Dock(TextAnchor.LowerCenter, 290, 40);
+            var footer = UIKit.VStack(UIKit.Footer(Root, 350), 16);
+            ((RectTransform)footer.transform).Stretch();
             var top = UIKit.HStack(footer.transform, 16);
             UIKit.Size(top.gameObject, minHeight: Theme.TouchTarget, preferredHeight: Theme.TouchTarget);
             UIKit.Button(top.transform, "Restart", () => { Click(); Simulation.Restart(); });
@@ -66,7 +74,9 @@ namespace Fatiro.UI
         protected override void OnShow()
         {
             if (record == null || score == null) return;
-            outcome.text = score.Passed ? UIKit.Colour("PASSED", Theme.Success) : UIKit.Colour("NOT YET", Theme.Warning);
+            outcome.text = score.Passed ? "Byagenze neza!" : "Ongera ugerageze";
+            outcome.color = score.Passed ? Theme.Primary : Theme.Accent;
+            outcomeEnglish.text = score.Passed ? "PASSED  ·  IT WENT WELL" : "NOT YET  ·  TRY AGAIN";
             total.text = $"{score.Total}<size={Theme.Heading}> / 100</size>";
             summary.text = $"{record.design.designName} on a {record.site.slopeDeg}° {record.site.soil} slope · {Mode(record.site.mode)}\nPass mark {score.PassScore}";
 
@@ -141,14 +151,15 @@ namespace Fatiro.UI
             UIKit.Panel(Root, Theme.Backdrop, "Backdrop", false).rectTransform.Stretch();
             var top = UIKit.VStack(Root, 6);
             ((RectTransform)top.transform).Dock(TextAnchor.UpperCenter, 170, 50);
-            UIKit.Label(top.transform, "Session history", Theme.Heading, Theme.Accent, style: FontStyle.Bold);
+            UIKit.Label(top.transform, "AMATEKA  ·  HISTORY", 26, Theme.Accent, style: FontStyle.Bold);
+            UIKit.Display(top.transform, "Past sessions", Theme.Heading + 10);
             header = UIKit.Label(top.transform, string.Empty, Theme.Small, Theme.Muted);
 
             var scroll = UIKit.Scroll(Root, out list);
-            ((RectTransform)scroll.transform).Stretch(50, 230, 50, 220);
+            ((RectTransform)scroll.transform).Stretch(50, 260, 50, 210);
 
-            var footer = UIKit.HStack(Root, 16);
-            ((RectTransform)footer.transform).Dock(TextAnchor.LowerCenter, 140, 50);
+            var footer = UIKit.HStack(UIKit.Footer(Root, 200), 16);
+            ((RectTransform)footer.transform).Stretch();
             UIKit.Button(footer.transform, "Back", () => { Click(); close(); }, ButtonStyle.Secondary);
 
             var scrim = UIKit.Panel(Root, Theme.Scrim, "Detail", false);

@@ -5,22 +5,32 @@ using UnityEngine.UI;
 
 namespace Fatiro.UI
 {
-    /// <summary>Colours and sizes shared by every screen.</summary>
+    /// <summary>
+    /// "Thousand hills" palette: tea-terrace greens, laterite terracotta, the sun yellow of the
+    /// Rwandan flag and Imigongo ink on warm paper.
+    /// </summary>
     public static class Theme
     {
-        public static readonly Color Backdrop = new Color(0.04f, 0.05f, 0.06f, 0.94f);
-        public static readonly Color Surface = new Color(0.09f, 0.11f, 0.13f, 0.94f);
-        public static readonly Color SurfaceRaised = new Color(0.15f, 0.18f, 0.21f, 0.98f);
-        public static readonly Color SurfaceSelected = new Color(0.26f, 0.21f, 0.12f, 1f);
-        public static readonly Color Accent = new Color(0.95f, 0.64f, 0.23f);
-        public static readonly Color AccentDark = new Color(0.55f, 0.35f, 0.10f);
-        public static readonly Color Teal = new Color(0.17f, 0.70f, 0.64f);
-        public static readonly Color Text = new Color(0.96f, 0.95f, 0.92f);
-        public static readonly Color Muted = new Color(0.62f, 0.66f, 0.70f);
-        public static readonly Color Success = new Color(0.23f, 0.70f, 0.45f);
-        public static readonly Color Warning = new Color(0.95f, 0.79f, 0.30f);
-        public static readonly Color Danger = new Color(0.90f, 0.28f, 0.30f);
-        public static readonly Color Scrim = new Color(0f, 0f, 0f, 0.55f);
+        public static readonly Color Paper = new Color(0.953f, 0.929f, 0.867f);
+        public static readonly Color Backdrop = Paper;
+        public static readonly Color Surface = new Color(0.984f, 0.969f, 0.925f, 0.97f);
+        public static readonly Color SurfaceRaised = new Color(0.914f, 0.882f, 0.796f, 1f);
+        public static readonly Color SurfaceSelected = new Color(0.851f, 0.910f, 0.769f, 1f);
+        public static readonly Color Primary = new Color(0.180f, 0.369f, 0.227f);
+        public static readonly Color PrimaryDark = new Color(0.118f, 0.247f, 0.153f);
+        public static readonly Color Leaf = new Color(0.498f, 0.651f, 0.314f);
+        public static readonly Color Accent = new Color(0.663f, 0.278f, 0.165f);
+        public static readonly Color AccentDark = PrimaryDark;
+        public static readonly Color Sun = new Color(0.898f, 0.710f, 0.129f);
+        public static readonly Color Teal = new Color(0.247f, 0.498f, 0.478f);
+        public static readonly Color Ink = new Color(0.122f, 0.165f, 0.125f);
+        public static readonly Color Text = Ink;
+        public static readonly Color OnPrimary = new Color(0.984f, 0.969f, 0.925f);
+        public static readonly Color Muted = new Color(0.431f, 0.459f, 0.400f);
+        public static readonly Color Success = new Color(0.243f, 0.490f, 0.247f);
+        public static readonly Color Warning = new Color(0.718f, 0.475f, 0.122f);
+        public static readonly Color Danger = new Color(0.698f, 0.227f, 0.157f);
+        public static readonly Color Scrim = new Color(0.08f, 0.12f, 0.08f, 0.6f);
 
         public const int Title = 76;
         public const int Heading = 50;
@@ -44,9 +54,81 @@ namespace Fatiro.UI
     public static class UIKit
     {
         private static Sprite rounded;
-        private static Font font;
+        private static Font fallback;
+        private static Font display;
+        private static Font body;
+        private static Font bold;
+        private static Font italic;
 
-        public static Font Font => font ??= Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        public static Font Font => body != null ? body : fallback ??= Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+
+        /// <summary>Installs the Addressable typefaces: DM Serif Display for titles, Lato for text.</summary>
+        public static void UseFonts(Font displayFont, Font bodyFont, Font boldFont, Font italicFont)
+        {
+            display = displayFont;
+            body = bodyFont;
+            bold = boldFont;
+            italic = italicFont;
+        }
+
+        /// <summary>A title set in the display serif.</summary>
+        public static Text Display(Transform parent, string text, int size, Color? color = null, TextAnchor align = TextAnchor.MiddleLeft)
+        {
+            var label = Label(parent, text, size, color ?? Theme.Primary, align, FontStyle.Normal, "Title");
+            if (display != null) label.font = display;
+            label.lineSpacing = 0.9f;
+            return label;
+        }
+
+        /// <summary>A band of Imigongo zigzags, Rwanda's traditional geometric relief art.</summary>
+        public static Image ImigongoBand(Transform parent, float height, string name = "Imigongo")
+        {
+            var rect = Rect(name, parent);
+            var image = rect.gameObject.AddComponent<Image>();
+            image.sprite = RwandaArt.Imigongo;
+            image.type = Image.Type.Tiled;
+            image.pixelsPerUnitMultiplier = 64f / height;
+            image.raycastTarget = false;
+            Size(rect.gameObject, minHeight: height, preferredHeight: height);
+            return image;
+        }
+
+        /// <summary>Paper bar docked to the bottom edge with an Imigongo trim; returns the area for buttons.</summary>
+        public static RectTransform Footer(Transform parent, float height, string name = "Footer")
+        {
+            var bar = Panel(parent, Theme.Paper, name, false);
+            bar.rectTransform.Dock(TextAnchor.LowerCenter, height);
+            var band = ImigongoBand(bar.transform, 12);
+            band.rectTransform.anchorMin = new Vector2(0, 1);
+            band.rectTransform.anchorMax = new Vector2(1, 1);
+            band.rectTransform.pivot = new Vector2(0.5f, 1);
+            band.rectTransform.sizeDelta = new Vector2(0, 12);
+            return Rect("Buttons", bar.transform).Stretch(40, 34, 40, 28);
+        }
+
+        /// <summary>Colour key for utilisation, with words as well as colour (NFR-06).</summary>
+        public static HorizontalLayoutGroup Legend(Transform parent)
+        {
+            var row = HStack(parent, 18, name: "Legend");
+            row.childForceExpandWidth = false;
+            row.childForceExpandHeight = false;
+            row.childAlignment = TextAnchor.MiddleLeft;
+            Size(row.gameObject, minHeight: 44, preferredHeight: 44);
+            foreach (var (colour, text) in new[]
+                     {
+                         (World.MemberView.Safe, "under 70% safe"),
+                         (World.MemberView.Warning, "70–100% near limit"),
+                         (World.MemberView.Danger, "over 100% fails")
+                     })
+            {
+                var swatch = Panel(row.transform, colour, "Swatch");
+                swatch.raycastTarget = false;
+                Size(swatch.gameObject, minWidth: 30, preferredWidth: 30, minHeight: 30, preferredHeight: 30);
+                var label = Label(row.transform, text, 24, Theme.Muted);
+                Size(label.gameObject, preferredWidth: label.preferredWidth + 8);
+            }
+            return row;
+        }
 
         /// <summary>A 9-sliced rounded rectangle generated once at runtime.</summary>
         public static Sprite Rounded
@@ -55,7 +137,7 @@ namespace Fatiro.UI
             {
                 if (rounded != null) return rounded;
                 const int size = 64;
-                const float radius = 22f;
+                const float radius = 14f;
                 var texture = new Texture2D(size, size, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp, name = "Rounded UI" };
                 for (var y = 0; y < size; y++)
                 {
@@ -133,12 +215,14 @@ namespace Fatiro.UI
         {
             var rect = Rect(name, parent);
             var label = rect.gameObject.AddComponent<Text>();
-            label.font = Font;
+            // Use the real bold/italic faces when loaded rather than synthesising them.
+            var face = style == FontStyle.Bold ? bold : style == FontStyle.Italic ? italic : null;
+            label.font = face != null ? face : Font;
+            label.fontStyle = face != null ? FontStyle.Normal : style;
             label.text = text;
             label.fontSize = size;
             label.color = color ?? Theme.Text;
             label.alignment = align;
-            label.fontStyle = style;
             label.horizontalOverflow = HorizontalWrapMode.Wrap;
             label.verticalOverflow = VerticalWrapMode.Overflow;
             label.supportRichText = true;
@@ -159,8 +243,7 @@ namespace Fatiro.UI
             button.colors = colours;
             if (onClick != null) button.onClick.AddListener(onClick);
 
-            var label = Label(background.transform, text, fontSize, style == ButtonStyle.Primary ? new Color(0.1f, 0.07f, 0.03f) : Theme.Text,
-                TextAnchor.MiddleCenter, FontStyle.Bold);
+            var label = Label(background.transform, text, fontSize, TextFor(style), TextAnchor.MiddleCenter, FontStyle.Bold);
             label.rectTransform.Stretch(16, 4, 16, 4);
             label.horizontalOverflow = HorizontalWrapMode.Wrap;
             label.resizeTextForBestFit = true;
@@ -175,10 +258,20 @@ namespace Fatiro.UI
         {
             switch (style)
             {
-                case ButtonStyle.Primary: return Theme.Accent;
-                case ButtonStyle.Danger: return new Color(0.45f, 0.13f, 0.15f, 1f);
-                case ButtonStyle.Ghost: return new Color(1f, 1f, 1f, 0.06f);
+                case ButtonStyle.Primary: return Theme.Primary;
+                case ButtonStyle.Danger: return new Color(0.953f, 0.867f, 0.827f, 1f);
+                case ButtonStyle.Ghost: return new Color(0.122f, 0.165f, 0.125f, 0.07f);
                 default: return Theme.SurfaceRaised;
+            }
+        }
+
+        public static Color TextFor(ButtonStyle style)
+        {
+            switch (style)
+            {
+                case ButtonStyle.Primary: return Theme.OnPrimary;
+                case ButtonStyle.Danger: return Theme.Danger;
+                default: return Theme.Ink;
             }
         }
 
@@ -187,7 +280,7 @@ namespace Fatiro.UI
         public static void SetStyle(this Button button, ButtonStyle style)
         {
             button.GetComponent<Image>().color = BackgroundFor(style);
-            button.GetComponentInChildren<Text>().color = style == ButtonStyle.Primary ? new Color(0.1f, 0.07f, 0.03f) : Theme.Text;
+            button.GetComponentInChildren<Text>().color = TextFor(style);
         }
 
         public static VerticalLayoutGroup VStack(Transform parent, float spacing = 20f, int padding = 0, string name = "Column")
@@ -315,13 +408,15 @@ namespace Fatiro.UI
             fillArea.anchorMin = new Vector2(0, 0.5f);
             fillArea.anchorMax = new Vector2(1, 0.5f);
             fillArea.sizeDelta = new Vector2(-40, 22);
-            var fill = Panel(fillArea, Theme.Accent, "Fill");
+            var fill = Panel(fillArea, Theme.Primary, "Fill");
             fill.rectTransform.sizeDelta = Vector2.zero;
 
             var handleArea = Rect("Handle Area", root);
-            handleArea.Stretch(20, 0, 20, 0);
-            var handle = Panel(handleArea, Theme.Text, "Handle");
-            handle.rectTransform.sizeDelta = new Vector2(70, 70);
+            handleArea.anchorMin = new Vector2(0, 0.5f);
+            handleArea.anchorMax = new Vector2(1, 0.5f);
+            handleArea.sizeDelta = new Vector2(-40, 64);
+            var handle = Panel(handleArea, Theme.Sun, "Handle");
+            handle.rectTransform.sizeDelta = new Vector2(64, 0);
 
             slider.fillRect = fill.rectTransform;
             slider.handleRect = handle.rectTransform;

@@ -22,8 +22,8 @@ namespace Fatiro.World
         public static readonly Color Safe = new Color(0.23f, 0.70f, 0.45f);
         public static readonly Color Warning = new Color(0.95f, 0.76f, 0.26f);
         public static readonly Color Danger = new Color(0.90f, 0.28f, 0.30f);
-        public static readonly Color GhostTint = new Color(0.35f, 0.85f, 1f, 0.35f);
-        public static readonly Color GhostReady = new Color(0.40f, 1f, 0.55f, 0.55f);
+        public static readonly Color GhostTint = new Color(1f, 0.95f, 0.70f, 0.40f);
+        public static readonly Color GhostReady = new Color(1f, 0.82f, 0.15f, 0.65f);
 
         private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
 

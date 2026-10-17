@@ -43,3 +43,6 @@ ServerData/
 
 # Android native build cache
 .utmp/
+
+# Screenshot tour output
+/Screenshots/
