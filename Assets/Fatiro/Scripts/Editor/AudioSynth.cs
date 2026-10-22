@@ -29,8 +29,6 @@ namespace Fatiro.EditorTools
             Write(folder, "session_pass", 1.6f, (t, d) => Arpeggio(t, new[] { 523.25f, 659.25f, 783.99f, 1046.5f, 1318.5f }, 0.13f) * Envelope(t, d, 0.01f, 0.8f) * 0.5f);
             Write(folder, "session_fail", 1.0f, (t, d) => Arpeggio(t, new[] { 392f, 349.2f, 311.1f }, 0.22f) * Envelope(t, d, 0.01f, 0.5f) * 0.45f);
             Write(folder, "loop_quake", 3.0f, (t, d) => LowNoise(0.04f) * (0.7f + 0.3f * (float)Math.Sin(t * 9)) * 0.9f + Tone(t, 38f) * 0.35f, loop: true);
-            Write(folder, "loop_wind", 3.0f, (t, d) => LowNoise(0.08f) * (0.55f + 0.45f * (float)Math.Sin(t * 1.7 + Math.Sin(t * 0.6))) * 0.8f, loop: true);
-            Write(folder, "loop_rain", 3.0f, (t, d) => (Noise() * 0.35f + (random.NextDouble() < 0.004 ? 0.8f : 0f)) * 0.5f, loop: true);
             Write(folder, "loop_crowd", 3.0f, (t, d) => LowNoise(0.3f) * 0.4f * (0.6f + 0.4f * (float)Math.Sin(t * 3.1)) + Tone(t, 180f + 30f * (float)Math.Sin(t * 2)) * 0.05f, loop: true);
         }
 

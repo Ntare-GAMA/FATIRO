@@ -46,3 +46,48 @@ ServerData/
 
 # Screenshot tour output
 /Screenshots/
+
+# Third-party Asset Store packages: licensed for use, not for redistribution in source form.
+# Re-import them from "My Assets" in the Package Manager (see README), then run Fatiro > Build Project Content.
+/Assets/ADG_Textures/
+/Assets/ADG_Textures.meta
+/Assets/Alstra Infinite/
+/Assets/Alstra Infinite.meta
+/Assets/AwesomeFreeScans/
+/Assets/AwesomeFreeScans.meta
+/Assets/Brick_House/
+/Assets/Brick_House.meta
+/Assets/Free/
+/Assets/Free.meta
+/Assets/GG-Textures/
+/Assets/GG-Textures.meta
+/Assets/InterierDFProMLG67MrBeast/
+/Assets/InterierDFProMLG67MrBeast.meta
+/Assets/Lightweight_Retro_Grass_System/
+/Assets/Lightweight_Retro_Grass_System.meta
+/Assets/Low Poly Stones/
+/Assets/Low Poly Stones.meta
+/Assets/LowlyPoly/
+/Assets/LowlyPoly.meta
+/Assets/Models/
+/Assets/Models.meta
+/Assets/Nature - Essentials/
+/Assets/Nature - Essentials.meta
+/Assets/Nyxis_GrassInteractionSystem/
+/Assets/Nyxis_GrassInteractionSystem.meta
+/Assets/Polyeler/
+/Assets/Polyeler.meta
+/Assets/Sat Productions/
+/Assets/Sat Productions.meta
+/Assets/SimpleNaturePack/
+/Assets/SimpleNaturePack.meta
+/Assets/Static Soul Studio/
+/Assets/Static Soul Studio.meta
+/Assets/_Recovery/
+/Assets/_Recovery.meta
+# Materials and textures derived from those packages
+/Assets/Fatiro/Content/ThirdParty/
+/Assets/Fatiro/Content/ThirdParty.meta
+
+# Raw downloads (copies used by the app live in Assets/Fatiro/Imported)
+/Prefabs/

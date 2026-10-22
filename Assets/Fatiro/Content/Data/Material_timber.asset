@@ -20,4 +20,6 @@ MonoBehaviour:
   unitCost: 1.6
   drainCapacity: 3000
   color: {r: 0.62, g: 0.42, b: 0.24, a: 1}
+  renderMaterial: {fileID: 2100000, guid: e65547b4ac1cf4d469d0d29563c026db, type: 2}
+  tileMetres: 1.4
   description: Moderate strength and cost.

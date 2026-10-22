@@ -99,6 +99,8 @@ namespace Fatiro.Content
         [Header("Addressable assets")]
         [Tooltip("Decorative creature skin shown when the build is complete. Loaded on demand and released after.")]
         [SerializeField] private AssetReferenceGameObject skin;
+        [Tooltip("Animal skins lie along the hillside; the car skin stays level on its deck.")]
+        [SerializeField] private bool skinFollowsSlope;
 
         private HouseBlueprint blueprint;
 
@@ -112,6 +114,7 @@ namespace Fatiro.Content
         public Color AccentColor => accentColor;
         public int SortOrder => sortOrder;
         public AssetReferenceGameObject Skin => skin;
+        public bool SkinFollowsSlope => skinFollowsSlope;
         public int MemberCount => members.Count;
         public IReadOnlyList<LoadCaseKind> FocusCases => focusCases;
 
@@ -128,8 +131,10 @@ namespace Fatiro.Content
             }
         }
 
-        public void Configure(HouseBlueprint source, Color accent, int order, LoadCaseKind[] focus, AssetReferenceGameObject skinReference)
+        public void Configure(HouseBlueprint source, Color accent, int order, LoadCaseKind[] focus, AssetReferenceGameObject skinReference,
+            bool skinLiesOnSlope)
         {
+            skinFollowsSlope = skinLiesOnSlope;
             focusCases = focus;
             designId = source.DesignId;
             version = source.Version;

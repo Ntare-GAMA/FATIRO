@@ -44,12 +44,12 @@ namespace Fatiro.Domain
             LateralForce += kiloNewtons;
         }
 
-        /// <summary>Weight that shakes in an earthquake: everything above the footings, plus finishes.</summary>
+        /// <summary>Weight that shakes in an earthquake: everything above the footings and plinth walls, plus finishes.</summary>
         public float ShakingWeight()
         {
             var total = 0f;
             foreach (var member in ActiveMembers)
-                if (member.Kind != MemberKind.Foundation) total += DeadLoad.WeightOf(member);
+                if (!member.IsAtGroundLevel) total += DeadLoad.WeightOf(member);
             return total;
         }
 

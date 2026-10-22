@@ -82,6 +82,25 @@ namespace Fatiro.Tests
                 simulation.EndSession();
                 yield return Capture(camera, target, folder, "07-completion");
                 simulation.ReturnToMenu();
+
+                // Each design finished, closer up: brick base, platform, skin and scenery.
+                foreach (var id in new[] { Blueprints.PantherId, Blueprints.ElephantId, Blueprints.CarId })
+                {
+                    simulation.StartNewSession();
+                    var finished = simulation.ConfirmSetup(context.Designs.First(d => d.DesignId == id), 20, SoilType.Laterite, BuildMode.LoadTest);
+                    yield return WaitFor(() => finished.IsCompleted);
+                    yield return WaitFor(() => ((SimulationManager)simulation).State<PlacementState>().HasPose);
+                    context.Site.SetScale(32);
+                    simulation.ConfirmPlacement();
+                    yield return WaitFor(() => simulation.CurrentStateId == SimulationStateId.Reviewing);
+                    yield return new WaitForSeconds(1.5f); // skin loads through Addressables
+                    var skin = context.Skin;
+                    yield return Capture(camera, target, folder, $"08-{id}-skin");
+                    if (skin != null) skin.SetActive(false);
+                    yield return Capture(camera, target, folder, $"09-{id}-structure");
+                    simulation.EndSession();
+                    simulation.ReturnToMenu();
+                }
             }
             finally
             {

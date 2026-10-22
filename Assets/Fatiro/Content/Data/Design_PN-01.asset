@@ -39,21 +39,21 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 0, y: 0, z: -4}
     bGroundRelative: 1
-    thickness: 0.35
-    defaultMaterial: concrete
+    thickness: 0.6
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 5.8, y: 0.35, z: 0.9}
+    panelSize: {x: 5.8, y: 0.6, z: 0.9}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Spreads the rib's thrust into the hillside.
+    hint: Clay-brick strip footing that spreads the rib's thrust into the hillside.
   - id: PN-PAW-2
     displayName: Paw strip footing 2
     kind: 0
@@ -63,21 +63,21 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 0, y: 0, z: -2.4}
     bGroundRelative: 1
-    thickness: 0.35
-    defaultMaterial: concrete
+    thickness: 0.6
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 5.8, y: 0.35, z: 0.9}
+    panelSize: {x: 5.8, y: 0.6, z: 0.9}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Spreads the rib's thrust into the hillside.
+    hint: Clay-brick strip footing that spreads the rib's thrust into the hillside.
   - id: PN-PAW-3
     displayName: Paw strip footing 3
     kind: 0
@@ -87,21 +87,21 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 0, y: 0, z: -0.8}
     bGroundRelative: 1
-    thickness: 0.35
-    defaultMaterial: concrete
+    thickness: 0.6
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 5.8, y: 0.35, z: 0.9}
+    panelSize: {x: 5.8, y: 0.6, z: 0.9}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Spreads the rib's thrust into the hillside.
+    hint: Clay-brick strip footing that spreads the rib's thrust into the hillside.
   - id: PN-PAW-4
     displayName: Paw strip footing 4
     kind: 0
@@ -111,21 +111,21 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 0, y: 0, z: 0.8}
     bGroundRelative: 1
-    thickness: 0.35
-    defaultMaterial: concrete
+    thickness: 0.6
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 5.8, y: 0.35, z: 0.9}
+    panelSize: {x: 5.8, y: 0.6, z: 0.9}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Spreads the rib's thrust into the hillside.
+    hint: Clay-brick strip footing that spreads the rib's thrust into the hillside.
   - id: PN-PAW-5
     displayName: Paw strip footing 5
     kind: 0
@@ -135,21 +135,21 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 0, y: 0, z: 2.4}
     bGroundRelative: 1
-    thickness: 0.35
-    defaultMaterial: concrete
+    thickness: 0.6
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 5.8, y: 0.35, z: 0.9}
+    panelSize: {x: 5.8, y: 0.6, z: 0.9}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Spreads the rib's thrust into the hillside.
+    hint: Clay-brick strip footing that spreads the rib's thrust into the hillside.
   - id: PN-PAW-6
     displayName: Paw strip footing 6
     kind: 0
@@ -159,21 +159,281 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 0, y: 0, z: 4}
     bGroundRelative: 1
-    thickness: 0.35
-    defaultMaterial: concrete
+    thickness: 0.6
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 5.8, y: 0.35, z: 0.9}
+    panelSize: {x: 5.8, y: 0.6, z: 0.9}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Spreads the rib's thrust into the hillside.
+    hint: Clay-brick strip footing that spreads the rib's thrust into the hillside.
+  - id: PN-PLINTH-L1
+    displayName: Left plinth wall 1
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -2.6, y: 0, z: -4}
+    aGroundRelative: 1
+    b: {x: -2.6, y: 0, z: -2.4}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - PN-PAW-1
+    - PN-PAW-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall tying the paw footings together so they cannot slide
+      apart.
+  - id: PN-PLINTH-R1
+    displayName: Right plinth wall 1
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: 2.6, y: 0, z: -4}
+    aGroundRelative: 1
+    b: {x: 2.6, y: 0, z: -2.4}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - PN-PAW-1
+    - PN-PAW-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall tying the paw footings together so they cannot slide
+      apart.
+  - id: PN-PLINTH-L2
+    displayName: Left plinth wall 2
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -2.6, y: 0, z: -2.4}
+    aGroundRelative: 1
+    b: {x: -2.6, y: 0, z: -0.8}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - PN-PAW-2
+    - PN-PAW-3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall tying the paw footings together so they cannot slide
+      apart.
+  - id: PN-PLINTH-R2
+    displayName: Right plinth wall 2
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: 2.6, y: 0, z: -2.4}
+    aGroundRelative: 1
+    b: {x: 2.6, y: 0, z: -0.8}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - PN-PAW-2
+    - PN-PAW-3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall tying the paw footings together so they cannot slide
+      apart.
+  - id: PN-PLINTH-L3
+    displayName: Left plinth wall 3
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -2.6, y: 0, z: -0.8}
+    aGroundRelative: 1
+    b: {x: -2.6, y: 0, z: 0.8}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - PN-PAW-3
+    - PN-PAW-4
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall tying the paw footings together so they cannot slide
+      apart.
+  - id: PN-PLINTH-R3
+    displayName: Right plinth wall 3
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: 2.6, y: 0, z: -0.8}
+    aGroundRelative: 1
+    b: {x: 2.6, y: 0, z: 0.8}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - PN-PAW-3
+    - PN-PAW-4
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall tying the paw footings together so they cannot slide
+      apart.
+  - id: PN-PLINTH-L4
+    displayName: Left plinth wall 4
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -2.6, y: 0, z: 0.8}
+    aGroundRelative: 1
+    b: {x: -2.6, y: 0, z: 2.4}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - PN-PAW-4
+    - PN-PAW-5
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall tying the paw footings together so they cannot slide
+      apart.
+  - id: PN-PLINTH-R4
+    displayName: Right plinth wall 4
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: 2.6, y: 0, z: 0.8}
+    aGroundRelative: 1
+    b: {x: 2.6, y: 0, z: 2.4}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - PN-PAW-4
+    - PN-PAW-5
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall tying the paw footings together so they cannot slide
+      apart.
+  - id: PN-PLINTH-L5
+    displayName: Left plinth wall 5
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -2.6, y: 0, z: 2.4}
+    aGroundRelative: 1
+    b: {x: -2.6, y: 0, z: 4}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - PN-PAW-5
+    - PN-PAW-6
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall tying the paw footings together so they cannot slide
+      apart.
+  - id: PN-PLINTH-R5
+    displayName: Right plinth wall 5
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: 2.6, y: 0, z: 2.4}
+    aGroundRelative: 1
+    b: {x: 2.6, y: 0, z: 4}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - PN-PAW-5
+    - PN-PAW-6
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall tying the paw footings together so they cannot slide
+      apart.
   - id: PN-RIB-1
     displayName: Rib arch 1
     kind: 3
@@ -466,7 +726,7 @@ MonoBehaviour:
     isRoof: 0
     hint: Ties neighbouring ribs together along the back.
   - id: PN-FOREPAW-L
-    displayName: Left forepaw pad
+    displayName: Left forepaw pier
     kind: 0
     stage: 0
     shape: 0
@@ -474,23 +734,23 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: -0.9, y: 0, z: 6.6}
     bGroundRelative: 1
-    thickness: 0.3
-    defaultMaterial: concrete
+    thickness: 0.6
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 0
     crownHeight: 0
-    panelSize: {x: 1, y: 0.3, z: 1}
+    panelSize: {x: 1, y: 0.6, z: 1}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
     hint: Optional footing for a prop under the head.
   - id: PN-FOREPAW-R
-    displayName: Right forepaw pad
+    displayName: Right forepaw pier
     kind: 0
     stage: 0
     shape: 0
@@ -498,17 +758,17 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 0.9, y: 0, z: 6.6}
     bGroundRelative: 1
-    thickness: 0.3
-    defaultMaterial: concrete
+    thickness: 0.6
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 0
     crownHeight: 0
-    panelSize: {x: 1, y: 0.3, z: 1}
+    panelSize: {x: 1, y: 0.6, z: 1}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
@@ -518,7 +778,7 @@ MonoBehaviour:
     kind: 1
     stage: 1
     shape: 1
-    a: {x: -0.9, y: 0.3, z: 6.6}
+    a: {x: -0.9, y: 0.35, z: 6.6}
     aGroundRelative: 1
     b: {x: -0.9, y: 3.05, z: 6.6}
     bGroundRelative: 0
@@ -544,7 +804,7 @@ MonoBehaviour:
     kind: 1
     stage: 1
     shape: 1
-    a: {x: 0.9, y: 0.3, z: 6.6}
+    a: {x: 0.9, y: 0.35, z: 6.6}
     aGroundRelative: 1
     b: {x: 0.9, y: 3.05, z: 6.6}
     bGroundRelative: 0
@@ -1208,3 +1468,4 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
+  skinFollowsSlope: 1

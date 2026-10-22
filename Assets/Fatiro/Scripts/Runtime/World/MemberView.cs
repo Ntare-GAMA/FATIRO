@@ -26,6 +26,9 @@ namespace Fatiro.World
         public static readonly Color GhostReady = new Color(1f, 0.82f, 0.15f, 0.65f);
 
         private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
+        private static readonly int BaseMapTiling = Shader.PropertyToID("_BaseMap_ST");
+        private const float FootingEmbed = 0.25f;
+        private const float WallEmbed = 0.1f;
 
         [SerializeField] private MeshFilter bodyFilter;
         [SerializeField] private MeshRenderer bodyRenderer;
@@ -36,7 +39,8 @@ namespace Fatiro.World
         private Material ghostMaterial;
         private Mesh sharedMesh;
         private Mesh archMesh;
-        private Color materialColor = Color.white;
+        private MemberSurface surface = new MemberSurface(null, Color.white, 1f);
+        private Vector2 surfaceMetres = Vector2.one;
         private Color currentColor;
         private Coroutine failure;
         private Action<Vector3, Color> spawnDebris;
@@ -77,6 +81,7 @@ namespace Fatiro.World
                     var rise = spec.CrownHeight - (a.y + b.y) * 0.5f;
                     centre = (a + b) * 0.5f + Vector3.up * rise * 0.5f;
                     archMesh = MemberMeshes.BuildArch(a, b, spec.CrownHeight, spec.Thickness, archMesh);
+                    surfaceMetres = Vector2.one; // arch UVs are already in metres
                     bodyFilter.sharedMesh = archMesh;
                     body.localPosition = -centre;
                     body.localRotation = Quaternion.identity;
@@ -92,15 +97,32 @@ namespace Fatiro.World
                     body.localRotation = Quaternion.FromToRotation(Vector3.up, direction / length);
                     // The built-in cylinder is 2 m tall and 1 m wide.
                     body.localScale = new Vector3(spec.Thickness, length * 0.5f, spec.Thickness);
+                    surfaceMetres = new Vector2(Mathf.PI * spec.Thickness, length);
                     break;
                 }
                 case MemberShape.Pad:
                 {
+                    // A footing is a brick pier: bedded 0.25 m into the ground, the rest standing above it.
                     var size = spec.PanelSize.ToUnity();
-                    centre = a + Vector3.down * (size.y * 0.35f);
+                    centre = a + Vector3.up * (size.y * 0.5f - FootingEmbed);
                     body.localPosition = Vector3.zero;
                     body.localRotation = Quaternion.identity;
                     body.localScale = size;
+                    surfaceMetres = new Vector2(Mathf.Max(size.x, size.z), size.y);
+                    break;
+                }
+                case MemberShape.Block:
+                {
+                    // A wall standing on the ground between a and b, its base following the slope.
+                    var direction = b - a;
+                    var length = Mathf.Max(direction.magnitude, 0.01f);
+                    var height = geometry.Area / length;
+                    var depth = height + WallEmbed;
+                    centre = (a + b) * 0.5f + Vector3.up * (depth * 0.5f - WallEmbed);
+                    body.localPosition = Vector3.zero;
+                    body.localRotation = Quaternion.LookRotation(direction / length, Vector3.up);
+                    body.localScale = new Vector3(spec.Thickness, depth, length);
+                    surfaceMetres = new Vector2(length, depth);
                     break;
                 }
                 default:
@@ -108,6 +130,7 @@ namespace Fatiro.World
                     body.localPosition = Vector3.zero;
                     body.localRotation = Quaternion.Euler(spec.PanelEuler.ToUnity());
                     body.localScale = spec.PanelSize.ToUnity();
+                    surfaceMetres = new Vector2(spec.PanelSize.X, spec.PanelSize.Z);
                     break;
             }
 
@@ -131,19 +154,21 @@ namespace Fatiro.World
             SetColor(ready ? GhostReady : GhostTint);
         }
 
-        public void ShowMaterial(Color color)
+        /// <summary>Shows the member in its building material: textured bamboo, timber, steel, concrete or earth block.</summary>
+        public void ShowMaterial(MemberSurface look)
         {
-            materialColor = color;
+            surface = look;
             Visual = MemberVisual.Material;
-            bodyRenderer.sharedMaterial = structureMaterial;
-            SetColor(color);
+            ApplySurface();
+            SetColor(look.Tint);
         }
 
         /// <summary>Colour by utilisation (FR-17): green below 70 %, amber to 100 %, red above.</summary>
         public void ShowUtilisation(float utilisation)
         {
             Visual = MemberVisual.Utilisation;
-            bodyRenderer.sharedMaterial = structureMaterial;
+            ApplySurface();
+            // The colour multiplies the texture, so the grain stays visible under green, amber or red.
             SetColor(UtilisationColor(utilisation));
         }
 
@@ -173,7 +198,7 @@ namespace Fatiro.World
             bodyFilter.transform.parent.localRotation = Quaternion.identity;
             bodyRenderer.enabled = true;
             if (bodyCollider != null) bodyCollider.enabled = true;
-            ShowMaterial(materialColor);
+            ShowMaterial(surface);
         }
 
         public void OnSpawned()
@@ -237,9 +262,18 @@ namespace Fatiro.World
             }
 
             for (var i = 0; i < 4; i++)
-                spawnDebris?.Invoke(bounds.center + UnityEngine.Random.insideUnitSphere * bounds.extents.magnitude * 0.4f, materialColor);
+                spawnDebris?.Invoke(bounds.center + UnityEngine.Random.insideUnitSphere * bounds.extents.magnitude * 0.4f, surface.Tint);
             bodyRenderer.enabled = false;
             failure = null;
+        }
+
+        private void ApplySurface()
+        {
+            bodyRenderer.sharedMaterial = surface.Material != null ? surface.Material : structureMaterial;
+            block ??= new MaterialPropertyBlock();
+            bodyRenderer.GetPropertyBlock(block);
+            block.SetVector(BaseMapTiling, new Vector4(surfaceMetres.x / surface.TileMetres, surfaceMetres.y / surface.TileMetres, 0f, 0f));
+            bodyRenderer.SetPropertyBlock(block);
         }
 
         private void SetColor(Color color)

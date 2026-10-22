@@ -18,6 +18,10 @@ namespace Fatiro.Content
         [SerializeField] private float unitCost = 1f;
         [SerializeField] private float drainCapacity;
         [SerializeField] private Color color = Color.white;
+        [Tooltip("Textured URP material shared by every member of this material (Flyweight).")]
+        [SerializeField] private Material renderMaterial;
+        [Tooltip("Metres covered by one repeat of the texture.")]
+        [SerializeField] private float tileMetres = 1f;
         [SerializeField, TextArea] private string description;
 
         private MaterialSpec spec;
@@ -25,13 +29,18 @@ namespace Fatiro.Content
         public string MaterialId => materialId;
         public string DisplayName => displayName;
         public Color Color => color;
+
+        /// <summary>How members of this material are drawn. White tint keeps the texture true to life.</summary>
+        public World.MemberSurface Surface => new World.MemberSurface(renderMaterial, renderMaterial != null ? Color.white : color, tileMetres);
         public string Description => description;
 
         public MaterialSpec Spec =>
             spec ??= new MaterialSpec(materialId, displayName, axialStrength, bendingStrength, unitWeight, unitCost, drainCapacity);
 
-        public void Configure(MaterialSpec source, Color tint, string text)
+        public void Configure(MaterialSpec source, Color tint, string text, Material surfaceMaterial, float textureTileMetres)
         {
+            renderMaterial = surfaceMaterial;
+            tileMetres = textureTileMetres;
             materialId = source.Id;
             displayName = source.DisplayName;
             axialStrength = source.AxialStrength;

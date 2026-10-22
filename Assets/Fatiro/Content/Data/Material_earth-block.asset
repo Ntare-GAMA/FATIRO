@@ -20,4 +20,6 @@ MonoBehaviour:
   unitCost: 0.6
   drainCapacity: 0
   color: {r: 0.76, g: 0.45, b: 0.3, a: 1}
+  renderMaterial: {fileID: 2100000, guid: 41a326451149ff2459fe27fe3905d67b, type: 2}
+  tileMetres: 1.2
   description: Cheap and local; good in compression, poor in bending.

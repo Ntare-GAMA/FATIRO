@@ -20,4 +20,6 @@ MonoBehaviour:
   unitCost: 1
   drainCapacity: 2500
   color: {r: 0.78, g: 0.8, b: 0.36, a: 1}
+  renderMaterial: {fileID: 2100000, guid: 4957a25def4981e4aa829b01437b34e7, type: 2}
+  tileMetres: 0.9
   description: Light, cheap and flexible. Grows fast in Rwanda.

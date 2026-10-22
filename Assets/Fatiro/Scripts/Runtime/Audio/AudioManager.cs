@@ -23,20 +23,24 @@ namespace Fatiro.Audio
         public const string SessionPass = "session_pass";
         public const string SessionFail = "session_fail";
         public const string QuakeLoop = "loop_quake";
-        public const string WindLoop = "loop_wind";
-        public const string RainLoop = "loop_rain";
+        // Field recordings from the Nature - Essentials pack.
+        public const string WindLoop = "Ambiance_Wind_Forest_Loop_Stereo";
+        public const string RainLoop = "Ambiance_Rain_Strong_Loop_Stereo";
+        public const string Birds = "Ambiance_Forest_Birds_Loop_Stereo";
         public const string CrowdLoop = "loop_crowd";
     }
 
     /// <summary>
     /// Plays sound cues in response to bus events, so no simulation system knows about audio.
-    /// One-shots go through one source, the load-test ambience through a looping source.
+    /// One-shots go through one source, the load-test ambience through a looping source, and
+    /// birdsong plays quietly on a third source while the learner is out on the hillside.
     /// Every cue has a visual equivalent on screen (NFR-06).
     /// </summary>
     public sealed class AudioManager : MonoBehaviour
     {
         [SerializeField] private AudioSource effects;
         [SerializeField] private AudioSource ambience;
+        [SerializeField] private AudioSource world;
 
         private IReadOnlyDictionary<string, AudioClip> clips = new Dictionary<string, AudioClip>();
         private IEventBus events;
@@ -58,12 +62,32 @@ namespace Fatiro.Audio
             events.Subscribe<StateChanged>(message =>
             {
                 if (message.Current == SimulationStateId.Paused && message.Previous != SimulationStateId.Paused) Play(Cues.Warning);
+                UpdateWorldAmbience(message.Current);
             });
             events.Subscribe<SessionEnded>(message => Play(message.Score.Passed ? Cues.SessionPass : Cues.SessionFail));
             events.Subscribe<SettingsChanged>(_ => ApplyMute());
         }
 
         public void PlayTap() => Play(Cues.Tap, 0.5f);
+
+        /// <summary>Birds on the hillside while building and reviewing; quiet in menus and while paused.</summary>
+        private void UpdateWorldAmbience(SimulationStateId state)
+        {
+            if (world == null || !clips.TryGetValue(Cues.Birds, out var birds)) return;
+            var outdoors = state == SimulationStateId.Placement || state == SimulationStateId.Building ||
+                           state == SimulationStateId.Reviewing || state == SimulationStateId.LoadTesting;
+            if (outdoors && !world.isPlaying)
+            {
+                world.clip = birds;
+                world.loop = true;
+                world.volume = 0.25f;
+                world.Play();
+            }
+            else if (!outdoors && world.isPlaying)
+            {
+                world.Stop();
+            }
+        }
 
         public void StopAmbience()
         {
@@ -125,6 +149,7 @@ namespace Fatiro.Audio
             var muted = settings != null && settings.Muted;
             if (effects != null) effects.mute = muted;
             if (ambience != null) ambience.mute = muted;
+            if (world != null) world.mute = muted;
         }
     }
 }

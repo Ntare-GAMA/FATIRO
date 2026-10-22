@@ -58,7 +58,10 @@ namespace Fatiro.Domain
         Pad,
         Strut,
         Arch,
-        Panel
+        Panel,
+
+        /// <summary>A wall-like box between two points with a height: brick plinth walls and infill walls.</summary>
+        Block
     }
 
     public static class EnumText
@@ -72,6 +75,23 @@ namespace Fatiro.Domain
                 case BuildStage.Bracing: return "Bracing";
                 case BuildStage.Roof: return "Roof";
                 default: return "Envelope";
+            }
+        }
+
+        /// <summary>What a learner would call the piece: a brick wall is a Brace to the solver, but a wall to a builder.</summary>
+        public static string PieceName(MemberSpec spec)
+        {
+            if (spec.Shape == MemberShape.Block) return "Brick wall";
+            switch (spec.Kind)
+            {
+                case MemberKind.Foundation: return spec.DefaultMaterialId == "earth-block" ? "Brick pier" : "Footing";
+                case MemberKind.Column: return "Column";
+                case MemberKind.Beam: return "Beam";
+                case MemberKind.Arch: return "Arch";
+                case MemberKind.Cantilever: return "Cantilever";
+                case MemberKind.Brace: return "Brace";
+                case MemberKind.Panel: return spec.IsRoof ? "Roof panel" : "Wall panel";
+                default: return "Drain";
             }
         }
 

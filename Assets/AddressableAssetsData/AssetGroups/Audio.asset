@@ -51,6 +51,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - audio
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a9e52985b9e3c54c9979718b76095ac
+    m_Address: Audio/Ambiance_Rain_Strong_Loop_Stereo
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - audio
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 57a7af4aa0c00264ab963a2f96fcc3db
     m_Address: Audio/survived
     m_ReadOnly: 0
@@ -59,6 +65,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 722e80edac6bfa743b53c86d76c538f2
     m_Address: Audio/reject
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - audio
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 749428170bd956149a4ede7c65dbb8b6
+    m_Address: Audio/Ambiance_Wind_Forest_Loop_Stereo
     m_ReadOnly: 0
     m_SerializedLabels:
     - audio
@@ -75,20 +87,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - audio
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: acc6160e304a3284da6b077d6e82b5f4
-    m_Address: Audio/loop_wind
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - audio
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ad75f6ce74d97a84ba4db5b0523cf0c5
     m_Address: Audio/build_complete
     m_ReadOnly: 0
     m_SerializedLabels:
     - audio
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: afb8665896b43df44bb0c1a36a819f21
-    m_Address: Audio/loop_rain
+  - m_GUID: bec1cfb465efc7a41bd5ccbac5b6f2a2
+    m_Address: Audio/Ambiance_Forest_Birds_Loop_Stereo
     m_ReadOnly: 0
     m_SerializedLabels:
     - audio

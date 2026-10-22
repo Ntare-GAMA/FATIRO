@@ -76,7 +76,8 @@ namespace Fatiro.States
             var config = Manager.PendingTest;
             Context.Entities.ClearResults();
             Result = Context.LoadTests.Run(config, Context.Setup.Site);
-            Manager.SetSkinVisible(Result.Survived);
+            // Hide the decorative skin so the coloured members underneath can be read.
+            Manager.SetSkinVisible(false);
             PlayLoadEffect(config);
 
             waveTimes.Clear();

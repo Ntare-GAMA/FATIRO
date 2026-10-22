@@ -197,7 +197,8 @@ namespace Fatiro.States
                     { MemberShape.Strut, strut },
                     { MemberShape.Pad, pad },
                     { MemberShape.Panel, panel },
-                    { MemberShape.Arch, arch }
+                    { MemberShape.Arch, arch },
+                    { MemberShape.Block, panel }
                 };
                 Context.Views = new MemberViewFactory(prefabs, ghostMaterial, Context.Effects.SpawnDebris, Context.WorldRoot);
 
@@ -205,7 +206,7 @@ namespace Fatiro.States
                 siteObject.name = "Site";
                 Context.Site = siteObject.GetComponent<SiteController>();
                 var blueprint = setup.Design.Blueprint;
-                Context.Site.Configure(setup.Site, blueprint.UphillReferenceZ, setup.ScaleDenominator);
+                Context.Site.Configure(setup.Site, blueprint.UphillReferenceZ, setup.ScaleDenominator, Footprint(blueprint));
                 siteObject.SetActive(false);
 
                 Context.Entities.BeginSession(blueprint, Context.Site.Layout, Context.Materials, Context.Views, Context.Site.StructureRoot);
@@ -436,6 +437,14 @@ namespace Fatiro.States
             if (prefab == null || Context.Site == null || Context.Setup?.Design != design || Context.Skin != null) return;
             Context.Skin = UnityEngine.Object.Instantiate(prefab, Context.Site.StructureRoot);
             Context.Skin.name = $"{design.DisplayName} skin";
+
+            // Animals lie along the hillside: pivot about the uphill edge, where the ground is at height 0.
+            if (design.SkinFollowsSlope)
+            {
+                var root = Context.Site.StructureRoot;
+                var pivot = root.TransformPoint(0f, 0f, design.Blueprint.UphillReferenceZ);
+                Context.Skin.transform.RotateAround(pivot, root.right, Context.Setup.Site.SlopeDegrees);
+            }
         }
 
         /// <summary>Destroys session objects and releases the session's Addressables (mobile memory).</summary>
@@ -458,6 +467,22 @@ namespace Fatiro.States
             Context.Content.ReleaseScope(AssetScope.Skin);
             Context.Content.ReleaseScope(AssetScope.Session);
             IsRepositioning = false;
+        }
+
+        /// <summary>Plan area covered by the design's footings, where the building platform is compacted.</summary>
+        private static Rect Footprint(HouseBlueprint blueprint)
+        {
+            float minX = float.MaxValue, maxX = float.MinValue, minZ = float.MaxValue, maxZ = float.MinValue;
+            foreach (var spec in blueprint.Members)
+            {
+                if (spec.Kind != MemberKind.Foundation || !spec.Required) continue;
+                var centre = spec.A.Position;
+                minX = Mathf.Min(minX, centre.X - spec.PanelSize.X * 0.5f);
+                maxX = Mathf.Max(maxX, centre.X + spec.PanelSize.X * 0.5f);
+                minZ = Mathf.Min(minZ, centre.Z - spec.PanelSize.Z * 0.5f);
+                maxZ = Mathf.Max(maxZ, centre.Z + spec.PanelSize.Z * 0.5f);
+            }
+            return minX > maxX ? new Rect(-3f, -3f, 6f, 6f) : Rect.MinMaxRect(minX, minZ, maxX, maxZ);
         }
 
         private void Register(SimulationState state) => states.Add(state.Id, state);

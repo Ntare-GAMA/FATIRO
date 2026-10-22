@@ -31,7 +31,7 @@ MonoBehaviour:
   uphillReferenceZ: -3.5
   members:
   - id: CR-PAD-L0
-    displayName: Uphill left spider foot
+    displayName: Uphill left brick pier
     kind: 0
     stage: 0
     shape: 0
@@ -39,27 +39,27 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: -2.07, y: 0, z: -3.5}
     bGroundRelative: 1
-    thickness: 0.3
-    defaultMaterial: concrete
+    thickness: 0.8
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 0.9, y: 0.3, z: 0.9}
+    panelSize: {x: 1, y: 0.8, z: 1}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Raked spider feet grip the slope.
+    hint: 'A clay-brick pier: the stilt stands on brick, not on bare soil.'
   - id: CR-STILT-L0
     displayName: Uphill left stilt
     kind: 1
     stage: 1
     shape: 1
-    a: {x: -2.07, y: 0.3, z: -3.5}
+    a: {x: -2.07, y: 0.55, z: -3.5}
     aGroundRelative: 1
     b: {x: -1.8, y: 2.2, z: -3.5}
     bGroundRelative: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
     isRoof: 0
     hint: Lifts the car off the hillside.
   - id: CR-PAD-L1
-    displayName: Middle left spider foot
+    displayName: Middle left brick pier
     kind: 0
     stage: 0
     shape: 0
@@ -89,27 +89,27 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: -2.07, y: 0, z: 0}
     bGroundRelative: 1
-    thickness: 0.3
-    defaultMaterial: concrete
+    thickness: 0.8
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 0.9, y: 0.3, z: 0.9}
+    panelSize: {x: 1, y: 0.8, z: 1}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Raked spider feet grip the slope.
+    hint: 'A clay-brick pier: the stilt stands on brick, not on bare soil.'
   - id: CR-STILT-L1
     displayName: Middle left stilt
     kind: 1
     stage: 1
     shape: 1
-    a: {x: -2.07, y: 0.3, z: 0}
+    a: {x: -2.07, y: 0.55, z: 0}
     aGroundRelative: 1
     b: {x: -1.8, y: 2.2, z: 0}
     bGroundRelative: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
     isRoof: 0
     hint: Lifts the car off the hillside.
   - id: CR-PAD-L2
-    displayName: Downhill left spider foot
+    displayName: Downhill left brick pier
     kind: 0
     stage: 0
     shape: 0
@@ -139,27 +139,27 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: -2.07, y: 0, z: 3.5}
     bGroundRelative: 1
-    thickness: 0.3
-    defaultMaterial: concrete
+    thickness: 0.8
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 0.9, y: 0.3, z: 0.9}
+    panelSize: {x: 1, y: 0.8, z: 1}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Raked spider feet grip the slope.
+    hint: 'A clay-brick pier: the stilt stands on brick, not on bare soil.'
   - id: CR-STILT-L2
     displayName: Downhill left stilt
     kind: 1
     stage: 1
     shape: 1
-    a: {x: -2.07, y: 0.3, z: 3.5}
+    a: {x: -2.07, y: 0.55, z: 3.5}
     aGroundRelative: 1
     b: {x: -1.8, y: 2.2, z: 3.5}
     bGroundRelative: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
     isRoof: 0
     hint: The longest stilt on the slope. Slender stilts buckle.
   - id: CR-PAD-R0
-    displayName: Uphill right spider foot
+    displayName: Uphill right brick pier
     kind: 0
     stage: 0
     shape: 0
@@ -189,27 +189,27 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 2.07, y: 0, z: -3.5}
     bGroundRelative: 1
-    thickness: 0.3
-    defaultMaterial: concrete
+    thickness: 0.8
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 0.9, y: 0.3, z: 0.9}
+    panelSize: {x: 1, y: 0.8, z: 1}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Raked spider feet grip the slope.
+    hint: 'A clay-brick pier: the stilt stands on brick, not on bare soil.'
   - id: CR-STILT-R0
     displayName: Uphill right stilt
     kind: 1
     stage: 1
     shape: 1
-    a: {x: 2.07, y: 0.3, z: -3.5}
+    a: {x: 2.07, y: 0.55, z: -3.5}
     aGroundRelative: 1
     b: {x: 1.8, y: 2.2, z: -3.5}
     bGroundRelative: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
     isRoof: 0
     hint: Lifts the car off the hillside.
   - id: CR-PAD-R1
-    displayName: Middle right spider foot
+    displayName: Middle right brick pier
     kind: 0
     stage: 0
     shape: 0
@@ -239,27 +239,27 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 2.07, y: 0, z: 0}
     bGroundRelative: 1
-    thickness: 0.3
-    defaultMaterial: concrete
+    thickness: 0.8
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 0.9, y: 0.3, z: 0.9}
+    panelSize: {x: 1, y: 0.8, z: 1}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Raked spider feet grip the slope.
+    hint: 'A clay-brick pier: the stilt stands on brick, not on bare soil.'
   - id: CR-STILT-R1
     displayName: Middle right stilt
     kind: 1
     stage: 1
     shape: 1
-    a: {x: 2.07, y: 0.3, z: 0}
+    a: {x: 2.07, y: 0.55, z: 0}
     aGroundRelative: 1
     b: {x: 1.8, y: 2.2, z: 0}
     bGroundRelative: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
     isRoof: 0
     hint: Lifts the car off the hillside.
   - id: CR-PAD-R2
-    displayName: Downhill right spider foot
+    displayName: Downhill right brick pier
     kind: 0
     stage: 0
     shape: 0
@@ -289,27 +289,27 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 2.07, y: 0, z: 3.5}
     bGroundRelative: 1
-    thickness: 0.3
-    defaultMaterial: concrete
+    thickness: 0.8
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 0.9, y: 0.3, z: 0.9}
+    panelSize: {x: 1, y: 0.8, z: 1}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Raked spider feet grip the slope.
+    hint: 'A clay-brick pier: the stilt stands on brick, not on bare soil.'
   - id: CR-STILT-R2
     displayName: Downhill right stilt
     kind: 1
     stage: 1
     shape: 1
-    a: {x: 2.07, y: 0.3, z: 3.5}
+    a: {x: 2.07, y: 0.55, z: 3.5}
     aGroundRelative: 1
     b: {x: 1.8, y: 2.2, z: 3.5}
     bGroundRelative: 0
@@ -330,6 +330,181 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 0
     hint: The longest stilt on the slope. Slender stilts buckle.
+  - id: CR-PLINTH-L0
+    displayName: Left plinth wall 1
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -2.07, y: 0, z: -3.5}
+    aGroundRelative: 1
+    b: {x: -2.07, y: 0, z: 0}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - CR-PAD-L0
+    - CR-PAD-L1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall stepping down the slope between two piers.
+  - id: CR-PLINTH-L1
+    displayName: Left plinth wall 2
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -2.07, y: 0, z: 0}
+    aGroundRelative: 1
+    b: {x: -2.07, y: 0, z: 3.5}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - CR-PAD-L1
+    - CR-PAD-L2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall stepping down the slope between two piers.
+  - id: CR-PLINTH-R0
+    displayName: Right plinth wall 1
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: 2.07, y: 0, z: -3.5}
+    aGroundRelative: 1
+    b: {x: 2.07, y: 0, z: 0}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - CR-PAD-R0
+    - CR-PAD-R1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall stepping down the slope between two piers.
+  - id: CR-PLINTH-R1
+    displayName: Right plinth wall 2
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: 2.07, y: 0, z: 0}
+    aGroundRelative: 1
+    b: {x: 2.07, y: 0, z: 3.5}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - CR-PAD-R1
+    - CR-PAD-R2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall stepping down the slope between two piers.
+  - id: CR-PLINTH-X0
+    displayName: Uphill cross plinth wall
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -2.07, y: 0, z: -3.5}
+    aGroundRelative: 1
+    b: {x: 2.07, y: 0, z: -3.5}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - CR-PAD-L0
+    - CR-PAD-R0
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall across the slope.
+  - id: CR-PLINTH-X1
+    displayName: Middle cross plinth wall
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -2.07, y: 0, z: 0}
+    aGroundRelative: 1
+    b: {x: 2.07, y: 0, z: 0}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - CR-PAD-L1
+    - CR-PAD-R1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall across the slope.
+  - id: CR-PLINTH-X2
+    displayName: Downhill cross plinth wall
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -2.07, y: 0, z: 3.5}
+    aGroundRelative: 1
+    b: {x: 2.07, y: 0, z: 3.5}
+    bGroundRelative: 1
+    thickness: 0.35
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - CR-PAD-L2
+    - CR-PAD-R2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.35, y: 0.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall across the slope.
   - id: CR-DECK-L0
     displayName: Left chassis beam 1
     kind: 2
@@ -602,7 +777,7 @@ MonoBehaviour:
     kind: 5
     stage: 2
     shape: 1
-    a: {x: -2.07, y: 0.5, z: -3.5}
+    a: {x: -2.07, y: 0.75, z: -3.5}
     aGroundRelative: 1
     b: {x: -1.8, y: 2.1000001, z: 0}
     bGroundRelative: 0
@@ -628,7 +803,7 @@ MonoBehaviour:
     kind: 5
     stage: 2
     shape: 1
-    a: {x: -2.07, y: 0.5, z: 0}
+    a: {x: -2.07, y: 0.75, z: 0}
     aGroundRelative: 1
     b: {x: -1.8, y: 2.1000001, z: 3.5}
     bGroundRelative: 0
@@ -654,7 +829,7 @@ MonoBehaviour:
     kind: 5
     stage: 2
     shape: 1
-    a: {x: 2.07, y: 0.5, z: -3.5}
+    a: {x: 2.07, y: 0.75, z: -3.5}
     aGroundRelative: 1
     b: {x: 1.8, y: 2.1000001, z: 0}
     bGroundRelative: 0
@@ -680,7 +855,7 @@ MonoBehaviour:
     kind: 5
     stage: 2
     shape: 1
-    a: {x: 2.07, y: 0.5, z: 0}
+    a: {x: 2.07, y: 0.75, z: 0}
     aGroundRelative: 1
     b: {x: 1.8, y: 2.1000001, z: 3.5}
     bGroundRelative: 0
@@ -706,7 +881,7 @@ MonoBehaviour:
     kind: 5
     stage: 2
     shape: 1
-    a: {x: -2.07, y: 0.5, z: -3.5}
+    a: {x: -2.07, y: 0.75, z: -3.5}
     aGroundRelative: 1
     b: {x: 1.8, y: 2.1000001, z: -3.5}
     bGroundRelative: 0
@@ -732,7 +907,7 @@ MonoBehaviour:
     kind: 5
     stage: 2
     shape: 1
-    a: {x: -2.07, y: 0.5, z: 0}
+    a: {x: -2.07, y: 0.75, z: 0}
     aGroundRelative: 1
     b: {x: 1.8, y: 2.1000001, z: 0}
     bGroundRelative: 0
@@ -758,7 +933,7 @@ MonoBehaviour:
     kind: 5
     stage: 2
     shape: 1
-    a: {x: -2.07, y: 0.5, z: 3.5}
+    a: {x: -2.07, y: 0.75, z: 3.5}
     aGroundRelative: 1
     b: {x: 1.8, y: 2.1000001, z: 3.5}
     bGroundRelative: 0
@@ -1050,3 +1225,4 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
+  skinFollowsSlope: 0

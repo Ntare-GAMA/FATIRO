@@ -64,6 +64,15 @@ namespace Fatiro.Domain
                     var size = spec.PanelSize;
                     return new ResolvedGeometry(a, a, Math.Max(size.X, size.Z), size.X * size.Z);
                 }
+                case MemberShape.Block:
+                {
+                    // Walls either have a fixed height (plinth walls) or rise to a level top (CrownHeight),
+                    // such as a ground-floor wall under a beam. Area / Length gives the height back.
+                    var b = Resolve(spec.B);
+                    var length = Vector3.Distance(a, b);
+                    var height = spec.CrownHeight > 0f ? Math.Max(0.3f, spec.CrownHeight - Math.Max(a.Y, b.Y)) : spec.PanelSize.Y;
+                    return new ResolvedGeometry(a, b, length, length * height);
+                }
                 case MemberShape.Arch:
                 {
                     var b = Resolve(spec.B);

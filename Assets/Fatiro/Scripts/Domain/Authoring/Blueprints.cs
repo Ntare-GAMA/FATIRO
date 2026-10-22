@@ -36,8 +36,19 @@ namespace Fatiro.Domain
 
             for (var i = 0; i < z.Length; i++)
             {
-                paws[i] = b.Pad($"PN-PAW-{i + 1}", $"Paw strip footing {i + 1}", 0f, z[i], 5.8f, 0.9f, 0.35f, MaterialLibrary.Concrete,
-                    hint: "Spreads the rib's thrust into the hillside.");
+                paws[i] = b.Pad($"PN-PAW-{i + 1}", $"Paw strip footing {i + 1}", 0f, z[i], 5.8f, 0.9f, 0.6f, MaterialLibrary.EarthBlock,
+                    hint: "Clay-brick strip footing that spreads the rib's thrust into the hillside.");
+            }
+
+            for (var i = 0; i < z.Length - 1; i++)
+            {
+                foreach (var side in new[] { -1, 1 })
+                {
+                    b.Wall($"PN-PLINTH-{(side < 0 ? "L" : "R")}{i + 1}", $"{(side < 0 ? "Left" : "Right")} plinth wall {i + 1}", BuildStage.Foundation,
+                        Endpoint.Ground(side * halfSpan, 0f, z[i]), Endpoint.Ground(side * halfSpan, 0f, z[i + 1]), 0.7f, 0.35f,
+                        MaterialLibrary.EarthBlock, On(paws[i], paws[i + 1]),
+                        hint: "Brick plinth wall tying the paw footings together so they cannot slide apart.");
+                }
             }
 
             for (var i = 0; i < z.Length; i++)
@@ -54,15 +65,15 @@ namespace Fatiro.Domain
                     MaterialLibrary.Frame, On(ribs[i], ribs[i + 1]), hint: "Ties neighbouring ribs together along the back.");
             }
 
-            var forepawLeft = b.Pad("PN-FOREPAW-L", "Left forepaw pad", -0.9f, 6.6f, 1.0f, 1.0f, 0.3f, MaterialLibrary.Concrete,
+            var forepawLeft = b.Pad("PN-FOREPAW-L", "Left forepaw pier", -0.9f, 6.6f, 1.0f, 1.0f, 0.6f, MaterialLibrary.EarthBlock,
                 required: false, hint: "Optional footing for a prop under the head.");
-            var forepawRight = b.Pad("PN-FOREPAW-R", "Right forepaw pad", 0.9f, 6.6f, 1.0f, 1.0f, 0.3f, MaterialLibrary.Concrete,
+            var forepawRight = b.Pad("PN-FOREPAW-R", "Right forepaw pier", 0.9f, 6.6f, 1.0f, 1.0f, 0.6f, MaterialLibrary.EarthBlock,
                 required: false, hint: "Optional footing for a prop under the head.");
             var forelegLeft = b.Strut("PN-FORELEG-L", "Left foreleg prop", MemberKind.Column, BuildStage.PrimaryStructure,
-                Endpoint.Ground(-0.9f, 0.3f, 6.6f), Endpoint.At(-0.9f, 3.05f, 6.6f), 0.26f, MaterialLibrary.Steel, MaterialLibrary.Frame,
+                Endpoint.Ground(-0.9f, 0.35f, 6.6f), Endpoint.At(-0.9f, 3.05f, 6.6f), 0.26f, MaterialLibrary.Steel, MaterialLibrary.Frame,
                 On(forepawLeft), required: false, hint: "Props the head so it no longer acts as a cantilever.");
             var forelegRight = b.Strut("PN-FORELEG-R", "Right foreleg prop", MemberKind.Column, BuildStage.PrimaryStructure,
-                Endpoint.Ground(0.9f, 0.3f, 6.6f), Endpoint.At(0.9f, 3.05f, 6.6f), 0.26f, MaterialLibrary.Steel, MaterialLibrary.Frame,
+                Endpoint.Ground(0.9f, 0.35f, 6.6f), Endpoint.At(0.9f, 3.05f, 6.6f), 0.26f, MaterialLibrary.Steel, MaterialLibrary.Frame,
                 On(forepawRight), required: false, hint: "Props the head so it no longer acts as a cantilever.");
 
             var head = b.Strut("PN-HEAD", "Head cantilever", MemberKind.Cantilever, BuildStage.PrimaryStructure,
@@ -119,16 +130,16 @@ namespace Fatiro.Domain
             const float front = 2.5f;
             const float belly = 3f;
 
-            var footBL = b.Pad("EL-FOOT-BL", "Back-left foot", -x, back, 1.6f, 1.6f, 0.4f, MaterialLibrary.Concrete,
-                hint: "Wide elephant feet keep bearing pressure low on soft soil.");
-            var footBR = b.Pad("EL-FOOT-BR", "Back-right foot", x, back, 1.6f, 1.6f, 0.4f, MaterialLibrary.Concrete);
-            var footFL = b.Pad("EL-FOOT-FL", "Front-left foot", -x, front, 1.6f, 1.6f, 0.4f, MaterialLibrary.Concrete);
-            var footFR = b.Pad("EL-FOOT-FR", "Front-right foot", x, front, 1.6f, 1.6f, 0.4f, MaterialLibrary.Concrete);
-            var cistern = b.Pad("EL-CISTERN", "Trunk cistern", 0f, 5.6f, 1.4f, 1.4f, 0.3f, MaterialLibrary.Concrete,
+            var footBL = b.Pad("EL-FOOT-BL", "Back-left foot", -x, back, 1.6f, 1.6f, 0.9f, MaterialLibrary.EarthBlock,
+                hint: "Wide clay-brick elephant feet keep bearing pressure low on soft soil.");
+            var footBR = b.Pad("EL-FOOT-BR", "Back-right foot", x, back, 1.6f, 1.6f, 0.9f, MaterialLibrary.EarthBlock);
+            var footFL = b.Pad("EL-FOOT-FL", "Front-left foot", -x, front, 1.6f, 1.6f, 0.9f, MaterialLibrary.EarthBlock);
+            var footFR = b.Pad("EL-FOOT-FR", "Front-right foot", x, front, 1.6f, 1.6f, 0.9f, MaterialLibrary.EarthBlock);
+            var cistern = b.Pad("EL-CISTERN", "Trunk cistern", 0f, 5.6f, 1.4f, 1.4f, 0.5f, MaterialLibrary.Concrete,
                 hint: "Collects water from the trunk downpipe.");
 
             string Leg(string id, string name, float lx, float lz, string foot) =>
-                b.Strut(id, name, MemberKind.Column, BuildStage.PrimaryStructure, Endpoint.Ground(lx, 0.4f, lz),
+                b.Strut(id, name, MemberKind.Column, BuildStage.PrimaryStructure, Endpoint.Ground(lx, 0.65f, lz),
                     Endpoint.At(lx, belly, lz), 0.55f, MaterialLibrary.Concrete, MaterialLibrary.Frame, On(foot),
                     hint: "Thick legs carry the whole body.");
 
@@ -136,6 +147,15 @@ namespace Fatiro.Domain
             var legBR = Leg("EL-LEG-BR", "Back-right leg", x, back, footBR);
             var legFL = Leg("EL-LEG-FL", "Front-left leg", -x, front, footFL);
             var legFR = Leg("EL-LEG-FR", "Front-right leg", x, front, footFR);
+
+            // A brick plinth wall runs round all four feet, so the elephant stands on a tied base.
+            void Plinth(string id, string name, float ax, float az, float bx, float bz, string f1, string f2) =>
+                b.Wall(id, name, BuildStage.Foundation, Endpoint.Ground(ax, 0f, az), Endpoint.Ground(bx, 0f, bz), 0.8f, 0.4f,
+                    MaterialLibrary.EarthBlock, On(f1, f2), hint: "Brick plinth wall tying two feet together.");
+            Plinth("EL-PLINTH-F", "Front plinth wall", -x, front, x, front, footFL, footFR);
+            Plinth("EL-PLINTH-B", "Back plinth wall", -x, back, x, back, footBL, footBR);
+            Plinth("EL-PLINTH-L", "Left plinth wall", -x, back, -x, front, footBL, footFL);
+            Plinth("EL-PLINTH-R", "Right plinth wall", x, back, x, front, footBR, footFR);
 
             string Belly(string id, string name, float ax, float az, float bx, float bz, string s1, string s2) =>
                 b.Strut(id, name, MemberKind.Beam, BuildStage.PrimaryStructure, Endpoint.At(ax, belly, az), Endpoint.At(bx, belly, bz),
@@ -164,13 +184,13 @@ namespace Fatiro.Domain
                     hint: "Holds the ear canopy out from the body. Wind tries to lift it.");
             }
 
-            b.Strut("EL-LEGBRACE-L", "Left leg brace", MemberKind.Brace, BuildStage.Bracing, Endpoint.Ground(-x, 0.6f, back),
+            b.Strut("EL-LEGBRACE-L", "Left leg brace", MemberKind.Brace, BuildStage.Bracing, Endpoint.Ground(-x, 0.9f, back),
                 Endpoint.At(-x, 2.9f, front), 0.15f, MaterialLibrary.Timber, MaterialLibrary.Bracing, On(legBL, legFL));
-            b.Strut("EL-LEGBRACE-R", "Right leg brace", MemberKind.Brace, BuildStage.Bracing, Endpoint.Ground(x, 0.6f, back),
+            b.Strut("EL-LEGBRACE-R", "Right leg brace", MemberKind.Brace, BuildStage.Bracing, Endpoint.Ground(x, 0.9f, back),
                 Endpoint.At(x, 2.9f, front), 0.15f, MaterialLibrary.Timber, MaterialLibrary.Bracing, On(legBR, legFR));
-            b.Strut("EL-LEGBRACE-F", "Front leg brace", MemberKind.Brace, BuildStage.Bracing, Endpoint.Ground(-x, 0.6f, front),
+            b.Strut("EL-LEGBRACE-F", "Front leg brace", MemberKind.Brace, BuildStage.Bracing, Endpoint.Ground(-x, 0.9f, front),
                 Endpoint.At(x, 2.9f, front), 0.15f, MaterialLibrary.Timber, MaterialLibrary.Bracing, On(legFL, legFR), required: false);
-            b.Strut("EL-LEGBRACE-B", "Back leg brace", MemberKind.Brace, BuildStage.Bracing, Endpoint.Ground(-x, 0.6f, back),
+            b.Strut("EL-LEGBRACE-B", "Back leg brace", MemberKind.Brace, BuildStage.Bracing, Endpoint.Ground(-x, 0.9f, back),
                 Endpoint.At(x, 2.9f, back), 0.15f, MaterialLibrary.Timber, MaterialLibrary.Bracing, On(legBL, legBR), required: false);
             b.Strut("EL-EARTIE-L", "Left ear tie-down", MemberKind.Brace, BuildStage.Bracing, Endpoint.At(-x, belly, front),
                 Endpoint.At(-5.0f, 5.25f, 2.25f), 0.1f, MaterialLibrary.Bamboo, MaterialLibrary.Bracing, On(spars[-1], legFL), required: false,
@@ -191,6 +211,14 @@ namespace Fatiro.Domain
                     new Vector3(3.8f, 0.06f, 3.0f), new Vector3(0f, 0f, side * 6f), MaterialLibrary.Bamboo, On(spars[side]), isRoof: true,
                     hint: "A big shade canopy. Catches rain and wind.");
             }
+
+            // Brick ground floor under the belly: real walls that also stiffen the legs like shear walls.
+            b.Wall("EL-GROUND-WALL-B", "Back ground-floor wall", BuildStage.Envelope, Endpoint.Ground(-x, 0f, back), Endpoint.Ground(x, 0f, back),
+                0f, 0.3f, MaterialLibrary.EarthBlock, On(legBL, legBR), topHeight: belly - 0.2f,
+                hint: "A brick wall between the back legs. It encloses the ground floor and resists racking.");
+            b.Wall("EL-GROUND-WALL-F", "Front ground-floor wall", BuildStage.Envelope, Endpoint.Ground(-x, 0f, front), Endpoint.Ground(x, 0f, front),
+                0f, 0.3f, MaterialLibrary.EarthBlock, On(legFL, legFR), topHeight: belly - 0.2f,
+                hint: "A brick wall between the front legs. It encloses the ground floor and resists racking.");
 
             b.Drain("EL-TRUNK", "Trunk downpipe", Endpoint.At(0f, 4.6f, 3.0f), Endpoint.Ground(0f, 0.5f, 5.6f), 0.25f, MaterialLibrary.Bamboo,
                 On(bodyFront, cistern), hint: "Carries all roof water to the cistern. Too small and the roof floods.");
@@ -217,19 +245,40 @@ namespace Fatiro.Domain
             const float rake = 1.15f;
 
             var stilts = new Dictionary<string, string>();
+            var piers = new Dictionary<string, string>();
             foreach (var side in new[] { -1, 1 })
             {
                 var label = side < 0 ? "L" : "R";
                 var name = side < 0 ? "left" : "right";
                 for (var i = 0; i < z.Length; i++)
                 {
-                    var pad = b.Pad($"CR-PAD-{label}{i}", $"{Capitalise(where[i])} {name} spider foot", side * x * rake, z[i], 0.9f, 0.9f, 0.3f,
-                        MaterialLibrary.Concrete, hint: "Raked spider feet grip the slope.");
+                    var pad = b.Pad($"CR-PAD-{label}{i}", $"{Capitalise(where[i])} {name} brick pier", side * x * rake, z[i], 1.0f, 1.0f, 0.8f,
+                        MaterialLibrary.EarthBlock, hint: "A clay-brick pier: the stilt stands on brick, not on bare soil.");
+                    piers[$"{label}{i}"] = pad;
                     stilts[$"{label}{i}"] = b.Strut($"CR-STILT-{label}{i}", $"{Capitalise(where[i])} {name} stilt", MemberKind.Column,
-                        BuildStage.PrimaryStructure, Endpoint.Ground(side * x * rake, 0.3f, z[i]), Endpoint.At(side * x, deck, z[i]), 0.18f,
+                        BuildStage.PrimaryStructure, Endpoint.Ground(side * x * rake, 0.55f, z[i]), Endpoint.At(side * x, deck, z[i]), 0.18f,
                         MaterialLibrary.Timber, MaterialLibrary.Frame, On(pad),
                         hint: i == 2 ? "The longest stilt on the slope. Slender stilts buckle." : "Lifts the car off the hillside.");
                 }
+            }
+
+            // Brick plinth walls tie the piers together down each side and across the slope.
+            foreach (var side in new[] { -1, 1 })
+            {
+                var label = side < 0 ? "L" : "R";
+                for (var i = 0; i < z.Length - 1; i++)
+                {
+                    b.Wall($"CR-PLINTH-{label}{i}", $"{(side < 0 ? "Left" : "Right")} plinth wall {i + 1}", BuildStage.Foundation,
+                        Endpoint.Ground(side * x * rake, 0f, z[i]), Endpoint.Ground(side * x * rake, 0f, z[i + 1]), 0.7f, 0.35f,
+                        MaterialLibrary.EarthBlock, On(piers[$"{label}{i}"], piers[$"{label}{i + 1}"]),
+                        hint: "Brick plinth wall stepping down the slope between two piers.");
+                }
+            }
+            for (var i = 0; i < z.Length; i++)
+            {
+                b.Wall($"CR-PLINTH-X{i}", $"{Capitalise(where[i])} cross plinth wall", BuildStage.Foundation,
+                    Endpoint.Ground(-x * rake, 0f, z[i]), Endpoint.Ground(x * rake, 0f, z[i]), 0.7f, 0.35f,
+                    MaterialLibrary.EarthBlock, On(piers[$"L{i}"], piers[$"R{i}"]), hint: "Brick plinth wall across the slope.");
             }
 
             var deckBeams = new Dictionary<string, string>();
@@ -260,10 +309,10 @@ namespace Fatiro.Domain
                 var label = side < 0 ? "L" : "R";
                 var name = side < 0 ? "Left" : "Right";
                 b.Strut($"CR-BRACE-{label}0", $"{name} uphill X-brace", MemberKind.Brace, BuildStage.Bracing,
-                    Endpoint.Ground(side * x * rake, 0.5f, z[0]), Endpoint.At(side * x, deck - 0.1f, z[1]), 0.12f, MaterialLibrary.Timber,
+                    Endpoint.Ground(side * x * rake, 0.75f, z[0]), Endpoint.At(side * x, deck - 0.1f, z[1]), 0.12f, MaterialLibrary.Timber,
                     MaterialLibrary.Bracing, On(stilts[$"{label}0"], stilts[$"{label}1"]));
                 b.Strut($"CR-BRACE-{label}1", $"{name} downhill X-brace", MemberKind.Brace, BuildStage.Bracing,
-                    Endpoint.Ground(side * x * rake, 0.5f, z[1]), Endpoint.At(side * x, deck - 0.1f, z[2]), 0.12f, MaterialLibrary.Timber,
+                    Endpoint.Ground(side * x * rake, 0.75f, z[1]), Endpoint.At(side * x, deck - 0.1f, z[2]), 0.12f, MaterialLibrary.Timber,
                     MaterialLibrary.Bracing, On(stilts[$"{label}1"], stilts[$"{label}2"]), required: false,
                     hint: "Braces the long downhill stilts against shaking.");
             }
@@ -271,7 +320,7 @@ namespace Fatiro.Domain
             for (var i = 0; i < z.Length; i++)
             {
                 b.Strut($"CR-SWAY-{i}", $"{Capitalise(where[i])} sway brace", MemberKind.Brace, BuildStage.Bracing,
-                    Endpoint.Ground(-x * rake, 0.5f, z[i]), Endpoint.At(x, deck - 0.1f, z[i]), 0.12f, MaterialLibrary.Timber,
+                    Endpoint.Ground(-x * rake, 0.75f, z[i]), Endpoint.At(x, deck - 0.1f, z[i]), 0.12f, MaterialLibrary.Timber,
                     MaterialLibrary.Bracing, On(stilts[$"L{i}"], stilts[$"R{i}"]), required: i == 0);
             }
 

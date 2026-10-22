@@ -12,6 +12,8 @@ Mobile AR simulation (Android, ARCore) in which construction learners assemble c
 | **Inzovu** (EL-01) | Elephant on four legs | Canopies must be tied down; drains must be sized for heavy rain | Wind rips off the ear canopies; the trunk downpipe overflows and the roof ponds | Ear tie-downs; a steel trunk |
 | **Imodoka** (CR-01) | Sports car on spider stilts | Downhill stilts on a slope are the longest and buckle first | Earthquake buckles the downhill stilts and the pod collapses | Downhill X-braces and sway braces, or steel stilts |
 
+Every house stands on firm ground: a compacted building platform cut into the slope, clay-brick piers under every column, and brick plinth walls tying the piers together. The plinth walls are real members: they double the footings' resistance to sliding, and the elephant's brick ground-floor walls act as shear walls that stiffen its legs.
+
 ## Requirements
 
 - Unity **6000.4.7f1** with Android Build Support (SDK, NDK, OpenJDK)
@@ -20,6 +22,7 @@ Mobile AR simulation (Android, ARCore) in which construction learners assemble c
 ## Getting started
 
 1. Open the project in Unity 6000.4.7f1 and let packages resolve.
+   Import the Unity Asset Store packages listed in [CREDITS.md](CREDITS.md) from **Window › Package Manager › My Assets** (they are not in the repository; without them the app falls back to plain shapes and colours).
 2. Run **Fatiro › Build Project Content**. This generates materials, synthesised audio, prefabs, the three design assets, the creature skins, the Addressables groups, the scene (`Assets/Fatiro/Scenes/Fatiro.unity`) and the Android/XR/URP settings. It is safe to re-run.
 3. Press Play to try the flow in the editor: without an AR device, a virtual floor stands in for plane detection (mouse: click/drag; scroll to scale; right-drag to rotate).
 4. Run **Fatiro › Build Android APK** to build Addressables and `Builds/Android/FatiroAR.apk`.

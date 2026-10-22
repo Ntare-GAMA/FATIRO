@@ -39,21 +39,21 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: -3, y: 0, z: -2.5}
     bGroundRelative: 1
-    thickness: 0.4
-    defaultMaterial: concrete
+    thickness: 0.9
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 1.6, y: 0.4, z: 1.6}
+    panelSize: {x: 1.6, y: 0.9, z: 1.6}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Wide elephant feet keep bearing pressure low on soft soil.
+    hint: Wide clay-brick elephant feet keep bearing pressure low on soft soil.
   - id: EL-FOOT-BR
     displayName: Back-right foot
     kind: 0
@@ -63,17 +63,17 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 3, y: 0, z: -2.5}
     bGroundRelative: 1
-    thickness: 0.4
-    defaultMaterial: concrete
+    thickness: 0.9
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 1.6, y: 0.4, z: 1.6}
+    panelSize: {x: 1.6, y: 0.9, z: 1.6}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
@@ -87,17 +87,17 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: -3, y: 0, z: 2.5}
     bGroundRelative: 1
-    thickness: 0.4
-    defaultMaterial: concrete
+    thickness: 0.9
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 1.6, y: 0.4, z: 1.6}
+    panelSize: {x: 1.6, y: 0.9, z: 1.6}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
@@ -111,17 +111,17 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 3, y: 0, z: 2.5}
     bGroundRelative: 1
-    thickness: 0.4
-    defaultMaterial: concrete
+    thickness: 0.9
+    defaultMaterial: earth-block
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 1.6, y: 0.4, z: 1.6}
+    panelSize: {x: 1.6, y: 0.9, z: 1.6}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
@@ -135,17 +135,17 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 0, y: 0, z: 5.6}
     bGroundRelative: 1
-    thickness: 0.3
+    thickness: 0.5
     defaultMaterial: concrete
     allowedMaterials:
-    - concrete
     - earth-block
+    - concrete
     - steel
     supports: []
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 1.4, y: 0.3, z: 1.4}
+    panelSize: {x: 1.4, y: 0.5, z: 1.4}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
     kind: 1
     stage: 1
     shape: 1
-    a: {x: -3, y: 0.4, z: -2.5}
+    a: {x: -3, y: 0.65, z: -2.5}
     aGroundRelative: 1
     b: {x: -3, y: 3, z: -2.5}
     bGroundRelative: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
     kind: 1
     stage: 1
     shape: 1
-    a: {x: 3, y: 0.4, z: -2.5}
+    a: {x: 3, y: 0.65, z: -2.5}
     aGroundRelative: 1
     b: {x: 3, y: 3, z: -2.5}
     bGroundRelative: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
     kind: 1
     stage: 1
     shape: 1
-    a: {x: -3, y: 0.4, z: 2.5}
+    a: {x: -3, y: 0.65, z: 2.5}
     aGroundRelative: 1
     b: {x: -3, y: 3, z: 2.5}
     bGroundRelative: 0
@@ -233,7 +233,7 @@ MonoBehaviour:
     kind: 1
     stage: 1
     shape: 1
-    a: {x: 3, y: 0.4, z: 2.5}
+    a: {x: 3, y: 0.65, z: 2.5}
     aGroundRelative: 1
     b: {x: 3, y: 3, z: 2.5}
     bGroundRelative: 0
@@ -254,6 +254,106 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 0
     hint: Thick legs carry the whole body.
+  - id: EL-PLINTH-F
+    displayName: Front plinth wall
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -3, y: 0, z: 2.5}
+    aGroundRelative: 1
+    b: {x: 3, y: 0, z: 2.5}
+    bGroundRelative: 1
+    thickness: 0.4
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - EL-FOOT-FL
+    - EL-FOOT-FR
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.4, y: 0.8, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall tying two feet together.
+  - id: EL-PLINTH-B
+    displayName: Back plinth wall
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -3, y: 0, z: -2.5}
+    aGroundRelative: 1
+    b: {x: 3, y: 0, z: -2.5}
+    bGroundRelative: 1
+    thickness: 0.4
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - EL-FOOT-BL
+    - EL-FOOT-BR
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.4, y: 0.8, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall tying two feet together.
+  - id: EL-PLINTH-L
+    displayName: Left plinth wall
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -3, y: 0, z: -2.5}
+    aGroundRelative: 1
+    b: {x: -3, y: 0, z: 2.5}
+    bGroundRelative: 1
+    thickness: 0.4
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - EL-FOOT-BL
+    - EL-FOOT-FL
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.4, y: 0.8, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall tying two feet together.
+  - id: EL-PLINTH-R
+    displayName: Right plinth wall
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: 3, y: 0, z: -2.5}
+    aGroundRelative: 1
+    b: {x: 3, y: 0, z: 2.5}
+    bGroundRelative: 1
+    thickness: 0.4
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - EL-FOOT-BR
+    - EL-FOOT-FR
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.4, y: 0.8, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick plinth wall tying two feet together.
   - id: EL-BELLY-F
     displayName: Front belly beam
     kind: 2
@@ -498,7 +598,7 @@ MonoBehaviour:
     kind: 5
     stage: 2
     shape: 1
-    a: {x: -3, y: 0.6, z: -2.5}
+    a: {x: -3, y: 0.9, z: -2.5}
     aGroundRelative: 1
     b: {x: -3, y: 2.9, z: 2.5}
     bGroundRelative: 0
@@ -524,7 +624,7 @@ MonoBehaviour:
     kind: 5
     stage: 2
     shape: 1
-    a: {x: 3, y: 0.6, z: -2.5}
+    a: {x: 3, y: 0.9, z: -2.5}
     aGroundRelative: 1
     b: {x: 3, y: 2.9, z: 2.5}
     bGroundRelative: 0
@@ -550,7 +650,7 @@ MonoBehaviour:
     kind: 5
     stage: 2
     shape: 1
-    a: {x: -3, y: 0.6, z: 2.5}
+    a: {x: -3, y: 0.9, z: 2.5}
     aGroundRelative: 1
     b: {x: 3, y: 2.9, z: 2.5}
     bGroundRelative: 0
@@ -576,7 +676,7 @@ MonoBehaviour:
     kind: 5
     stage: 2
     shape: 1
-    a: {x: -3, y: 0.6, z: -2.5}
+    a: {x: -3, y: 0.9, z: -2.5}
     aGroundRelative: 1
     b: {x: 3, y: 2.9, z: -2.5}
     bGroundRelative: 0
@@ -809,6 +909,58 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 1
     hint: A big shade canopy. Catches rain and wind.
+  - id: EL-GROUND-WALL-B
+    displayName: Back ground-floor wall
+    kind: 5
+    stage: 4
+    shape: 4
+    a: {x: -3, y: 0, z: -2.5}
+    aGroundRelative: 1
+    b: {x: 3, y: 0, z: -2.5}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - EL-LEG-BL
+    - EL-LEG-BR
+    extraSupports: []
+    required: 1
+    crownHeight: 2.8
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A brick wall between the back legs. It encloses the ground floor and resists
+      racking.
+  - id: EL-GROUND-WALL-F
+    displayName: Front ground-floor wall
+    kind: 5
+    stage: 4
+    shape: 4
+    a: {x: -3, y: 0, z: 2.5}
+    aGroundRelative: 1
+    b: {x: 3, y: 0, z: 2.5}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - EL-LEG-FL
+    - EL-LEG-FR
+    extraSupports: []
+    required: 1
+    crownHeight: 2.8
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A brick wall between the front legs. It encloses the ground floor and resists
+      racking.
   - id: EL-TRUNK
     displayName: Trunk downpipe
     kind: 7
@@ -894,3 +1046,4 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
+  skinFollowsSlope: 1

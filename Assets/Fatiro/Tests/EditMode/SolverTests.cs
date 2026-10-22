@@ -137,6 +137,29 @@ namespace Fatiro.Tests
         }
 
         [Test]
+        public void PlinthWallsTieFootingsAgainstSliding()
+        {
+            var car = Blueprints.Car();
+            var graph = TestKit.Build(car, Slope20, false);
+            var pier = graph.Get("CR-PAD-L2");
+            Assert.That(graph.IsBraced(pier, _ => true), Is.True, "plinth walls tie the pier");
+            var tied = pier.LateralCapacity(new CapacityContext(Slope20, car.Foundation, true, false));
+            var loose = pier.LateralCapacity(new CapacityContext(Slope20, car.Foundation, false, false));
+            Assert.That(tied, Is.EqualTo(loose * Calibration.TiedFootingFactor).Within(0.001f));
+        }
+
+        [Test]
+        public void PlinthWallsAddNoShakingMass()
+        {
+            var car = Blueprints.Car();
+            var withWalls = TestKit.Solve(car, Slope20, new SeismicLoad(3f));
+            var graph = TestKit.Build(car, Slope20, false);
+            foreach (var wall in car.Members.Where(m => m.Id.StartsWith("CR-PLINTH")).ToList()) graph.Remove(wall.Id);
+            var withoutWalls = new StructuralSolver().Solve(graph, Slope20, car.Foundation, false, new SeismicLoad(3f));
+            Assert.That(withWalls.LateralForce, Is.EqualTo(withoutWalls.LateralForce).Within(0.01f));
+        }
+
+        [Test]
         public void LoadCaseMagnitudesAreValidated()
         {
             Assert.Throws<ArgumentOutOfRangeException>(() => new WindLoad(200f));

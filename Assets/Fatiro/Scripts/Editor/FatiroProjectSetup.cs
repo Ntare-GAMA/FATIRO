@@ -57,14 +57,16 @@ namespace Fatiro.EditorTools
             ConfigureXR();
             ConfigureRenderer();
 
+            ImportedAssets.Begin();
             var materials = CreateMaterials();
+            var surfaces = CreateSurfaces();
             AudioSynth.WriteAll(AudioFolder);
             AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
             ConfigureAudioImport();
 
-            var prefabs = CreatePrefabs(materials);
+            var prefabs = CreatePrefabs(materials, surfaces);
             var skins = CreateSkins();
-            var materialAssets = CreateMaterialData();
+            var materialAssets = CreateMaterialData(surfaces);
             var designs = CreateDesigns(skins);
             ConfigureAddressables(prefabs, skins, materialAssets, designs, materials);
             CreateScene(materials);
@@ -279,8 +281,107 @@ namespace Fatiro.EditorTools
             return AssetDatabase.LoadAssetAtPath<Texture2D>(path);
         }
 
+        // ---- Imported surfaces (Asset Store textures) -------------------------------------
+
+        /// <summary>Real textures for each building material and for the hillside, from the imported packs.</summary>
+        private sealed class SurfaceSet
+        {
+            public readonly Dictionary<string, (Material material, float tileMetres)> Members = new Dictionary<string, (Material, float)>();
+            public Material[] Ground;
+            public Material Platform;
+        }
+
+        private const string Polyeler = "Assets/Polyeler/EssentialNaturePack";
+        private const string SimpleNature = "Assets/SimpleNaturePack/Prefabs";
+        private const string Stones = "Assets/Low Poly Stones/Prefabs";
+        private const string GroundTextures = "Assets/GG-Textures/Textures";
+        private const string NatureAudio = "Assets/Nature - Essentials";
+        private const string ImportedModels = "Assets/Fatiro/Imported/Models";
+        private const string ImportedTextures = "Assets/Fatiro/Imported/Textures";
+        private static readonly string[] NatureClips = { Cues.Birds, Cues.RainLoop, Cues.WindLoop };
+
+        private static SurfaceSet CreateSurfaces()
+        {
+            var set = new SurfaceSet();
+
+            // Bamboo001B from ambientCG (CC0): a mat of bamboo poles, used for bamboo members.
+            var bamboo = ImportedAssets.SurfaceMaterial("Bamboo",
+                ImportedAssets.LoadTexture($"{ImportedTextures}/Bamboo001B/Bamboo001B_1K-JPG_Color.jpg"),
+                ImportedAssets.LoadTexture($"{ImportedTextures}/Bamboo001B/Bamboo001B_1K-JPG_NormalGL.jpg", normalMap: true),
+                Color.white, smoothness: 0.35f);
+            var timber = ImportedAssets.SurfaceMaterial("Timber",
+                ImportedAssets.LoadTexture("Assets/LowlyPoly/Stylize Wood Texture/Textures/vol_2_3_Base_Color.png"),
+                ImportedAssets.LoadTexture("Assets/LowlyPoly/Stylize Wood Texture/Textures/vol_2_3_Normal.png", normalMap: true),
+                Color.white, smoothness: 0.2f);
+            var steel = ImportedAssets.SurfaceMaterial("Steel",
+                ImportedAssets.LoadTexture("Assets/Models/Metal_Plates/Textures/Metal_Plates_1_AlbedoTransparency.tga"),
+                ImportedAssets.LoadTexture("Assets/Models/Metal_Plates/Textures/Metal_Plates_Normal.tga", normalMap: true),
+                new Color(0.85f, 0.88f, 0.92f), metallic: 0.75f, smoothness: 0.55f);
+            var concrete = ImportedAssets.SurfaceMaterial("Concrete",
+                ImportedAssets.LoadTexture("Assets/Sat Productions/B-01/Concrete Props Pack/Textures/A_Wall_Tiled/ConcretePack_A_Wall_BaseColor.png"),
+                ImportedAssets.LoadTexture("Assets/Sat Productions/B-01/Concrete Props Pack/Textures/A_Wall_Tiled/ConcretePack_A_Wall_Normal.png", normalMap: true),
+                Color.white, smoothness: 0.15f);
+
+            // Compressed-earth block: the clay-brick quarter of the brick-house atlas, cropped to tile cleanly.
+            var brickRegion = new RectInt(0, 0, 1024, 1024);
+            var earthBlock = File.Exists("Assets/Brick_House/Textures/brick_house_D.PNG")
+                ? ImportedAssets.SurfaceMaterial("EarthBlock",
+                    ImportedAssets.CropToTexture("Assets/Brick_House/Textures/brick_house_D.PNG", brickRegion, "ClayBrick_Colour", false),
+                    ImportedAssets.CropToTexture("Assets/Brick_House/Textures/Brick_house_N.png", brickRegion, "ClayBrick_Normal", true),
+                    new Color(1f, 0.9f, 0.8f), smoothness: 0.1f)
+                : ImportedAssets.SurfaceMaterial("EarthBlock", null, null, new Color(0.76f, 0.45f, 0.30f));
+
+            set.Members[MaterialLibrary.Bamboo] = (bamboo, 0.9f);
+            set.Members[MaterialLibrary.Timber] = (timber, 1.4f);
+            set.Members[MaterialLibrary.Steel] = (steel, 1.6f);
+            set.Members[MaterialLibrary.Concrete] = (concrete, 2.0f);
+            set.Members[MaterialLibrary.EarthBlock] = (earthBlock, 1.2f);
+
+            // Hillside: grass terraces in two tones over laterite (sand tinted red-brown).
+            var grass = ImportedAssets.LoadTexture($"{GroundTextures}/grass1/grass1_diffuse.bmp", maxSize: 512);
+            var grassNormal = ImportedAssets.LoadTexture($"{GroundTextures}/grass1/grass1_normal.bmp", normalMap: true, maxSize: 512);
+            var sand = ImportedAssets.LoadTexture($"{GroundTextures}/sand1/sand1_diffuseOriginal.bmp", maxSize: 512);
+            var sandNormal = ImportedAssets.LoadTexture($"{GroundTextures}/sand1/sand1_normal.bmp", normalMap: true, maxSize: 512);
+            set.Ground = new[]
+            {
+                ImportedAssets.SurfaceMaterial("TerraceLight", grass, grassNormal, new Color(0.92f, 1f, 0.82f), smoothness: 0.05f),
+                ImportedAssets.SurfaceMaterial("TerraceDark", grass, grassNormal, new Color(0.66f, 0.80f, 0.58f), smoothness: 0.05f),
+                ImportedAssets.SurfaceMaterial("Laterite", sand, sandNormal, new Color(0.95f, 0.55f, 0.38f), smoothness: 0.05f)
+            };
+            foreach (var ground in set.Ground)
+            {
+                ground.SetTextureScale("_BaseMap", new Vector2(0.4f, 0.4f));
+                EditorUtility.SetDirty(ground);
+            }
+
+            // Compacted laterite and gravel for the building platform under each house.
+            set.Platform = ImportedAssets.SurfaceMaterial("Platform",
+                ImportedAssets.LoadTexture($"{GroundTextures}/rock1/rock1_diffuseOriginal.bmp", maxSize: 512),
+                ImportedAssets.LoadTexture($"{GroundTextures}/rock1/rock1_normal.bmp", normalMap: true, maxSize: 512),
+                new Color(0.92f, 0.74f, 0.60f), smoothness: 0.1f);
+            set.Platform.SetTextureScale("_BaseMap", new Vector2(0.6f, 0.6f));
+            EditorUtility.SetDirty(set.Platform);
+            return set;
+        }
+
         private static void ConfigureAudioImport()
         {
+            // Field recordings from the Nature - Essentials pack: mono, compressed, streamed from memory.
+            foreach (var name in NatureClips)
+            {
+                if (!(AssetImporter.GetAtPath($"{NatureAudio}/{name}.wav") is AudioImporter nature)) continue;
+                nature.forceToMono = true;
+                nature.loadInBackground = true;
+                var natureSettings = nature.defaultSampleSettings;
+                natureSettings.loadType = AudioClipLoadType.CompressedInMemory;
+                natureSettings.compressionFormat = AudioCompressionFormat.Vorbis;
+                natureSettings.quality = 0.35f;
+                natureSettings.sampleRateSetting = AudioSampleRateSetting.OverrideSampleRate;
+                natureSettings.sampleRateOverride = 22050;
+                nature.defaultSampleSettings = natureSettings;
+                nature.SaveAndReimport();
+            }
+
             foreach (var guid in AssetDatabase.FindAssets("t:AudioClip", new[] { AudioFolder }))
             {
                 var path = AssetDatabase.GUIDToAssetPath(guid);
@@ -312,7 +413,7 @@ namespace Fatiro.EditorTools
             public GameObject Plane;
         }
 
-        private static PrefabSet CreatePrefabs(MaterialSet materials)
+        private static PrefabSet CreatePrefabs(MaterialSet materials, SurfaceSet surfaces)
         {
             return new PrefabSet
             {
@@ -320,8 +421,8 @@ namespace Fatiro.EditorTools
                 Pad = MemberPrefab("Member_Pad", PrimitiveType.Cube, materials.Structure),
                 Panel = MemberPrefab("Member_Panel", PrimitiveType.Cube, materials.Structure),
                 Arch = MemberPrefab("Member_Arch", null, materials.Structure),
-                Site = SitePrefab(materials.Plot),
-                Debris = EffectPrefab<DebrisPiece>("FX_Debris", PrimitiveType.Cube, materials.Debris),
+                Site = SitePrefab(surfaces.Ground, surfaces.Platform),
+                Debris = DebrisPrefab(materials.Debris),
                 RainDrop = EffectPrefab<RainDrop>("FX_RainDrop", PrimitiveType.Sphere, materials.Rain),
                 Spark = EffectPrefab<SnapSpark>("FX_Spark", PrimitiveType.Sphere, materials.Spark),
                 Plane = PlanePrefab(materials.PlaneGrid)
@@ -362,7 +463,64 @@ namespace Fatiro.EditorTools
             return SavePrefab(root, $"{PrefabsFolder}/{name}.prefab");
         }
 
-        private static GameObject SitePrefab(Material plotMaterial)
+        /// <summary>A piece of imported scenery and where it stands on the plot (model metres).</summary>
+        private readonly struct Scenery
+        {
+            public Scenery(string prefab, float size, float x, float z, float yaw = 0f, bool fitHeight = true, bool carPaint = false)
+            {
+                CarPaint = carPaint;
+                Prefab = prefab;
+                Size = size;
+                Position = new Vector2(x, z);
+                Yaw = yaw;
+                FitHeight = fitHeight;
+            }
+
+            public string Prefab { get; }
+            public float Size { get; }
+            public Vector2 Position { get; }
+            public float Yaw { get; }
+            public bool FitHeight { get; }
+
+            /// <summary>Repaint with a glossy car finish (for models whose own materials import without textures).</summary>
+            public bool CarPaint { get; }
+        }
+
+        /// <summary>
+        /// Bamboo, trees, bushes, flowers, rocks and a neighbouring clay-brick house along the plot
+        /// edges, clear of every design's footprint. Heights follow the slope at runtime.
+        /// </summary>
+        private static readonly Scenery[] Hillside =
+        {
+            new Scenery($"{Polyeler}/Prefabs/Bamboo.prefab", 5.0f, -7.3f, -3.0f, 20f),
+            new Scenery($"{Polyeler}/Prefabs/Bamboo.prefab", 5.5f, 7.4f, -1.4f, 140f),
+            new Scenery($"{Polyeler}/Prefabs/Bamboo.prefab", 4.5f, -7.4f, 6.0f, 75f),
+            new Scenery($"{Polyeler}/Prefabs/Bamboo.prefab", 5.0f, 7.2f, 7.4f, 200f),
+            new Scenery($"{Polyeler}/Prefabs/LittleBamboo.prefab", 2.5f, 7.4f, 3.0f, 30f),
+            new Scenery($"{Polyeler}/Prefabs/LittleBamboo.prefab", 2.5f, -7.3f, 2.0f, 110f),
+            new Scenery($"{SimpleNature}/Tree_01.prefab", 4.5f, 7.0f, -5.6f, 15f),
+            new Scenery($"{SimpleNature}/Tree_03.prefab", 4.0f, -3.5f, 8.0f, 60f),
+            new Scenery($"{SimpleNature}/Tree_05.prefab", 3.5f, 4.0f, 8.1f, 230f),
+            new Scenery($"{SimpleNature}/Bush_01.prefab", 1.0f, -6.9f, -1.2f),
+            new Scenery($"{SimpleNature}/Bush_02.prefab", 1.1f, 6.9f, 5.6f, 90f),
+            new Scenery($"{SimpleNature}/Bush_03.prefab", 0.9f, -1.8f, 8.2f, 45f),
+            new Scenery($"{SimpleNature}/Flowers_01.prefab", 0.5f, 1.8f, 8.2f),
+            new Scenery($"{SimpleNature}/Flowers_02.prefab", 0.5f, -7.0f, 4.3f, 70f),
+            new Scenery($"{SimpleNature}/Flowers_01.prefab", 0.5f, 7.0f, -3.6f, 160f),
+            new Scenery($"{Stones}/ST_Stone1.prefab", 0.9f, 6.9f, 1.6f, 40f, false),
+            new Scenery($"{Stones}/ST_Stone3.prefab", 0.8f, -7.1f, 0.6f, 120f, false),
+            new Scenery($"{Stones}/ST_Stone5.prefab", 0.7f, -2.9f, -6.1f, 10f, false),
+            new Scenery($"{SimpleNature}/Rock_02.prefab", 0.6f, 2.6f, 8.3f, 0f, false),
+            new Scenery($"{SimpleNature}/Rock_04.prefab", 0.8f, 4.0f, -6.1f, 80f, false),
+            new Scenery($"{SimpleNature}/Grass_01.prefab", 0.4f, 6.8f, -0.4f),
+            new Scenery($"{SimpleNature}/Grass_02.prefab", 0.4f, -6.9f, 7.6f, 50f),
+            new Scenery($"{SimpleNature}/Grass_01.prefab", 0.35f, 0.9f, 8.4f, 130f),
+            new Scenery("Assets/Brick_House/Prefabs/Brick_House_2.79.prefab", 3.6f, -6.0f, -5.3f, 90f, false),
+            // A real-size car (Nissan 180MX by Grzybek) parked uphill, for scale.
+            new Scenery($"{ImportedModels}/Nissan180MX.fbx", 4.4f, 4.6f, -5.7f, 90f, false, carPaint: true)
+        };
+
+        private static GameObject SitePrefab(Material[] groundMaterials, Material platformMaterial)
         {
             var root = new GameObject("Site_Plot");
             var content = new GameObject("Content").transform;
@@ -370,40 +528,41 @@ namespace Fatiro.EditorTools
             var plot = new GameObject("Plot", typeof(MeshFilter), typeof(MeshRenderer), typeof(MeshCollider));
             plot.transform.SetParent(content, false);
             var renderer = plot.GetComponent<MeshRenderer>();
-            renderer.sharedMaterial = plotMaterial;
+            renderer.sharedMaterials = groundMaterials;
             renderer.shadowCastingMode = ShadowCastingMode.Off;
+            var platform = new GameObject("Building platform", typeof(MeshFilter), typeof(MeshRenderer));
+            platform.transform.SetParent(content, false);
+            var platformRenderer = platform.GetComponent<MeshRenderer>();
+            platformRenderer.sharedMaterial = platformMaterial;
+            platformRenderer.shadowCastingMode = ShadowCastingMode.Off;
             var structure = new GameObject("Structure").transform;
             structure.SetParent(content, false);
 
-            // Banana trees along the plot edges, clear of every design's footprint.
-            var lit = Shader.Find("Universal Render Pipeline/Lit");
-            var leaf = SaveMaterial("BananaLeaf", lit, new Color(0.36f, 0.62f, 0.22f), smoothness: 0.35f);
-            var trunk = SaveMaterial("BananaTrunk", lit, new Color(0.45f, 0.42f, 0.22f), smoothness: 0.1f);
-            var treePositions = new[]
-            {
-                new Vector2(-7.3f, -5.4f), new Vector2(7.3f, -4.6f), new Vector2(-7.4f, -0.8f), new Vector2(7.4f, 0.6f),
-                new Vector2(-7.2f, 4.2f), new Vector2(7.3f, 4.8f), new Vector2(-4.6f, 8.0f), new Vector2(5.2f, 8.0f)
-            };
             var trees = new List<Transform>();
-            var treeRoot = new GameObject("Trees").transform;
-            treeRoot.SetParent(content, false);
-            for (var i = 0; i < treePositions.Length; i++)
+            var sceneryRoot = new GameObject("Scenery").transform;
+            sceneryRoot.SetParent(content, false);
+            var triangles = 0;
+            foreach (var item in Hillside)
             {
-                var tree = new GameObject($"Banana tree {i + 1}").transform;
-                tree.SetParent(treeRoot, false);
-                tree.localPosition = new Vector3(treePositions[i].x, 0f, treePositions[i].y);
-                tree.localRotation = Quaternion.Euler(0f, i * 47f, 0f);
-                var height = 2.2f + (i % 3) * 0.35f;
-                TreePiece(tree, PrimitiveType.Cylinder, trunk, new Vector3(0f, height * 0.5f, 0f), new Vector3(0.28f, height * 0.5f, 0.28f), Vector3.zero);
-                for (var blade = 0; blade < 5; blade++)
+                var prefab = ImportedAssets.LoadPrefab(item.Prefab);
+                if (prefab == null) continue;
+                var prop = ImportedAssets.Instantiate(prefab, item.Size, item.FitHeight, null, prefab.name);
+                if (item.CarPaint)
                 {
-                    var yaw = blade * 72f;
-                    var outward = Quaternion.Euler(0f, yaw, 0f) * Vector3.forward;
-                    TreePiece(tree, PrimitiveType.Cube, leaf, new Vector3(0f, height + 0.15f, 0f) + outward * 0.75f,
-                        new Vector3(0.45f, 0.05f, 1.7f), new Vector3(-28f, yaw, 0f));
+                    var paint = SaveMaterial("CarPaint", Shader.Find("Universal Render Pipeline/Lit"), new Color(0.12f, 0.32f, 0.55f), smoothness: 0.75f);
+                    paint.SetFloat("_Metallic", 0.4f);
+                    foreach (var part in prop.GetComponentsInChildren<Renderer>(true))
+                    {
+                        var materials = part.sharedMaterials;
+                        for (var i = 0; i < materials.Length; i++) materials[i] = paint;
+                        part.sharedMaterials = materials;
+                    }
                 }
-                trees.Add(tree);
+                foreach (var filter in prop.GetComponentsInChildren<MeshFilter>(true))
+                    if (filter.sharedMesh != null) triangles += filter.sharedMesh.triangles.Length / 3;
+                trees.Add(ImportedAssets.Grounded(prop, sceneryRoot, new Vector3(item.Position.x, 0f, item.Position.y), item.Yaw, prefab.name));
             }
+            Debug.Log($"[Fatiro] Hillside scenery: {trees.Count} props, about {triangles} triangles including LODs.");
 
             var site = root.AddComponent<SiteController>();
             var serialized = new SerializedObject(site);
@@ -411,6 +570,7 @@ namespace Fatiro.EditorTools
             serialized.FindProperty("structureRoot").objectReferenceValue = structure;
             serialized.FindProperty("plotFilter").objectReferenceValue = plot.GetComponent<MeshFilter>();
             serialized.FindProperty("plotCollider").objectReferenceValue = plot.GetComponent<MeshCollider>();
+            serialized.FindProperty("platformFilter").objectReferenceValue = platform.GetComponent<MeshFilter>();
             var treeArray = serialized.FindProperty("trees");
             treeArray.arraySize = trees.Count;
             for (var i = 0; i < trees.Count; i++) treeArray.GetArrayElementAtIndex(i).objectReferenceValue = trees[i];
@@ -418,17 +578,43 @@ namespace Fatiro.EditorTools
             return SavePrefab(root, $"{PrefabsFolder}/Site_Plot.prefab");
         }
 
-        private static void TreePiece(Transform parent, PrimitiveType type, Material material, Vector3 position, Vector3 scale, Vector3 euler)
+        /// <summary>Collapse debris: broken planks and logs from the Static Soul wood pack, picked at random per piece.</summary>
+        private static GameObject DebrisPrefab(Material fallbackMaterial)
         {
-            var piece = GameObject.CreatePrimitive(type);
-            Object.DestroyImmediate(piece.GetComponent<Collider>());
-            piece.transform.SetParent(parent, false);
-            piece.transform.localPosition = position;
-            piece.transform.localEulerAngles = euler;
-            piece.transform.localScale = scale;
-            var renderer = piece.GetComponent<MeshRenderer>();
-            renderer.sharedMaterial = material;
+            const string folder = "Assets/Static Soul Studio/Wood Pack/Built-in/Prefabs";
+            var meshes = new List<Mesh>();
+            Material woodMaterial = null;
+            var largest = 0f;
+            foreach (var name in new[] { "Broken_plank_1", "Broken_plank_2", "Broken_plank_3", "Broken_plank_4", "Broken_plank_5", "Broken_plank_6", "Broken log_1", "Broken log_2" })
+            {
+                var prefab = ImportedAssets.LoadPrefab($"{folder}/{name}.prefab");
+                var filter = prefab != null ? prefab.GetComponentInChildren<MeshFilter>() : null;
+                if (filter == null || filter.sharedMesh == null) continue;
+                meshes.Add(filter.sharedMesh);
+                largest = Mathf.Max(largest, filter.sharedMesh.bounds.size.magnitude);
+                woodMaterial ??= ImportedAssets.ToUrp(prefab.GetComponentInChildren<MeshRenderer>().sharedMaterial);
+            }
+
+            if (meshes.Count == 0) return EffectPrefab<DebrisPiece>("FX_Debris", PrimitiveType.Cube, fallbackMaterial);
+
+            var root = new GameObject("FX_Debris", typeof(MeshFilter), typeof(MeshRenderer));
+            var meshFilter = root.GetComponent<MeshFilter>();
+            meshFilter.sharedMesh = meshes[0];
+            var renderer = root.GetComponent<MeshRenderer>();
+            renderer.sharedMaterial = woodMaterial;
             renderer.shadowCastingMode = ShadowCastingMode.Off;
+            renderer.receiveShadows = false;
+            var debris = root.AddComponent<DebrisPiece>();
+            var serialized = new SerializedObject(debris);
+            serialized.FindProperty("effectRenderer").objectReferenceValue = renderer;
+            serialized.FindProperty("meshFilter").objectReferenceValue = meshFilter;
+            // About 0.6 model metres across, so a plank reads as a splinter of the member it came from.
+            serialized.FindProperty("size").floatValue = 0.6f / Mathf.Max(largest, 0.01f);
+            var variants = serialized.FindProperty("variants");
+            variants.arraySize = meshes.Count;
+            for (var i = 0; i < meshes.Count; i++) variants.GetArrayElementAtIndex(i).objectReferenceValue = meshes[i];
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            return SavePrefab(root, $"{PrefabsFolder}/FX_Debris.prefab");
         }
 
         private static GameObject EffectPrefab<T>(string name, PrimitiveType primitive, Material material) where T : PooledEffect
@@ -486,7 +672,11 @@ namespace Fatiro.EditorTools
             var skins = new Dictionary<string, GameObject>();
 
             // Ingwe: head over the cantilever, ears, glowing eyes, curling tail behind the haunches.
+            // Preferred: the Poly by Google tiger, recoloured as a black panther, crouched over the ribs.
             var panther = new GameObject("Skin_PN-01");
+            var pantherFur = SaveMaterial("Skin_PantherFur", lit, new Color(0.07f, 0.07f, 0.08f), smoothness: 0.15f);
+            if (!FitModel(panther, $"{ImportedModels}/Tiger.glb", 13.5f, 1.6f, 0.1f, pantherFur))
+            {
             Piece(panther, PrimitiveType.Sphere, black, new Vector3(0f, 3.75f, 7.1f), new Vector3(2.4f, 1.6f, 2.2f));
             Piece(panther, PrimitiveType.Capsule, black, new Vector3(-0.8f, 4.55f, 6.9f), new Vector3(0.45f, 0.5f, 0.3f), new Vector3(0, 0, 20));
             Piece(panther, PrimitiveType.Capsule, black, new Vector3(0.8f, 4.55f, 6.9f), new Vector3(0.45f, 0.5f, 0.3f), new Vector3(0, 0, -20));
@@ -498,29 +688,86 @@ namespace Fatiro.EditorTools
                 Piece(panther, PrimitiveType.Sphere, black, new Vector3(0.4f * Mathf.Sin(t * 3f), 3.4f + 1.4f * t, -4.4f - 1.2f * t + 0.6f * t * t),
                     Vector3.one * Mathf.Lerp(0.55f, 0.3f, t));
             }
+            }
             skins["PN-01"] = SavePrefab(panther, $"{SkinsFolder}/Skin_PN-01.prefab");
 
             // Inzovu: head at the front arch, eyes and ivory tusks; the trunk is the real drain member.
+            // Preferred: the Poly by Google elephant standing over the legs and body arches.
             var elephant = new GameObject("Skin_EL-01");
+            if (!FitModel(elephant, $"{ImportedModels}/Elephant.glb", 11.0f, 0.6f, 0.2f, null))
+            {
             Piece(elephant, PrimitiveType.Sphere, grey, new Vector3(0f, 5.0f, 3.2f), new Vector3(2.6f, 2.4f, 1.6f));
             Piece(elephant, PrimitiveType.Sphere, black, new Vector3(-0.75f, 5.4f, 3.9f), new Vector3(0.25f, 0.25f, 0.15f));
             Piece(elephant, PrimitiveType.Sphere, black, new Vector3(0.75f, 5.4f, 3.9f), new Vector3(0.25f, 0.25f, 0.15f));
             Piece(elephant, PrimitiveType.Capsule, ivory, new Vector3(-0.7f, 4.1f, 4.2f), new Vector3(0.22f, 0.8f, 0.22f), new Vector3(60, 0, 0));
             Piece(elephant, PrimitiveType.Capsule, ivory, new Vector3(0.7f, 4.1f, 4.2f), new Vector3(0.22f, 0.8f, 0.22f), new Vector3(60, 0, 0));
             Piece(elephant, PrimitiveType.Capsule, grey, new Vector3(0f, 5.2f, -2.9f), new Vector3(0.15f, 0.9f, 0.15f), new Vector3(-30, 0, 0));
+            }
             skins["EL-01"] = SavePrefab(elephant, $"{SkinsFolder}/Skin_EL-01.prefab");
 
-            // Imodoka: wheels, headlights, tail lights and a rear spoiler.
+            // Imodoka: a real low-poly car sized to the stilted deck.
             var car = new GameObject("Skin_CR-01");
-            foreach (var x in new[] { -2.05f, 2.05f })
-            foreach (var z in new[] { -2.7f, 2.9f })
-                Piece(car, PrimitiveType.Cylinder, black, new Vector3(x, 2.25f, z), new Vector3(1.3f, 0.18f, 1.3f), new Vector3(0, 0, 90));
-            Piece(car, PrimitiveType.Sphere, lights, new Vector3(-1.2f, 2.7f, 4.75f), new Vector3(0.6f, 0.25f, 0.2f));
-            Piece(car, PrimitiveType.Sphere, lights, new Vector3(1.2f, 2.7f, 4.75f), new Vector3(0.6f, 0.25f, 0.2f));
-            Piece(car, PrimitiveType.Cube, tail, new Vector3(0f, 2.9f, -4.25f), new Vector3(2.6f, 0.15f, 0.08f));
-            Piece(car, PrimitiveType.Cube, red, new Vector3(0f, 4.15f, -3.9f), new Vector3(3.2f, 0.08f, 0.6f), new Vector3(-8, 0, 0));
+            var carPrefab = ImportedAssets.LoadPrefab("Assets/Alstra Infinite/Vehicles LowPoly/Prefabs/Version 1.2/MuscleCarV1.prefab");
+            if (FitModel(car, $"{ImportedModels}/DodgeChallenger.glb", 8.6f, 0.3f, 2.25f, null))
+            {
+                // The Dodge Challenger (Grzybek, Poly Pizza) sourced for this project.
+            }
+            else if (carPrefab != null)
+            {
+                var body = ImportedAssets.Instantiate(carPrefab, 8.6f, false, null, "Muscle car");
+                var bounds = ImportedAssets.Bounds(body);
+                if (bounds.size.x > bounds.size.z) body.transform.Rotate(0f, 90f, 0f, Space.World);
+                bounds = ImportedAssets.Bounds(body);
+                // Wheels on the deck (y 2.2), centred over the stilts, nose pointing downhill.
+                body.transform.position += new Vector3(-bounds.center.x, 2.25f - bounds.min.y, 0.3f - bounds.center.z);
+                body.transform.SetParent(car.transform, true);
+            }
+            else
+            {
+                foreach (var x in new[] { -2.05f, 2.05f })
+                foreach (var z in new[] { -2.7f, 2.9f })
+                    Piece(car, PrimitiveType.Cylinder, black, new Vector3(x, 2.25f, z), new Vector3(1.3f, 0.18f, 1.3f), new Vector3(0, 0, 90));
+                Piece(car, PrimitiveType.Sphere, lights, new Vector3(-1.2f, 2.7f, 4.75f), new Vector3(0.6f, 0.25f, 0.2f));
+                Piece(car, PrimitiveType.Sphere, lights, new Vector3(1.2f, 2.7f, 4.75f), new Vector3(0.6f, 0.25f, 0.2f));
+                Piece(car, PrimitiveType.Cube, tail, new Vector3(0f, 2.9f, -4.25f), new Vector3(2.6f, 0.15f, 0.08f));
+                Piece(car, PrimitiveType.Cube, red, new Vector3(0f, 4.15f, -3.9f), new Vector3(3.2f, 0.08f, 0.6f), new Vector3(-8, 0, 0));
+            }
             skins["CR-01"] = SavePrefab(car, $"{SkinsFolder}/Skin_CR-01.prefab");
             return skins;
+        }
+
+        /// <summary>
+        /// Places an imported model (glb via glTFast, or fbx) inside a skin: scaled so its length matches,
+        /// turned to run along +Z (downhill), centred over the structure and sat at the given height.
+        /// Returns false if the model is not in the project, so the caller can fall back to primitives.
+        /// </summary>
+        private static bool FitModel(GameObject skin, string path, float length, float centreZ, float baseY, Material overrideMaterial)
+        {
+            var asset = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            if (asset == null)
+            {
+                Debug.LogWarning($"[Fatiro] Skin model not found at {path}; using the primitive skin.");
+                return false;
+            }
+
+            var model = ImportedAssets.Instantiate(asset, length, false, null, Path.GetFileNameWithoutExtension(path));
+            var bounds = ImportedAssets.Bounds(model);
+            if (bounds.size.x > bounds.size.z) model.transform.Rotate(0f, 90f, 0f, Space.World);
+
+            if (overrideMaterial != null)
+            {
+                foreach (var renderer in model.GetComponentsInChildren<Renderer>(true))
+                {
+                    var materials = renderer.sharedMaterials;
+                    for (var i = 0; i < materials.Length; i++) materials[i] = overrideMaterial;
+                    renderer.sharedMaterials = materials;
+                }
+            }
+
+            bounds = ImportedAssets.Bounds(model);
+            model.transform.position += new Vector3(-bounds.center.x, baseY - bounds.min.y, centreZ - bounds.center.z);
+            model.transform.SetParent(skin.transform, true);
+            return true;
         }
 
         private static void Piece(GameObject parent, PrimitiveType type, Material material, Vector3 position, Vector3 scale, Vector3 euler = default)
@@ -538,7 +785,7 @@ namespace Fatiro.EditorTools
 
         // ---- Design data ----------------------------------------------------------------
 
-        private static List<MaterialData> CreateMaterialData()
+        private static List<MaterialData> CreateMaterialData(SurfaceSet surfaces)
         {
             var colours = new Dictionary<string, (Color colour, string text)>
             {
@@ -559,7 +806,8 @@ namespace Fatiro.EditorTools
                     asset = ScriptableObject.CreateInstance<MaterialData>();
                     AssetDatabase.CreateAsset(asset, path);
                 }
-                asset.Configure(spec, colours[spec.Id].colour, colours[spec.Id].text);
+                var surface = surfaces.Members[spec.Id];
+                asset.Configure(spec, colours[spec.Id].colour, colours[spec.Id].text, surface.material, surface.tileMetres);
                 EditorUtility.SetDirty(asset);
                 result.Add(asset);
             }
@@ -595,7 +843,8 @@ namespace Fatiro.EditorTools
 
                 var skinPath = AssetDatabase.GetAssetPath(skins[blueprint.DesignId]);
                 var skinGuid = AssetDatabase.AssetPathToGUID(skinPath);
-                asset.Configure(blueprint, accents[blueprint.DesignId], order++, focus[blueprint.DesignId], new AssetReferenceGameObject(skinGuid));
+                asset.Configure(blueprint, accents[blueprint.DesignId], order++, focus[blueprint.DesignId], new AssetReferenceGameObject(skinGuid),
+                    skinLiesOnSlope: blueprint.DesignId != Blueprints.CarId);
                 EditorUtility.SetDirty(asset);
                 designs.Add(asset);
             }
@@ -621,6 +870,11 @@ namespace Fatiro.EditorTools
             {
                 var clip = AssetDatabase.LoadAssetAtPath<AudioClip>(AssetDatabase.GUIDToAssetPath(guid));
                 Entry(settings, clip, audio, $"Audio/{clip.name}", AssetKeys.AudioLabel);
+            }
+            foreach (var name in NatureClips)
+            {
+                var clip = AssetDatabase.LoadAssetAtPath<AudioClip>($"{NatureAudio}/{name}.wav");
+                if (clip != null) Entry(settings, clip, audio, $"Audio/{name}", AssetKeys.AudioLabel);
             }
 
             var session = Group(settings, "Session Prefabs", BundledAssetGroupSchema.BundlePackingMode.PackTogether);
@@ -741,9 +995,13 @@ namespace Fatiro.EditorTools
             var ambienceSource = audioObject.AddComponent<AudioSource>();
             ambienceSource.playOnAwake = false;
             ambienceSource.loop = true;
+            var worldSource = audioObject.AddComponent<AudioSource>();
+            worldSource.playOnAwake = false;
+            worldSource.loop = true;
             var audio = audioObject.AddComponent<AudioManager>();
             Set(audio, "effects", effectsSource);
             Set(audio, "ambience", ambienceSource);
+            Set(audio, "world", worldSource);
 
             var effects = new GameObject("Effects").AddComponent<EffectsController>();
             effects.transform.SetParent(fatiro.transform, false);

@@ -15,14 +15,29 @@ namespace Fatiro.Data
 
             var temp = path + ".tmp";
             File.WriteAllText(temp, contents);
-            if (File.Exists(path))
-            {
-                File.Replace(temp, path, null);
-            }
-            else
+            if (!File.Exists(path))
             {
                 File.Move(temp, path);
+                return;
             }
+
+            // Windows can briefly lock a file that was just written (indexers, antivirus), so a
+            // replace fired moments after the previous one may fail. Retry, then overwrite in place.
+            for (var attempt = 0; attempt < 3; attempt++)
+            {
+                try
+                {
+                    File.Replace(temp, path, null);
+                    return;
+                }
+                catch (IOException)
+                {
+                    System.Threading.Thread.Sleep(15 * (attempt + 1));
+                }
+            }
+
+            File.Copy(temp, path, true);
+            File.Delete(temp);
         }
 
         public static bool TryReadAllText(string path, out string contents)

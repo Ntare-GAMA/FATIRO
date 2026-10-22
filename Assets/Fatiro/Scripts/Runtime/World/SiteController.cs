@@ -22,10 +22,13 @@ namespace Fatiro.World
         [SerializeField] private Transform structureRoot;
         [SerializeField] private MeshFilter plotFilter;
         [SerializeField] private MeshCollider plotCollider;
-        [Tooltip("Decorative banana trees; their X/Z are kept and their height follows the slope.")]
+        [Tooltip("Compacted building platform under the house footprint.")]
+        [SerializeField] private MeshFilter platformFilter;
+        [Tooltip("Scenery props; their X/Z are kept and their height follows the slope.")]
         [SerializeField] private Transform[] trees = new Transform[0];
 
         private Mesh plotMesh;
+        private Mesh platformMesh;
         private Coroutine shake;
         private Vector3 contentRestPosition;
 
@@ -36,7 +39,7 @@ namespace Fatiro.World
         /// <summary>Real-world metres per model metre.</summary>
         public float WorldScale => 1f / ScaleDenominator;
 
-        public void Configure(SiteConditions site, float uphillReferenceZ, int scaleDenominator)
+        public void Configure(SiteConditions site, float uphillReferenceZ, int scaleDenominator, Rect footprint)
         {
             Layout = new SiteLayout(site, uphillReferenceZ);
             float Ground(float z) => Layout.GroundY(Mathf.Clamp(z, PlotMinZ, PlotMaxZ));
@@ -47,6 +50,15 @@ namespace Fatiro.World
             plotMesh = MemberMeshes.BuildPlot(PlotMinX, PlotMaxX, PlotMinZ, PlotMaxZ, Ground, baseY);
             plotFilter.sharedMesh = plotMesh;
             if (plotCollider != null) plotCollider.sharedMesh = plotMesh;
+
+            // Firm ground: a compacted platform cut into the hillside under the house, a metre wider all round.
+            if (platformFilter != null)
+            {
+                if (platformMesh != null) Destroy(platformMesh);
+                var pad = new Rect(footprint.xMin - 1f, footprint.yMin - 1f, footprint.width + 2f, footprint.height + 2f);
+                platformMesh = MemberMeshes.BuildPlatform(pad, Ground, 0.05f);
+                platformFilter.sharedMesh = platformMesh;
+            }
             foreach (var tree in trees)
             {
                 var position = tree.localPosition;
@@ -105,6 +117,7 @@ namespace Fatiro.World
         private void OnDestroy()
         {
             if (plotMesh != null) Destroy(plotMesh);
+            if (platformMesh != null) Destroy(platformMesh);
         }
     }
 }

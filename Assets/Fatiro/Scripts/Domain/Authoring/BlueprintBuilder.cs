@@ -53,6 +53,19 @@ namespace Fatiro.Domain
             return id;
         }
 
+        /// <summary>
+        /// A brick wall standing on the ground between two points (ground-relative, so it steps with
+        /// the slope). As a Brace it ties together whatever it is built against: footings for a plinth
+        /// wall, legs or stilts for an infill shear wall.
+        /// </summary>
+        public string Wall(string id, string name, BuildStage stage, Endpoint a, Endpoint b, float height, float thickness,
+            string material, string[] ties, bool required = true, string hint = null, float topHeight = 0f)
+        {
+            members.Add(new MemberSpec(id, name, MemberKind.Brace, stage, MemberShape.Block, a, b, thickness, material,
+                MaterialLibrary.Masonry, ties, required: required, crownHeight: topHeight, panelSize: new Vector3(thickness, height, 0f), hint: hint));
+            return id;
+        }
+
         public static string[] On(params string[] ids) => ids;
     }
 }

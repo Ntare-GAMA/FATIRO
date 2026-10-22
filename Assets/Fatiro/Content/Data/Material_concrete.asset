@@ -20,4 +20,6 @@ MonoBehaviour:
   unitCost: 3
   drainCapacity: 9000
   color: {r: 0.8, g: 0.8, b: 0.78, a: 1}
+  renderMaterial: {fileID: 2100000, guid: 41f6da781c2490b4ab23bf62ded62da5, type: 2}
+  tileMetres: 2
   description: Strong in compression, heavy.

@@ -178,7 +178,7 @@ namespace Fatiro.UI
                 card.childAlignment = TextAnchor.UpperLeft;
 
                 UIKit.Label(card.transform, spec.DisplayName, 28, isSelected ? Theme.Primary : Theme.Ink, style: FontStyle.Bold);
-                UIKit.Label(card.transform, $"{spec.Kind} · {EnumText.StageName(spec.Stage)}", 22, Theme.Muted);
+                UIKit.Label(card.transform, $"{EnumText.PieceName(spec)} · {EnumText.StageName(spec.Stage)}", 22, Theme.Muted);
                 var check = Session.Tasks.CanPlace(spec);
                 var note = !spec.Required ? UIKit.Colour("Optional reinforcement", Theme.Teal)
                     : check.Allowed ? UIKit.Colour("Ready", Theme.Success)
@@ -281,7 +281,7 @@ namespace Fatiro.UI
 
             var spec = member.Spec;
             heading.text = spec.DisplayName;
-            var lines = $"{spec.Kind} · {EnumText.StageName(spec.Stage)}{(spec.Required ? string.Empty : " · optional")}\n" +
+            var lines = $"{EnumText.PieceName(spec)} · {EnumText.StageName(spec.Stage)}{(spec.Required ? string.Empty : " · optional")}\n" +
                         $"Resists load by {member.ResistanceMode}. Length {member.Geometry.Length:0.0} m.";
             if (Session.LoadTests.LastResult != null)
             {

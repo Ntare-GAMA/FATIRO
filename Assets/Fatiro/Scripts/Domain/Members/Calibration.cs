@@ -12,6 +12,7 @@ namespace Fatiro.Domain
         public const float FoundationBearing = 80f;
         public const float FoundationSliding = 25f;
         public const float SlopeForZeroGrip = 40f;
+        public const float TiedFootingFactor = 2f;
 
         // Columns and stilts
         public const float ColumnSquash = 120f;

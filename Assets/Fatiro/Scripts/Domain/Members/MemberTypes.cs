@@ -16,11 +16,12 @@ namespace Fatiro.Domain
             Calibration.FoundationBearing * Material.AxialStrength * context.Site.BearingFactor *
             context.Style.BearingFactor * Math.Max(Geometry.Area, 0.25f) * SectionFactor;
 
+        /// <summary>Sliding resistance. A brick plinth wall tying this footing to its neighbours doubles it.</summary>
         public override float LateralCapacity(in CapacityContext context)
         {
             var slopeLoss = context.Site.SlopeDegrees / Calibration.SlopeForZeroGrip * (1f - context.Style.SlopeResistance);
             var slopeFactor = Math.Max(0.15f, 1f - slopeLoss);
-            return Calibration.FoundationSliding * Material.AxialStrength * context.Style.LateralGrip * slopeFactor *
+            return (context.IsBraced ? Calibration.TiedFootingFactor : 1f) * Calibration.FoundationSliding * Material.AxialStrength * context.Style.LateralGrip * slopeFactor *
                    Math.Max(Geometry.Area, 0.25f) * SectionFactor;
         }
     }

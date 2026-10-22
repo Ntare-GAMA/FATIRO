@@ -80,6 +80,9 @@ namespace Fatiro.Domain
         public string FailureReason { get; private set; } = string.Empty;
         public bool IsFailed => State == MemberState.Failed;
 
+        /// <summary>Footings and plinth walls sit in or on the ground and move with it, so they add no shaking mass.</summary>
+        public bool IsAtGroundLevel => Kind == MemberKind.Foundation || (Spec.Shape == MemberShape.Block && Spec.CrownHeight <= 0f);
+
         /// <summary>Size relative to the 0.2 m reference section; capacity and weight scale with its square.</summary>
         protected float SectionFactor
         {

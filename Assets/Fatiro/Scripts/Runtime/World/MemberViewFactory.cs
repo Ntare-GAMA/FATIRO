@@ -37,12 +37,12 @@ namespace Fatiro.World
             }
         }
 
-        public MemberView SpawnMember(MemberSpec spec, ResolvedGeometry geometry, Transform parent, Color materialColor)
+        public MemberView SpawnMember(MemberSpec spec, ResolvedGeometry geometry, Transform parent, MemberSurface surface)
         {
             var view = memberPools[spec.Shape].Get(parent);
             ResetLocal(view.transform);
             view.Bind(spec, geometry);
-            view.ShowMaterial(materialColor);
+            view.ShowMaterial(surface);
             return view;
         }
 

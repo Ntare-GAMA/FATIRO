@@ -12,7 +12,8 @@ namespace Fatiro.Domain
         public const string EarthBlock = "earth-block";
 
         public static readonly string[] Frame = { Bamboo, Timber, Steel, Concrete };
-        public static readonly string[] Footing = { Concrete, EarthBlock, Steel };
+        public static readonly string[] Footing = { EarthBlock, Concrete, Steel };
+        public static readonly string[] Masonry = { EarthBlock, Concrete };
         public static readonly string[] Bracing = { Bamboo, Timber, Steel };
         public static readonly string[] Cladding = { Bamboo, Timber, Steel, EarthBlock };
         public static readonly string[] Drainage = { Bamboo, Steel, Concrete };
