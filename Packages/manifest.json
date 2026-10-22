@@ -1,7 +1,10 @@
 {
   "dependencies": {
     "com.unity.ai.navigation": "2.0.12",
+<<<<<<< HEAD
     "com.unity.cloud.gltfast": "6.20.0",
+=======
+>>>>>>> 36e112157c1a8b4e037fd29414f5c88e591d5a75
     "com.unity.addressables": "2.6.0",
     "com.unity.collab-proxy": "2.12.4",
     "com.unity.ide.rider": "3.0.40",

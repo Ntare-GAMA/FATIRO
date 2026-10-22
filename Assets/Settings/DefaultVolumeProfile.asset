@@ -342,9 +342,12 @@ MonoBehaviour:
   skyOcclusionIntensityMultiplier:
     m_OverrideState: 1
     m_Value: 1
+<<<<<<< HEAD
   worldOffset:
     m_OverrideState: 1
     m_Value: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> 36e112157c1a8b4e037fd29414f5c88e591d5a75
 --- !u!114 &-1216621516061285780
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -379,9 +382,12 @@ MonoBehaviour:
   highQualityFiltering:
     m_OverrideState: 1
     m_Value: 0
+<<<<<<< HEAD
   filter:
     m_OverrideState: 1
     m_Value: 0
+=======
+>>>>>>> 36e112157c1a8b4e037fd29414f5c88e591d5a75
   downscale:
     m_OverrideState: 1
     m_Value: 0
@@ -468,6 +474,11 @@ MonoBehaviour:
   - {fileID: -6288072647309666549}
   - {fileID: 7518938298396184218}
   - {fileID: -1410297666881709256}
+<<<<<<< HEAD
+=======
+  - {fileID: -7750755424749557576}
+  - {fileID: -5139089513906902183}
+>>>>>>> 36e112157c1a8b4e037fd29414f5c88e591d5a75
 --- !u!114 &853819529557874667
 MonoBehaviour:
   m_ObjectHideFlags: 3

@@ -26,8 +26,13 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.burst": {
+<<<<<<< HEAD
       "version": "1.8.30",
       "depth": 1,
+=======
+      "version": "1.8.29",
+      "depth": 2,
+>>>>>>> 36e112157c1a8b4e037fd29414f5c88e591d5a75
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
@@ -35,6 +40,7 @@
       },
       "url": "https://packages.unity.com"
     },
+<<<<<<< HEAD
     "com.unity.cloud.gltfast": {
       "version": "6.20.0",
       "depth": 0,
@@ -48,6 +54,8 @@
       },
       "url": "https://packages.unity.com"
     },
+=======
+>>>>>>> 36e112157c1a8b4e037fd29414f5c88e591d5a75
     "com.unity.collab-proxy": {
       "version": "2.12.4",
       "depth": 0,
@@ -57,7 +65,11 @@
     },
     "com.unity.collections": {
       "version": "6.4.0",
+<<<<<<< HEAD
       "depth": 1,
+=======
+      "depth": 2,
+>>>>>>> 36e112157c1a8b4e037fd29414f5c88e591d5a75
       "source": "builtin",
       "dependencies": {
         "com.unity.burst": "1.8.23",
@@ -124,7 +136,11 @@
     },
     "com.unity.nuget.mono-cecil": {
       "version": "1.11.6",
+<<<<<<< HEAD
       "depth": 2,
+=======
+      "depth": 3,
+>>>>>>> 36e112157c1a8b4e037fd29414f5c88e591d5a75
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -205,7 +221,11 @@
     },
     "com.unity.test-framework.performance": {
       "version": "3.4.0",
+<<<<<<< HEAD
       "depth": 2,
+=======
+      "depth": 3,
+>>>>>>> 36e112157c1a8b4e037fd29414f5c88e591d5a75
       "source": "registry",
       "dependencies": {
         "com.unity.test-framework": "1.1.33",
