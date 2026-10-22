@@ -91,3 +91,6 @@ ServerData/
 
 # Raw downloads (copies used by the app live in Assets/Fatiro/Imported)
 /Prefabs/
+
+# Packages moved out of Assets because they break the Android build (unused by Fatiro)
+/_DisabledAssets/
