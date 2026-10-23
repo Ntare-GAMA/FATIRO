@@ -1,4 +1,4 @@
-# Fatiro AR — Experimental Housing Structures Simulator
+# Fatiro AR - Experimental Housing Structures Simulator
 
 Mobile AR simulation (Android, ARCore) in which construction learners assemble houses (biomimetic animal and car houses, and Rwandan classics) on a sloped hillside placed on a real table, then load-test them with earthquakes, wind, rain and occupancy. Members that exceed their capacity fail and bring down whatever rests on them; the learner reinforces the design and tests again.
 
