@@ -233,7 +233,6 @@ namespace Fatiro.Data
         private const string LastProfileKey = "fatiro.lastProfile";
         private const string DebugKey = "fatiro.debugOverlay";
         private const string LabelsKey = "fatiro.utilisationLabels";
-        private const string HologramKey = "fatiro.hologramView";
 
         public bool Muted
         {
@@ -245,13 +244,6 @@ namespace Fatiro.Data
         {
             get => PlayerPrefs.GetInt(DebugKey, 0) == 1;
             set => Set(DebugKey, value);
-        }
-
-        /// <summary>Hologram view (default) or the real textured view.</summary>
-        public bool Hologram
-        {
-            get => PlayerPrefs.GetInt(HologramKey, 1) == 1;
-            set => Set(HologramKey, value);
         }
 
         public bool ShowUtilisationLabels

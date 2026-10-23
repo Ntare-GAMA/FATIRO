@@ -57,6 +57,7 @@ namespace Fatiro.Audio
             events.Subscribe<MemberPlaced>(OnMemberPlaced);
             events.Subscribe<PlacementRejected>(_ => Play(Cues.Reject));
             events.Subscribe<StageCompleted>(message => Play(message.BuildComplete ? Cues.BuildComplete : Cues.StageComplete));
+            events.Subscribe<StructureRevealed>(_ => Play(Cues.SitePlaced));
             events.Subscribe<LoadTestStarted>(OnLoadTestStarted);
             events.Subscribe<LoadTestCompleted>(OnLoadTestCompleted);
             events.Subscribe<StateChanged>(message =>

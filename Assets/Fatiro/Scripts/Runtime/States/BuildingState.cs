@@ -104,6 +104,7 @@ namespace Fatiro.States
                 return;
             }
             Manager.ChangeState(SimulationStateId.Reviewing);
+            Manager.RevealReal();
         }
 
         public override void Reposition() => Manager.BeginReposition();

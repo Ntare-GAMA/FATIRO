@@ -24,6 +24,7 @@ namespace Fatiro.States
         {
             Context.Entities.ClearResults();
             Manager.SetSkinVisible(true);
+            Manager.ReturnToHologram();
             Manager.ChangeState(SimulationStateId.Building);
         }
 

@@ -72,6 +72,11 @@ namespace Fatiro.Tests
 
                 while (!context.Tasks.IsComplete) context.Build.TryPlace(context.Tasks.NextRequired());
                 simulation.OpenTestBench();
+                yield return new WaitForSeconds(1.1f);
+                yield return Capture(camera, target, folder, "05a-reveal");
+                yield return WaitFor(() => ((SimulationManager)simulation).IsRevealing == false);
+                yield return new WaitForSeconds(1.5f); // skin loads through Addressables
+                yield return Capture(camera, target, folder, "05b-real");
                 simulation.RunLoadTest(new LoadCaseConfig(LoadCaseKind.Seismic, 3f));
                 yield return new WaitForSeconds(1.8f);
                 yield return Capture(camera, target, folder, "05-load-test");
@@ -93,7 +98,7 @@ namespace Fatiro.Tests
                     context.Site.SetScale(32);
                     simulation.ConfirmPlacement();
                     yield return WaitFor(() => simulation.CurrentStateId == SimulationStateId.Reviewing);
-                    yield return new WaitForSeconds(1.5f); // skin loads through Addressables
+                    yield return new WaitForSeconds(2.6f); // skin loads through Addressables; the reveal plays
                     var skin = context.Skin;
                     yield return Capture(camera, target, folder, $"08-{id}-skin");
                     if (skin != null) skin.SetActive(false);

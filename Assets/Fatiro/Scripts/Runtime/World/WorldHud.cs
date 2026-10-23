@@ -28,6 +28,7 @@ namespace Fatiro.World
         private Text status;
         private LineRenderer[] rings;
         private float pulse;
+        private bool revealed;
 
         public static WorldHud Create(Transform structureRoot, SiteLayout layout, Rect footprint, HouseDesign design, Material lineMaterial,
             Camera viewer, IEventBus events, TaskManager tasks, LoadTestManager loadTests)
@@ -52,6 +53,17 @@ namespace Fatiro.World
             if (events == null) return;
             events.Unsubscribe<BuildProgressChanged>(OnProgress);
             events.Unsubscribe<LoadTestCompleted>(OnLoadTest);
+        }
+
+        /// <summary>Set once the hologram has turned real, cleared when the learner goes back to modify.</summary>
+        public bool Revealed
+        {
+            get => revealed;
+            set
+            {
+                revealed = value;
+                Refresh();
+            }
         }
 
         private void OnProgress(BuildProgressChanged message) => Refresh();
@@ -125,7 +137,9 @@ namespace Fatiro.World
         {
             if (title == null) return;
             var percent = Mathf.RoundToInt(tasks.Progress * 100f);
-            title.text = $"{design.DisplayName.ToUpperInvariant()} {design.DesignId}  |  ASSEMBLY {percent}%";
+            title.text = revealed
+                ? $"{design.DisplayName.ToUpperInvariant()} {design.DesignId}  |  COMPLETE"
+                : $"{design.DisplayName.ToUpperInvariant()} {design.DesignId}  |  ASSEMBLY {percent}%";
 
             var result = loadTests.LastResult;
             if (result == null)

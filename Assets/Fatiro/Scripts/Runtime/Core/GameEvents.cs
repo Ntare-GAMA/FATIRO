@@ -193,6 +193,9 @@ namespace Fatiro.Core
 
     public readonly struct SettingsChanged { }
 
+    /// <summary>The finished hologram has turned into the real, textured structure.</summary>
+    public readonly struct StructureRevealed { }
+
     public readonly struct CameraPermissionResult
     {
         public CameraPermissionResult(bool granted) => Granted = granted;

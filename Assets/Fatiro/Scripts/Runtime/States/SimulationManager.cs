@@ -63,6 +63,10 @@ namespace Fatiro.States
         private SimulationStateId history = SimulationStateId.Building;
         private readonly Dictionary<Renderer, Material[]> skinMaterials = new Dictionary<Renderer, Material[]>();
         private Material hologramMaterial;
+        private Material holoLineMaterial;
+        private bool hologramView = true;
+        private WorldHud worldHud;
+        private RevealSweep reveal;
 
         public SimulationManager(SimulationContext context, InputRouter input)
         {
@@ -216,10 +220,13 @@ namespace Fatiro.States
                 siteObject.SetActive(false);
 
                 Context.Entities.BeginSession(blueprint, Context.Site.Layout, Context.Materials, Context.Views, Context.Site.StructureRoot);
+                // Every session is built as a hologram; it turns real when the test bench opens.
+                holoLineMaterial = lineMaterial;
+                hologramView = true;
                 Context.Entities.HologramMaterial = hologramMaterial;
-                Context.Entities.SetHologram(Context.Data.Settings.Hologram);
-                Context.Site.SetHologram(Context.Data.Settings.Hologram);
-                WorldHud.Create(Context.Site.StructureRoot, Context.Site.Layout, Footprint(blueprint), setup.Design, lineMaterial,
+                Context.Entities.SetHologram(true);
+                Context.Site.SetHologram(true);
+                worldHud = WorldHud.Create(Context.Site.StructureRoot, Context.Site.Layout, Footprint(blueprint), setup.Design, lineMaterial,
                     Context.AR.Camera, Context.Events, Context.Tasks, Context.LoadTests);
                 Context.Tasks.Begin(blueprint, setup.Mode);
                 Context.Build.ClearHistory();
@@ -289,6 +296,7 @@ namespace Fatiro.States
                 Context.Build.Restore(prebuilt);
                 ShowSkin();
                 ChangeState(SimulationStateId.Reviewing);
+                RevealReal();
                 return;
             }
 
@@ -358,6 +366,7 @@ namespace Fatiro.States
 
         public void BeginLoadTest(LoadCaseConfig config)
         {
+            FinishReveal();
             PendingTest = config;
             SelectMember(null);
             ChangeState(SimulationStateId.LoadTesting);
@@ -429,16 +438,55 @@ namespace Fatiro.States
 
         // ---- Skin and cleanup -------------------------------------------------------------
 
-        public bool Hologram => Context.Data.Settings.Hologram;
+        public bool Hologram => hologramView;
+
+        /// <summary>True while the hologram-to-real reveal is still sweeping up the structure.</summary>
+        public bool IsRevealing => reveal != null;
 
         /// <summary>Switches between the glowing hologram view and the real textured view, live.</summary>
         public void SetHologram(bool hologram)
         {
-            Context.Data.Settings.Hologram = hologram;
+            FinishReveal();
+            hologramView = hologram;
             Context.Entities.SetHologram(hologram);
             if (Context.Site != null) Context.Site.SetHologram(hologram);
             ApplySkinLook();
             Context.Events.Publish(new SettingsChanged());
+        }
+
+        /// <summary>
+        /// The finished hologram turns real: the ground first, then a scan line rising through the
+        /// structure turns each member into its material, and the skin takes its own colours.
+        /// </summary>
+        public void RevealReal()
+        {
+            if (!hologramView || Context.Site == null) return;
+            FinishReveal();
+            hologramView = false;
+            Context.Entities.SetHologram(false, apply: false);
+            Context.Site.SetHologram(false);
+            Context.Events.Publish(new SettingsChanged());
+            reveal = RevealSweep.Begin(Context.Site.StructureRoot, Footprint(Context.Blueprint), Context.Entities.PlacedSurfaces(),
+                holoLineMaterial, ApplySkinLook, () =>
+                {
+                    reveal = null;
+                    if (worldHud != null) worldHud.Revealed = true;
+                    Context.Events.Publish(new StructureRevealed());
+                });
+        }
+
+        /// <summary>Back to the hologram for editing; finishing again replays the reveal.</summary>
+        public void ReturnToHologram()
+        {
+            if (worldHud != null) worldHud.Revealed = false;
+            SetHologram(true);
+        }
+
+        /// <summary>Skips any reveal still in progress straight to its end.</summary>
+        private void FinishReveal()
+        {
+            if (reveal != null) reveal.Complete();
+            reveal = null;
         }
 
         /// <summary>In hologram view the creature skin glows like the rest; in real view it keeps its own materials.</summary>
@@ -496,6 +544,11 @@ namespace Fatiro.States
         private void CleanupSession()
         {
             SelectMember(null);
+            // An unfinished reveal is dropped, not completed: its members are about to be released.
+            if (reveal != null) UnityEngine.Object.Destroy(reveal.gameObject);
+            reveal = null;
+            worldHud = null;
+            hologramView = true;
             Context.Entities.Clear();
             if (Context.Skin != null) UnityEngine.Object.Destroy(Context.Skin);
             Context.Skin = null;

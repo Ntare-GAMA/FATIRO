@@ -88,6 +88,7 @@ namespace Fatiro.Tests
             // Earthquake: the unbraced downhill stilts fail.
             simulation.OpenTestBench();
             Assert.That(simulation.CurrentStateId, Is.EqualTo(SimulationStateId.Reviewing));
+            Assert.That(simulation.Hologram, Is.False, "the test bench reveals the real structure");
             simulation.RunLoadTest(new LoadCaseConfig(LoadCaseKind.Seismic, 3f));
             Assert.That(simulation.CurrentStateId, Is.EqualTo(SimulationStateId.LoadTesting));
             yield return WaitFor(() => simulation.CurrentStateId == SimulationStateId.Reviewing, 15f);
@@ -97,6 +98,7 @@ namespace Fatiro.Tests
             // Reinforce with the optional downhill braces and re-test.
             simulation.ModifyStructure();
             Assert.That(simulation.CurrentStateId, Is.EqualTo(SimulationStateId.Building));
+            Assert.That(simulation.Hologram, Is.True, "modifying goes back to the hologram");
             Assert.That(context.Entities.Member("CR-STILT-L2").IsFailed, Is.False, "results reset for modification");
             foreach (var id in new[] { "CR-BRACE-L1", "CR-BRACE-R1", "CR-SWAY-1", "CR-SWAY-2" }) DragOnto(context.Blueprint.Get(id));
             simulation.OpenTestBench();
