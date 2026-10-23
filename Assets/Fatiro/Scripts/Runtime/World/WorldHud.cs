@@ -75,6 +75,9 @@ namespace Fatiro.World
             var top = 0f;
             foreach (var spec in design.Blueprint.Members)
                 top = Mathf.Max(top, Mathf.Max(spec.A.Position.Y, Mathf.Max(spec.B.Position.Y, spec.CrownHeight)));
+            foreach (var shell in design.Blueprint.Shells)
+                foreach (var station in shell.Stations)
+                    top = Mathf.Max(top, station.TopY);
 
             var canvasObject = new GameObject("Label", typeof(RectTransform), typeof(Canvas));
             board = canvasObject.transform;

@@ -1,18 +1,30 @@
 # Fatiro AR — Experimental Housing Structures Simulator
 
-Mobile AR simulation (Android, ARCore) in which construction learners assemble creature-inspired houses on a sloped hillside placed on a real table, then load-test them with earthquakes, wind, rain and occupancy. Members that exceed their capacity fail and bring down whatever rests on them; the learner reinforces the design and tests again.
+Mobile AR simulation (Android, ARCore) in which construction learners assemble houses (biomimetic animal and car houses, and Rwandan classics) on a sloped hillside placed on a real table, then load-test them with earthquakes, wind, rain and occupancy. Members that exceed their capacity fail and bring down whatever rests on them; the learner reinforces the design and tests again.
 
 *Urufatiro* is Kinyarwanda for "foundation".
 
 ## Designs
 
-| Design | Inspiration | Teaches | Fails when… | Fixed by… |
-|---|---|---|---|---|
-| **Ingwe** (PN-01) | Panther crouched down the slope | Rib arches need bracing; cantilevers need depth or a prop | Earthquake topples unbraced ribs like dominoes; people overload the head cantilever | Flank braces; foreleg props or a steel head beam |
-| **Inzovu** (EL-01) | Elephant on four legs | Canopies must be tied down; drains must be sized for heavy rain | Wind rips off the ear canopies; the trunk downpipe overflows and the roof ponds | Ear tie-downs; a steel trunk |
-| **Imodoka** (CR-01) | Sports car on spider stilts | Downhill stilts on a slope are the longest and buckle first | Earthquake buckles the downhill stilts and the pod collapses | Downhill X-braces and sway braces, or steel stilts |
+Six houses, built component by component (fast build: one card raises a whole component such as "Ground-floor walls" or "Roof sheeting"). Each is built as a hologram and revealed as the real house when the test bench opens.
 
-Every house stands on firm ground: a compacted building platform cut into the slope, clay-brick piers under every column, and brick plinth walls tying the piers together. The plinth walls are real members: they double the footings' resistance to sliding, and the elephant's brick ground-floor walls act as shear walls that stiffen its legs.
+**Biomimetic**: the animal or object is the building's outside, a curved ferrocement shell with bands of glass, over a real concrete and brick home with floors and rooms.
+
+| Design | The house | Fails when… | Fixed by… |
+|---|---|---|---|
+| **Ingwe** (PN-01) | A black panther crouched down the slope: concrete rib arches on brick paws, split-level floors, a viewing room in its raised head | Earthquake topples unbraced ribs like dominoes; people overload the head cantilever | Flank braces; foreleg props |
+| **Inzovu** (EL-01) | An elephant on four concrete legs: a home on the belly floor under a domed shell, ear canopies, a trunk downpipe | Wind rips off the ear canopies; the trunk overflows and the roof floods | Ear tie-downs; a steel trunk |
+| **Imodoka** (CR-01) | A house that is a sports car, on raked concrete stilts: kitchen behind the windscreen, living room, bedroom | Earthquake buckles the long downhill stilts | Downhill X-braces and sway braces |
+
+**Rwandan classic**: reinforced-concrete frames with fired-brick infill, real window and door openings, on stepped brick foundation walls.
+
+| Design | The house | Fails when… | Fixed by… |
+|---|---|---|---|
+| **Urugo** (BG-01) | Single-storey family home with an iron-sheet roof | Wind lifts the nailed iron sheets off | Storm straps |
+| **Igorofa** (TS-01) | Two-storey house with a concrete stair, clay-tile roof and a balcony | A crowd on the balcony overloads its cantilevers | Balcony props |
+| **Amacumbi** (AP-01) | Three storeys of flats over open parking | Earthquake: the open parking floor is a soft storey | Ground-floor shear walls |
+
+Every house stands on firm ground: a compacted building platform cut into the slope, concrete footings or brick piers, and brick plinth or foundation walls that tie the footings together and add no shaking mass.
 
 ## Requirements
 
@@ -23,7 +35,7 @@ Every house stands on firm ground: a compacted building platform cut into the sl
 
 1. Open the project in Unity 6000.4.7f1 and let packages resolve.
    Import the Unity Asset Store packages listed in [CREDITS.md](CREDITS.md) from **Window › Package Manager › My Assets** (they are not in the repository; without them the app falls back to plain shapes and colours).
-2. Run **Fatiro › Build Project Content**. This generates materials, synthesised audio, prefabs, the three design assets, the creature skins, the Addressables groups, the scene (`Assets/Fatiro/Scenes/Fatiro.unity`) and the Android/XR/URP settings. It is safe to re-run.
+2. Run **Fatiro › Build Project Content**. This generates materials, synthesised audio, prefabs, the six design assets, their fit-outs (furniture and details), the Addressables groups, the scene (`Assets/Fatiro/Scenes/Fatiro.unity`) and the Android/XR/URP settings. It is safe to re-run.
 3. Press Play to try the flow in the editor: without an AR device, a virtual floor stands in for plane detection (mouse: click/drag; scroll to scale; right-drag to rotate).
 4. Run **Fatiro › Build Android APK** to build Addressables and `Builds/Android/FatiroAR.apk`.
 
@@ -84,7 +96,7 @@ Commands flow down through interfaces (`ISimulationController`, `IARService`, `I
 | Catalogue | Designs (label `design`), materials (label `material`) | App start | App exit |
 | Audio | 16 synthesised cues (label `audio`) | App start | App exit |
 | Session Prefabs | Member prefabs, site plot, ghost material, effects | Session start | Session end / restart / menu |
-| Creature Skins | One bundle per design | Structure complete | Session end |
+| Fit-outs | One bundle per design: furniture, lamps, wheels, eyes | House revealed (test bench) | Session end |
 
 `ContentCatalogue` tracks every handle by scope; the debug overlay (Start screen › Debug overlay) shows live handle counts and pool usage.
 

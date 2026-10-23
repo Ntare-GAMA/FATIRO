@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b07b28e7525ef7142ad74438ce4bf002, type: 3}
+  m_Name: Material_ferrocement-charcoal
+  m_EditorClassIdentifier: Fatiro.Runtime::Fatiro.Content.MaterialData
+  materialId: ferrocement-charcoal
+  displayName: Charcoal ferrocement
+  axialStrength: 2.4
+  bendingStrength: 1.6
+  unitWeight: 2
+  unitCost: 2.4
+  drainCapacity: 0
+  color: {r: 0.12, g: 0.12, b: 0.13, a: 1}
+  renderMaterial: {fileID: 2100000, guid: d771663d1f0c8324b887a21457e8b4b4, type: 2}
+  tileMetres: 2
+  description: 'Ferrocement with charcoal pigment: the black panther''s coat.'

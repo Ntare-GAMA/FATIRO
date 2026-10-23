@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Design_PN-01
   m_EditorClassIdentifier: Fatiro.Runtime::Fatiro.Content.HouseDesign
   designId: PN-01
-  version: 1
+  version: 2
   displayName: Ingwe
   meaning: panther
-  description: A black panther crouched down the hillside. Six rib arches form its
-    body; its head is a viewing room cantilevered over the slope.
+  description: A black panther crouched down the hillside. Concrete rib arches carry
+    its ferrocement body; floors step down inside; its raised head is a viewing room
+    over the valley.
   lesson: Rib arches need bracing to resist shaking, and cantilevers need depth,
     strength or a prop.
   difficulty: 3
@@ -40,7 +41,7 @@ MonoBehaviour:
     b: {x: 0, y: 0, z: -4}
     bGroundRelative: 1
     thickness: 0.6
-    defaultMaterial: earth-block
+    defaultMaterial: concrete
     allowedMaterials:
     - earth-block
     - concrete
@@ -53,7 +54,15 @@ MonoBehaviour:
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Clay-brick strip footing that spreads the rib's thrust into the hillside.
+    hint: Concrete strip footing that spreads the rib's thrust into the hillside,
+      like a paw pressed into the ground.
+    component: Paw strip footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-PAW-2
     displayName: Paw strip footing 2
     kind: 0
@@ -64,7 +73,7 @@ MonoBehaviour:
     b: {x: 0, y: 0, z: -2.4}
     bGroundRelative: 1
     thickness: 0.6
-    defaultMaterial: earth-block
+    defaultMaterial: concrete
     allowedMaterials:
     - earth-block
     - concrete
@@ -77,7 +86,15 @@ MonoBehaviour:
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Clay-brick strip footing that spreads the rib's thrust into the hillside.
+    hint: Concrete strip footing that spreads the rib's thrust into the hillside,
+      like a paw pressed into the ground.
+    component: Paw strip footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-PAW-3
     displayName: Paw strip footing 3
     kind: 0
@@ -88,7 +105,7 @@ MonoBehaviour:
     b: {x: 0, y: 0, z: -0.8}
     bGroundRelative: 1
     thickness: 0.6
-    defaultMaterial: earth-block
+    defaultMaterial: concrete
     allowedMaterials:
     - earth-block
     - concrete
@@ -101,7 +118,15 @@ MonoBehaviour:
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Clay-brick strip footing that spreads the rib's thrust into the hillside.
+    hint: Concrete strip footing that spreads the rib's thrust into the hillside,
+      like a paw pressed into the ground.
+    component: Paw strip footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-PAW-4
     displayName: Paw strip footing 4
     kind: 0
@@ -112,7 +137,7 @@ MonoBehaviour:
     b: {x: 0, y: 0, z: 0.8}
     bGroundRelative: 1
     thickness: 0.6
-    defaultMaterial: earth-block
+    defaultMaterial: concrete
     allowedMaterials:
     - earth-block
     - concrete
@@ -125,7 +150,15 @@ MonoBehaviour:
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Clay-brick strip footing that spreads the rib's thrust into the hillside.
+    hint: Concrete strip footing that spreads the rib's thrust into the hillside,
+      like a paw pressed into the ground.
+    component: Paw strip footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-PAW-5
     displayName: Paw strip footing 5
     kind: 0
@@ -136,7 +169,7 @@ MonoBehaviour:
     b: {x: 0, y: 0, z: 2.4}
     bGroundRelative: 1
     thickness: 0.6
-    defaultMaterial: earth-block
+    defaultMaterial: concrete
     allowedMaterials:
     - earth-block
     - concrete
@@ -149,7 +182,15 @@ MonoBehaviour:
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Clay-brick strip footing that spreads the rib's thrust into the hillside.
+    hint: Concrete strip footing that spreads the rib's thrust into the hillside,
+      like a paw pressed into the ground.
+    component: Paw strip footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-PAW-6
     displayName: Paw strip footing 6
     kind: 0
@@ -160,7 +201,7 @@ MonoBehaviour:
     b: {x: 0, y: 0, z: 4}
     bGroundRelative: 1
     thickness: 0.6
-    defaultMaterial: earth-block
+    defaultMaterial: concrete
     allowedMaterials:
     - earth-block
     - concrete
@@ -173,7 +214,15 @@ MonoBehaviour:
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Clay-brick strip footing that spreads the rib's thrust into the hillside.
+    hint: Concrete strip footing that spreads the rib's thrust into the hillside,
+      like a paw pressed into the ground.
+    component: Paw strip footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-PLINTH-L1
     displayName: Left plinth wall 1
     kind: 5
@@ -200,6 +249,13 @@ MonoBehaviour:
     isRoof: 0
     hint: Brick plinth wall tying the paw footings together so they cannot slide
       apart.
+    component: Brick plinth walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-PLINTH-R1
     displayName: Right plinth wall 1
     kind: 5
@@ -226,6 +282,13 @@ MonoBehaviour:
     isRoof: 0
     hint: Brick plinth wall tying the paw footings together so they cannot slide
       apart.
+    component: Brick plinth walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-PLINTH-L2
     displayName: Left plinth wall 2
     kind: 5
@@ -252,6 +315,13 @@ MonoBehaviour:
     isRoof: 0
     hint: Brick plinth wall tying the paw footings together so they cannot slide
       apart.
+    component: Brick plinth walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-PLINTH-R2
     displayName: Right plinth wall 2
     kind: 5
@@ -278,6 +348,13 @@ MonoBehaviour:
     isRoof: 0
     hint: Brick plinth wall tying the paw footings together so they cannot slide
       apart.
+    component: Brick plinth walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-PLINTH-L3
     displayName: Left plinth wall 3
     kind: 5
@@ -304,6 +381,13 @@ MonoBehaviour:
     isRoof: 0
     hint: Brick plinth wall tying the paw footings together so they cannot slide
       apart.
+    component: Brick plinth walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-PLINTH-R3
     displayName: Right plinth wall 3
     kind: 5
@@ -330,6 +414,13 @@ MonoBehaviour:
     isRoof: 0
     hint: Brick plinth wall tying the paw footings together so they cannot slide
       apart.
+    component: Brick plinth walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-PLINTH-L4
     displayName: Left plinth wall 4
     kind: 5
@@ -356,6 +447,13 @@ MonoBehaviour:
     isRoof: 0
     hint: Brick plinth wall tying the paw footings together so they cannot slide
       apart.
+    component: Brick plinth walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-PLINTH-R4
     displayName: Right plinth wall 4
     kind: 5
@@ -382,6 +480,13 @@ MonoBehaviour:
     isRoof: 0
     hint: Brick plinth wall tying the paw footings together so they cannot slide
       apart.
+    component: Brick plinth walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-PLINTH-L5
     displayName: Left plinth wall 5
     kind: 5
@@ -408,6 +513,13 @@ MonoBehaviour:
     isRoof: 0
     hint: Brick plinth wall tying the paw footings together so they cannot slide
       apart.
+    component: Brick plinth walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-PLINTH-R5
     displayName: Right plinth wall 5
     kind: 5
@@ -434,6 +546,235 @@ MonoBehaviour:
     isRoof: 0
     hint: Brick plinth wall tying the paw footings together so they cannot slide
       apart.
+    component: Brick plinth walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: PN-FOREPAW-L
+    displayName: Left forepaw pier
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: -0.9, y: 0, z: 6.6}
+    aGroundRelative: 1
+    b: {x: -0.9, y: 0, z: 6.6}
+    bGroundRelative: 1
+    thickness: 0.6
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 1, y: 0.6, z: 1}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Optional footing for a prop under the head.
+    component: Forepaw footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: PN-FOREPAW-R
+    displayName: Right forepaw pier
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 0.9, y: 0, z: 6.6}
+    aGroundRelative: 1
+    b: {x: 0.9, y: 0, z: 6.6}
+    bGroundRelative: 1
+    thickness: 0.6
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 1, y: 0.6, z: 1}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Optional footing for a prop under the head.
+    component: Forepaw footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: PN-FLOOR-1
+    displayName: Floor level 1
+    kind: 6
+    stage: 1
+    shape: 3
+    a: {x: 0, y: 0.78, z: -3.2}
+    aGroundRelative: 1
+    b: {x: 0, y: 0.78, z: -3.2}
+    bGroundRelative: 1
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - PN-PLINTH-L1
+    - PN-PLINTH-R1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.8999996, y: 0.15, z: 1.5999999}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 7.8399987
+    isRoof: 0
+    hint: Each floor steps down the slope with the ground, like a panther's back.
+    component: Split-level floors
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: PN-FLOOR-2
+    displayName: Floor level 2
+    kind: 6
+    stage: 1
+    shape: 3
+    a: {x: 0, y: 0.78, z: -1.6}
+    aGroundRelative: 1
+    b: {x: 0, y: 0.78, z: -1.6}
+    bGroundRelative: 1
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - PN-PLINTH-L2
+    - PN-PLINTH-R2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.8999996, y: 0.15, z: 1.6000001}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 7.84
+    isRoof: 0
+    hint: Each floor steps down the slope with the ground, like a panther's back.
+    component: Split-level floors
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: PN-FLOOR-3
+    displayName: Floor level 3
+    kind: 6
+    stage: 1
+    shape: 3
+    a: {x: 0, y: 0.78, z: 0}
+    aGroundRelative: 1
+    b: {x: 0, y: 0.78, z: 0}
+    bGroundRelative: 1
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - PN-PLINTH-L3
+    - PN-PLINTH-R3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.8999996, y: 0.15, z: 1.6}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 7.8399997
+    isRoof: 0
+    hint: Each floor steps down the slope with the ground, like a panther's back.
+    component: Split-level floors
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: PN-FLOOR-4
+    displayName: Floor level 4
+    kind: 6
+    stage: 1
+    shape: 3
+    a: {x: 0, y: 0.78, z: 1.6}
+    aGroundRelative: 1
+    b: {x: 0, y: 0.78, z: 1.6}
+    bGroundRelative: 1
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - PN-PLINTH-L4
+    - PN-PLINTH-R4
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.8999996, y: 0.15, z: 1.6000001}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 7.84
+    isRoof: 0
+    hint: Each floor steps down the slope with the ground, like a panther's back.
+    component: Split-level floors
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: PN-FLOOR-5
+    displayName: Floor level 5
+    kind: 6
+    stage: 1
+    shape: 3
+    a: {x: 0, y: 0.78, z: 3.2}
+    aGroundRelative: 1
+    b: {x: 0, y: 0.78, z: 3.2}
+    bGroundRelative: 1
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - PN-PLINTH-L5
+    - PN-PLINTH-R5
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.8999996, y: 0.15, z: 1.5999999}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 7.8399987
+    isRoof: 0
+    hint: Each floor steps down the slope with the ground, like a panther's back.
+    component: Split-level floors
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-RIB-1
     displayName: Rib arch 1
     kind: 3
@@ -443,8 +784,8 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 2.6, y: 0.35, z: -4}
     bGroundRelative: 1
-    thickness: 0.25
-    defaultMaterial: timber
+    thickness: 0.22
+    defaultMaterial: concrete
     allowedMaterials:
     - bamboo
     - timber
@@ -460,6 +801,13 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 0
     hint: Strong under its own weight, but tips over sideways unless braced.
+    component: Concrete rib arches
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-RIB-2
     displayName: Rib arch 2
     kind: 3
@@ -469,8 +817,8 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 2.6, y: 0.35, z: -2.4}
     bGroundRelative: 1
-    thickness: 0.25
-    defaultMaterial: timber
+    thickness: 0.22
+    defaultMaterial: concrete
     allowedMaterials:
     - bamboo
     - timber
@@ -486,6 +834,13 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 0
     hint: Strong under its own weight, but tips over sideways unless braced.
+    component: Concrete rib arches
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-RIB-3
     displayName: Rib arch 3
     kind: 3
@@ -495,8 +850,8 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 2.6, y: 0.35, z: -0.8}
     bGroundRelative: 1
-    thickness: 0.25
-    defaultMaterial: timber
+    thickness: 0.22
+    defaultMaterial: concrete
     allowedMaterials:
     - bamboo
     - timber
@@ -512,6 +867,13 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 0
     hint: Strong under its own weight, but tips over sideways unless braced.
+    component: Concrete rib arches
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-RIB-4
     displayName: Rib arch 4
     kind: 3
@@ -521,8 +883,8 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 2.6, y: 0.35, z: 0.8}
     bGroundRelative: 1
-    thickness: 0.25
-    defaultMaterial: timber
+    thickness: 0.22
+    defaultMaterial: concrete
     allowedMaterials:
     - bamboo
     - timber
@@ -538,6 +900,13 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 0
     hint: Strong under its own weight, but tips over sideways unless braced.
+    component: Concrete rib arches
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-RIB-5
     displayName: Rib arch 5
     kind: 3
@@ -547,8 +916,8 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 2.6, y: 0.35, z: 2.4}
     bGroundRelative: 1
-    thickness: 0.25
-    defaultMaterial: timber
+    thickness: 0.22
+    defaultMaterial: concrete
     allowedMaterials:
     - bamboo
     - timber
@@ -564,6 +933,13 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 0
     hint: Strong under its own weight, but tips over sideways unless braced.
+    component: Concrete rib arches
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-RIB-6
     displayName: Rib arch 6
     kind: 3
@@ -573,8 +949,8 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 2.6, y: 0.35, z: 4}
     bGroundRelative: 1
-    thickness: 0.25
-    defaultMaterial: timber
+    thickness: 0.22
+    defaultMaterial: concrete
     allowedMaterials:
     - bamboo
     - timber
@@ -590,17 +966,24 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 0
     hint: Strong under its own weight, but tips over sideways unless braced.
+    component: Concrete rib arches
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-SPINE-1
     displayName: Spine beam 1
     kind: 2
     stage: 1
-    shape: 1
+    shape: 5
     a: {x: 0, y: 4.2, z: -4}
     aGroundRelative: 0
     b: {x: 0, y: 4, z: -2.4}
     bGroundRelative: 0
     thickness: 0.22
-    defaultMaterial: timber
+    defaultMaterial: concrete
     allowedMaterials:
     - bamboo
     - timber
@@ -617,17 +1000,24 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 0
     hint: Ties neighbouring ribs together along the back.
+    component: Spine beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-SPINE-2
     displayName: Spine beam 2
     kind: 2
     stage: 1
-    shape: 1
+    shape: 5
     a: {x: 0, y: 4, z: -2.4}
     aGroundRelative: 0
     b: {x: 0, y: 3.8, z: -0.8}
     bGroundRelative: 0
     thickness: 0.22
-    defaultMaterial: timber
+    defaultMaterial: concrete
     allowedMaterials:
     - bamboo
     - timber
@@ -644,17 +1034,24 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 0
     hint: Ties neighbouring ribs together along the back.
+    component: Spine beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-SPINE-3
     displayName: Spine beam 3
     kind: 2
     stage: 1
-    shape: 1
+    shape: 5
     a: {x: 0, y: 3.8, z: -0.8}
     aGroundRelative: 0
     b: {x: 0, y: 3.6, z: 0.8}
     bGroundRelative: 0
     thickness: 0.22
-    defaultMaterial: timber
+    defaultMaterial: concrete
     allowedMaterials:
     - bamboo
     - timber
@@ -671,17 +1068,24 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 0
     hint: Ties neighbouring ribs together along the back.
+    component: Spine beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-SPINE-4
     displayName: Spine beam 4
     kind: 2
     stage: 1
-    shape: 1
+    shape: 5
     a: {x: 0, y: 3.6, z: 0.8}
     aGroundRelative: 0
     b: {x: 0, y: 3.4, z: 2.4}
     bGroundRelative: 0
     thickness: 0.22
-    defaultMaterial: timber
+    defaultMaterial: concrete
     allowedMaterials:
     - bamboo
     - timber
@@ -698,17 +1102,24 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 0
     hint: Ties neighbouring ribs together along the back.
+    component: Spine beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-SPINE-5
     displayName: Spine beam 5
     kind: 2
     stage: 1
-    shape: 1
+    shape: 5
     a: {x: 0, y: 3.4, z: 2.4}
     aGroundRelative: 0
     b: {x: 0, y: 3.3, z: 4}
     bGroundRelative: 0
     thickness: 0.22
-    defaultMaterial: timber
+    defaultMaterial: concrete
     allowedMaterials:
     - bamboo
     - timber
@@ -725,62 +1136,21 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 0
     hint: Ties neighbouring ribs together along the back.
-  - id: PN-FOREPAW-L
-    displayName: Left forepaw pier
-    kind: 0
-    stage: 0
-    shape: 0
-    a: {x: -0.9, y: 0, z: 6.6}
-    aGroundRelative: 1
-    b: {x: -0.9, y: 0, z: 6.6}
-    bGroundRelative: 1
-    thickness: 0.6
-    defaultMaterial: earth-block
-    allowedMaterials:
-    - earth-block
-    - concrete
-    - steel
-    supports: []
-    extraSupports: []
-    required: 0
-    crownHeight: 0
-    panelSize: {x: 1, y: 0.6, z: 1}
-    panelEuler: {x: 0, y: 0, z: 0}
-    tributaryArea: 0
-    isRoof: 0
-    hint: Optional footing for a prop under the head.
-  - id: PN-FOREPAW-R
-    displayName: Right forepaw pier
-    kind: 0
-    stage: 0
-    shape: 0
-    a: {x: 0.9, y: 0, z: 6.6}
-    aGroundRelative: 1
-    b: {x: 0.9, y: 0, z: 6.6}
-    bGroundRelative: 1
-    thickness: 0.6
-    defaultMaterial: earth-block
-    allowedMaterials:
-    - earth-block
-    - concrete
-    - steel
-    supports: []
-    extraSupports: []
-    required: 0
-    crownHeight: 0
-    panelSize: {x: 1, y: 0.6, z: 1}
-    panelEuler: {x: 0, y: 0, z: 0}
-    tributaryArea: 0
-    isRoof: 0
-    hint: Optional footing for a prop under the head.
+    component: Spine beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-FORELEG-L
     displayName: Left foreleg prop
-    kind: 1
+    kind: 5
     stage: 1
     shape: 1
     a: {x: -0.9, y: 0.35, z: 6.6}
     aGroundRelative: 1
-    b: {x: -0.9, y: 3.05, z: 6.6}
+    b: {x: -0.9, y: 2.85, z: 6.6}
     bGroundRelative: 0
     thickness: 0.26
     defaultMaterial: steel
@@ -799,14 +1169,21 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 0
     hint: Props the head so it no longer acts as a cantilever.
+    component: Foreleg props
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-FORELEG-R
     displayName: Right foreleg prop
-    kind: 1
+    kind: 5
     stage: 1
     shape: 1
     a: {x: 0.9, y: 0.35, z: 6.6}
     aGroundRelative: 1
-    b: {x: 0.9, y: 3.05, z: 6.6}
+    b: {x: 0.9, y: 2.85, z: 6.6}
     bGroundRelative: 0
     thickness: 0.26
     defaultMaterial: steel
@@ -825,17 +1202,24 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 0
     hint: Props the head so it no longer acts as a cantilever.
+    component: Foreleg props
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-HEAD
     displayName: Head cantilever
     kind: 4
     stage: 1
-    shape: 1
-    a: {x: 0, y: 3.25, z: 4}
+    shape: 5
+    a: {x: 0, y: 3.05, z: 4}
     aGroundRelative: 0
-    b: {x: 0, y: 3, z: 7.2}
+    b: {x: 0, y: 2.9, z: 7.2}
     bGroundRelative: 0
-    thickness: 0.32
-    defaultMaterial: timber
+    thickness: 0.31
+    defaultMaterial: concrete
     allowedMaterials:
     - bamboo
     - timber
@@ -850,9 +1234,47 @@ MonoBehaviour:
     crownHeight: 0
     panelSize: {x: 0, y: 0, z: 0}
     panelEuler: {x: 0, y: 0, z: 0}
-    tributaryArea: 9.6
+    tributaryArea: 0
     isRoof: 0
-    hint: The viewing room hangs 3.2 m over the slope. People on it bend it hard.
+    hint: The viewing room hangs 3.2 m over the slope. People in it bend it hard.
+    component: Head cantilever
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: PN-HEAD-FLOOR
+    displayName: Viewing-room floor
+    kind: 6
+    stage: 1
+    shape: 3
+    a: {x: 0, y: 3.28, z: 5.6}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.28, z: 5.6}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - PN-HEAD
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 2.6, y: 0.15, z: 3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 7.7999997
+    isRoof: 0
+    hint: The floor of the panther's head, carried by the cantilever.
+    component: Head cantilever
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-BRACE-L1
     displayName: Left flank brace 1
     kind: 5
@@ -862,8 +1284,8 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: -2.3, y: 1.15, z: -2.4}
     bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: bamboo
+    thickness: 0.1
+    defaultMaterial: steel
     allowedMaterials:
     - bamboo
     - timber
@@ -878,7 +1300,14 @@ MonoBehaviour:
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Stops the ribs falling like dominoes in an earthquake.
+    hint: Steel brace that stops the ribs falling like dominoes in an earthquake.
+    component: Flank bracing
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-BRACE-R1
     displayName: Right flank brace 1
     kind: 5
@@ -888,8 +1317,8 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 2.3, y: 1.15, z: -2.4}
     bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: bamboo
+    thickness: 0.1
+    defaultMaterial: steel
     allowedMaterials:
     - bamboo
     - timber
@@ -904,7 +1333,14 @@ MonoBehaviour:
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Stops the ribs falling like dominoes in an earthquake.
+    hint: Steel brace that stops the ribs falling like dominoes in an earthquake.
+    component: Flank bracing
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-BRACE-L2
     displayName: Left flank brace 2
     kind: 5
@@ -914,8 +1350,8 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: -2.3, y: 1.15, z: -0.8}
     bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: bamboo
+    thickness: 0.1
+    defaultMaterial: steel
     allowedMaterials:
     - bamboo
     - timber
@@ -930,7 +1366,14 @@ MonoBehaviour:
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Stops the ribs falling like dominoes in an earthquake.
+    hint: Steel brace that stops the ribs falling like dominoes in an earthquake.
+    component: Extra flank bracing
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-BRACE-R2
     displayName: Right flank brace 2
     kind: 5
@@ -940,8 +1383,8 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 2.3, y: 1.15, z: -0.8}
     bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: bamboo
+    thickness: 0.1
+    defaultMaterial: steel
     allowedMaterials:
     - bamboo
     - timber
@@ -956,7 +1399,14 @@ MonoBehaviour:
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Stops the ribs falling like dominoes in an earthquake.
+    hint: Steel brace that stops the ribs falling like dominoes in an earthquake.
+    component: Extra flank bracing
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-BRACE-L3
     displayName: Left flank brace 3
     kind: 5
@@ -966,8 +1416,8 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: -2.3, y: 1.15, z: 0.8}
     bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: bamboo
+    thickness: 0.1
+    defaultMaterial: steel
     allowedMaterials:
     - bamboo
     - timber
@@ -982,7 +1432,14 @@ MonoBehaviour:
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Stops the ribs falling like dominoes in an earthquake.
+    hint: Steel brace that stops the ribs falling like dominoes in an earthquake.
+    component: Extra flank bracing
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-BRACE-R3
     displayName: Right flank brace 3
     kind: 5
@@ -992,8 +1449,8 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 2.3, y: 1.15, z: 0.8}
     bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: bamboo
+    thickness: 0.1
+    defaultMaterial: steel
     allowedMaterials:
     - bamboo
     - timber
@@ -1008,7 +1465,14 @@ MonoBehaviour:
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Stops the ribs falling like dominoes in an earthquake.
+    hint: Steel brace that stops the ribs falling like dominoes in an earthquake.
+    component: Extra flank bracing
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-BRACE-L4
     displayName: Left flank brace 4
     kind: 5
@@ -1018,8 +1482,8 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: -2.3, y: 1.15, z: 2.4}
     bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: bamboo
+    thickness: 0.1
+    defaultMaterial: steel
     allowedMaterials:
     - bamboo
     - timber
@@ -1034,7 +1498,14 @@ MonoBehaviour:
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Stops the ribs falling like dominoes in an earthquake.
+    hint: Steel brace that stops the ribs falling like dominoes in an earthquake.
+    component: Extra flank bracing
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-BRACE-R4
     displayName: Right flank brace 4
     kind: 5
@@ -1044,8 +1515,8 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 2.3, y: 1.15, z: 2.4}
     bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: bamboo
+    thickness: 0.1
+    defaultMaterial: steel
     allowedMaterials:
     - bamboo
     - timber
@@ -1060,7 +1531,14 @@ MonoBehaviour:
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Stops the ribs falling like dominoes in an earthquake.
+    hint: Steel brace that stops the ribs falling like dominoes in an earthquake.
+    component: Extra flank bracing
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-BRACE-L5
     displayName: Left flank brace 5
     kind: 5
@@ -1070,8 +1548,8 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: -2.3, y: 1.15, z: 4}
     bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: bamboo
+    thickness: 0.1
+    defaultMaterial: steel
     allowedMaterials:
     - bamboo
     - timber
@@ -1086,7 +1564,14 @@ MonoBehaviour:
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Stops the ribs falling like dominoes in an earthquake.
+    hint: Steel brace that stops the ribs falling like dominoes in an earthquake.
+    component: Extra flank bracing
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
   - id: PN-BRACE-R5
     displayName: Right flank brace 5
     kind: 5
@@ -1096,8 +1581,8 @@ MonoBehaviour:
     aGroundRelative: 1
     b: {x: 2.3, y: 1.15, z: 4}
     bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: bamboo
+    thickness: 0.1
+    defaultMaterial: steel
     allowedMaterials:
     - bamboo
     - timber
@@ -1112,640 +1597,771 @@ MonoBehaviour:
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Stops the ribs falling like dominoes in an earthquake.
-  - id: PN-SKIN-L1
-    displayName: Left skin panel 1
+    hint: Steel brace that stops the ribs falling like dominoes in an earthquake.
+    component: Extra flank bracing
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: PN-BACK-1
+    displayName: Back shell, haunches
     kind: 6
     stage: 3
-    shape: 3
-    a: {x: -1.45, y: 3.5, z: -3.2}
+    shape: 6
+    a: {x: -0.00000004601332, y: 3.8491242, z: -3.1154249}
     aGroundRelative: 0
-    b: {x: -1.45, y: 3.5, z: -3.2}
+    b: {x: -0.00000004601332, y: 3.8491242, z: -3.1154249}
     bGroundRelative: 0
     thickness: 0.08
-    defaultMaterial: bamboo
+    defaultMaterial: ferrocement-charcoal
     allowedMaterials:
-    - bamboo
-    - timber
+    - ferrocement
+    - ferrocement-charcoal
+    - concrete
     - steel
-    - earth-block
     supports:
     - PN-RIB-1
     - PN-RIB-2
-    extraSupports: []
-    required: 1
-    crownHeight: 0
-    panelSize: {x: 2.9, y: 0.08, z: 1.6}
-    panelEuler: {x: 7.12501, y: 0, z: 38}
-    tributaryArea: 0
-    isRoof: 1
-    hint: Thatched skin between two ribs.
-  - id: PN-SKIN-R1
-    displayName: Right skin panel 1
-    kind: 6
-    stage: 3
-    shape: 3
-    a: {x: 1.45, y: 3.5, z: -3.2}
-    aGroundRelative: 0
-    b: {x: 1.45, y: 3.5, z: -3.2}
-    bGroundRelative: 0
-    thickness: 0.08
-    defaultMaterial: bamboo
-    allowedMaterials:
-    - bamboo
-    - timber
-    - steel
-    - earth-block
-    supports:
-    - PN-RIB-1
-    - PN-RIB-2
-    extraSupports: []
-    required: 1
-    crownHeight: 0
-    panelSize: {x: 2.9, y: 0.08, z: 1.6}
-    panelEuler: {x: 7.12501, y: 0, z: -38}
-    tributaryArea: 0
-    isRoof: 1
-    hint: Thatched skin between two ribs.
-  - id: PN-SKIN-L2
-    displayName: Left skin panel 2
-    kind: 6
-    stage: 3
-    shape: 3
-    a: {x: -1.45, y: 3.3000002, z: -1.6}
-    aGroundRelative: 0
-    b: {x: -1.45, y: 3.3000002, z: -1.6}
-    bGroundRelative: 0
-    thickness: 0.08
-    defaultMaterial: bamboo
-    allowedMaterials:
-    - bamboo
-    - timber
-    - steel
-    - earth-block
-    supports:
-    - PN-RIB-2
     - PN-RIB-3
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 2.9, y: 0.08, z: 1.6}
-    panelEuler: {x: 7.1250176, y: 0, z: 38}
+    panelSize: {x: 4.4080234, y: 0.08, z: 4.4080234}
+    panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 1
-    hint: Thatched skin between two ribs.
-  - id: PN-SKIN-R2
-    displayName: Right skin panel 2
+    hint: 'Thin ferrocement: cement mortar on steel mesh, curved so it works like
+      an eggshell.'
+    component: Body shell
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 3
+    patchAroundFrom: 0.3
+    patchAroundTo: 0.7
+  - id: PN-BACK-2
+    displayName: Back shell, shoulders
     kind: 6
     stage: 3
-    shape: 3
-    a: {x: 1.45, y: 3.3000002, z: -1.6}
+    shape: 6
+    a: {x: 0.00000048339274, y: 3.5687063, z: 1.6370482}
     aGroundRelative: 0
-    b: {x: 1.45, y: 3.3000002, z: -1.6}
+    b: {x: 0.00000048339274, y: 3.5687063, z: 1.6370482}
     bGroundRelative: 0
     thickness: 0.08
-    defaultMaterial: bamboo
+    defaultMaterial: ferrocement-charcoal
     allowedMaterials:
-    - bamboo
-    - timber
+    - ferrocement
+    - ferrocement-charcoal
+    - concrete
     - steel
-    - earth-block
-    supports:
-    - PN-RIB-2
-    - PN-RIB-3
-    extraSupports: []
-    required: 1
-    crownHeight: 0
-    panelSize: {x: 2.9, y: 0.08, z: 1.6}
-    panelEuler: {x: 7.1250176, y: 0, z: -38}
-    tributaryArea: 0
-    isRoof: 1
-    hint: Thatched skin between two ribs.
-  - id: PN-SKIN-L3
-    displayName: Left skin panel 3
-    kind: 6
-    stage: 3
-    shape: 3
-    a: {x: -1.45, y: 3.1, z: 0}
-    aGroundRelative: 0
-    b: {x: -1.45, y: 3.1, z: 0}
-    bGroundRelative: 0
-    thickness: 0.08
-    defaultMaterial: bamboo
-    allowedMaterials:
-    - bamboo
-    - timber
-    - steel
-    - earth-block
-    supports:
-    - PN-RIB-3
-    - PN-RIB-4
-    extraSupports: []
-    required: 1
-    crownHeight: 0
-    panelSize: {x: 2.9, y: 0.08, z: 1.6}
-    panelEuler: {x: 7.125018, y: 0, z: 38}
-    tributaryArea: 0
-    isRoof: 1
-    hint: Thatched skin between two ribs.
-  - id: PN-SKIN-R3
-    displayName: Right skin panel 3
-    kind: 6
-    stage: 3
-    shape: 3
-    a: {x: 1.45, y: 3.1, z: 0}
-    aGroundRelative: 0
-    b: {x: 1.45, y: 3.1, z: 0}
-    bGroundRelative: 0
-    thickness: 0.08
-    defaultMaterial: bamboo
-    allowedMaterials:
-    - bamboo
-    - timber
-    - steel
-    - earth-block
-    supports:
-    - PN-RIB-3
-    - PN-RIB-4
-    extraSupports: []
-    required: 1
-    crownHeight: 0
-    panelSize: {x: 2.9, y: 0.08, z: 1.6}
-    panelEuler: {x: 7.125018, y: 0, z: -38}
-    tributaryArea: 0
-    isRoof: 1
-    hint: Thatched skin between two ribs.
-  - id: PN-SKIN-L4
-    displayName: Left skin panel 4
-    kind: 6
-    stage: 3
-    shape: 3
-    a: {x: -1.45, y: 2.9, z: 1.6}
-    aGroundRelative: 0
-    b: {x: -1.45, y: 2.9, z: 1.6}
-    bGroundRelative: 0
-    thickness: 0.08
-    defaultMaterial: bamboo
-    allowedMaterials:
-    - bamboo
-    - timber
-    - steel
-    - earth-block
     supports:
     - PN-RIB-4
-    - PN-RIB-5
-    extraSupports: []
-    required: 1
-    crownHeight: 0
-    panelSize: {x: 2.9, y: 0.08, z: 1.6}
-    panelEuler: {x: 7.125009, y: 0, z: 38}
-    tributaryArea: 0
-    isRoof: 1
-    hint: Thatched skin between two ribs.
-  - id: PN-SKIN-R4
-    displayName: Right skin panel 4
-    kind: 6
-    stage: 3
-    shape: 3
-    a: {x: 1.45, y: 2.9, z: 1.6}
-    aGroundRelative: 0
-    b: {x: 1.45, y: 2.9, z: 1.6}
-    bGroundRelative: 0
-    thickness: 0.08
-    defaultMaterial: bamboo
-    allowedMaterials:
-    - bamboo
-    - timber
-    - steel
-    - earth-block
-    supports:
-    - PN-RIB-4
-    - PN-RIB-5
-    extraSupports: []
-    required: 1
-    crownHeight: 0
-    panelSize: {x: 2.9, y: 0.08, z: 1.6}
-    panelEuler: {x: 7.125009, y: 0, z: -38}
-    tributaryArea: 0
-    isRoof: 1
-    hint: Thatched skin between two ribs.
-  - id: PN-SKIN-L5
-    displayName: Left skin panel 5
-    kind: 6
-    stage: 3
-    shape: 3
-    a: {x: -1.45, y: 2.75, z: 3.2}
-    aGroundRelative: 0
-    b: {x: -1.45, y: 2.75, z: 3.2}
-    bGroundRelative: 0
-    thickness: 0.08
-    defaultMaterial: bamboo
-    allowedMaterials:
-    - bamboo
-    - timber
-    - steel
-    - earth-block
-    supports:
     - PN-RIB-5
     - PN-RIB-6
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 2.9, y: 0.08, z: 1.6}
-    panelEuler: {x: 3.5763397, y: 0, z: 38}
-    tributaryArea: 0
-    isRoof: 1
-    hint: Thatched skin between two ribs.
-  - id: PN-SKIN-R5
-    displayName: Right skin panel 5
-    kind: 6
-    stage: 3
-    shape: 3
-    a: {x: 1.45, y: 2.75, z: 3.2}
-    aGroundRelative: 0
-    b: {x: 1.45, y: 2.75, z: 3.2}
-    bGroundRelative: 0
-    thickness: 0.08
-    defaultMaterial: bamboo
-    allowedMaterials:
-    - bamboo
-    - timber
-    - steel
-    - earth-block
-    supports:
-    - PN-RIB-5
-    - PN-RIB-6
-    extraSupports: []
-    required: 1
-    crownHeight: 0
-    panelSize: {x: 2.9, y: 0.08, z: 1.6}
-    panelEuler: {x: 3.5763397, y: 0, z: -38}
-    tributaryArea: 0
-    isRoof: 1
-    hint: Thatched skin between two ribs.
-  - id: PN-HEAD-ROOF
-    displayName: Head roof
-    kind: 6
-    stage: 3
-    shape: 3
-    a: {x: 0, y: 3.5, z: 5.6}
-    aGroundRelative: 0
-    b: {x: 0, y: 3.5, z: 5.6}
-    bGroundRelative: 0
-    thickness: 0.08
-    defaultMaterial: bamboo
-    allowedMaterials:
-    - bamboo
-    - timber
-    - steel
-    - earth-block
-    supports:
-    - PN-HEAD
-    extraSupports: []
-    required: 1
-    crownHeight: 0
-    panelSize: {x: 3, y: 0.08, z: 3.2}
-    panelEuler: {x: 4, y: 0, z: 0}
+    panelSize: {x: 4.3858347, y: 0.08, z: 4.3858347}
+    panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 1
     hint: 
-  - id: PN-FLANK-L1
-    displayName: Left flank wall 1
+    component: Body shell
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 3
+    patchTo: 6
+    patchAroundFrom: 0.3
+    patchAroundTo: 0.7
+  - id: PN-FLANK-R
+    displayName: Right flank shell
     kind: 6
-    stage: 4
-    shape: 4
-    a: {x: -2.75, y: 0.7, z: -4}
-    aGroundRelative: 1
-    b: {x: -2.75, y: 0.7, z: -2.4}
-    bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: timber
+    stage: 3
+    shape: 6
+    a: {x: 2.69902, y: 1.573384, z: -0.949727}
+    aGroundRelative: 0
+    b: {x: 2.69902, y: 1.573384, z: -0.949727}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: ferrocement-charcoal
     allowedMaterials:
-    - bamboo
-    - timber
+    - ferrocement
+    - ferrocement-charcoal
+    - concrete
     - steel
-    - earth-block
     supports:
-    - PN-PAW-1
-    - PN-PAW-2
+    - PN-PLINTH-R1
+    - PN-PLINTH-R2
+    - PN-PLINTH-R3
+    - PN-PLINTH-R4
+    - PN-PLINTH-R5
     extraSupports: []
     required: 1
-    crownHeight: 2.55
-    panelSize: {x: 0.12, y: 1, z: 0}
+    crownHeight: 0
+    panelSize: {x: 4.2120614, y: 0.08, z: 4.2120614}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Cladding that encloses the panther's body. It keeps the weather out but
-      does not brace the ribs.
-  - id: PN-FLANK-R1
-    displayName: Right flank wall 1
+    hint: 
+    component: Body shell
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 6
+    patchAroundFrom: 0
+    patchAroundTo: 0.16
+  - id: PN-FLANK-L
+    displayName: Left flank shell
     kind: 6
-    stage: 4
-    shape: 4
-    a: {x: 2.75, y: 0.7, z: -4}
-    aGroundRelative: 1
-    b: {x: 2.75, y: 0.7, z: -2.4}
-    bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: timber
+    stage: 3
+    shape: 6
+    a: {x: -2.6990204, y: 1.5733849, z: -0.94972736}
+    aGroundRelative: 0
+    b: {x: -2.6990204, y: 1.5733849, z: -0.94972736}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: ferrocement-charcoal
     allowedMaterials:
-    - bamboo
-    - timber
+    - ferrocement
+    - ferrocement-charcoal
+    - concrete
     - steel
-    - earth-block
     supports:
-    - PN-PAW-1
-    - PN-PAW-2
+    - PN-PLINTH-L1
+    - PN-PLINTH-L2
+    - PN-PLINTH-L3
+    - PN-PLINTH-L4
+    - PN-PLINTH-L5
     extraSupports: []
     required: 1
-    crownHeight: 2.55
-    panelSize: {x: 0.12, y: 1, z: 0}
+    crownHeight: 0
+    panelSize: {x: 4.2120614, y: 0.08, z: 4.2120614}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Cladding that encloses the panther's body. It keeps the weather out but
-      does not brace the ribs.
-  - id: PN-FLANK-L2
-    displayName: Left flank wall 2
+    hint: 
+    component: Body shell
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 6
+    patchAroundFrom: 0.84
+    patchAroundTo: 1
+  - id: PN-HAUNCH-R
+    displayName: Right haunch shell
     kind: 6
-    stage: 4
-    shape: 4
-    a: {x: -2.75, y: 0.7, z: -2.4}
-    aGroundRelative: 1
-    b: {x: -2.75, y: 0.7, z: -0.8}
-    bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: timber
+    stage: 3
+    shape: 6
+    a: {x: 1.654084, y: 2.6719537, z: -4.6}
+    aGroundRelative: 0
+    b: {x: 1.654084, y: 2.6719537, z: -4.6}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: ferrocement-charcoal
     allowedMaterials:
-    - bamboo
-    - timber
+    - ferrocement
+    - ferrocement-charcoal
+    - concrete
     - steel
-    - earth-block
     supports:
-    - PN-PAW-2
-    - PN-PAW-3
+    - PN-RIB-1
     extraSupports: []
     required: 1
-    crownHeight: 2.35
-    panelSize: {x: 0.12, y: 1, z: 0}
+    crownHeight: 0
+    panelSize: {x: 1.4142445, y: 0.08, z: 1.4142445}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Cladding that encloses the panther's body. It keeps the weather out but
-      does not brace the ribs.
-  - id: PN-FLANK-R2
-    displayName: Right flank wall 2
+    hint: 
+    component: Body shell
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 1
+    patchAroundFrom: 0.16
+    patchAroundTo: 0.3
+  - id: PN-HAUNCH-L
+    displayName: Left haunch shell
     kind: 6
-    stage: 4
-    shape: 4
-    a: {x: 2.75, y: 0.7, z: -2.4}
-    aGroundRelative: 1
-    b: {x: 2.75, y: 0.7, z: -0.8}
-    bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: timber
+    stage: 3
+    shape: 6
+    a: {x: -1.6540838, y: 2.671954, z: -4.6000004}
+    aGroundRelative: 0
+    b: {x: -1.6540838, y: 2.671954, z: -4.6000004}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: ferrocement-charcoal
     allowedMaterials:
-    - bamboo
-    - timber
+    - ferrocement
+    - ferrocement-charcoal
+    - concrete
     - steel
-    - earth-block
     supports:
-    - PN-PAW-2
-    - PN-PAW-3
+    - PN-RIB-1
     extraSupports: []
     required: 1
-    crownHeight: 2.35
-    panelSize: {x: 0.12, y: 1, z: 0}
+    crownHeight: 0
+    panelSize: {x: 1.4142466, y: 0.08, z: 1.4142466}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Cladding that encloses the panther's body. It keeps the weather out but
-      does not brace the ribs.
-  - id: PN-FLANK-L3
-    displayName: Left flank wall 3
+    hint: 
+    component: Body shell
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 1
+    patchAroundFrom: 0.7
+    patchAroundTo: 0.84
+  - id: PN-HEAD-TOP
+    displayName: Head shell, crown
     kind: 6
-    stage: 4
-    shape: 4
-    a: {x: -2.75, y: 0.7, z: -0.8}
-    aGroundRelative: 1
-    b: {x: -2.75, y: 0.7, z: 0.8}
-    bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: timber
+    stage: 3
+    shape: 6
+    a: {x: -0.00001979493, y: 5.0282035, z: 5.691539}
+    aGroundRelative: 0
+    b: {x: -0.00001979493, y: 5.0282035, z: 5.691539}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: ferrocement-charcoal
     allowedMaterials:
-    - bamboo
-    - timber
+    - ferrocement
+    - ferrocement-charcoal
+    - concrete
     - steel
-    - earth-block
     supports:
-    - PN-PAW-3
-    - PN-PAW-4
+    - PN-HEAD-FLOOR
     extraSupports: []
     required: 1
-    crownHeight: 2.1499999
-    panelSize: {x: 0.12, y: 1, z: 0}
+    crownHeight: 0
+    panelSize: {x: 3.5583816, y: 0.08, z: 3.5583816}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 
+    component: Head shell
+    hasPatch: 1
+    patchProfile: 1
+    patchFrom: 0
+    patchTo: 4
+    patchAroundFrom: 0.25
+    patchAroundTo: 0.75
+  - id: PN-CHEEK-R
+    displayName: Right cheek shell
+    kind: 6
+    stage: 3
+    shape: 6
+    a: {x: 1.7251499, y: 3.7499518, z: 5.749331}
+    aGroundRelative: 0
+    b: {x: 1.7251499, y: 3.7499518, z: 5.749331}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: ferrocement-charcoal
+    allowedMaterials:
+    - ferrocement
+    - ferrocement-charcoal
+    - concrete
+    - steel
+    supports:
+    - PN-HEAD-FLOOR
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 2.7275488, y: 0.08, z: 2.7275488}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Cladding that encloses the panther's body. It keeps the weather out but
-      does not brace the ribs.
-  - id: PN-FLANK-R3
-    displayName: Right flank wall 3
+    hint: 
+    component: Head shell
+    hasPatch: 1
+    patchProfile: 1
+    patchFrom: 0
+    patchTo: 4
+    patchAroundFrom: 0
+    patchAroundTo: 0.25
+  - id: PN-CHEEK-L
+    displayName: Left cheek shell
     kind: 6
-    stage: 4
-    shape: 4
-    a: {x: 2.75, y: 0.7, z: -0.8}
-    aGroundRelative: 1
-    b: {x: 2.75, y: 0.7, z: 0.8}
-    bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: timber
+    stage: 3
+    shape: 6
+    a: {x: -1.7251511, y: 3.749958, z: 5.7493124}
+    aGroundRelative: 0
+    b: {x: -1.7251511, y: 3.749958, z: 5.7493124}
+    bGroundRelative: 0
+    thickness: 0.08
+    defaultMaterial: ferrocement-charcoal
     allowedMaterials:
-    - bamboo
-    - timber
+    - ferrocement
+    - ferrocement-charcoal
+    - concrete
     - steel
-    - earth-block
     supports:
-    - PN-PAW-3
-    - PN-PAW-4
+    - PN-HEAD-FLOOR
     extraSupports: []
     required: 1
-    crownHeight: 2.1499999
-    panelSize: {x: 0.12, y: 1, z: 0}
+    crownHeight: 0
+    panelSize: {x: 2.7275672, y: 0.08, z: 2.7275672}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Cladding that encloses the panther's body. It keeps the weather out but
-      does not brace the ribs.
-  - id: PN-FLANK-L4
-    displayName: Left flank wall 4
+    hint: 
+    component: Head shell
+    hasPatch: 1
+    patchProfile: 1
+    patchFrom: 0
+    patchTo: 4
+    patchAroundFrom: 0.75
+    patchAroundTo: 1
+  - id: PN-GLASS-R
+    displayName: Right flank glazing
     kind: 6
     stage: 4
-    shape: 4
-    a: {x: -2.75, y: 0.7, z: 0.8}
-    aGroundRelative: 1
-    b: {x: -2.75, y: 0.7, z: 2.4}
-    bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: timber
+    shape: 6
+    a: {x: 2.2785048, y: 2.9635806, z: -0.181084}
+    aGroundRelative: 0
+    b: {x: 2.2785048, y: 2.9635806, z: -0.181084}
+    bGroundRelative: 0
+    thickness: 0.04
+    defaultMaterial: glass
     allowedMaterials:
-    - bamboo
-    - timber
-    - steel
-    - earth-block
+    - glass
+    - ferrocement
     supports:
-    - PN-PAW-4
-    - PN-PAW-5
+    - PN-RIB-2
+    - PN-RIB-6
     extraSupports: []
     required: 1
-    crownHeight: 1.95
-    panelSize: {x: 0.12, y: 1, z: 0}
+    crownHeight: 0
+    panelSize: {x: 3.1751275, y: 0.04, z: 3.1751275}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Cladding that encloses the panther's body. It keeps the weather out but
-      does not brace the ribs.
-  - id: PN-FLANK-R4
-    displayName: Right flank wall 4
+    hint: A ribbon of glass along the flank, like light on a panther's coat.
+    component: Flank glazing
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 1
+    patchTo: 6
+    patchAroundFrom: 0.16
+    patchAroundTo: 0.3
+  - id: PN-GLASS-L
+    displayName: Left flank glazing
     kind: 6
     stage: 4
-    shape: 4
-    a: {x: 2.75, y: 0.7, z: 0.8}
-    aGroundRelative: 1
-    b: {x: 2.75, y: 0.7, z: 2.4}
-    bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: timber
+    shape: 6
+    a: {x: -2.278504, y: 2.9635794, z: -0.181084}
+    aGroundRelative: 0
+    b: {x: -2.278504, y: 2.9635794, z: -0.181084}
+    bGroundRelative: 0
+    thickness: 0.04
+    defaultMaterial: glass
     allowedMaterials:
-    - bamboo
-    - timber
-    - steel
-    - earth-block
+    - glass
+    - ferrocement
     supports:
-    - PN-PAW-4
-    - PN-PAW-5
+    - PN-RIB-2
+    - PN-RIB-6
     extraSupports: []
     required: 1
-    crownHeight: 1.95
-    panelSize: {x: 0.12, y: 1, z: 0}
+    crownHeight: 0
+    panelSize: {x: 3.1751263, y: 0.04, z: 3.1751263}
     panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: Cladding that encloses the panther's body. It keeps the weather out but
-      does not brace the ribs.
-  - id: PN-FLANK-L5
-    displayName: Left flank wall 5
-    kind: 6
-    stage: 4
-    shape: 4
-    a: {x: -2.75, y: 0.7, z: 2.4}
-    aGroundRelative: 1
-    b: {x: -2.75, y: 0.7, z: 4}
-    bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: timber
-    allowedMaterials:
-    - bamboo
-    - timber
-    - steel
-    - earth-block
-    supports:
-    - PN-PAW-5
-    - PN-PAW-6
-    extraSupports: []
-    required: 1
-    crownHeight: 1.8499999
-    panelSize: {x: 0.12, y: 1, z: 0}
-    panelEuler: {x: 0, y: 0, z: 0}
-    tributaryArea: 0
-    isRoof: 0
-    hint: Cladding that encloses the panther's body. It keeps the weather out but
-      does not brace the ribs.
-  - id: PN-FLANK-R5
-    displayName: Right flank wall 5
-    kind: 6
-    stage: 4
-    shape: 4
-    a: {x: 2.75, y: 0.7, z: 2.4}
-    aGroundRelative: 1
-    b: {x: 2.75, y: 0.7, z: 4}
-    bGroundRelative: 1
-    thickness: 0.12
-    defaultMaterial: timber
-    allowedMaterials:
-    - bamboo
-    - timber
-    - steel
-    - earth-block
-    supports:
-    - PN-PAW-5
-    - PN-PAW-6
-    extraSupports: []
-    required: 1
-    crownHeight: 1.8499999
-    panelSize: {x: 0.12, y: 1, z: 0}
-    panelEuler: {x: 0, y: 0, z: 0}
-    tributaryArea: 0
-    isRoof: 0
-    hint: Cladding that encloses the panther's body. It keeps the weather out but
-      does not brace the ribs.
+    hint: 
+    component: Flank glazing
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 1
+    patchTo: 6
+    patchAroundFrom: 0.7
+    patchAroundTo: 0.84
   - id: PN-HAUNCH-WALL
-    displayName: Haunch wall
+    displayName: Haunch end wall
     kind: 6
     stage: 4
-    shape: 3
-    a: {x: 0, y: 2.3, z: -4.1}
+    shape: 6
+    a: {x: -0.000000014192619, y: 1.5635968, z: -5}
     aGroundRelative: 0
-    b: {x: 0, y: 2.3, z: -4.1}
+    b: {x: -0.000000014192619, y: 1.5635968, z: -5}
     bGroundRelative: 0
-    thickness: 0.1
-    defaultMaterial: earth-block
+    thickness: 0.08
+    defaultMaterial: ferrocement-charcoal
     allowedMaterials:
-    - bamboo
-    - timber
+    - ferrocement
+    - ferrocement-charcoal
+    - concrete
     - steel
-    - earth-block
     supports:
     - PN-RIB-1
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 4.4, y: 0.1, z: 3.4}
-    panelEuler: {x: 90, y: 0, z: 0}
+    panelSize: {x: 2.0493152, y: 0.08, z: 2.0493152}
+    panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
     hint: 
-  - id: PN-FACE-GLASS
-    displayName: Face screen
+    component: Haunch and chest walls
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 1
+  - id: PN-CHEST-GLASS
+    displayName: Chest window
     kind: 6
     stage: 4
-    shape: 3
-    a: {x: 0, y: 1.9, z: 4.1}
+    shape: 6
+    a: {x: 0.000000026993463, y: 1.9294457, z: 4.1}
     aGroundRelative: 0
-    b: {x: 0, y: 1.9, z: 4.1}
+    b: {x: 0.000000026993463, y: 1.9294457, z: 4.1}
+    bGroundRelative: 0
+    thickness: 0.04
+    defaultMaterial: glass
+    allowedMaterials:
+    - glass
+    - ferrocement
+    supports:
+    - PN-RIB-6
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3.6398742, y: 0.04, z: 3.6398742}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: The panther's chest is one tall window looking down the valley.
+    component: Haunch and chest walls
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 6
+    patchTo: 6
+    patchAroundFrom: 0
+    patchAroundTo: 1
+  - id: PN-FACE-GLASS
+    displayName: Face window
+    kind: 6
+    stage: 4
+    shape: 6
+    a: {x: -0.000000005786427, y: 3.7345731, z: 7.7}
+    aGroundRelative: 0
+    b: {x: -0.000000005786427, y: 3.7345731, z: 7.7}
+    bGroundRelative: 0
+    thickness: 0.04
+    defaultMaterial: glass
+    allowedMaterials:
+    - glass
+    - ferrocement
+    supports:
+    - PN-HEAD-FLOOR
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.6047405, y: 0.04, z: 1.6047405}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Face window
+    hasPatch: 1
+    patchProfile: 1
+    patchFrom: 4
+    patchTo: 4
+    patchAroundFrom: 0
+    patchAroundTo: 1
+  - id: PN-TAIL
+    displayName: Tail canopy
+    kind: 6
+    stage: 4
+    shape: 6
+    a: {x: 0.47725913, y: 2.5902936, z: -5.932546}
+    aGroundRelative: 0
+    b: {x: 0.47725913, y: 2.5902936, z: -5.932546}
     bGroundRelative: 0
     thickness: 0.06
-    defaultMaterial: timber
+    defaultMaterial: ferrocement-charcoal
     allowedMaterials:
-    - bamboo
-    - timber
+    - ferrocement
+    - ferrocement-charcoal
+    - concrete
     - steel
-    - earth-block
     supports:
-    - PN-RIB-6
+    - PN-HAUNCH-WALL
     extraSupports: []
     required: 1
     crownHeight: 0
-    panelSize: {x: 4.4, y: 0.06, z: 2.8}
-    panelEuler: {x: 90, y: 0, z: 0}
+    panelSize: {x: 1.7546092, y: 0.06, z: 1.7546092}
+    panelEuler: {x: 0, y: 0, z: 0}
     tributaryArea: 0
     isRoof: 0
-    hint: 
+    hint: A curling tail that shades the uphill terrace.
+    component: Tail canopy
+    hasPatch: 1
+    patchProfile: 2
+    patchFrom: 0
+    patchTo: 4
+    patchAroundFrom: 0
+    patchAroundTo: 1
+  - id: PN-ROOM-1L
+    displayName: Room wall 1a
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: -2.3, y: 0.86, z: -2.3500001}
+    aGroundRelative: 1
+    b: {x: -0.5, y: 0.86, z: -2.3500001}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - PN-FLOOR-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.12, y: 2.1, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Half-brick partition between rooms.
+    component: Interior walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: PN-ROOM-1R
+    displayName: Room wall 1b
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: 2.3, y: 0.86, z: -2.3500001}
+    aGroundRelative: 1
+    b: {x: 0.5, y: 0.86, z: -2.3500001}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - PN-FLOOR-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.12, y: 2.1, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Half-brick partition between rooms.
+    component: Interior walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: PN-ROOM-2L
+    displayName: Room wall 2a
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: -2.3, y: 0.86, z: 0.85}
+    aGroundRelative: 1
+    b: {x: -0.5, y: 0.86, z: 0.85}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - PN-FLOOR-4
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.12, y: 2.1, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Half-brick partition between rooms.
+    component: Interior walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: PN-ROOM-2R
+    displayName: Room wall 2b
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: 2.3, y: 0.86, z: 0.85}
+    aGroundRelative: 1
+    b: {x: 0.5, y: 0.86, z: 0.85}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - PN-FLOOR-4
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.12, y: 2.1, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Half-brick partition between rooms.
+    component: Interior walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  shells:
+  - name: Panther body
+    stations:
+    - z: -5
+      baseY: 0.7
+      topY: 2.7
+      halfWidth: 1.3
+      roundness: 2.2
+      centreX: 0
+      baseOnGround: 1
+    - z: -4.2
+      baseY: 0.7
+      topY: 4.4
+      halfWidth: 2.95
+      roundness: 2.4
+      centreX: 0
+      baseOnGround: 1
+    - z: -2.4
+      baseY: 0.7
+      topY: 4.2
+      halfWidth: 2.95
+      roundness: 2.4
+      centreX: 0
+      baseOnGround: 1
+    - z: -0.8
+      baseY: 0.7
+      topY: 4
+      halfWidth: 2.9
+      roundness: 2.4
+      centreX: 0
+      baseOnGround: 1
+    - z: 0.8
+      baseY: 0.7
+      topY: 3.8
+      halfWidth: 2.9
+      roundness: 2.4
+      centreX: 0
+      baseOnGround: 1
+    - z: 2.4
+      baseY: 0.7
+      topY: 3.6
+      halfWidth: 2.9
+      roundness: 2.4
+      centreX: 0
+      baseOnGround: 1
+    - z: 4.1
+      baseY: 0.7
+      topY: 3.5
+      halfWidth: 2.85
+      roundness: 2.4
+      centreX: 0
+      baseOnGround: 1
+  - name: Panther head
+    stations:
+    - z: 3.9
+      baseY: 2.7
+      topY: 5
+      halfWidth: 2.2
+      roundness: 2.4
+      centreX: 0
+      baseOnGround: 0
+    - z: 5
+      baseY: 2.75
+      topY: 5.45
+      halfWidth: 2.1
+      roundness: 2.4
+      centreX: 0
+      baseOnGround: 0
+    - z: 6.2
+      baseY: 2.85
+      topY: 5.35
+      halfWidth: 1.85
+      roundness: 2.4
+      centreX: 0
+      baseOnGround: 0
+    - z: 7.2
+      baseY: 2.95
+      topY: 5
+      halfWidth: 1.45
+      roundness: 2.2
+      centreX: 0
+      baseOnGround: 0
+    - z: 7.7
+      baseY: 3.1
+      topY: 4.6
+      halfWidth: 1.1
+      roundness: 2
+      centreX: 0
+      baseOnGround: 0
+  - name: Panther tail
+    stations:
+    - z: -4.9
+      baseY: 1.9
+      topY: 2.55
+      halfWidth: 0.32
+      roundness: 2
+      centreX: 0
+      baseOnGround: 0
+    - z: -5.7
+      baseY: 2.05
+      topY: 2.6
+      halfWidth: 0.28
+      roundness: 2
+      centreX: 0.25
+      baseOnGround: 0
+    - z: -6.4
+      baseY: 2.4
+      topY: 2.9
+      halfWidth: 0.24
+      roundness: 2
+      centreX: 0.75
+      baseOnGround: 0
+    - z: -6.85
+      baseY: 3
+      topY: 3.4
+      halfWidth: 0.2
+      roundness: 2
+      centreX: 1.05
+      baseOnGround: 0
+    - z: -7.05
+      baseY: 3.5
+      topY: 3.75
+      halfWidth: 0.14
+      roundness: 2
+      centreX: 1.1
+      baseOnGround: 0
+  category: Biomimetic
   focusCases: 0400000001000000
   skin:
-    m_AssetGUID: 9ba54b9758b8ffb47943219df985da53
+    m_AssetGUID: 60d05b57935b0f14aa19ad418b9146cf
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
-  skinFollowsSlope: 1

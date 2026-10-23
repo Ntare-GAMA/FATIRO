@@ -61,7 +61,13 @@ namespace Fatiro.Domain
         Panel,
 
         /// <summary>A wall-like box between two points with a height: brick plinth walls and infill walls.</summary>
-        Block
+        Block,
+
+        /// <summary>A straight member with a square section: concrete columns and beams.</summary>
+        Bar,
+
+        /// <summary>A piece of a lofted shell (curved body, roof slope, ear canopy, or an end cap).</summary>
+        Shell
     }
 
     public static class EnumText
@@ -72,7 +78,7 @@ namespace Fatiro.Domain
             {
                 case BuildStage.Foundation: return "Foundation";
                 case BuildStage.PrimaryStructure: return "Primary structure";
-                case BuildStage.Bracing: return "Bracing";
+                case BuildStage.Bracing: return "Walls & bracing";
                 case BuildStage.Roof: return "Roof";
                 default: return "Envelope";
             }
@@ -81,16 +87,32 @@ namespace Fatiro.Domain
         /// <summary>What a learner would call the piece: a brick wall is a Brace to the solver, but a wall to a builder.</summary>
         public static string PieceName(MemberSpec spec)
         {
-            if (spec.Shape == MemberShape.Block) return "Brick wall";
+            var material = spec.DefaultMaterialId;
+            if (spec.Shape == MemberShape.Shell)
+            {
+                if (material == "glass") return "Glazing";
+                if (material == "iron-sheet") return "Roof sheeting";
+                if (material == "clay-tile") return "Roof tiles";
+                if (spec.Patch.IsCap) return material == "earth-block" ? "Brick gable" : "End wall";
+                return spec.IsRoof ? "Shell roof" : "Shell wall";
+            }
+            if (spec.Shape == MemberShape.Block)
+            {
+                if (spec.Stage == BuildStage.Foundation) return "Foundation wall";
+                return spec.Kind == MemberKind.Brace ? "Brick wall" : spec.Thickness < 0.15f ? "Partition" : "Brick infill";
+            }
+            if (material == "window") return "Window";
+            if (material == "door") return "Door";
+            if (material == "glass") return "Glazing";
             switch (spec.Kind)
             {
-                case MemberKind.Foundation: return spec.DefaultMaterialId == "earth-block" ? "Brick pier" : "Footing";
+                case MemberKind.Foundation: return material == "earth-block" ? "Brick pier" : "Concrete footing";
                 case MemberKind.Column: return "Column";
                 case MemberKind.Beam: return "Beam";
-                case MemberKind.Arch: return "Arch";
+                case MemberKind.Arch: return "Arch rib";
                 case MemberKind.Cantilever: return "Cantilever";
                 case MemberKind.Brace: return "Brace";
-                case MemberKind.Panel: return spec.IsRoof ? "Roof panel" : "Wall panel";
+                case MemberKind.Panel: return spec.IsRoof ? "Roof panel" : spec.TributaryArea > 0f ? "Floor slab" : spec.PanelEuler.X > 20f && spec.PanelEuler.X < 70f ? "Stair flight" : "Wall panel";
                 default: return "Drain";
             }
         }

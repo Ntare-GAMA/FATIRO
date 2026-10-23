@@ -101,8 +101,8 @@ namespace Fatiro.Core
 
     public readonly struct TraySelectionChanged
     {
-        public TraySelectionChanged(MemberSpec spec) => Spec = spec;
-        public MemberSpec Spec { get; }
+        public TraySelectionChanged(BuildComponent component) => Component = component;
+        public BuildComponent Component { get; }
     }
 
     public readonly struct StageCompleted

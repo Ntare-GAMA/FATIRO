@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: Catalogue
   m_GUID: 3e26c75cb18a58e40a010546939f01ae
   m_SerializeEntries:
+  - m_GUID: 107687f6ec32db3439049c09fd9f59d9
+    m_Address: Materials/ferrocement-charcoal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - material
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 28c56f198a9a4cc4aa3807715fdbe571
     m_Address: Materials/concrete
     m_ReadOnly: 0
@@ -27,11 +33,29 @@ MonoBehaviour:
     m_SerializedLabels:
     - material
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5190299276567074181b9164ebe0a1b1
+    m_Address: Designs/BG-01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - design
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6c29db127f19cbb4687fdfe909cd9f78
     m_Address: Designs/PN-01
     m_ReadOnly: 0
     m_SerializedLabels:
     - design
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7443b9d742ff0614885abc73cf189606
+    m_Address: Materials/glass
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - material
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81dd2fc57d04f514b8a4c0b518bd26a5
+    m_Address: Materials/ferrocement
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - material
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 994d6736e2beaf640ad4ef7a10dacf42
     m_Address: Designs/CR-01
@@ -45,8 +69,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - design
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2a0ec3685801434880237435d895405
+    m_Address: Materials/window
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - material
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c9f99188baa59a642a24b0e0cdc7454a
     m_Address: Materials/timber
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - material
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca7e6e8eb26cbf6468b43b3486c8a0ee
+    m_Address: Designs/AP-01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - design
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d01a0bcb8be6b3d4b9bddd123568be66
+    m_Address: Materials/door
     m_ReadOnly: 0
     m_SerializedLabels:
     - material
@@ -62,6 +104,24 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - material
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d69db932866153448a23d771530a5040
+    m_Address: Materials/iron-sheet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - material
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa4576e874f9c8d4fb5143d077c25f8e
+    m_Address: Materials/clay-tile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - material
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd72b7f16061c1648a4e7fa20fb8217d
+    m_Address: Designs/TS-01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - design
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: bdf72cbff2089094aa8180c7f3227ba6, type: 2}

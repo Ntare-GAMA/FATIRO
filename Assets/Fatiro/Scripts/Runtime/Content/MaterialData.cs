@@ -30,8 +30,16 @@ namespace Fatiro.Content
         public string DisplayName => displayName;
         public Color Color => color;
 
-        /// <summary>How members of this material are drawn. White tint keeps the texture true to life.</summary>
-        public World.MemberSurface Surface => new World.MemberSurface(renderMaterial, renderMaterial != null ? Color.white : color, tileMetres);
+        /// <summary>
+        /// How members of this material are drawn. The tint is the render material's own colour, so a tinted
+        /// texture (charcoal render, silver iron sheets) and the transparency of glass survive the per-member colour.
+        /// </summary>
+        public World.MemberSurface Surface => new World.MemberSurface(renderMaterial, RenderTint, tileMetres);
+
+        private Color RenderTint => renderMaterial == null ? color
+            : renderMaterial.HasProperty(BaseColor) ? renderMaterial.GetColor(BaseColor) : Color.white;
+
+        private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
         public string Description => description;
 
         public MaterialSpec Spec =>

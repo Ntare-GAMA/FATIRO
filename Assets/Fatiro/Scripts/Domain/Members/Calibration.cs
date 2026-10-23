@@ -32,7 +32,7 @@ namespace Fatiro.Domain
         public const float CantileverBending = 40f;
         public const float ProppedCantileverFactor = 4f;
         public const float TiedCantileverUpliftFactor = 3.5f;
-        public const float UntiedCantileverUpliftFactor = 0.3f;
+        public const float UntiedCantileverUpliftFactor = 0.25f;
 
         // Braces
         public const float BraceAxial = 30f;
@@ -42,6 +42,8 @@ namespace Fatiro.Domain
         // Panels
         public const float PanelMembrane = 8f;
         public const float PanelReferenceThickness = 0.1f;
+        public const float NailedRoofHoldDown = 0.4f;
+        public const float StrappedRoofHoldDown = 1.5f;
 
         // Drains
         public const float DrainBody = 20f;

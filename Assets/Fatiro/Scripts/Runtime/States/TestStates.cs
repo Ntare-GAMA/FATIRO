@@ -23,7 +23,6 @@ namespace Fatiro.States
         public override void ModifyStructure()
         {
             Context.Entities.ClearResults();
-            Manager.SetSkinVisible(true);
             Manager.ReturnToHologram();
             Manager.ChangeState(SimulationStateId.Building);
         }
@@ -77,8 +76,6 @@ namespace Fatiro.States
             var config = Manager.PendingTest;
             Context.Entities.ClearResults();
             Result = Context.LoadTests.Run(config, Context.Setup.Site);
-            // Hide the decorative skin so the coloured members underneath can be read.
-            Manager.SetSkinVisible(false);
             PlayLoadEffect(config);
 
             waveTimes.Clear();

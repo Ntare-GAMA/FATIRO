@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Fit-outs
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Fit-outs
+  m_GUID: 059cc3fb68b8c7f4895b4ba5f87c897c
+  m_SerializeEntries:
+  - m_GUID: 04007f636bbc59846b25a61f1f894297
+    m_Address: Skins/CR-01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10373c09fff5d734e9c20f88d99693c7
+    m_Address: Skins/EL-01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60d05b57935b0f14aa19ad418b9146cf
+    m_Address: Skins/PN-01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 686687178e455e54692e047aceaa67ec
+    m_Address: Skins/AP-01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: acd6f176a2f03cb46bc5bcbc15a62a34
+    m_Address: Skins/BG-01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d78ecb1b2cef9e044996d8f1b3ee673a
+    m_Address: Skins/TS-01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: bdf72cbff2089094aa8180c7f3227ba6, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: edaf2ce972c0c6b49ae36aff1e8a4607, type: 2}
+    - {fileID: 11400000, guid: f8f0d0ce9fc044e498801c5bab3517c4, type: 2}

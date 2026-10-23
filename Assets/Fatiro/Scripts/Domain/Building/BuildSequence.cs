@@ -99,6 +99,58 @@ namespace Fatiro.Domain
             return PlacementCheck.Accept();
         }
 
+        /// <summary>Members of a component that are not built yet, in build order.</summary>
+        public List<MemberSpec> Remaining(BuildComponent component)
+        {
+            var result = new List<MemberSpec>();
+            foreach (var spec in component.Members)
+                if (!placed.Contains(spec.Id)) result.Add(spec);
+            return result;
+        }
+
+        public bool IsBuilt(BuildComponent component) => Remaining(component).Count == 0;
+
+        /// <summary>
+        /// May the whole component be built now? Its members may rest on each other (a ring beam on
+        /// its own columns is fine), so members earlier in the component count as already in place.
+        /// </summary>
+        public PlacementCheck CanPlace(BuildComponent component)
+        {
+            if (component == null) throw new ArgumentNullException(nameof(component));
+            var remaining = Remaining(component);
+            if (remaining.Count == 0) return PlacementCheck.Reject($"{component.Name} is already built.");
+
+            if (Mode == BuildMode.GuidedBuild && !IsComplete && component.Stage > CurrentStage)
+                return PlacementCheck.Reject($"Finish the {EnumText.StageName(CurrentStage)} stage before {component.Name}.");
+
+            var built = new HashSet<string>(placed);
+            foreach (var spec in remaining)
+            {
+                foreach (var supportId in spec.Supports)
+                {
+                    if (built.Contains(supportId)) continue;
+                    var missing = blueprint.Get(supportId);
+                    var other = blueprint.ComponentOf(supportId);
+                    return PlacementCheck.Reject($"{component.Name} needs {(other != null ? other.Name : missing.DisplayName)} first.", missing);
+                }
+                built.Add(spec.Id);
+            }
+            return PlacementCheck.Accept();
+        }
+
+        /// <summary>Next required component of the current stage that can be built (ghost outline in Guided Build).</summary>
+        public BuildComponent NextComponent()
+        {
+            if (IsComplete) return null;
+            var stage = CurrentStage;
+            foreach (var component in blueprint.Components)
+            {
+                if (component.Stage != stage || !component.Required || IsBuilt(component)) continue;
+                if (CanPlace(component).Allowed) return component;
+            }
+            return null;
+        }
+
         /// <summary>Records a placement and returns the stages it completed (usually none or one).</summary>
         public IReadOnlyList<BuildStage> MarkPlaced(string memberId)
         {

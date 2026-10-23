@@ -33,6 +33,13 @@ namespace Fatiro.Content
         public float tributaryArea;
         public bool isRoof;
         [TextArea] public string hint;
+        public string component;
+        public bool hasPatch;
+        public int patchProfile;
+        public int patchFrom;
+        public int patchTo;
+        public float patchAroundFrom;
+        public float patchAroundTo;
 
         public static MemberData From(MemberSpec spec) => new MemberData
         {
@@ -56,13 +63,69 @@ namespace Fatiro.Content
             panelEuler = spec.PanelEuler.ToUnity(),
             tributaryArea = spec.TributaryArea,
             isRoof = spec.IsRoof,
-            hint = spec.Hint
+            hint = spec.Hint,
+            component = spec.Component,
+            hasPatch = spec.Patch.IsSet,
+            patchProfile = spec.Patch.Profile,
+            patchFrom = spec.Patch.From,
+            patchTo = spec.Patch.To,
+            patchAroundFrom = spec.Patch.AroundFrom,
+            patchAroundTo = spec.Patch.AroundTo
         };
 
         public MemberSpec ToSpec() => new MemberSpec(id, displayName, kind, stage, shape,
             new Endpoint(a.ToNumerics(), aGroundRelative), new Endpoint(b.ToNumerics(), bGroundRelative), thickness,
             defaultMaterial, allowedMaterials, supports, extraSupports, required, crownHeight,
-            panelSize.ToNumerics(), panelEuler.ToNumerics(), tributaryArea, isRoof, hint);
+            panelSize.ToNumerics(), panelEuler.ToNumerics(), tributaryArea, isRoof, hint, component,
+            hasPatch ? new ShellPatch(patchProfile, patchFrom, patchTo, patchAroundFrom, patchAroundTo) : default);
+    }
+
+    /// <summary>Serialized form of one shell station.</summary>
+    [Serializable]
+    public sealed class StationData
+    {
+        public float z;
+        public float baseY;
+        public float topY;
+        public float halfWidth;
+        public float roundness = 2.5f;
+        public float centreX;
+        public bool baseOnGround;
+
+        public static StationData From(ShellStation station) => new StationData
+        {
+            z = station.Z,
+            baseY = station.BaseY,
+            topY = station.TopY,
+            halfWidth = station.HalfWidth,
+            roundness = station.Roundness,
+            centreX = station.CentreX,
+            baseOnGround = station.BaseOnGround
+        };
+
+        public ShellStation ToStation() => new ShellStation(z, baseY, topY, halfWidth, roundness, centreX, baseOnGround);
+    }
+
+    /// <summary>Serialized form of one lofted shell (a body, a roof, an ear).</summary>
+    [Serializable]
+    public sealed class ShellData
+    {
+        public string name;
+        public List<StationData> stations = new List<StationData>();
+
+        public static ShellData From(ShellProfile profile)
+        {
+            var data = new ShellData { name = profile.Name };
+            foreach (var station in profile.Stations) data.stations.Add(StationData.From(station));
+            return data;
+        }
+
+        public ShellProfile ToProfile()
+        {
+            var list = new List<ShellStation>(stations.Count);
+            foreach (var station in stations) list.Add(station.ToStation());
+            return new ShellProfile(name, list);
+        }
     }
 
     /// <summary>
@@ -92,15 +155,15 @@ namespace Fatiro.Content
         [Header("Geometry")]
         [SerializeField] private float uphillReferenceZ;
         [SerializeField] private List<MemberData> members = new List<MemberData>();
+        [SerializeField] private List<ShellData> shells = new List<ShellData>();
+        [SerializeField] private string category;
 
         [Tooltip("Load cases this design is meant to teach. They count towards the safety score even if untested.")]
         [SerializeField] private LoadCaseKind[] focusCases = { LoadCaseKind.Seismic };
 
         [Header("Addressable assets")]
-        [Tooltip("Decorative creature skin shown when the build is complete. Loaded on demand and released after.")]
+        [Tooltip("Fit-out (furniture, lights, wheels) shown when the house is revealed. Loaded on demand and released after.")]
         [SerializeField] private AssetReferenceGameObject skin;
-        [Tooltip("Animal skins lie along the hillside; the car skin stays level on its deck.")]
-        [SerializeField] private bool skinFollowsSlope;
 
         private HouseBlueprint blueprint;
 
@@ -114,7 +177,7 @@ namespace Fatiro.Content
         public Color AccentColor => accentColor;
         public int SortOrder => sortOrder;
         public AssetReferenceGameObject Skin => skin;
-        public bool SkinFollowsSlope => skinFollowsSlope;
+        public string Category => category;
         public int MemberCount => members.Count;
         public IReadOnlyList<LoadCaseKind> FocusCases => focusCases;
 
@@ -125,16 +188,18 @@ namespace Fatiro.Content
                 if (blueprint != null) return blueprint;
                 var specs = new List<MemberSpec>(members.Count);
                 foreach (var member in members) specs.Add(member.ToSpec());
+                var profiles = new List<ShellProfile>(shells.Count);
+                foreach (var shell in shells) profiles.Add(shell.ToProfile());
                 var style = new FoundationStyle(foundationName, foundationInspiration, foundationBearing, foundationSlopeResistance, foundationGrip);
-                blueprint = new HouseBlueprint(designId, version, displayName, meaning, description, lesson, difficulty, style, uphillReferenceZ, specs);
+                blueprint = new HouseBlueprint(designId, version, displayName, meaning, description, lesson, difficulty, style, uphillReferenceZ, specs,
+                    profiles, category);
                 return blueprint;
             }
         }
 
-        public void Configure(HouseBlueprint source, Color accent, int order, LoadCaseKind[] focus, AssetReferenceGameObject skinReference,
-            bool skinLiesOnSlope)
+        public void Configure(HouseBlueprint source, Color accent, int order, LoadCaseKind[] focus, AssetReferenceGameObject skinReference)
         {
-            skinFollowsSlope = skinLiesOnSlope;
+            category = source.Category;
             focusCases = focus;
             designId = source.DesignId;
             version = source.Version;
@@ -153,6 +218,8 @@ namespace Fatiro.Content
             uphillReferenceZ = source.UphillReferenceZ;
             members = new List<MemberData>();
             foreach (var spec in source.Members) members.Add(MemberData.From(spec));
+            shells = new List<ShellData>();
+            foreach (var profile in source.Shells) shells.Add(ShellData.From(profile));
             skin = skinReference;
             blueprint = null;
         }

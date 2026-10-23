@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Fatiro.Core;
 using Fatiro.Domain;
 using Fatiro.Input;
@@ -7,18 +8,22 @@ using UnityEngine;
 namespace Fatiro.States
 {
     /// <summary>
-    /// Assembly. The selected member is shown as a glowing ghost outline at its target node.
-    /// Dragging a card from the tray and releasing within 5 cm (real-world) of the ghost snaps it
-    /// in place (FR-10); tapping the ghost places it too. Tapping a placed member inspects it (FR-20).
+    /// Assembly, component by component (fast build). The selected component glows as a ghost over
+    /// the faint whole-house blueprint. Dragging its card from the tray and releasing within 5 cm
+    /// (real-world) of the ghost builds it (FR-10); tapping the ghost builds it too. Its pieces then
+    /// rise one after another. Tapping a built member inspects it (FR-20).
     /// </summary>
     public sealed class BuildingState : SimulationState
     {
         /// <summary>Snap distance in real-world metres (FR-10).</summary>
         public const float SnapRadius = 0.05f;
 
-        private MemberSpec selected;
-        private MemberView ghost;
-        private readonly System.Collections.Generic.List<MemberView> blueprint = new System.Collections.Generic.List<MemberView>();
+        /// <summary>Delay between the pieces of a component materialising, so the crew's work reads as a sequence.</summary>
+        public const float PieceInterval = 0.07f;
+
+        private BuildComponent selected;
+        private readonly List<MemberView> ghosts = new List<MemberView>();
+        private readonly List<MemberView> blueprint = new List<MemberView>();
         private bool dragging;
 
         public BuildingState(SimulationManager manager) : base(manager) { }
@@ -28,7 +33,7 @@ namespace Fatiro.States
         public override bool CanEditStructure => true;
         public override bool CanEndSession => true;
 
-        public MemberSpec Selected => selected;
+        public BuildComponent Selected => selected;
 
         public override void Enter(bool resumed)
         {
@@ -49,33 +54,34 @@ namespace Fatiro.States
             }
         }
 
-        public override void SelectTrayMember(MemberSpec spec) => Select(spec);
+        public override void SelectTrayComponent(BuildComponent component) => Select(component);
 
-        public override void BeginMemberDrag(MemberSpec spec)
+        public override void BeginComponentDrag(BuildComponent component)
         {
-            Select(spec);
+            Select(component);
             dragging = true;
         }
 
-        public override void DragMember(Vector2 screenPosition)
+        public override void DragComponent(Vector2 screenPosition)
         {
-            if (!dragging || ghost == null) return;
-            ghost.ShowAsGhost(IsNearGhost(screenPosition));
+            if (!dragging || ghosts.Count == 0) return;
+            var ready = IsNearGhost(screenPosition);
+            foreach (var ghost in ghosts) ghost.ShowAsGhost(ready);
         }
 
-        public override void EndMemberDrag(Vector2 screenPosition)
+        public override void EndComponentDrag(Vector2 screenPosition)
         {
             if (!dragging) return;
             dragging = false;
-            if (ghost == null) return;
+            if (ghosts.Count == 0) return;
 
             if (IsNearGhost(screenPosition))
             {
-                TryPlaceSelected();
+                TryBuildSelected();
             }
             else
             {
-                ghost.ShowAsGhost();
+                foreach (var ghost in ghosts) ghost.ShowAsGhost();
                 Toast("Returned to the tray. Release it on the glowing outline.", ToastKind.Info);
             }
         }
@@ -115,9 +121,9 @@ namespace Fatiro.States
             if (Physics.Raycast(ray, out var hit, 20f))
             {
                 var view = hit.collider.GetComponentInParent<MemberView>();
-                if (view != null && view == ghost)
+                if (view != null && ghosts.Contains(view))
                 {
-                    TryPlaceSelected();
+                    TryBuildSelected();
                     return;
                 }
                 if (view != null && view.Visual != MemberVisual.Ghost)
@@ -127,62 +133,72 @@ namespace Fatiro.States
                 }
             }
 
-            if (ghost != null && IsNearGhost(screenPosition))
+            if (ghosts.Count > 0 && IsNearGhost(screenPosition))
             {
-                TryPlaceSelected();
+                TryBuildSelected();
                 return;
             }
             Manager.SelectMember(null);
         }
 
-        private void TryPlaceSelected()
+        /// <summary>Builds the selected component; its pieces then rise one after another with a spark each.</summary>
+        private void TryBuildSelected()
         {
             if (selected == null) return;
-            var spec = selected;
-            var centre = ghost != null ? ghost.BodyRenderer.bounds.center : Context.Site.transform.position;
-            if (!Context.Build.TryPlace(spec)) return;
+            var command = Context.Build.TryPlace(selected);
+            if (command == null) return;
 
-            var material = Context.Entities.Material(Context.Entities.Member(spec.Id).Material.Id);
-            Context.Effects.Spark(centre, material != null ? material.Color : Color.white);
-            Context.Entities.View(spec.Id)?.Materialize();
-            // OnProgressChanged picks the next member.
+            var delay = 0f;
+            foreach (var spec in command.Members)
+            {
+                var view = Context.Entities.View(spec.Id);
+                if (view == null) continue;
+                view.Materialize(delay);
+                if (delay < PieceInterval * 6f)
+                {
+                    var material = Context.Entities.Material(spec.DefaultMaterialId);
+                    Context.Effects.Spark(view.BodyRenderer.bounds.center, material != null ? material.Color : Color.white);
+                }
+                delay += PieceInterval;
+            }
+            // OnProgressChanged picks the next component.
         }
 
         private void OnProgressChanged(BuildProgressChanged message)
         {
-            if (selected != null && Context.Tasks.IsPlaced(selected.Id)) SelectDefault();
-            else if (selected == null) SelectDefault();
+            if (selected == null || Context.Tasks.IsBuilt(selected)) SelectDefault();
+            else Select(selected);
         }
 
         private void OnRejected(PlacementRejected message)
         {
-            if (ghost != null) ghost.ShowAsGhost();
+            foreach (var ghost in ghosts) ghost.ShowAsGhost();
         }
 
-        /// <summary>Guided Build highlights the next required member; Free Build waits for the learner.</summary>
+        /// <summary>Guided Build highlights the next required component; Free Build waits for the learner.</summary>
         private void SelectDefault()
         {
-            Select(Context.Tasks.Mode == BuildMode.GuidedBuild ? Context.Tasks.NextRequired() : null);
+            Select(Context.Tasks.Mode == BuildMode.GuidedBuild ? Context.Tasks.NextComponent() : null);
         }
 
-        private void Select(MemberSpec spec)
+        private void Select(BuildComponent component)
         {
-            if (ghost != null)
-            {
-                Context.Views.ReleaseGhost(ghost);
-                ghost = null;
-            }
+            foreach (var ghost in ghosts) Context.Views.ReleaseGhost(ghost);
+            ghosts.Clear();
 
-            selected = spec;
-            if (spec != null && !Context.Entities.IsPlaced(spec.Id))
-                ghost = Context.Views.SpawnGhost(spec, Context.Entities.Geometry(spec), Context.Site.StructureRoot);
+            selected = component;
+            if (component != null)
+            {
+                foreach (var spec in Context.Tasks.Remaining(component))
+                    ghosts.Add(Context.Views.SpawnGhost(spec, Context.Entities.Geometry(spec), Context.Site.StructureRoot));
+            }
             RefreshBlueprint();
-            Context.Events.Publish(new TraySelectionChanged(spec));
+            Context.Events.Publish(new TraySelectionChanged(component));
         }
 
         /// <summary>
-        /// The whole house floats as a faint hologram blueprint; the learner fills it in member by member.
-        /// The selected member is drawn separately as the bright, pulsing ghost.
+        /// The whole house floats as a faint hologram blueprint; the learner fills it in component by
+        /// component. The selected component is drawn separately as the bright, pulsing ghost.
         /// </summary>
         private void RefreshBlueprint()
         {
@@ -190,7 +206,7 @@ namespace Fatiro.States
             foreach (var spec in Context.Blueprint.Members)
             {
                 if (!spec.Required && Context.Tasks.Mode == BuildMode.GuidedBuild && !Context.Tasks.IsComplete) continue;
-                if (Context.Entities.IsPlaced(spec.Id) || (selected != null && spec.Id == selected.Id)) continue;
+                if (Context.Entities.IsPlaced(spec.Id) || (selected != null && selected.Contains(spec.Id))) continue;
                 blueprint.Add(Context.Views.SpawnBlueprint(spec, Context.Entities.Geometry(spec), Context.Site.StructureRoot));
             }
         }
@@ -201,12 +217,13 @@ namespace Fatiro.States
             blueprint.Clear();
         }
 
-        /// <summary>True when the finger's ray passes within the snap radius of the ghost.</summary>
+        /// <summary>True when the finger's ray passes within the snap radius of the component's ghost.</summary>
         private bool IsNearGhost(Vector2 screenPosition)
         {
-            if (ghost == null) return false;
+            if (ghosts.Count == 0) return false;
             var ray = Context.AR.Camera.ScreenPointToRay(screenPosition);
-            var bounds = ghost.BodyRenderer.bounds;
+            var bounds = ghosts[0].BodyRenderer.bounds;
+            foreach (var ghost in ghosts) bounds.Encapsulate(ghost.BodyRenderer.bounds);
             bounds.Expand(SnapRadius * 2f);
             return bounds.IntersectRay(ray);
         }

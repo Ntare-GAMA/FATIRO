@@ -66,11 +66,11 @@ namespace Fatiro.Tests
 
                 simulation.ConfirmPlacement();
                 yield return WaitFor(() => simulation.CurrentStateId == SimulationStateId.Building);
-                for (var i = 0; i < 9; i++) context.Build.TryPlace(context.Tasks.NextRequired());
-                simulation.SelectTrayMember(context.Tasks.NextRequired());
+                for (var i = 0; i < 2; i++) context.Build.TryPlace(context.Tasks.NextComponent());
+                simulation.SelectTrayComponent(context.Tasks.NextComponent());
                 yield return Capture(camera, target, folder, "04-building");
 
-                while (!context.Tasks.IsComplete) context.Build.TryPlace(context.Tasks.NextRequired());
+                while (!context.Tasks.IsComplete) context.Build.TryPlace(context.Tasks.NextComponent());
                 simulation.OpenTestBench();
                 yield return new WaitForSeconds(1.1f);
                 yield return Capture(camera, target, folder, "05a-reveal");
@@ -88,8 +88,8 @@ namespace Fatiro.Tests
                 yield return Capture(camera, target, folder, "07-completion");
                 simulation.ReturnToMenu();
 
-                // Each design finished, closer up: brick base, platform, skin and scenery.
-                foreach (var id in new[] { Blueprints.PantherId, Blueprints.ElephantId, Blueprints.CarId })
+                // Each design finished, closer up: revealed as built, then as its hologram.
+                foreach (var id in new[] { Blueprints.PantherId, Blueprints.ElephantId, Blueprints.CarId, Blueprints.BungalowId, Blueprints.TwoStoreyId, Blueprints.FlatsId })
                 {
                     simulation.StartNewSession();
                     var finished = simulation.ConfirmSetup(context.Designs.First(d => d.DesignId == id), 20, SoilType.Laterite, BuildMode.LoadTest);
@@ -98,11 +98,11 @@ namespace Fatiro.Tests
                     context.Site.SetScale(32);
                     simulation.ConfirmPlacement();
                     yield return WaitFor(() => simulation.CurrentStateId == SimulationStateId.Reviewing);
-                    yield return new WaitForSeconds(2.6f); // skin loads through Addressables; the reveal plays
-                    var skin = context.Skin;
-                    yield return Capture(camera, target, folder, $"08-{id}-skin");
-                    if (skin != null) skin.SetActive(false);
-                    yield return Capture(camera, target, folder, $"09-{id}-structure");
+                    yield return new WaitForSeconds(2.6f); // the fit-out loads through Addressables; the reveal plays
+                    yield return Capture(camera, target, folder, $"08-{id}-real");
+                    simulation.SetHologram(true);
+                    yield return null;
+                    yield return Capture(camera, target, folder, $"09-{id}-hologram");
                     simulation.EndSession();
                     simulation.ReturnToMenu();
                 }

@@ -30,7 +30,7 @@ namespace Fatiro.UI
         private Button testBench;
         private RectTransform dragLabel;
         private Text dragText;
-        private MemberSpec selected;
+        private BuildComponent selected;
         private bool dirty = true;
 
         public BuildHud(UIContext context) : base(context) { }
@@ -52,7 +52,7 @@ namespace Fatiro.UI
             Ui.Events.Subscribe<BuildProgressChanged>(_ => dirty = true);
             Ui.Events.Subscribe<TraySelectionChanged>(message =>
             {
-                selected = message.Spec;
+                selected = message.Component;
                 dirty = true;
             });
             Ui.Events.Subscribe<PlacementRejected>(message => SetTask(UIKit.Colour("Rejected: " + message.Reason, Theme.Danger)));
@@ -150,16 +150,16 @@ namespace Fatiro.UI
             }
 
             UIKit.SetProgress(progressFill, tasks.Progress);
-            progressText.text = $"{tasks.RequiredPlaced} / {tasks.RequiredTotal} required";
+            progressText.text = $"{tasks.RequiredPlaced} / {tasks.RequiredTotal} pieces";
             testBench.interactable = tasks.IsComplete || setup.Mode != BuildMode.GuidedBuild;
             testBench.SetStyle(tasks.IsComplete ? ButtonStyle.Primary : ButtonStyle.Secondary);
 
             if (tasks.IsComplete)
                 SetTask(UIKit.Colour("Structure complete. ", Theme.Success) + "Add optional reinforcements, or open the test bench.");
             else if (selected != null)
-                SetTask($"Next: <b>{selected.DisplayName}</b> — drag its card onto the glowing outline, or tap the outline.");
+                SetTask($"Next: <b>{selected.Name}</b> — drag its card onto the glowing outline, or tap the outline.");
             else
-                SetTask($"Stage: <b>{EnumText.StageName(tasks.CurrentStage)}</b> — pick a member from the tray.");
+                SetTask($"Stage: <b>{EnumText.StageName(tasks.CurrentStage)}</b> — pick a component from the tray.");
 
             RebuildTray();
         }
@@ -168,44 +168,46 @@ namespace Fatiro.UI
         {
             UIKit.ClearChildren(trayContent);
             cards.Clear();
-            var items = Session.Tasks.TrayItems();
-            trayTitle.text = items.Count == 0 ? "All members placed" : $"Members to place ({items.Count}) — drag up onto the scene";
+            var items = Session.Tasks.TrayComponents();
+            trayTitle.text = items.Count == 0 ? "Everything is built" : $"Components to build ({items.Count}) — drag up onto the scene";
 
-            foreach (var spec in items)
+            foreach (var component in items)
             {
-                var isSelected = selected != null && selected.Id == spec.Id;
-                var card = UIKit.Card(trayContent, isSelected ? Theme.SurfaceSelected : Theme.SurfaceRaised, 18, 4, spec.Id);
-                UIKit.Size(card.gameObject, minWidth: 300, preferredWidth: 300, minHeight: 210);
+                var isSelected = selected != null && selected.Name == component.Name;
+                var card = UIKit.Card(trayContent, isSelected ? Theme.SurfaceSelected : Theme.SurfaceRaised, 18, 4, component.Name);
+                UIKit.Size(card.gameObject, minWidth: 330, preferredWidth: 330, minHeight: 210);
                 card.GetComponent<Image>().raycastTarget = true;
                 card.childAlignment = TextAnchor.UpperLeft;
 
-                UIKit.Label(card.transform, spec.DisplayName, 28, isSelected ? Theme.Primary : Theme.Ink, style: FontStyle.Bold);
-                UIKit.Label(card.transform, $"{EnumText.PieceName(spec)} · {EnumText.StageName(spec.Stage)}", 22, Theme.Muted);
-                var check = Session.Tasks.CanPlace(spec);
-                var note = !spec.Required ? UIKit.Colour("Optional reinforcement", Theme.Teal)
+                UIKit.Label(card.transform, component.Name, 28, isSelected ? Theme.Primary : Theme.Text, style: FontStyle.Bold);
+                var remaining = Session.Tasks.Remaining(component).Count;
+                var summary = remaining == component.Members.Count ? component.Summary : $"{remaining} of {component.Members.Count} pieces left";
+                UIKit.Label(card.transform, $"{summary} · {EnumText.StageName(component.Stage)}", 22, Theme.Muted);
+                var check = Session.Tasks.CanPlace(component);
+                var note = !component.Required ? UIKit.Colour("Optional reinforcement", Theme.Teal)
                     : check.Allowed ? UIKit.Colour("Ready", Theme.Success)
-                    : UIKit.Colour(check.MissingPrerequisite != null ? $"Needs {check.MissingPrerequisite.DisplayName}" : "Later stage", Theme.Warning);
+                    : UIKit.Colour(check.MissingPrerequisite != null ? $"Needs {Session.Blueprint.ComponentOf(check.MissingPrerequisite.Id)?.Name ?? check.MissingPrerequisite.DisplayName}" : "Later stage", Theme.Warning);
                 UIKit.Label(card.transform, note, 22);
 
                 var trayCard = card.gameObject.AddComponent<TrayCard>();
-                trayCard.Bind(spec, trayScroll);
-                trayCard.Clicked += member => { Click(); Simulation.SelectTrayMember(member); };
-                trayCard.DragStarted += (member, position) =>
+                trayCard.Bind(component, trayScroll);
+                trayCard.Clicked += picked => { Click(); Simulation.SelectTrayComponent(picked); };
+                trayCard.DragStarted += (picked, position) =>
                 {
-                    Simulation.BeginMemberDrag(member);
-                    dragText.text = member.DisplayName;
+                    Simulation.BeginComponentDrag(picked);
+                    dragText.text = picked.Name;
                     dragLabel.gameObject.SetActive(true);
                     MoveDragLabel(position);
                 };
                 trayCard.Dragged += position =>
                 {
                     MoveDragLabel(position);
-                    Simulation.DragMember(position);
+                    Simulation.DragComponent(position);
                 };
                 trayCard.DragEnded += position =>
                 {
                     dragLabel.gameObject.SetActive(false);
-                    Simulation.EndMemberDrag(position);
+                    Simulation.EndComponentDrag(position);
                 };
                 cards.Add(trayCard);
             }

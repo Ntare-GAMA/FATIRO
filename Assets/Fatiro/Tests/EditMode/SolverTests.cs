@@ -225,6 +225,54 @@ namespace Fatiro.Tests
             Assert.That(after.For("PN-HEAD").Failed, Is.False);
         }
 
+
+        [Test]
+        public void Bungalow_IronSheetsLiftOffInWind_StormStrapsHoldThem()
+        {
+            var before = TestKit.Solve(Blueprints.Bungalow(), Slope20, new WindLoad(120f));
+            Assert.That(before.Failed.Any(r => r.MemberId.StartsWith("BG-ROOF")), Is.True, "nailed sheets should lift");
+
+            var after = TestKit.Solve(Blueprints.Bungalow(), Slope20, new WindLoad(120f), includeOptional: true);
+            Assert.That(after.Survived, Is.True);
+        }
+
+        [Test]
+        public void TwoStorey_BalconyFailsUnderACrowd_PropsFixIt()
+        {
+            var before = TestKit.Solve(Blueprints.TwoStorey(), Slope20, new LiveLoad(3f));
+            Assert.That(before.For("TS-BAL-L").Failed, Is.True);
+
+            var after = TestKit.Solve(Blueprints.TwoStorey(), Slope20, new LiveLoad(3f), includeOptional: true);
+            Assert.That(after.Survived, Is.True);
+        }
+
+        [Test]
+        public void Flats_SoftStoreyCollapsesInQuake_ShearWallsStiffenIt()
+        {
+            var before = TestKit.Solve(Blueprints.Flats(), Slope20, new SeismicLoad(3f));
+            Assert.That(before.Failed.Any(r => r.MemberId.StartsWith("AP-COL0")), Is.True, "open ground-floor columns should fail");
+
+            var after = TestKit.Solve(Blueprints.Flats(), Slope20, new SeismicLoad(3f), includeOptional: true);
+            Assert.That(after.Survived, Is.True);
+        }
+
+        [Test]
+        public void ClassicHousesStandUpToEveryDefaultCaseExceptTheirLesson()
+        {
+            foreach (var (blueprint, lesson) in new[]
+                     {
+                         (Blueprints.Bungalow(), LoadCaseKind.Wind), (Blueprints.TwoStorey(), LoadCaseKind.Live),
+                         (Blueprints.Flats(), LoadCaseKind.Seismic)
+                     })
+            {
+                foreach (var kind in new[] { LoadCaseKind.Dead, LoadCaseKind.Live, LoadCaseKind.Wind, LoadCaseKind.Rain, LoadCaseKind.Seismic })
+                {
+                    if (kind == lesson) continue;
+                    var result = TestKit.Solve(blueprint, Slope20, LoadCaseFactory.Create(new LoadCaseConfig(kind, LoadCaseConfig.Default(kind))));
+                    Assert.That(result.Survived, Is.True, $"{blueprint.Name} should survive {kind}");
+                }
+            }
+        }
         [Test]
         public void AllDesignsCarryTheirOwnWeight()
         {

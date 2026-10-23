@@ -45,6 +45,7 @@ namespace Fatiro.Audio
         private IReadOnlyDictionary<string, AudioClip> clips = new Dictionary<string, AudioClip>();
         private IEventBus events;
         private SettingsStore settings;
+        private float lastSnap = -1f;
 
         public void Initialise(IEventBus eventBus, SettingsStore settingsStore, IReadOnlyDictionary<string, AudioClip> audioClips)
         {
@@ -98,6 +99,9 @@ namespace Fatiro.Audio
         private void OnMemberPlaced(MemberPlaced message)
         {
             if (message.IsRedoOrUndo) return;
+            // A whole component lands in one frame: one snap, not one per piece.
+            if (Time.unscaledTime - lastSnap < 0.1f) return;
+            lastSnap = Time.unscaledTime;
             Play(Cues.Snap);
             if (!settings.Muted) Haptics.Pulse(50);
         }

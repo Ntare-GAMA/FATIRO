@@ -4,10 +4,10 @@
 
 | Asset | Author | Source | Licence | Used for |
 |---|---|---|---|---|
-| Tiger | Poly by Google | Poly Pizza | CC-BY 3.0 | Ingwe (panther) skin, recoloured black |
-| Elephant | Poly by Google | Poly Pizza | CC-BY 3.0 | Inzovu (elephant) skin |
-| 2015 Dodge Challenger | Grzybek | Poly Pizza | CC-BY (see the model page) | Imodoka (car) skin |
-| 1994 Nissan 180MX | Grzybek | Poly Pizza | CC-BY (see the model page) | Car parked beside the site, for scale |
+| Tiger | Poly by Google | Poly Pizza | CC-BY 3.0 | Earlier panther skin (in the repository, no longer used) |
+| Elephant | Poly by Google | Poly Pizza | CC-BY 3.0 | Earlier elephant skin (in the repository, no longer used) |
+| 2015 Dodge Challenger | Grzybek | Poly Pizza | CC-BY (see the model page) | Earlier car skin (in the repository, no longer used) |
+| 1994 Nissan 180MX | Grzybek | Poly Pizza | CC-BY (see the model page) | Car parked beside the site and under the flats |
 | Bamboo 001 B | ambientCG | ambientcg.com | CC0 | Bamboo member texture |
 | Rajdhani | Indian Type Foundry | Google Fonts | SIL Open Font License 1.1 | Titles and interface text |
 
@@ -22,14 +22,14 @@ These are used under the Unity Asset Store EULA, which does not allow redistribu
 | Essential Nature Pack (Polyeler) | Bamboo clumps on the hillside |
 | Simple Nature Pack | Trees, bushes, flowers, grass and rocks |
 | Low Poly Stones | Rocks |
-| Brick House | Neighbouring house; clay-brick texture for earth-block members |
+| Brick House | Neighbouring house; clay-brick, roof-tile, door and window textures |
 | Stylized Wood Texture (LowlyPoly) | Timber members |
 | Metal Plates | Steel members |
 | Concrete Props Pack (Sat Productions) | Concrete members |
 | GloverGames Free Ground Textures | Grass terraces, laterite, building platform |
 | Wood Pack (Static Soul Studio) | Broken planks and logs thrown off in a collapse |
 | Nature - Essentials (audio) | Birdsong, rain and wind recordings |
-| Vehicles - PolyPack (Alstra Infinite) | Fallback car skin |
+| Interior props (InterierDFPro) | Dining tables and chairs in the fit-outs |
 
 Without these packages the project still builds: Fatiro falls back to plain colours and simple shapes.
 

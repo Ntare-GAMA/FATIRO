@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Fatiro.Core;
+using Fatiro.Domain;
 using UnityEngine;
 
 namespace Fatiro.World
@@ -91,6 +93,168 @@ namespace Fatiro.World
 
         private static Vector3 Point(Vector3 footA, Vector3 span, float rise, float t) =>
             footA + span * t + Vector3.up * (4f * rise * t * (1f - t));
+
+        /// <summary>
+        /// One piece of a lofted shell (or an end cap) as a thin solid: an outer and an inner skin
+        /// half the thickness either side of the shell surface. Vertices are in structure space;
+        /// UVs are in metres (round the section, along the building) so textures keep their size.
+        /// </summary>
+        public static Mesh BuildShell(IReadOnlyList<ShellStation> stations, ShellPatch patch, float thickness, Mesh reuse = null)
+        {
+            var mesh = reuse != null ? reuse : new Mesh { name = "Shell" };
+            mesh.Clear();
+            var vertices = new List<Vector3>();
+            var normals = new List<Vector3>();
+            var uvs = new List<Vector2>();
+            var triangles = new List<int>();
+            var half = Mathf.Max(0.01f, thickness * 0.5f);
+            var around = Mathf.Max(4, Mathf.CeilToInt(Mathf.Abs(patch.AroundTo - patch.AroundFrom) * 40f));
+
+            if (patch.IsCap) BuildCap(stations[patch.From], patch, around, half, vertices, normals, uvs, triangles);
+            else BuildSkin(stations, patch, around, half, vertices, normals, uvs, triangles);
+
+            mesh.SetVertices(vertices);
+            mesh.SetNormals(normals);
+            mesh.SetUVs(0, uvs);
+            mesh.SetTriangles(triangles, 0);
+            mesh.RecalculateTangents();
+            mesh.RecalculateBounds();
+            return mesh;
+        }
+
+        private static Vector3 ShellPoint(in ShellStation station, float t) => ShellMath.Point(station, t).ToUnity();
+
+        private static void BuildSkin(IReadOnlyList<ShellStation> stations, ShellPatch patch, int around, float half,
+            List<Vector3> vertices, List<Vector3> normals, List<Vector2> uvs, List<int> triangles)
+        {
+            var first = Mathf.Min(patch.From, patch.To);
+            var rows = Mathf.Abs(patch.To - patch.From) + 1;
+            var columns = around + 1;
+            var points = new Vector3[rows, columns];
+            var along = new float[rows];
+            for (var r = 0; r < rows; r++)
+            {
+                var station = stations[first + r];
+                along[r] = r == 0 ? 0f : along[r - 1] + Mathf.Abs(station.Z - stations[first + r - 1].Z);
+                for (var c = 0; c < columns; c++)
+                    points[r, c] = ShellPoint(station, Mathf.Lerp(patch.AroundFrom, patch.AroundTo, (float)c / around));
+            }
+
+            // Smooth normals from neighbouring points, turned to face away from the shell axis.
+            var outward = new Vector3[rows, columns];
+            for (var r = 0; r < rows; r++)
+            for (var c = 0; c < columns; c++)
+            {
+                var dAround = points[r, Mathf.Min(c + 1, columns - 1)] - points[r, Mathf.Max(c - 1, 0)];
+                var dAlong = points[Mathf.Min(r + 1, rows - 1), c] - points[Mathf.Max(r - 1, 0), c];
+                if (dAlong.sqrMagnitude < 1e-8f) dAlong = Vector3.forward;
+                var normal = Vector3.Cross(dAround, dAlong).normalized;
+                if (normal.sqrMagnitude < 0.5f) normal = Vector3.up;
+                var station = stations[first + r];
+                var axis = new Vector3(station.CentreX, station.BaseY + (station.TopY - station.BaseY) * 0.25f, station.Z);
+                if (Vector3.Dot(normal, points[r, c] - axis) < 0f) normal = -normal;
+                outward[r, c] = normal;
+            }
+
+            foreach (var side in new[] { 1f, -1f })
+            {
+                var start = vertices.Count;
+                for (var r = 0; r < rows; r++)
+                {
+                    var arc = 0f;
+                    for (var c = 0; c < columns; c++)
+                    {
+                        if (c > 0) arc += Vector3.Distance(points[r, c], points[r, c - 1]);
+                        vertices.Add(points[r, c] + outward[r, c] * half * side);
+                        normals.Add(outward[r, c] * side);
+                        uvs.Add(new Vector2(arc, along[r]));
+                    }
+                }
+                for (var r = 0; r < rows - 1; r++)
+                for (var c = 0; c < columns - 1; c++)
+                {
+                    var a = start + r * columns + c;
+                    var b = a + 1;
+                    var d = a + columns;
+                    var e = d + 1;
+                    // Wind each quad so its face points the same way as the skin's normal.
+                    var facing = Vector3.Dot(Vector3.Cross(vertices[b] - vertices[a], vertices[d] - vertices[a]), normals[a]) > 0f;
+                    if (facing)
+                    {
+                        triangles.Add(a); triangles.Add(b); triangles.Add(d);
+                        triangles.Add(b); triangles.Add(e); triangles.Add(d);
+                    }
+                    else
+                    {
+                        triangles.Add(a); triangles.Add(d); triangles.Add(b);
+                        triangles.Add(b); triangles.Add(d); triangles.Add(e);
+                    }
+                }
+            }
+        }
+
+        private static void BuildCap(in ShellStation station, ShellPatch patch, int around, float half,
+            List<Vector3> vertices, List<Vector3> normals, List<Vector2> uvs, List<int> triangles)
+        {
+            var centre = new Vector3(station.CentreX, station.BaseY, station.Z);
+            var rim = new List<Vector3>(around + 1);
+            for (var c = 0; c <= around; c++) rim.Add(ShellPoint(station, Mathf.Lerp(patch.AroundFrom, patch.AroundTo, (float)c / around)));
+
+            foreach (var side in new[] { 1f, -1f })
+            {
+                var offset = Vector3.forward * half * side;
+                var normal = Vector3.forward * side;
+                var start = vertices.Count;
+                vertices.Add(centre + offset);
+                normals.Add(normal);
+                uvs.Add(new Vector2(centre.x, centre.y));
+                foreach (var point in rim)
+                {
+                    vertices.Add(point + offset);
+                    normals.Add(normal);
+                    uvs.Add(new Vector2(point.x, point.y));
+                }
+                for (var c = 0; c < rim.Count - 1; c++)
+                {
+                    var a = start + 1 + c;
+                    var b = a + 1;
+                    var facing = Vector3.Dot(Vector3.Cross(vertices[a] - vertices[start], vertices[b] - vertices[start]), normal) > 0f;
+                    triangles.Add(start);
+                    triangles.Add(facing ? a : b);
+                    triangles.Add(facing ? b : a);
+                }
+            }
+
+            // The rim between the two faces, so the cap reads as a solid wall from the side.
+            for (var c = 0; c < rim.Count - 1; c++)
+            {
+                var p0 = rim[c];
+                var p1 = rim[c + 1];
+                var edge = Vector3.Cross(p1 - p0, Vector3.forward).normalized;
+                if (Vector3.Dot(edge, (p0 + p1) * 0.5f - centre) < 0f) edge = -edge;
+                var start = vertices.Count;
+                vertices.Add(p0 + Vector3.forward * half);
+                vertices.Add(p1 + Vector3.forward * half);
+                vertices.Add(p0 - Vector3.forward * half);
+                vertices.Add(p1 - Vector3.forward * half);
+                for (var k = 0; k < 4; k++) normals.Add(edge);
+                uvs.Add(new Vector2(0f, 0f));
+                uvs.Add(new Vector2(1f, 0f));
+                uvs.Add(new Vector2(0f, 1f));
+                uvs.Add(new Vector2(1f, 1f));
+                var facing = Vector3.Dot(Vector3.Cross(vertices[start + 1] - vertices[start], vertices[start + 2] - vertices[start]), edge) > 0f;
+                if (facing)
+                {
+                    triangles.Add(start); triangles.Add(start + 1); triangles.Add(start + 2);
+                    triangles.Add(start + 1); triangles.Add(start + 3); triangles.Add(start + 2);
+                }
+                else
+                {
+                    triangles.Add(start); triangles.Add(start + 2); triangles.Add(start + 1);
+                    triangles.Add(start + 1); triangles.Add(start + 2); triangles.Add(start + 3);
+                }
+            }
+        }
 
         /// <summary>
         /// Sloped site plot: a wedge whose top falls by tan(slope) per metre towards +Z, laid out as

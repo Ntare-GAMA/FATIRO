@@ -1,0 +1,5788 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56d950c01a6274438f8999a8bf6fb6c, type: 3}
+  m_Name: Design_TS-01
+  m_EditorClassIdentifier: Fatiro.Runtime::Fatiro.Content.HouseDesign
+  designId: TS-01
+  version: 1
+  displayName: Igorofa
+  meaning: storey house
+  description: 'A two-storey family house: a reinforced-concrete frame with fired-brick
+    walls, a concrete stair, bedrooms upstairs, a clay-tile roof and a balcony over
+    the valley.'
+  lesson: 'A balcony is a cantilever: a crowd on it bends it hard, so it needs depth,
+    strength or columns under it.'
+  difficulty: 2
+  accentColor: {r: 0.85, g: 0.55, b: 0.25, a: 1}
+  sortOrder: 4
+  foundationName: Pad footings
+  foundationInspiration: Reinforced-concrete pads under every column
+  foundationBearing: 1.2
+  foundationSlopeResistance: 0.6
+  foundationGrip: 1.1
+  uphillReferenceZ: -3.5
+  members:
+  - id: TS-FTG-A1
+    displayName: Footing A1
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: -4.5, y: 0, z: -3.5}
+    aGroundRelative: 1
+    b: {x: -4.5, y: 0, z: -3.5}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-FTG-A2
+    displayName: Footing A2
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: -4.5, y: 0, z: 0}
+    aGroundRelative: 1
+    b: {x: -4.5, y: 0, z: 0}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-FTG-A3
+    displayName: Footing A3
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: -4.5, y: 0, z: 3.5}
+    aGroundRelative: 1
+    b: {x: -4.5, y: 0, z: 3.5}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-FTG-B1
+    displayName: Footing B1
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 0, y: 0, z: -3.5}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: -3.5}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-FTG-B2
+    displayName: Footing B2
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 0, y: 0, z: 0}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: 0}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-FTG-B3
+    displayName: Footing B3
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 0, y: 0, z: 3.5}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: 3.5}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-FTG-C1
+    displayName: Footing C1
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 4.5, y: 0, z: -3.5}
+    aGroundRelative: 1
+    b: {x: 4.5, y: 0, z: -3.5}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-FTG-C2
+    displayName: Footing C2
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 4.5, y: 0, z: 0}
+    aGroundRelative: 1
+    b: {x: 4.5, y: 0, z: 0}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-FTG-C3
+    displayName: Footing C3
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 4.5, y: 0, z: 3.5}
+    aGroundRelative: 1
+    b: {x: 4.5, y: 0, z: 3.5}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-FW-U1
+    displayName: Uphill foundation wall 1
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -4.5, y: 0, z: -3.5}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: -3.5}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-FTG-A1
+    - TS-FTG-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0.45
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick foundation wall stepping down the slope to carry a level floor. It
+      also ties the footings together.
+    component: Brick foundation walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-FW-U2
+    displayName: Uphill foundation wall 2
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: 0, y: 0, z: -3.5}
+    aGroundRelative: 1
+    b: {x: 4.5, y: 0, z: -3.5}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-FTG-B1
+    - TS-FTG-C1
+    extraSupports: []
+    required: 1
+    crownHeight: 0.45
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick foundation wall stepping down the slope to carry a level floor. It
+      also ties the footings together.
+    component: Brick foundation walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-FW-D1
+    displayName: Downhill foundation wall 1
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -4.5, y: 0, z: 3.5}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: 3.5}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-FTG-A3
+    - TS-FTG-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0.45
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick foundation wall stepping down the slope to carry a level floor. It
+      also ties the footings together.
+    component: Brick foundation walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-FW-D2
+    displayName: Downhill foundation wall 2
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: 0, y: 0, z: 3.5}
+    aGroundRelative: 1
+    b: {x: 4.5, y: 0, z: 3.5}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-FTG-B3
+    - TS-FTG-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0.45
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick foundation wall stepping down the slope to carry a level floor. It
+      also ties the footings together.
+    component: Brick foundation walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-FW-L1
+    displayName: Left foundation wall 1
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -4.5, y: 0, z: -3.5}
+    aGroundRelative: 1
+    b: {x: -4.5, y: 0, z: 0}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-FTG-A1
+    - TS-FTG-A2
+    extraSupports: []
+    required: 1
+    crownHeight: 0.45
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick foundation wall stepping down the slope to carry a level floor. It
+      also ties the footings together.
+    component: Brick foundation walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-FW-L2
+    displayName: Left foundation wall 2
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -4.5, y: 0, z: 0}
+    aGroundRelative: 1
+    b: {x: -4.5, y: 0, z: 3.5}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-FTG-A2
+    - TS-FTG-A3
+    extraSupports: []
+    required: 1
+    crownHeight: 0.45
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick foundation wall stepping down the slope to carry a level floor. It
+      also ties the footings together.
+    component: Brick foundation walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-FW-R1
+    displayName: Right foundation wall 1
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: 4.5, y: 0, z: -3.5}
+    aGroundRelative: 1
+    b: {x: 4.5, y: 0, z: 0}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-FTG-C1
+    - TS-FTG-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0.45
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick foundation wall stepping down the slope to carry a level floor. It
+      also ties the footings together.
+    component: Brick foundation walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-FW-R2
+    displayName: Right foundation wall 2
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: 4.5, y: 0, z: 0}
+    aGroundRelative: 1
+    b: {x: 4.5, y: 0, z: 3.5}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-FTG-C2
+    - TS-FTG-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0.45
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick foundation wall stepping down the slope to carry a level floor. It
+      also ties the footings together.
+    component: Brick foundation walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-SLAB0-A1
+    displayName: Ground-floor slab A1
+    kind: 6
+    stage: 0
+    shape: 3
+    a: {x: -2.25, y: 0.37, z: -1.75}
+    aGroundRelative: 0
+    b: {x: -2.25, y: 0.37, z: -1.75}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - TS-FTG-A1
+    - TS-FTG-B1
+    - TS-FTG-A2
+    - TS-FTG-B2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.5, y: 0.15, z: 3.5}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 15.75
+    isRoof: 0
+    hint: Concrete ground-floor slab on the brick foundation walls.
+    component: Ground-floor slab
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-SLAB0-A2
+    displayName: Ground-floor slab A2
+    kind: 6
+    stage: 0
+    shape: 3
+    a: {x: -2.25, y: 0.37, z: 1.75}
+    aGroundRelative: 0
+    b: {x: -2.25, y: 0.37, z: 1.75}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - TS-FTG-A2
+    - TS-FTG-B2
+    - TS-FTG-A3
+    - TS-FTG-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.5, y: 0.15, z: 3.5}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 15.75
+    isRoof: 0
+    hint: Concrete ground-floor slab on the brick foundation walls.
+    component: Ground-floor slab
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-SLAB0-B1
+    displayName: Ground-floor slab B1
+    kind: 6
+    stage: 0
+    shape: 3
+    a: {x: 2.25, y: 0.37, z: -1.75}
+    aGroundRelative: 0
+    b: {x: 2.25, y: 0.37, z: -1.75}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - TS-FTG-B1
+    - TS-FTG-C1
+    - TS-FTG-B2
+    - TS-FTG-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.5, y: 0.15, z: 3.5}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 15.75
+    isRoof: 0
+    hint: Concrete ground-floor slab on the brick foundation walls.
+    component: Ground-floor slab
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-SLAB0-B2
+    displayName: Ground-floor slab B2
+    kind: 6
+    stage: 0
+    shape: 3
+    a: {x: 2.25, y: 0.37, z: 1.75}
+    aGroundRelative: 0
+    b: {x: 2.25, y: 0.37, z: 1.75}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - TS-FTG-B2
+    - TS-FTG-C2
+    - TS-FTG-B3
+    - TS-FTG-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.5, y: 0.15, z: 3.5}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 15.75
+    isRoof: 0
+    hint: Concrete ground-floor slab on the brick foundation walls.
+    component: Ground-floor slab
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL0-A1
+    displayName: Ground-floor column A1
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: -4.5, y: 0.29999998, z: -3.5}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 3.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-FTG-A1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL0-A2
+    displayName: Ground-floor column A2
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: -4.5, y: 0.29999998, z: 0}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 3.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-FTG-A2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL0-A3
+    displayName: Ground-floor column A3
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: -4.5, y: 0.29999998, z: 3.5}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 3.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-FTG-A3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL0-B1
+    displayName: Ground-floor column B1
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 0.29999998, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-FTG-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL0-B2
+    displayName: Ground-floor column B2
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 0.29999998, z: 0}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-FTG-B2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL0-B3
+    displayName: Ground-floor column B3
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 0.29999998, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-FTG-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL0-C1
+    displayName: Ground-floor column C1
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 4.5, y: 0.29999998, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-FTG-C1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL0-C2
+    displayName: Ground-floor column C2
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 4.5, y: 0.29999998, z: 0}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-FTG-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL0-C3
+    displayName: Ground-floor column C3
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 4.5, y: 0.29999998, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-FTG-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM0-XA1
+    displayName: First-floor beam A1-B1
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: -4.5, y: 3.3, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.3, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-A1
+    - TS-COL0-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM0-XB1
+    displayName: First-floor beam B1-C1
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 3.3, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.3, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-B1
+    - TS-COL0-C1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM0-XA2
+    displayName: First-floor beam A2-B2
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: -4.5, y: 3.3, z: 0}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.3, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-A2
+    - TS-COL0-B2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM0-XB2
+    displayName: First-floor beam B2-C2
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 3.3, z: 0}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.3, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-B2
+    - TS-COL0-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM0-XA3
+    displayName: First-floor beam A3-B3
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: -4.5, y: 3.3, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.3, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-A3
+    - TS-COL0-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM0-XB3
+    displayName: First-floor beam B3-C3
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 3.3, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.3, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-B3
+    - TS-COL0-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM0-ZA1
+    displayName: First-floor beam A1-A2
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: -4.5, y: 3.3, z: -3.5}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 3.3, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-A1
+    - TS-COL0-A2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM0-ZA2
+    displayName: First-floor beam A2-A3
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: -4.5, y: 3.3, z: 0}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 3.3, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-A2
+    - TS-COL0-A3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM0-ZB1
+    displayName: First-floor beam B1-B2
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 3.3, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.3, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-B1
+    - TS-COL0-B2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM0-ZB2
+    displayName: First-floor beam B2-B3
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 3.3, z: 0}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.3, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-B2
+    - TS-COL0-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM0-ZC1
+    displayName: First-floor beam C1-C2
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 4.5, y: 3.3, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.3, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-C1
+    - TS-COL0-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM0-ZC2
+    displayName: First-floor beam C2-C3
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 4.5, y: 3.3, z: 0}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.3, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-C2
+    - TS-COL0-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor beams
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-SLAB1-A2
+    displayName: First-floor slab A2
+    kind: 6
+    stage: 1
+    shape: 3
+    a: {x: -2.25, y: 3.375, z: 1.75}
+    aGroundRelative: 0
+    b: {x: -2.25, y: 3.375, z: 1.75}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - TS-BM0-XA2
+    - TS-BM0-XA3
+    - TS-BM0-ZA2
+    - TS-BM0-ZB2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.5, y: 0.15, z: 3.5}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 15.75
+    isRoof: 0
+    hint: Reinforced-concrete floor slab spanning between four beams.
+    component: First-floor slab
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-SLAB1-B1
+    displayName: First-floor slab B1
+    kind: 6
+    stage: 1
+    shape: 3
+    a: {x: 2.25, y: 3.375, z: -1.75}
+    aGroundRelative: 0
+    b: {x: 2.25, y: 3.375, z: -1.75}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - TS-BM0-XB1
+    - TS-BM0-XB2
+    - TS-BM0-ZB1
+    - TS-BM0-ZC1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.5, y: 0.15, z: 3.5}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 15.75
+    isRoof: 0
+    hint: Reinforced-concrete floor slab spanning between four beams.
+    component: First-floor slab
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-SLAB1-B2
+    displayName: First-floor slab B2
+    kind: 6
+    stage: 1
+    shape: 3
+    a: {x: 2.25, y: 3.375, z: 1.75}
+    aGroundRelative: 0
+    b: {x: 2.25, y: 3.375, z: 1.75}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - TS-BM0-XB2
+    - TS-BM0-XB3
+    - TS-BM0-ZB2
+    - TS-BM0-ZC2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.5, y: 0.15, z: 3.5}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 15.75
+    isRoof: 0
+    hint: Reinforced-concrete floor slab spanning between four beams.
+    component: First-floor slab
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL1-A1
+    displayName: First-floor column A1
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: -4.5, y: 3.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 6.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-A1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: First-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL1-A2
+    displayName: First-floor column A2
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: -4.5, y: 3.45, z: 0}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 6.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-A2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: First-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL1-A3
+    displayName: First-floor column A3
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: -4.5, y: 3.45, z: 3.5}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 6.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-A3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: First-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL1-B1
+    displayName: First-floor column B1
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 3.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 6.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: First-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL1-B2
+    displayName: First-floor column B2
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 3.45, z: 0}
+    aGroundRelative: 0
+    b: {x: 0, y: 6.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-B2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: First-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL1-B3
+    displayName: First-floor column B3
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 3.45, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 6.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: First-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL1-C1
+    displayName: First-floor column C1
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 4.5, y: 3.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 6.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-C1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: First-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL1-C2
+    displayName: First-floor column C2
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 4.5, y: 3.45, z: 0}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 6.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: First-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-COL1-C3
+    displayName: First-floor column C3
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 4.5, y: 3.45, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 6.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL0-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: First-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM1-XA1
+    displayName: Ring beam A1-B1
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: -4.5, y: 6.2999997, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 6.2999997, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL1-A1
+    - TS-COL1-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM1-XB1
+    displayName: Ring beam B1-C1
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 6.2999997, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 6.2999997, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL1-B1
+    - TS-COL1-C1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM1-XA2
+    displayName: Ring beam A2-B2
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: -4.5, y: 6.2999997, z: 0}
+    aGroundRelative: 0
+    b: {x: 0, y: 6.2999997, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL1-A2
+    - TS-COL1-B2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM1-XB2
+    displayName: Ring beam B2-C2
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 6.2999997, z: 0}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 6.2999997, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL1-B2
+    - TS-COL1-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM1-XA3
+    displayName: Ring beam A3-B3
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: -4.5, y: 6.2999997, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 6.2999997, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL1-A3
+    - TS-COL1-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM1-XB3
+    displayName: Ring beam B3-C3
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 6.2999997, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 6.2999997, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL1-B3
+    - TS-COL1-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM1-ZA1
+    displayName: Ring beam A1-A2
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: -4.5, y: 6.2999997, z: -3.5}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 6.2999997, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL1-A1
+    - TS-COL1-A2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM1-ZA2
+    displayName: Ring beam A2-A3
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: -4.5, y: 6.2999997, z: 0}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 6.2999997, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL1-A2
+    - TS-COL1-A3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM1-ZB1
+    displayName: Ring beam B1-B2
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 6.2999997, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 6.2999997, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL1-B1
+    - TS-COL1-B2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM1-ZB2
+    displayName: Ring beam B2-B3
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 6.2999997, z: 0}
+    aGroundRelative: 0
+    b: {x: 0, y: 6.2999997, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL1-B2
+    - TS-COL1-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM1-ZC1
+    displayName: Ring beam C1-C2
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 4.5, y: 6.2999997, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 6.2999997, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL1-C1
+    - TS-COL1-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BM1-ZC2
+    displayName: Ring beam C2-C3
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 4.5, y: 6.2999997, z: 0}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 6.2999997, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-COL1-C2
+    - TS-COL1-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0U1-1
+    displayName: Ground-floor uphill wall 1 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 0.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: -2.75, y: 0.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-A1
+    - TS-COL0-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0U1-2
+    displayName: Ground-floor uphill wall 1 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -1.75, y: 0.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 0.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-A1
+    - TS-COL0-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0U1-SILL1
+    displayName: Ground-floor uphill wall 1 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -2.75, y: 0.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: -1.75, y: 0.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0U1-1
+    - TS-W0U1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 1.2, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0U1-LINTEL1
+    displayName: Ground-floor uphill wall 1 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -2.75, y: 2.55, z: -3.5}
+    aGroundRelative: 0
+    b: {x: -1.75, y: 2.55, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0U1-1
+    - TS-W0U1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.60000014, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0U2-1
+    displayName: Ground-floor uphill wall 2 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 0, y: 0.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 1.75, y: 0.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-B1
+    - TS-COL0-C1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0U2-2
+    displayName: Ground-floor uphill wall 2 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 2.75, y: 0.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 0.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-B1
+    - TS-COL0-C1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0U2-SILL1
+    displayName: Ground-floor uphill wall 2 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 1.75, y: 0.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 2.75, y: 0.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0U2-1
+    - TS-W0U2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 1.2, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0U2-LINTEL1
+    displayName: Ground-floor uphill wall 2 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 1.75, y: 2.55, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 2.75, y: 2.55, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0U2-1
+    - TS-W0U2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.60000014, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0D1-1
+    displayName: Ground-floor downhill wall 1 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 0.45, z: 3.5}
+    aGroundRelative: 0
+    b: {x: -3.25, y: 0.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-A3
+    - TS-COL0-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0D1-2
+    displayName: Ground-floor downhill wall 1 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -1.25, y: 0.45, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 0.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-A3
+    - TS-COL0-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0D1-SILL1
+    displayName: Ground-floor downhill wall 1 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -3.25, y: 0.45, z: 3.5}
+    aGroundRelative: 0
+    b: {x: -1.25, y: 0.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0D1-1
+    - TS-W0D1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.6, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0D1-LINTEL1
+    displayName: Ground-floor downhill wall 1 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -3.25, y: 2.65, z: 3.5}
+    aGroundRelative: 0
+    b: {x: -1.25, y: 2.65, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0D1-1
+    - TS-W0D1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.5, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0D2-1
+    displayName: Ground-floor downhill wall 2 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 0, y: 0.45, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 0.70000005, y: 0.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-B3
+    - TS-COL0-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0D2-2
+    displayName: Ground-floor downhill wall 2 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 1.7, y: 0.45, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 2.5, y: 0.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-B3
+    - TS-COL0-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0D2-3
+    displayName: Ground-floor downhill wall 2 3
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 3.9, y: 0.45, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 0.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-B3
+    - TS-COL0-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0D2-LINTEL1
+    displayName: Ground-floor downhill wall 2 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 0.70000005, y: 2.55, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 1.7, y: 2.55, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0D2-1
+    - TS-W0D2-2
+    - TS-W0D2-3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.60000014, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0D2-SILL2
+    displayName: Ground-floor downhill wall 2 under window 2
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 2.5, y: 0.45, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 3.9, y: 0.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0D2-1
+    - TS-W0D2-2
+    - TS-W0D2-3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.9, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0D2-LINTEL2
+    displayName: Ground-floor downhill wall 2 lintel 2
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 2.5, y: 2.55, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 3.9, y: 2.55, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0D2-1
+    - TS-W0D2-2
+    - TS-W0D2-3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.60000014, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0L1-1
+    displayName: Ground-floor left wall 1 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 0.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 0.45, z: -2.35}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-A1
+    - TS-COL0-A2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0L1-2
+    displayName: Ground-floor left wall 1 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 0.45, z: -1.1500001}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 0.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-A1
+    - TS-COL0-A2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0L1-SILL1
+    displayName: Ground-floor left wall 1 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 0.45, z: -2.35}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 0.45, z: -1.1500001}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0L1-1
+    - TS-W0L1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.9, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0L1-LINTEL1
+    displayName: Ground-floor left wall 1 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 2.55, z: -2.35}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 2.55, z: -1.1500001}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0L1-1
+    - TS-W0L1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.60000014, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0L2-1
+    displayName: Ground-floor left wall 2 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 0.45, z: 0}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 0.45, z: 1.15}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-A2
+    - TS-COL0-A3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0L2-2
+    displayName: Ground-floor left wall 2 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 0.45, z: 2.35}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 0.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-A2
+    - TS-COL0-A3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0L2-SILL1
+    displayName: Ground-floor left wall 2 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 0.45, z: 1.15}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 0.45, z: 2.35}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0L2-1
+    - TS-W0L2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.9, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0L2-LINTEL1
+    displayName: Ground-floor left wall 2 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 2.55, z: 1.15}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 2.55, z: 2.35}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0L2-1
+    - TS-W0L2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.60000014, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0R1-1
+    displayName: Ground-floor right wall 1 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 4.5, y: 0.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 0.45, z: -2.35}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-C1
+    - TS-COL0-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0R1-2
+    displayName: Ground-floor right wall 1 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 4.5, y: 0.45, z: -1.1500001}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 0.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-C1
+    - TS-COL0-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0R1-SILL1
+    displayName: Ground-floor right wall 1 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 4.5, y: 0.45, z: -2.35}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 0.45, z: -1.1500001}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0R1-1
+    - TS-W0R1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.9, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0R1-LINTEL1
+    displayName: Ground-floor right wall 1 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 4.5, y: 2.55, z: -2.35}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 2.55, z: -1.1500001}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0R1-1
+    - TS-W0R1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.60000014, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0R2-1
+    displayName: Ground-floor right wall 2 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 4.5, y: 0.45, z: 0}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 0.45, z: 1.15}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-C2
+    - TS-COL0-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0R2-2
+    displayName: Ground-floor right wall 2 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 4.5, y: 0.45, z: 2.35}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 0.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL0-C2
+    - TS-COL0-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0R2-SILL1
+    displayName: Ground-floor right wall 2 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 4.5, y: 0.45, z: 1.15}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 0.45, z: 2.35}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0R2-1
+    - TS-W0R2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.9, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0R2-LINTEL1
+    displayName: Ground-floor right wall 2 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 4.5, y: 2.55, z: 1.15}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 2.55, z: 2.35}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W0R2-1
+    - TS-W0R2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.60000014, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1U1-1
+    displayName: First-floor uphill wall 1 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 3.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: -2.75, y: 3.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL1-A1
+    - TS-COL1-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6999996, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1U1-2
+    displayName: First-floor uphill wall 1 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -1.75, y: 3.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL1-A1
+    - TS-COL1-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6999996, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1U1-SILL1
+    displayName: First-floor uphill wall 1 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -2.75, y: 3.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: -1.75, y: 3.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W1U1-1
+    - TS-W1U1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 1.2, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1U1-LINTEL1
+    displayName: First-floor uphill wall 1 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -2.75, y: 5.55, z: -3.5}
+    aGroundRelative: 0
+    b: {x: -1.75, y: 5.55, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W1U1-1
+    - TS-W1U1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.59999967, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1U2-1
+    displayName: First-floor uphill wall 2 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 0, y: 3.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 1.75, y: 3.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL1-B1
+    - TS-COL1-C1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6999996, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1U2-2
+    displayName: First-floor uphill wall 2 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 2.75, y: 3.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL1-B1
+    - TS-COL1-C1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6999996, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1U2-SILL1
+    displayName: First-floor uphill wall 2 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 1.75, y: 3.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 2.75, y: 3.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W1U2-1
+    - TS-W1U2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 1.2, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1U2-LINTEL1
+    displayName: First-floor uphill wall 2 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 1.75, y: 5.55, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 2.75, y: 5.55, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W1U2-1
+    - TS-W1U2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.59999967, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1D1-1
+    displayName: First-floor downhill wall 1 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 3.45, z: 3.5}
+    aGroundRelative: 0
+    b: {x: -2.6, y: 3.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL1-A3
+    - TS-COL1-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6999996, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1D1-2
+    displayName: First-floor downhill wall 1 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -1.4000001, y: 3.45, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL1-A3
+    - TS-COL1-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6999996, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1D1-LINTEL1
+    displayName: First-floor downhill wall 1 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -2.6, y: 5.65, z: 3.5}
+    aGroundRelative: 0
+    b: {x: -1.4000001, y: 5.65, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W1D1-1
+    - TS-W1D1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.49999952, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1D2-1
+    displayName: First-floor downhill wall 2 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 0, y: 3.45, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 1.4, y: 3.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL1-B3
+    - TS-COL1-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6999996, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1D2-2
+    displayName: First-floor downhill wall 2 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 2.6, y: 3.45, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL1-B3
+    - TS-COL1-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6999996, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1D2-LINTEL1
+    displayName: First-floor downhill wall 2 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 1.4, y: 5.65, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 2.6, y: 5.65, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W1D2-1
+    - TS-W1D2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.49999952, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1L1-1
+    displayName: First-floor left wall 1 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 3.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 3.45, z: -2.35}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL1-A1
+    - TS-COL1-A2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6999996, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1L1-2
+    displayName: First-floor left wall 1 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 3.45, z: -1.1500001}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 3.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL1-A1
+    - TS-COL1-A2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6999996, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1L1-SILL1
+    displayName: First-floor left wall 1 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 3.45, z: -2.35}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 3.45, z: -1.1500001}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W1L1-1
+    - TS-W1L1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.9, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1L1-LINTEL1
+    displayName: First-floor left wall 1 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 5.55, z: -2.35}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 5.55, z: -1.1500001}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W1L1-1
+    - TS-W1L1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.59999967, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1L2-1
+    displayName: First-floor left wall 2 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 3.45, z: 0}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 3.45, z: 1.15}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL1-A2
+    - TS-COL1-A3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6999996, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1L2-2
+    displayName: First-floor left wall 2 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 3.45, z: 2.35}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 3.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL1-A2
+    - TS-COL1-A3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6999996, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1L2-SILL1
+    displayName: First-floor left wall 2 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 3.45, z: 1.15}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 3.45, z: 2.35}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W1L2-1
+    - TS-W1L2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.9, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1L2-LINTEL1
+    displayName: First-floor left wall 2 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -4.5, y: 5.55, z: 1.15}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 5.55, z: 2.35}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W1L2-1
+    - TS-W1L2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.59999967, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1R1-1
+    displayName: First-floor right wall 1 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 4.5, y: 3.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.45, z: -2.35}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL1-C1
+    - TS-COL1-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6999996, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1R1-2
+    displayName: First-floor right wall 1 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 4.5, y: 3.45, z: -1.1500001}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL1-C1
+    - TS-COL1-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6999996, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1R1-SILL1
+    displayName: First-floor right wall 1 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 4.5, y: 3.45, z: -2.35}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.45, z: -1.1500001}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W1R1-1
+    - TS-W1R1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.9, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1R1-LINTEL1
+    displayName: First-floor right wall 1 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 4.5, y: 5.55, z: -2.35}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 5.55, z: -1.1500001}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W1R1-1
+    - TS-W1R1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.59999967, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1R2-1
+    displayName: First-floor right wall 2 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 4.5, y: 3.45, z: 0}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.45, z: 1.15}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL1-C2
+    - TS-COL1-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6999996, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1R2-2
+    displayName: First-floor right wall 2 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 4.5, y: 3.45, z: 2.35}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-COL1-C2
+    - TS-COL1-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6999996, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1R2-SILL1
+    displayName: First-floor right wall 2 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 4.5, y: 3.45, z: 1.15}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.45, z: 2.35}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W1R2-1
+    - TS-W1R2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.9, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1R2-LINTEL1
+    displayName: First-floor right wall 2 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 4.5, y: 5.55, z: 1.15}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 5.55, z: 2.35}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-W1R2-1
+    - TS-W1R2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.59999967, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: First-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-RAFTER-L1
+    displayName: Left rafter 1
+    kind: 2
+    stage: 3
+    shape: 5
+    a: {x: -4.5, y: 6.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 8.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-BM1-XA1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Roof rafter carrying the roof covering down to the ring beam.
+    component: Roof trusses
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-RAFTER-R1
+    displayName: Right rafter 1
+    kind: 2
+    stage: 3
+    shape: 5
+    a: {x: 4.5, y: 6.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 8.45, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-BM1-XB1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof trusses
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-RAFTER-L2
+    displayName: Left rafter 2
+    kind: 2
+    stage: 3
+    shape: 5
+    a: {x: -4.5, y: 6.45, z: 0}
+    aGroundRelative: 0
+    b: {x: 0, y: 8.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-BM1-XA2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Roof rafter carrying the roof covering down to the ring beam.
+    component: Roof trusses
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-RAFTER-R2
+    displayName: Right rafter 2
+    kind: 2
+    stage: 3
+    shape: 5
+    a: {x: 4.5, y: 6.45, z: 0}
+    aGroundRelative: 0
+    b: {x: 0, y: 8.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-BM1-XB2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof trusses
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-RAFTER-L3
+    displayName: Left rafter 3
+    kind: 2
+    stage: 3
+    shape: 5
+    a: {x: -4.5, y: 6.45, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 8.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-BM1-XA3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Roof rafter carrying the roof covering down to the ring beam.
+    component: Roof trusses
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-RAFTER-R3
+    displayName: Right rafter 3
+    kind: 2
+    stage: 3
+    shape: 5
+    a: {x: 4.5, y: 6.45, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 8.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-BM1-XB3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof trusses
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-ROOF-RU
+    displayName: Right uphill roof
+    kind: 6
+    stage: 3
+    shape: 6
+    a: {x: 2.55, y: 7.436667, z: -2.0500002}
+    aGroundRelative: 0
+    b: {x: 2.55, y: 7.436667, z: -2.0500002}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: clay-tile
+    allowedMaterials:
+    - iron-sheet
+    - clay-tile
+    supports:
+    - TS-RAFTER-R1
+    - TS-RAFTER-R2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.7835317, y: 0.06, z: 4.7835317}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 'Clay tiles: heavy enough to hold themselves down in a storm.'
+    component: Roof tiles
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 1
+    patchAroundFrom: 0
+    patchAroundTo: 0.5
+  - id: TS-ROOF-LU
+    displayName: Left uphill roof
+    kind: 6
+    stage: 3
+    shape: 6
+    a: {x: -2.5500002, y: 7.4366655, z: -2.05}
+    aGroundRelative: 0
+    b: {x: -2.5500002, y: 7.4366655, z: -2.05}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: clay-tile
+    allowedMaterials:
+    - iron-sheet
+    - clay-tile
+    supports:
+    - TS-RAFTER-L1
+    - TS-RAFTER-L2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.783532, y: 0.06, z: 4.783532}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 'Clay tiles: heavy enough to hold themselves down in a storm.'
+    component: Roof tiles
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 1
+    patchAroundFrom: 0.5
+    patchAroundTo: 1
+  - id: TS-ROOF-RD
+    displayName: Right downhill roof
+    kind: 6
+    stage: 3
+    shape: 6
+    a: {x: 2.55, y: 7.436667, z: 2.0500002}
+    aGroundRelative: 0
+    b: {x: 2.55, y: 7.436667, z: 2.0500002}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: clay-tile
+    allowedMaterials:
+    - iron-sheet
+    - clay-tile
+    supports:
+    - TS-RAFTER-R2
+    - TS-RAFTER-R3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.7835317, y: 0.06, z: 4.7835317}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 'Clay tiles: heavy enough to hold themselves down in a storm.'
+    component: Roof tiles
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 1
+    patchTo: 2
+    patchAroundFrom: 0
+    patchAroundTo: 0.5
+  - id: TS-ROOF-LD
+    displayName: Left downhill roof
+    kind: 6
+    stage: 3
+    shape: 6
+    a: {x: -2.5500002, y: 7.4366655, z: 2.05}
+    aGroundRelative: 0
+    b: {x: -2.5500002, y: 7.4366655, z: 2.05}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: clay-tile
+    allowedMaterials:
+    - iron-sheet
+    - clay-tile
+    supports:
+    - TS-RAFTER-L2
+    - TS-RAFTER-L3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 4.783532, y: 0.06, z: 4.783532}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 'Clay tiles: heavy enough to hold themselves down in a storm.'
+    component: Roof tiles
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 1
+    patchTo: 2
+    patchAroundFrom: 0.5
+    patchAroundTo: 1
+  - id: TS-GABLE-U
+    displayName: Uphill gable
+    kind: 6
+    stage: 3
+    shape: 6
+    a: {x: 0.0000000066227384, y: 7.1166663, z: -3.5000002}
+    aGroundRelative: 0
+    b: {x: 0.0000000066227384, y: 7.1166663, z: -3.5000002}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-RAFTER-L1
+    - TS-RAFTER-R1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3, y: 0.2, z: 3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Brick gables
+    hasPatch: 1
+    patchProfile: 1
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 1
+  - id: TS-GABLE-D
+    displayName: Downhill gable
+    kind: 6
+    stage: 3
+    shape: 6
+    a: {x: 0.0000000066227384, y: 7.1166663, z: 3.5000002}
+    aGroundRelative: 0
+    b: {x: 0.0000000066227384, y: 7.1166663, z: 3.5000002}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-RAFTER-L3
+    - TS-RAFTER-R3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3, y: 0.2, z: 3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Brick gables
+    hasPatch: 1
+    patchProfile: 1
+    patchFrom: 1
+    patchTo: 1
+    patchAroundFrom: 0
+    patchAroundTo: 1
+  - id: TS-W0U1-WIN1
+    displayName: Ground-floor uphill wall 1 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: -2.25, y: 2.1, z: -3.5}
+    aGroundRelative: 0
+    b: {x: -2.25, y: 2.1, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - TS-W0U1-1
+    - TS-W0U1-2
+    - TS-W0U1-SILL1
+    - TS-W0U1-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1, y: 0.06, z: 0.89999986}
+    panelEuler: {x: 90, y: -0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0U2-WIN1
+    displayName: Ground-floor uphill wall 2 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 2.25, y: 2.1, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 2.25, y: 2.1, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - TS-W0U2-1
+    - TS-W0U2-2
+    - TS-W0U2-SILL1
+    - TS-W0U2-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1, y: 0.06, z: 0.89999986}
+    panelEuler: {x: 90, y: -0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0D1-WIN1
+    displayName: Ground-floor downhill wall 1 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: -2.25, y: 1.8500001, z: 3.5}
+    aGroundRelative: 0
+    b: {x: -2.25, y: 1.8500001, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - TS-W0D1-1
+    - TS-W0D1-2
+    - TS-W0D1-SILL1
+    - TS-W0D1-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 2, y: 0.06, z: 1.6}
+    panelEuler: {x: 90, y: -0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0D2-WIN2
+    displayName: Ground-floor downhill wall 2 window 2
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 3.2, y: 1.95, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 3.2, y: 1.95, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - TS-W0D2-1
+    - TS-W0D2-2
+    - TS-W0D2-3
+    - TS-W0D2-LINTEL1
+    - TS-W0D2-SILL2
+    - TS-W0D2-LINTEL2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.4, y: 0.06, z: 1.1999999}
+    panelEuler: {x: 90, y: -0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0L1-WIN1
+    displayName: Ground-floor left wall 1 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: -4.5, y: 1.95, z: -1.75}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 1.95, z: -1.75}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - TS-W0L1-1
+    - TS-W0L1-2
+    - TS-W0L1-SILL1
+    - TS-W0L1-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.2, y: 0.06, z: 1.1999999}
+    panelEuler: {x: 90, y: -90, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0L2-WIN1
+    displayName: Ground-floor left wall 2 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: -4.5, y: 1.95, z: 1.75}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 1.95, z: 1.75}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - TS-W0L2-1
+    - TS-W0L2-2
+    - TS-W0L2-SILL1
+    - TS-W0L2-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.2, y: 0.06, z: 1.1999999}
+    panelEuler: {x: 90, y: -90, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0R1-WIN1
+    displayName: Ground-floor right wall 1 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 4.5, y: 1.95, z: -1.75}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 1.95, z: -1.75}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - TS-W0R1-1
+    - TS-W0R1-2
+    - TS-W0R1-SILL1
+    - TS-W0R1-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.2, y: 0.06, z: 1.1999999}
+    panelEuler: {x: 90, y: -90, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0R2-WIN1
+    displayName: Ground-floor right wall 2 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 4.5, y: 1.95, z: 1.75}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 1.95, z: 1.75}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - TS-W0R2-1
+    - TS-W0R2-2
+    - TS-W0R2-SILL1
+    - TS-W0R2-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.2, y: 0.06, z: 1.1999999}
+    panelEuler: {x: 90, y: -90, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1U1-WIN1
+    displayName: First-floor uphill wall 1 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: -2.25, y: 5.1, z: -3.5}
+    aGroundRelative: 0
+    b: {x: -2.25, y: 5.1, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - TS-W1U1-1
+    - TS-W1U1-2
+    - TS-W1U1-SILL1
+    - TS-W1U1-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1, y: 0.06, z: 0.89999986}
+    panelEuler: {x: 90, y: -0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1U2-WIN1
+    displayName: First-floor uphill wall 2 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 2.25, y: 5.1, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 2.25, y: 5.1, z: -3.5}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - TS-W1U2-1
+    - TS-W1U2-2
+    - TS-W1U2-SILL1
+    - TS-W1U2-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1, y: 0.06, z: 0.89999986}
+    panelEuler: {x: 90, y: -0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1L1-WIN1
+    displayName: First-floor left wall 1 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: -4.5, y: 4.95, z: -1.75}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 4.95, z: -1.75}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - TS-W1L1-1
+    - TS-W1L1-2
+    - TS-W1L1-SILL1
+    - TS-W1L1-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.2, y: 0.06, z: 1.1999999}
+    panelEuler: {x: 90, y: -90, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1L2-WIN1
+    displayName: First-floor left wall 2 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: -4.5, y: 4.95, z: 1.75}
+    aGroundRelative: 0
+    b: {x: -4.5, y: 4.95, z: 1.75}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - TS-W1L2-1
+    - TS-W1L2-2
+    - TS-W1L2-SILL1
+    - TS-W1L2-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.2, y: 0.06, z: 1.1999999}
+    panelEuler: {x: 90, y: -90, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1R1-WIN1
+    displayName: First-floor right wall 1 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 4.5, y: 4.95, z: -1.75}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 4.95, z: -1.75}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - TS-W1R1-1
+    - TS-W1R1-2
+    - TS-W1R1-SILL1
+    - TS-W1R1-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.2, y: 0.06, z: 1.1999999}
+    panelEuler: {x: 90, y: -90, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1R2-WIN1
+    displayName: First-floor right wall 2 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 4.5, y: 4.95, z: 1.75}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 4.95, z: 1.75}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - TS-W1R2-1
+    - TS-W1R2-2
+    - TS-W1R2-SILL1
+    - TS-W1R2-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.2, y: 0.06, z: 1.1999999}
+    panelEuler: {x: 90, y: -90, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W0D2-DOOR1
+    displayName: Ground-floor downhill wall 2 door 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 1.2, y: 1.5, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 1.2, y: 1.5, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: door
+    allowedMaterials:
+    - door
+    supports:
+    - TS-W0D2-1
+    - TS-W0D2-2
+    - TS-W0D2-3
+    - TS-W0D2-LINTEL1
+    - TS-W0D2-SILL2
+    - TS-W0D2-LINTEL2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1, y: 0.06, z: 2.1}
+    panelEuler: {x: 90, y: -0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Doors
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1D1-DOOR1
+    displayName: First-floor downhill wall 1 door 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: -2, y: 4.55, z: 3.5}
+    aGroundRelative: 0
+    b: {x: -2, y: 4.55, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: door
+    allowedMaterials:
+    - door
+    supports:
+    - TS-W1D1-1
+    - TS-W1D1-2
+    - TS-W1D1-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.2, y: 0.06, z: 2.2}
+    panelEuler: {x: 90, y: -0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Doors
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-W1D2-DOOR1
+    displayName: First-floor downhill wall 2 door 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 2, y: 4.55, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 2, y: 4.55, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: door
+    allowedMaterials:
+    - door
+    supports:
+    - TS-W1D2-1
+    - TS-W1D2-2
+    - TS-W1D2-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.2, y: 0.06, z: 2.2}
+    panelEuler: {x: 90, y: -0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Doors
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-DOWNPIPE-L
+    displayName: Left downpipe
+    kind: 7
+    stage: 4
+    shape: 1
+    a: {x: -4.98, y: 6.283333, z: 3.8600001}
+    aGroundRelative: 0
+    b: {x: -4.98, y: 0.2, z: 3.8600001}
+    bGroundRelative: 1
+    thickness: 0.15
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - steel
+    - concrete
+    supports:
+    - TS-ROOF-LD
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 'Gutter and downpipe: carries roof water away so it never ponds.'
+    component: Gutters and downpipes
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-DOWNPIPE-R
+    displayName: Right downpipe
+    kind: 7
+    stage: 4
+    shape: 1
+    a: {x: 4.98, y: 6.283333, z: 3.8600001}
+    aGroundRelative: 0
+    b: {x: 4.98, y: 0.2, z: 3.8600001}
+    bGroundRelative: 1
+    thickness: 0.15
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - steel
+    - concrete
+    supports:
+    - TS-ROOF-RD
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 'Gutter and downpipe: carries roof water away so it never ponds.'
+    component: Gutters and downpipes
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-PART-1
+    displayName: Ground-floor partition 1
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: 0, y: 0.45, z: 0}
+    aGroundRelative: 0
+    b: {x: 3.2, y: 0.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.12
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-SLAB0-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.12, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Half-brick partition dividing the rooms.
+    component: Internal walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-PART-2
+    displayName: First-floor partition 2
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: 0, y: 3.45, z: -3.5}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.45, z: -0.9}
+    bGroundRelative: 0
+    thickness: 0.12
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-SLAB1-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.12, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Half-brick partition dividing the rooms.
+    component: Internal walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-PART-3
+    displayName: First-floor partition 3
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: 0, y: 3.45, z: 0}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.45, z: 3.5}
+    bGroundRelative: 0
+    thickness: 0.12
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-SLAB1-A2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.12, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Half-brick partition dividing the rooms.
+    component: Internal walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-PART-4
+    displayName: First-floor partition 4
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: 0.9, y: 3.45, z: 0}
+    aGroundRelative: 0
+    b: {x: 4.5, y: 3.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.12
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - TS-SLAB1-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.12, y: 2.7, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Half-brick partition dividing the rooms.
+    component: Internal walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-STAIR-1
+    displayName: Stair flight
+    kind: 6
+    stage: 1
+    shape: 3
+    a: {x: -2.25, y: 1.95, z: -2.8}
+    aGroundRelative: 0
+    b: {x: -2.25, y: 1.95, z: -2.8}
+    bGroundRelative: 0
+    thickness: 0.18
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - TS-SLAB0-A1
+    - TS-BM0-ZB1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1, y: 0.18, z: 4.920366}
+    panelEuler: {x: 37.568592, y: -90, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A concrete stair flight up to the bedrooms.
+    component: Staircase
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BALPAD-1
+    displayName: Balcony prop footing 1
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: -2, y: 0, z: 5.7999997}
+    aGroundRelative: 1
+    b: {x: -2, y: 0, z: 5.7999997}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0.9, y: 0.5, z: 0.9}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Optional footing for a column under the balcony.
+    component: Balcony prop footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BALPAD-2
+    displayName: Balcony prop footing 2
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 2, y: 0, z: 5.7999997}
+    aGroundRelative: 1
+    b: {x: 2, y: 0, z: 5.7999997}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0.9, y: 0.5, z: 0.9}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Optional footing for a column under the balcony.
+    component: Balcony prop footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BALPROP-1
+    displayName: Balcony prop 1
+    kind: 5
+    stage: 1
+    shape: 5
+    a: {x: -2, y: 0, z: 5.7999997}
+    aGroundRelative: 1
+    b: {x: -2, y: 3.15, z: 5.7999997}
+    bGroundRelative: 0
+    thickness: 0.22
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-BALPAD-1
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A column under the balcony turns its cantilevers into simple beams.
+    component: Balcony props
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BALPROP-2
+    displayName: Balcony prop 2
+    kind: 5
+    stage: 1
+    shape: 5
+    a: {x: 2, y: 0, z: 5.7999997}
+    aGroundRelative: 1
+    b: {x: 2, y: 3.15, z: 5.7999997}
+    bGroundRelative: 0
+    thickness: 0.22
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-BALPAD-2
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A column under the balcony turns its cantilevers into simple beams.
+    component: Balcony props
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BAL-L
+    displayName: Left balcony cantilever
+    kind: 4
+    stage: 1
+    shape: 5
+    a: {x: -2, y: 3.3, z: 3.5}
+    aGroundRelative: 0
+    b: {x: -2, y: 3.3, z: 6.1}
+    bGroundRelative: 0
+    thickness: 0.16
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-BM0-XA3
+    extraSupports:
+    - TS-BALPROP-1
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reaches 2.6 m out from the house. A crowd on the balcony bends it hard.
+    component: Balcony cantilevers
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BAL-R
+    displayName: Right balcony cantilever
+    kind: 4
+    stage: 1
+    shape: 5
+    a: {x: 2, y: 3.3, z: 3.5}
+    aGroundRelative: 0
+    b: {x: 2, y: 3.3, z: 6.1}
+    bGroundRelative: 0
+    thickness: 0.16
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - TS-BM0-XB3
+    extraSupports:
+    - TS-BALPROP-2
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reaches 2.6 m out from the house. A crowd on the balcony bends it hard.
+    component: Balcony cantilevers
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BAL-SLAB
+    displayName: Balcony slab
+    kind: 6
+    stage: 1
+    shape: 3
+    a: {x: 0, y: 3.375, z: 4.8}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.375, z: 4.8}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - TS-BAL-L
+    - TS-BAL-R
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5, y: 0.15, z: 2.6}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 13
+    isRoof: 0
+    hint: People, chairs and plants stand here.
+    component: Balcony slab
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: TS-BAL-RAIL
+    displayName: Glass balustrade
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 0, y: 3.95, z: 6.1}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.95, z: 6.1}
+    bGroundRelative: 0
+    thickness: 0.04
+    defaultMaterial: glass
+    allowedMaterials:
+    - glass
+    - ferrocement
+    supports:
+    - TS-BAL-SLAB
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5, y: 0.04, z: 1}
+    panelEuler: {x: 90, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Balcony balustrade
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  shells:
+  - name: Roof
+    stations:
+    - z: -4.1
+      baseY: 6.303333
+      topY: 8.57
+      halfWidth: 5.1
+      roundness: 1
+      centreX: 0
+      baseOnGround: 0
+    - z: 0
+      baseY: 6.303333
+      topY: 8.57
+      halfWidth: 5.1
+      roundness: 1
+      centreX: 0
+      baseOnGround: 0
+    - z: 4.1
+      baseY: 6.303333
+      topY: 8.57
+      halfWidth: 5.1
+      roundness: 1
+      centreX: 0
+      baseOnGround: 0
+  - name: Gables
+    stations:
+    - z: -3.5
+      baseY: 6.45
+      topY: 8.45
+      halfWidth: 4.5
+      roundness: 1
+      centreX: 0
+      baseOnGround: 0
+    - z: 3.5
+      baseY: 6.45
+      topY: 8.45
+      halfWidth: 4.5
+      roundness: 1
+      centreX: 0
+      baseOnGround: 0
+  category: Rwandan classic
+  focusCases: 01000000
+  skin:
+    m_AssetGUID: d78ecb1b2cef9e044996d8f1b3ee673a
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0

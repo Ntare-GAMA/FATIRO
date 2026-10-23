@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b07b28e7525ef7142ad74438ce4bf002, type: 3}
+  m_Name: Material_window
+  m_EditorClassIdentifier: Fatiro.Runtime::Fatiro.Content.MaterialData
+  materialId: window
+  displayName: Glazed window
+  axialStrength: 0.8
+  bendingStrength: 0.5
+  unitWeight: 0.5
+  unitCost: 2
+  drainCapacity: 0
+  color: {r: 0.75, g: 0.85, b: 0.92, a: 1}
+  renderMaterial: {fileID: 2100000, guid: cf5981db9ea317a4fb2bba279dafe18d, type: 2}
+  tileMetres: 1.3
+  description: A glazed window in a timber frame.

@@ -87,8 +87,20 @@ namespace Fatiro.UI
 
         private void BuildDesignCards()
         {
+            string category = null;
             foreach (var item in Session.Designs)
             {
+                // Biomimetic houses first, then the Rwandan classics, each under a small heading.
+                if (item.Category != category)
+                {
+                    category = item.Category;
+                    if (!string.IsNullOrEmpty(category))
+                    {
+                        var label = UIKit.Label(designList, category.ToUpperInvariant(), 26, Theme.Accent, style: FontStyle.Bold);
+                        UIKit.Size(label.gameObject, minHeight: 56);
+                    }
+                }
+
                 var target = item;
                 var background = UIKit.Panel(designList, Theme.Surface, item.DesignId);
                 var button = background.gameObject.AddComponent<Button>();
@@ -125,7 +137,7 @@ namespace Fatiro.UI
                 UIKit.Label(text.transform, item.Description, Theme.Small);
                 UIKit.Label(text.transform, item.Lesson, Theme.Small, Theme.Muted, style: FontStyle.Italic);
                 var difficulty = item.Difficulty <= 1 ? "Gentle" : item.Difficulty == 2 ? "Steady" : "Demanding";
-                UIKit.Label(text.transform, $"{difficulty}  ·  {item.MemberCount} members  ·  {item.Blueprint.Foundation.Name}",
+                UIKit.Label(text.transform, $"{difficulty}  ·  {item.Blueprint.Components.Count} components  ·  {item.MemberCount} pieces",
                     24, Theme.Primary, style: FontStyle.Bold);
                 designCards.Add((item, background));
             }

@@ -35,10 +35,10 @@ namespace Fatiro.States
 
         public virtual void ConfirmPlacement() => NotNow("Confirm placement");
         public virtual void Reposition() => NotNow("Reposition");
-        public virtual void SelectTrayMember(MemberSpec spec) => NotNow("Select member");
-        public virtual void BeginMemberDrag(MemberSpec spec) => NotNow("Drag member");
-        public virtual void DragMember(Vector2 screenPosition) { }
-        public virtual void EndMemberDrag(Vector2 screenPosition) { }
+        public virtual void SelectTrayComponent(BuildComponent component) => NotNow("Select component");
+        public virtual void BeginComponentDrag(BuildComponent component) => NotNow("Drag component");
+        public virtual void DragComponent(Vector2 screenPosition) { }
+        public virtual void EndComponentDrag(Vector2 screenPosition) { }
         public virtual void OpenTestBench() => NotNow("Open test bench");
         public virtual void RunLoadTest(LoadCaseConfig config) => NotNow("Run load test");
         public virtual void ModifyStructure() => NotNow("Modify structure");

@@ -136,6 +136,17 @@ namespace Fatiro.Domain
         public override float VerticalCapacity(in CapacityContext context) =>
             Calibration.PanelMembrane * (Spec.IsRoof ? Material.BendingStrength : Material.AxialStrength) *
             PanelFactor * Geometry.Area;
+
+        /// <summary>
+        /// A roof is held down by its own weight plus its fixings: nails into the timber, or storm
+        /// straps (a brace tied to the roof) that hold far more. Light iron sheets need the straps.
+        /// </summary>
+        public override float UpliftCapacity(in CapacityContext context)
+        {
+            if (!Spec.IsRoof) return VerticalCapacity(context);
+            var holdDown = context.IsBraced ? Calibration.StrappedRoofHoldDown : Calibration.NailedRoofHoldDown;
+            return SelfWeight + holdDown * Geometry.Area;
+        }
     }
 
     /// <summary>Downpipe or channel that carries roof runoff to a cistern.</summary>

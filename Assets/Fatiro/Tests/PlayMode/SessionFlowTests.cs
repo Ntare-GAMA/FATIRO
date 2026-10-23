@@ -40,7 +40,7 @@ namespace Fatiro.Tests
             simulation = bootstrap.Simulation;
             var context = simulation.Context;
             Assert.That(simulation.CurrentStateId, Is.EqualTo(SimulationStateId.Start));
-            Assert.That(context.Designs.Count, Is.EqualTo(3), "designs load from Addressables");
+            Assert.That(context.Designs.Count, Is.EqualTo(6), "designs load from Addressables");
 
             profile = context.Data.Profiles.Create("PlayMode test");
             context.Data.SelectProfile(profile);
@@ -60,20 +60,20 @@ namespace Fatiro.Tests
             simulation.ConfirmPlacement();
             yield return WaitFor(() => simulation.CurrentStateId == SimulationStateId.Building, 5f);
 
-            // A sequencing mistake: a roof panel during the foundation stage is rejected and logged.
-            var roof = context.Blueprint.Get("CR-ROOF-REAR");
-            DragOnto(roof);
-            Assert.That(context.Entities.IsPlaced(roof.Id), Is.False);
+            // A sequencing mistake: the car body shell during the foundation stage is rejected and logged.
+            var shell = context.Blueprint.ComponentOf("CR-ROOF-REAR");
+            DragOnto(shell);
+            Assert.That(context.Entities.IsPlaced("CR-ROOF-REAR"), Is.False);
             Assert.That(context.Record.placements.Last().result, Is.EqualTo("rejected"));
 
-            // Assemble every required member by dragging its card onto its ghost.
+            // Assemble every required component by dragging its card onto its ghost (fast build).
             var guard = 0;
             while (!context.Tasks.IsComplete && guard++ < 100)
             {
-                var next = context.Tasks.NextRequired();
+                var next = context.Tasks.NextComponent();
                 Assert.That(next, Is.Not.Null);
                 DragOnto(next);
-                Assert.That(context.Entities.IsPlaced(next.Id), Is.True, $"{next.DisplayName} should snap");
+                Assert.That(context.Tasks.IsBuilt(next), Is.True, $"{next.Name} should be built");
                 yield return null;
             }
             Assert.That(context.Tasks.IsComplete, Is.True);
@@ -100,7 +100,8 @@ namespace Fatiro.Tests
             Assert.That(simulation.CurrentStateId, Is.EqualTo(SimulationStateId.Building));
             Assert.That(simulation.Hologram, Is.True, "modifying goes back to the hologram");
             Assert.That(context.Entities.Member("CR-STILT-L2").IsFailed, Is.False, "results reset for modification");
-            foreach (var id in new[] { "CR-BRACE-L1", "CR-BRACE-R1", "CR-SWAY-1", "CR-SWAY-2" }) DragOnto(context.Blueprint.Get(id));
+            DragOnto(context.Blueprint.ComponentOf("CR-BRACE-L1"));
+            Assert.That(context.Entities.IsPlaced("CR-SWAY-2"), Is.True, "the whole downhill bracing is built in one go");
             simulation.OpenTestBench();
             simulation.RunLoadTest(new LoadCaseConfig(LoadCaseKind.Seismic, 3f));
             yield return WaitFor(() => simulation.CurrentStateId == SimulationStateId.Reviewing, 15f);
@@ -120,16 +121,17 @@ namespace Fatiro.Tests
             Assert.That(context.Content.HandleCount(AssetScope.Skin), Is.EqualTo(0));
         }
 
-        /// <summary>Simulates dragging a tray card and releasing it over the member's target position.</summary>
-        private void DragOnto(MemberSpec spec)
+        /// <summary>Simulates dragging a component's tray card and releasing it over where it goes.</summary>
+        private void DragOnto(BuildComponent component)
         {
             var context = simulation.Context;
+            var spec = component.Members[0];
             var geometry = context.Entities.Geometry(spec);
             var centre = new Vector3((geometry.A.X + geometry.B.X) * 0.5f, (geometry.A.Y + geometry.B.Y) * 0.5f, (geometry.A.Z + geometry.B.Z) * 0.5f);
             var screen = (Vector2)context.AR.Camera.WorldToScreenPoint(context.Site.StructureRoot.TransformPoint(centre));
-            simulation.BeginMemberDrag(spec);
-            simulation.DragMember(screen);
-            simulation.EndMemberDrag(screen);
+            simulation.BeginComponentDrag(component);
+            simulation.DragComponent(screen);
+            simulation.EndComponentDrag(screen);
         }
 
         private static IEnumerator WaitFor(Func<bool> condition, float timeoutSeconds)

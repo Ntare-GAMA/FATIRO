@@ -54,7 +54,7 @@ namespace Fatiro.Tests
             {
                 var sequence = new BuildSequence(blueprint, BuildMode.GuidedBuild);
                 var guard = 0;
-                while (!sequence.IsComplete && guard++ < 200)
+                while (!sequence.IsComplete && guard++ < 400)
                 {
                     var next = sequence.NextRequired();
                     Assert.That(next, Is.Not.Null, $"{blueprint.Name} stalled at {sequence.CurrentStage}");
@@ -66,6 +66,89 @@ namespace Fatiro.Tests
             }
         }
 
+
+        [Test]
+        public void NextComponent_BuildsEveryDesignInWholeComponents()
+        {
+            foreach (var blueprint in Blueprints.All())
+            {
+                var sequence = new BuildSequence(blueprint, BuildMode.GuidedBuild);
+                var guard = 0;
+                while (!sequence.IsComplete && guard++ < 100)
+                {
+                    var next = sequence.NextComponent();
+                    Assert.That(next, Is.Not.Null, $"{blueprint.Name} stalled at {sequence.CurrentStage}");
+                    Assert.That(sequence.CanPlace(next).Allowed, Is.True, next.Name);
+                    foreach (var spec in sequence.Remaining(next)) sequence.MarkPlaced(spec.Id);
+                    Assert.That(sequence.IsBuilt(next), Is.True);
+                }
+                Assert.That(sequence.IsComplete, Is.True, blueprint.Name);
+            }
+        }
+
+        [Test]
+        public void Component_NeedsTheComponentItRestsOn()
+        {
+            var blueprint = Blueprints.Car();
+            var sequence = new BuildSequence(blueprint, BuildMode.FreeBuild);
+            var stilts = blueprint.Components.First(c => c.Name == "Concrete stilts");
+
+            var check = sequence.CanPlace(stilts);
+
+            Assert.That(check.Allowed, Is.False);
+            Assert.That(check.Reason, Does.Contain("Brick piers"));
+        }
+
+        [Test]
+        public void Component_MayRestOnItsOwnMembers()
+        {
+            // A roof ring beam rests on the columns of the same storey, which are a different component;
+            // within one component, later members may rest on earlier ones.
+            var blueprint = Blueprints.Bungalow();
+            var sequence = new BuildSequence(blueprint, BuildMode.FreeBuild);
+            foreach (var component in blueprint.Components)
+            {
+                if (component.Stage != BuildStage.Foundation) continue;
+                Assert.That(sequence.CanPlace(component).Allowed, Is.True, component.Name);
+                foreach (var spec in component.Members) sequence.MarkPlaced(spec.Id);
+            }
+        }
+
+        [Test]
+        public void ComponentsGroupEveryMemberOnce()
+        {
+            foreach (var blueprint in Blueprints.All())
+            {
+                var grouped = blueprint.Components.SelectMany(c => c.Members).Select(m => m.Id).ToList();
+                Assert.That(grouped, Is.EquivalentTo(blueprint.Members.Select(m => m.Id)), blueprint.Name);
+                Assert.That(blueprint.Components.Count, Is.LessThan(blueprint.Members.Count / 2), $"{blueprint.Name} should build fast");
+            }
+        }
+
+        [Test]
+        public void ShellPatchesHaveRealArea()
+        {
+            foreach (var blueprint in Blueprints.All())
+            foreach (var member in blueprint.Members.Where(m => m.Shape == MemberShape.Shell))
+            {
+                var stations = blueprint.Shells[member.Patch.Profile].Resolve(null);
+                var (area, _) = ShellMath.Measure(stations, member.Patch);
+                Assert.That(area, Is.GreaterThan(0.2f), member.Id);
+            }
+        }
+
+        [Test]
+        public void ShellSectionRunsFromRightBaseOverTheCrownToLeftBase()
+        {
+            var station = new ShellStation(0f, 1f, 4f, 2f, 2f);
+            var right = ShellMath.Point(station, 0f);
+            var crown = ShellMath.Point(station, 0.5f);
+            var left = ShellMath.Point(station, 1f);
+            Assert.That(right.X, Is.EqualTo(2f).Within(0.001f));
+            Assert.That(right.Y, Is.EqualTo(1f).Within(0.001f));
+            Assert.That(crown.Y, Is.EqualTo(4f).Within(0.001f));
+            Assert.That(left.X, Is.EqualTo(-2f).Within(0.001f));
+        }
         [Test]
         public void CannotRemoveAMemberSomethingRestsOn()
         {

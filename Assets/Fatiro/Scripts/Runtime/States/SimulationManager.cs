@@ -30,10 +30,10 @@ namespace Fatiro.States
         void ConfirmPlacement();
         void Reposition();
 
-        void SelectTrayMember(MemberSpec spec);
-        void BeginMemberDrag(MemberSpec spec);
-        void DragMember(Vector2 screenPosition);
-        void EndMemberDrag(Vector2 screenPosition);
+        void SelectTrayComponent(BuildComponent component);
+        void BeginComponentDrag(BuildComponent component);
+        void DragComponent(Vector2 screenPosition);
+        void EndComponentDrag(Vector2 screenPosition);
         void SelectMember(string memberId);
         void ChangeMaterial(string memberId, string materialId);
         void RemoveMember(string memberId);
@@ -208,7 +208,9 @@ namespace Fatiro.States
                     { MemberShape.Pad, pad },
                     { MemberShape.Panel, panel },
                     { MemberShape.Arch, arch },
-                    { MemberShape.Block, panel }
+                    { MemberShape.Block, panel },
+                    { MemberShape.Bar, panel },
+                    { MemberShape.Shell, arch }
                 };
                 Context.Views = new MemberViewFactory(prefabs, ghostMaterial, Context.Effects.SpawnDebris, Context.WorldRoot);
 
@@ -217,6 +219,7 @@ namespace Fatiro.States
                 Context.Site = siteObject.GetComponent<SiteController>();
                 var blueprint = setup.Design.Blueprint;
                 Context.Site.Configure(setup.Site, blueprint.UphillReferenceZ, setup.ScaleDenominator, Footprint(blueprint));
+                Context.Views.Shells = ResolveShells(blueprint, Context.Site.Layout);
                 siteObject.SetActive(false);
 
                 Context.Entities.BeginSession(blueprint, Context.Site.Layout, Context.Materials, Context.Views, Context.Site.StructureRoot);
@@ -294,22 +297,20 @@ namespace Fatiro.States
                     if (spec.Required && !Context.Entities.IsPlaced(spec.Id))
                         prebuilt.Add(new Fatiro.Build.PlacedMemberState { memberId = spec.Id, materialId = spec.DefaultMaterialId });
                 Context.Build.Restore(prebuilt);
-                ShowSkin();
                 ChangeState(SimulationStateId.Reviewing);
                 RevealReal();
                 return;
             }
 
-            if (Context.Tasks.IsComplete) ShowSkin();
             ChangeState(SimulationStateId.Building);
         }
 
         // ---- Building ---------------------------------------------------------------------
 
-        public void SelectTrayMember(MemberSpec spec) => current.SelectTrayMember(spec);
-        public void BeginMemberDrag(MemberSpec spec) => current.BeginMemberDrag(spec);
-        public void DragMember(Vector2 screenPosition) => current.DragMember(screenPosition);
-        public void EndMemberDrag(Vector2 screenPosition) => current.EndMemberDrag(screenPosition);
+        public void SelectTrayComponent(BuildComponent component) => current.SelectTrayComponent(component);
+        public void BeginComponentDrag(BuildComponent component) => current.BeginComponentDrag(component);
+        public void DragComponent(Vector2 screenPosition) => current.DragComponent(screenPosition);
+        public void EndComponentDrag(Vector2 screenPosition) => current.EndComponentDrag(screenPosition);
 
         public void SelectMember(string memberId)
         {
@@ -354,7 +355,6 @@ namespace Fatiro.States
         private void OnStageCompleted(StageCompleted message)
         {
             if (!message.BuildComplete) return;
-            ShowSkin();
             Toast("Structure complete! Open the test bench to load-test it.", ToastKind.Success);
         }
 
@@ -466,6 +466,7 @@ namespace Fatiro.States
             Context.Entities.SetHologram(false, apply: false);
             Context.Site.SetHologram(false);
             Context.Events.Publish(new SettingsChanged());
+            ShowSkin();
             reveal = RevealSweep.Begin(Context.Site.StructureRoot, Footprint(Context.Blueprint), Context.Entities.PlacedSurfaces(),
                 holoLineMaterial, ApplySkinLook, () =>
                 {
@@ -480,6 +481,7 @@ namespace Fatiro.States
         {
             if (worldHud != null) worldHud.Revealed = false;
             SetHologram(true);
+            SetSkinVisible(false);
         }
 
         /// <summary>Skips any reveal still in progress straight to its end.</summary>
@@ -514,12 +516,16 @@ namespace Fatiro.States
             if (Context.Skin != null) Context.Skin.SetActive(visible);
         }
 
-        /// <summary>Loads the creature skin through Addressables once the structure is complete.</summary>
+        /// <summary>
+        /// Loads the design's fit-out (furniture, lights, wheels) through Addressables when the house
+        /// is revealed. Pieces standing on stepped floors drop to the ground under them.
+        /// </summary>
         private async void ShowSkin()
         {
             if (Context.Skin != null)
             {
                 Context.Skin.SetActive(true);
+                ApplySkinLook();
                 return;
             }
 
@@ -527,17 +533,20 @@ namespace Fatiro.States
             var prefab = await Context.Content.LoadSkinAsync(design);
             if (prefab == null || Context.Site == null || Context.Setup?.Design != design || Context.Skin != null) return;
             Context.Skin = UnityEngine.Object.Instantiate(prefab, Context.Site.StructureRoot);
-            Context.Skin.name = $"{design.DisplayName} skin";
+            Context.Skin.name = $"{design.DisplayName} fit-out";
+            foreach (var item in Context.Skin.GetComponentsInChildren<FitOutItem>(true))
+                item.SettleOn(Context.Site.Layout);
             skinMaterials.Clear();
             ApplySkinLook();
+            Context.Skin.SetActive(!hologramView);
+        }
 
-            // Animals lie along the hillside: pivot about the uphill edge, where the ground is at height 0.
-            if (design.SkinFollowsSlope)
-            {
-                var root = Context.Site.StructureRoot;
-                var pivot = root.TransformPoint(0f, 0f, design.Blueprint.UphillReferenceZ);
-                Context.Skin.transform.RotateAround(pivot, root.right, Context.Setup.Site.SlopeDegrees);
-            }
+        /// <summary>Each shell of the design, with its bases resolved for this site.</summary>
+        private static List<ShellStation[]> ResolveShells(HouseBlueprint blueprint, SiteLayout layout)
+        {
+            var shells = new List<ShellStation[]>();
+            foreach (var shell in blueprint.Shells) shells.Add(shell.Resolve(layout));
+            return shells;
         }
 
         /// <summary>Destroys session objects and releases the session's Addressables (mobile memory).</summary>

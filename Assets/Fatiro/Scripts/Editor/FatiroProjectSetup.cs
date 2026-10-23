@@ -65,7 +65,7 @@ namespace Fatiro.EditorTools
             ConfigureAudioImport();
 
             var prefabs = CreatePrefabs(materials, surfaces);
-            var skins = CreateSkins();
+            var skins = CreateFitOuts();
             var materialAssets = CreateMaterialData(surfaces);
             var designs = CreateDesigns(skins);
             ConfigureAddressables(prefabs, skins, materialAssets, designs, materials);
@@ -385,6 +385,50 @@ namespace Fatiro.EditorTools
                     new Color(1f, 0.9f, 0.8f), smoothness: 0.1f)
                 : ImportedAssets.SurfaceMaterial("EarthBlock", null, null, new Color(0.76f, 0.45f, 0.30f));
 
+            // Ferrocement shells: smooth, white cement render like the sculpted houses the designs are drawn from.
+            var ferrocement = ImportedAssets.SurfaceMaterial("Ferrocement", null, null, new Color(0.94f, 0.94f, 0.92f), smoothness: 0.55f);
+
+            // Glass: clear, slightly blue, glowing warm as if the rooms behind it are lit.
+            var lit = Shader.Find("Universal Render Pipeline/Lit");
+            var glass = SaveMaterial("Surface_Glass", lit, new Color(0.62f, 0.80f, 0.90f, 0.42f), transparent: true, smoothness: 0.95f,
+                emission: new Color(0.22f, 0.17f, 0.08f));
+            glass.SetFloat("_Metallic", 0.1f);
+
+            // Iron sheets: the metal-plate texture, silver like new corrugated roofing on Rwanda's hills.
+            var ironSheet = ImportedAssets.SurfaceMaterial("IronSheet",
+                ImportedAssets.LoadTexture("Assets/Models/Metal_Plates/Textures/Metal_Plates_1_AlbedoTransparency.tga"),
+                ImportedAssets.LoadTexture("Assets/Models/Metal_Plates/Textures/Metal_Plates_Normal.tga", normalMap: true),
+                new Color(0.70f, 0.76f, 0.80f), metallic: 0.65f, smoothness: 0.6f);
+
+            // Clay tiles, a door and a window, cut from the brick-house atlas.
+            var atlas = "Assets/Brick_House/Textures/brick_house_D.PNG";
+            var atlasNormal = "Assets/Brick_House/Textures/Brick_house_N.png";
+            var hasAtlas = File.Exists(atlas);
+            var clayTile = hasAtlas
+                ? ImportedAssets.SurfaceMaterial("ClayTile",
+                    ImportedAssets.CropToTexture(atlas, new RectInt(1024, 0, 1024, 1024), "ClayTile_Colour", false),
+                    ImportedAssets.CropToTexture(atlasNormal, new RectInt(1024, 0, 1024, 1024), "ClayTile_Normal", true),
+                    Color.white, smoothness: 0.15f)
+                : ImportedAssets.SurfaceMaterial("ClayTile", null, null, new Color(0.72f, 0.38f, 0.26f));
+            var window = hasAtlas
+                ? ImportedAssets.SurfaceMaterial("Window",
+                    ImportedAssets.CropToTexture(atlas, new RectInt(1776, 1662, 204, 224), "Window_Colour", false), null,
+                    Color.white, smoothness: 0.8f)
+                : ImportedAssets.SurfaceMaterial("Window", null, null, new Color(0.75f, 0.85f, 0.92f), smoothness: 0.9f);
+            var door = hasAtlas
+                ? ImportedAssets.SurfaceMaterial("Door",
+                    ImportedAssets.CropToTexture(atlas, new RectInt(1034, 1664, 688, 306), "Door_Colour", false), null,
+                    Color.white, smoothness: 0.3f)
+                : ImportedAssets.SurfaceMaterial("Door", null, null, new Color(0.45f, 0.24f, 0.14f));
+
+            set.Members[MaterialLibrary.Ferrocement] = (ferrocement, 2.0f);
+            set.Members[MaterialLibrary.CharcoalFerrocement] = (ImportedAssets.SurfaceMaterial("CharcoalFerrocement", null, null,
+                new Color(0.10f, 0.10f, 0.11f), smoothness: 0.45f), 2.0f);
+            set.Members[MaterialLibrary.Glass] = (glass, 2.0f);
+            set.Members[MaterialLibrary.IronSheet] = (ironSheet, 1.2f);
+            set.Members[MaterialLibrary.ClayTile] = (clayTile, 1.6f);
+            set.Members[MaterialLibrary.Window] = (window, 1.3f);
+            set.Members[MaterialLibrary.Door] = (door, 2.1f);
             set.Members[MaterialLibrary.Bamboo] = (bamboo, 0.9f);
             set.Members[MaterialLibrary.Timber] = (timber, 1.4f);
             set.Members[MaterialLibrary.Steel] = (steel, 1.6f);
@@ -721,131 +765,48 @@ namespace Fatiro.EditorTools
             return prefab;
         }
 
-        // ---- Creature skins (decorative, Addressable) ------------------------------------
-
-        private static Dictionary<string, GameObject> CreateSkins()
-        {
-            var lit = Shader.Find("Universal Render Pipeline/Lit");
-            var black = SaveMaterial("Skin_Black", lit, new Color(0.06f, 0.06f, 0.07f), smoothness: 0.6f);
-            var grey = SaveMaterial("Skin_Grey", lit, new Color(0.55f, 0.55f, 0.58f), smoothness: 0.2f);
-            var ivory = SaveMaterial("Skin_Ivory", lit, new Color(0.95f, 0.92f, 0.82f), smoothness: 0.5f);
-            var red = SaveMaterial("Skin_Red", lit, new Color(0.75f, 0.08f, 0.08f), smoothness: 0.8f);
-            var eyes = SaveMaterial("Skin_Eyes", lit, new Color(1f, 0.7f, 0.1f), smoothness: 0.9f, emission: new Color(1.6f, 0.9f, 0.1f));
-            var lights = SaveMaterial("Skin_Lights", lit, new Color(1f, 0.95f, 0.7f), smoothness: 0.9f, emission: new Color(1.5f, 1.4f, 0.9f));
-            var tail = SaveMaterial("Skin_TailLights", lit, new Color(1f, 0.1f, 0.1f), smoothness: 0.9f, emission: new Color(1.5f, 0.1f, 0.1f));
-
-            var skins = new Dictionary<string, GameObject>();
-
-            // Ingwe: head over the cantilever, ears, glowing eyes, curling tail behind the haunches.
-            // Preferred: the Poly by Google tiger, recoloured as a black panther, crouched over the ribs.
-            var panther = new GameObject("Skin_PN-01");
-            var pantherFur = SaveMaterial("Skin_PantherFur", lit, new Color(0.07f, 0.07f, 0.08f), smoothness: 0.15f);
-            if (!FitModel(panther, $"{ImportedModels}/Tiger.glb", 13.5f, 1.6f, 0.1f, pantherFur))
-            {
-            Piece(panther, PrimitiveType.Sphere, black, new Vector3(0f, 3.75f, 7.1f), new Vector3(2.4f, 1.6f, 2.2f));
-            Piece(panther, PrimitiveType.Capsule, black, new Vector3(-0.8f, 4.55f, 6.9f), new Vector3(0.45f, 0.5f, 0.3f), new Vector3(0, 0, 20));
-            Piece(panther, PrimitiveType.Capsule, black, new Vector3(0.8f, 4.55f, 6.9f), new Vector3(0.45f, 0.5f, 0.3f), new Vector3(0, 0, -20));
-            Piece(panther, PrimitiveType.Sphere, eyes, new Vector3(-0.55f, 3.95f, 8.1f), new Vector3(0.38f, 0.22f, 0.2f));
-            Piece(panther, PrimitiveType.Sphere, eyes, new Vector3(0.55f, 3.95f, 8.1f), new Vector3(0.38f, 0.22f, 0.2f));
-            for (var i = 0; i < 6; i++)
-            {
-                var t = i / 5f;
-                Piece(panther, PrimitiveType.Sphere, black, new Vector3(0.4f * Mathf.Sin(t * 3f), 3.4f + 1.4f * t, -4.4f - 1.2f * t + 0.6f * t * t),
-                    Vector3.one * Mathf.Lerp(0.55f, 0.3f, t));
-            }
-            }
-            skins["PN-01"] = SavePrefab(panther, $"{SkinsFolder}/Skin_PN-01.prefab");
-
-            // Inzovu: head at the front arch, eyes and ivory tusks; the trunk is the real drain member.
-            // Preferred: the Poly by Google elephant standing over the legs and body arches.
-            var elephant = new GameObject("Skin_EL-01");
-            if (!FitModel(elephant, $"{ImportedModels}/Elephant.glb", 11.0f, 0.6f, 0.2f, null))
-            {
-            Piece(elephant, PrimitiveType.Sphere, grey, new Vector3(0f, 5.0f, 3.2f), new Vector3(2.6f, 2.4f, 1.6f));
-            Piece(elephant, PrimitiveType.Sphere, black, new Vector3(-0.75f, 5.4f, 3.9f), new Vector3(0.25f, 0.25f, 0.15f));
-            Piece(elephant, PrimitiveType.Sphere, black, new Vector3(0.75f, 5.4f, 3.9f), new Vector3(0.25f, 0.25f, 0.15f));
-            Piece(elephant, PrimitiveType.Capsule, ivory, new Vector3(-0.7f, 4.1f, 4.2f), new Vector3(0.22f, 0.8f, 0.22f), new Vector3(60, 0, 0));
-            Piece(elephant, PrimitiveType.Capsule, ivory, new Vector3(0.7f, 4.1f, 4.2f), new Vector3(0.22f, 0.8f, 0.22f), new Vector3(60, 0, 0));
-            Piece(elephant, PrimitiveType.Capsule, grey, new Vector3(0f, 5.2f, -2.9f), new Vector3(0.15f, 0.9f, 0.15f), new Vector3(-30, 0, 0));
-            }
-            skins["EL-01"] = SavePrefab(elephant, $"{SkinsFolder}/Skin_EL-01.prefab");
-
-            // Imodoka: a real low-poly car sized to the stilted deck.
-            var car = new GameObject("Skin_CR-01");
-            var carPrefab = ImportedAssets.LoadPrefab("Assets/Alstra Infinite/Vehicles LowPoly/Prefabs/Version 1.2/MuscleCarV1.prefab");
-            if (FitModel(car, $"{ImportedModels}/DodgeChallenger.glb", 8.6f, 0.3f, 2.25f, null))
-            {
-                // The Dodge Challenger (Grzybek, Poly Pizza) sourced for this project.
-            }
-            else if (carPrefab != null)
-            {
-                var body = ImportedAssets.Instantiate(carPrefab, 8.6f, false, null, "Muscle car");
-                var bounds = ImportedAssets.Bounds(body);
-                if (bounds.size.x > bounds.size.z) body.transform.Rotate(0f, 90f, 0f, Space.World);
-                bounds = ImportedAssets.Bounds(body);
-                // Wheels on the deck (y 2.2), centred over the stilts, nose pointing downhill.
-                body.transform.position += new Vector3(-bounds.center.x, 2.25f - bounds.min.y, 0.3f - bounds.center.z);
-                body.transform.SetParent(car.transform, true);
-            }
-            else
-            {
-                foreach (var x in new[] { -2.05f, 2.05f })
-                foreach (var z in new[] { -2.7f, 2.9f })
-                    Piece(car, PrimitiveType.Cylinder, black, new Vector3(x, 2.25f, z), new Vector3(1.3f, 0.18f, 1.3f), new Vector3(0, 0, 90));
-                Piece(car, PrimitiveType.Sphere, lights, new Vector3(-1.2f, 2.7f, 4.75f), new Vector3(0.6f, 0.25f, 0.2f));
-                Piece(car, PrimitiveType.Sphere, lights, new Vector3(1.2f, 2.7f, 4.75f), new Vector3(0.6f, 0.25f, 0.2f));
-                Piece(car, PrimitiveType.Cube, tail, new Vector3(0f, 2.9f, -4.25f), new Vector3(2.6f, 0.15f, 0.08f));
-                Piece(car, PrimitiveType.Cube, red, new Vector3(0f, 4.15f, -3.9f), new Vector3(3.2f, 0.08f, 0.6f), new Vector3(-8, 0, 0));
-            }
-            skins["CR-01"] = SavePrefab(car, $"{SkinsFolder}/Skin_CR-01.prefab");
-            return skins;
-        }
+        // ---- Fit-outs (furniture and details, Addressable) ---------------------------------
 
         /// <summary>
-        /// Places an imported model (glb via glTFast, or fbx) inside a skin: scaled so its length matches,
-        /// turned to run along +Z (downhill), centred over the structure and sat at the given height.
-        /// Returns false if the model is not in the project, so the caller can fall back to primitives.
+        /// Each design's fit-out: furniture, lamps, the car's wheels and lights, the animals' eyes.
+        /// Loaded through Addressables when the house is revealed and released with the session.
         /// </summary>
-        private static bool FitModel(GameObject skin, string path, float length, float centreZ, float baseY, Material overrideMaterial)
+        private static Dictionary<string, GameObject> CreateFitOuts()
         {
-            var asset = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-            if (asset == null)
-            {
-                Debug.LogWarning($"[Fatiro] Skin model not found at {path}; using the primitive skin.");
-                return false;
-            }
+            var lit = Shader.Find("Universal Render Pipeline/Lit");
+            Material Make(string name, Color colour, float smoothness, Color? emission) =>
+                SaveMaterial(name, lit, colour, smoothness: smoothness, emission: emission);
 
-            var model = ImportedAssets.Instantiate(asset, length, false, null, Path.GetFileNameWithoutExtension(path));
-            var bounds = ImportedAssets.Bounds(model);
-            if (bounds.size.x > bounds.size.z) model.transform.Rotate(0f, 90f, 0f, Space.World);
-
-            if (overrideMaterial != null)
+            // A parked car for the flats' open ground floor, painted like the one on the hillside.
+            GameObject parked = null;
+            var nissan = ImportedAssets.LoadPrefab($"{ImportedModels}/Nissan180MX.fbx");
+            if (nissan != null)
             {
-                foreach (var renderer in model.GetComponentsInChildren<Renderer>(true))
+                parked = ImportedAssets.Instantiate(nissan, 4.4f, false, null, "Parked car");
+                var paint = SaveMaterial("CarPaintRed", lit, new Color(0.62f, 0.10f, 0.10f), smoothness: 0.75f);
+                paint.SetFloat("_Metallic", 0.4f);
+                foreach (var part in parked.GetComponentsInChildren<Renderer>(true))
                 {
-                    var materials = renderer.sharedMaterials;
-                    for (var i = 0; i < materials.Length; i++) materials[i] = overrideMaterial;
-                    renderer.sharedMaterials = materials;
+                    var materials = part.sharedMaterials;
+                    for (var i = 0; i < materials.Length; i++) materials[i] = paint;
+                    part.sharedMaterials = materials;
                 }
+                var bounds = ImportedAssets.Bounds(parked);
+                if (bounds.size.x > bounds.size.z) parked.transform.Rotate(0f, 90f, 0f, Space.World);
+                bounds = ImportedAssets.Bounds(parked);
+                parked.transform.position -= new Vector3(bounds.center.x, bounds.min.y, bounds.center.z);
             }
 
-            bounds = ImportedAssets.Bounds(model);
-            model.transform.position += new Vector3(-bounds.center.x, baseY - bounds.min.y, centreZ - bounds.center.z);
-            model.transform.SetParent(skin.transform, true);
-            return true;
-        }
-
-        private static void Piece(GameObject parent, PrimitiveType type, Material material, Vector3 position, Vector3 scale, Vector3 euler = default)
-        {
-            var piece = GameObject.CreatePrimitive(type);
-            Object.DestroyImmediate(piece.GetComponent<Collider>());
-            piece.transform.SetParent(parent.transform, false);
-            piece.transform.localPosition = position;
-            piece.transform.localEulerAngles = euler;
-            piece.transform.localScale = scale;
-            var renderer = piece.GetComponent<MeshRenderer>();
-            renderer.sharedMaterial = material;
-            renderer.shadowCastingMode = ShadowCastingMode.Off;
+            FitOutBuilder.Begin(Make, ImportedAssets.LoadPrefab("Assets/InterierDFProMLG67MrBeast/Prefabs/Table.prefab"),
+                ImportedAssets.LoadPrefab("Assets/InterierDFProMLG67MrBeast/Prefabs/Chair.prefab"), parked);
+            var fitOuts = new Dictionary<string, GameObject>();
+            foreach (var blueprint in Blueprints.All())
+            {
+                var root = FitOutBuilder.Build(blueprint.DesignId);
+                fitOuts[blueprint.DesignId] = SavePrefab(root, $"{SkinsFolder}/FitOut_{blueprint.DesignId}.prefab");
+            }
+            if (parked != null) Object.DestroyImmediate(parked);
+            return fitOuts;
         }
 
         // ---- Design data ----------------------------------------------------------------
@@ -858,7 +819,14 @@ namespace Fatiro.EditorTools
                 { MaterialLibrary.Timber, (new Color(0.62f, 0.42f, 0.24f), "Moderate strength and cost.") },
                 { MaterialLibrary.Steel, (new Color(0.62f, 0.66f, 0.72f), "Very strong in every direction, but costly.") },
                 { MaterialLibrary.Concrete, (new Color(0.80f, 0.80f, 0.78f), "Strong in compression, heavy.") },
-                { MaterialLibrary.EarthBlock, (new Color(0.76f, 0.45f, 0.30f), "Cheap and local; good in compression, poor in bending.") }
+                { MaterialLibrary.EarthBlock, (new Color(0.76f, 0.45f, 0.30f), "Fired clay brick: cheap and local; good in compression, poor in bending.") },
+                { MaterialLibrary.Ferrocement, (new Color(0.94f, 0.94f, 0.92f), "Cement mortar on steel mesh. Thin, curved and strong, like an eggshell.") },
+                { MaterialLibrary.CharcoalFerrocement, (new Color(0.12f, 0.12f, 0.13f), "Ferrocement with charcoal pigment: the black panther's coat.") },
+                { MaterialLibrary.Glass, (new Color(0.62f, 0.80f, 0.90f), "Laminated glass. Lets the light in; carries little load.") },
+                { MaterialLibrary.IronSheet, (new Color(0.70f, 0.76f, 0.80f), "Corrugated iron sheets: light and cheap, but wind can lift them.") },
+                { MaterialLibrary.ClayTile, (new Color(0.72f, 0.38f, 0.26f), "Heavy clay tiles hold themselves down in a storm.") },
+                { MaterialLibrary.Window, (new Color(0.75f, 0.85f, 0.92f), "A glazed window in a timber frame.") },
+                { MaterialLibrary.Door, (new Color(0.45f, 0.24f, 0.14f), "A solid timber door.") }
             };
 
             var result = new List<MaterialData>();
@@ -885,13 +853,19 @@ namespace Fatiro.EditorTools
             {
                 { Blueprints.PantherId, new Color(0.55f, 0.35f, 0.95f) },
                 { Blueprints.ElephantId, new Color(0.55f, 0.62f, 0.70f) },
-                { Blueprints.CarId, new Color(0.90f, 0.25f, 0.25f) }
+                { Blueprints.CarId, new Color(0.90f, 0.25f, 0.25f) },
+                { Blueprints.BungalowId, new Color(0.30f, 0.70f, 0.45f) },
+                { Blueprints.TwoStoreyId, new Color(0.85f, 0.55f, 0.25f) },
+                { Blueprints.FlatsId, new Color(0.35f, 0.60f, 0.90f) }
             };
             var focus = new Dictionary<string, LoadCaseKind[]>
             {
                 { Blueprints.PantherId, new[] { LoadCaseKind.Seismic, LoadCaseKind.Live } },
                 { Blueprints.ElephantId, new[] { LoadCaseKind.Wind, LoadCaseKind.Rain } },
-                { Blueprints.CarId, new[] { LoadCaseKind.Seismic } }
+                { Blueprints.CarId, new[] { LoadCaseKind.Seismic } },
+                { Blueprints.BungalowId, new[] { LoadCaseKind.Wind } },
+                { Blueprints.TwoStoreyId, new[] { LoadCaseKind.Live } },
+                { Blueprints.FlatsId, new[] { LoadCaseKind.Seismic } }
             };
 
             var designs = new List<HouseDesign>();
@@ -908,8 +882,7 @@ namespace Fatiro.EditorTools
 
                 var skinPath = AssetDatabase.GetAssetPath(skins[blueprint.DesignId]);
                 var skinGuid = AssetDatabase.AssetPathToGUID(skinPath);
-                asset.Configure(blueprint, accents[blueprint.DesignId], order++, focus[blueprint.DesignId], new AssetReferenceGameObject(skinGuid),
-                    skinLiesOnSlope: blueprint.DesignId != Blueprints.CarId);
+                asset.Configure(blueprint, accents[blueprint.DesignId], order++, focus[blueprint.DesignId], new AssetReferenceGameObject(skinGuid));
                 EditorUtility.SetDirty(asset);
                 designs.Add(asset);
             }
@@ -962,8 +935,13 @@ namespace Fatiro.EditorTools
             Entry(settings, AssetDatabase.LoadAssetAtPath<Font>($"{Generated}/Fonts/Rajdhani-SemiBold.ttf"), ui, AssetKeys.BoldFont);
             Entry(settings, AssetDatabase.LoadAssetAtPath<Font>($"{Generated}/Fonts/Rajdhani-Regular.ttf"), ui, AssetKeys.ItalicFont);
 
-            // One bundle per skin so a finished build loads only its own creature.
-            var skinGroup = Group(settings, "Creature Skins", BundledAssetGroupSchema.BundlePackingMode.PackSeparately);
+            // One bundle per fit-out so a revealed house loads only its own furniture.
+            // The creature skins became fit-outs: drop the old group and prefabs.
+            var oldSkins = settings.FindGroup("Creature Skins");
+            if (oldSkins != null) settings.RemoveGroup(oldSkins);
+            foreach (var id in new[] { "PN-01", "EL-01", "CR-01" })
+                AssetDatabase.DeleteAsset($"{SkinsFolder}/Skin_{id}.prefab");
+            var skinGroup = Group(settings, "Fit-outs", BundledAssetGroupSchema.BundlePackingMode.PackSeparately);
             foreach (var pair in skins) Entry(settings, pair.Value, skinGroup, $"Skins/{pair.Key}");
 
             EditorUtility.SetDirty(settings);

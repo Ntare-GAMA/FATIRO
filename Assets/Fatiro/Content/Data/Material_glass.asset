@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b07b28e7525ef7142ad74438ce4bf002, type: 3}
+  m_Name: Material_glass
+  m_EditorClassIdentifier: Fatiro.Runtime::Fatiro.Content.MaterialData
+  materialId: glass
+  displayName: Structural glass
+  axialStrength: 0.9
+  bendingStrength: 0.6
+  unitWeight: 0.6
+  unitCost: 3.5
+  drainCapacity: 0
+  color: {r: 0.62, g: 0.8, b: 0.9, a: 1}
+  renderMaterial: {fileID: 2100000, guid: 71d510b1e8ca8614e8fed2c8ac13f88c, type: 2}
+  tileMetres: 2
+  description: Laminated glass. Lets the light in; carries little load.

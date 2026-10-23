@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Fatiro.Core;
 using Fatiro.Domain;
 using UnityEngine;
@@ -38,7 +39,7 @@ namespace Fatiro.World
         private Material structureMaterial;
         private Material ghostMaterial;
         private Mesh sharedMesh;
-        private Mesh archMesh;
+        private Mesh generatedMesh;
         private MemberSurface surface = new MemberSurface(null, Color.white, 1f);
         private Vector2 surfaceMetres = Vector2.one;
         private Color currentColor;
@@ -65,7 +66,7 @@ namespace Fatiro.World
         }
 
         /// <summary>Builds the shape for the member in structure space (metres).</summary>
-        public void Bind(MemberSpec spec, ResolvedGeometry geometry)
+        public void Bind(MemberSpec spec, ResolvedGeometry geometry, IReadOnlyList<ShellStation[]> shells = null)
         {
             Spec = spec;
             name = spec.Id;
@@ -81,12 +82,45 @@ namespace Fatiro.World
                 {
                     var rise = spec.CrownHeight - (a.y + b.y) * 0.5f;
                     centre = (a + b) * 0.5f + Vector3.up * rise * 0.5f;
-                    archMesh = MemberMeshes.BuildArch(a, b, spec.CrownHeight, spec.Thickness, archMesh);
+                    generatedMesh = MemberMeshes.BuildArch(a, b, spec.CrownHeight, spec.Thickness, generatedMesh);
                     surfaceMetres = Vector2.one; // arch UVs are already in metres
-                    bodyFilter.sharedMesh = archMesh;
+                    bodyFilter.sharedMesh = generatedMesh;
                     body.localPosition = -centre;
                     body.localRotation = Quaternion.identity;
                     body.localScale = Vector3.one;
+                    break;
+                }
+                case MemberShape.Shell:
+                {
+                    // A piece of the design's lofted shell, built in structure space like an arch.
+                    var stations = shells != null && spec.Patch.Profile < shells.Count ? shells[spec.Patch.Profile] : null;
+                    if (stations == null)
+                    {
+                        centre = a;
+                        body.localPosition = Vector3.zero;
+                        body.localRotation = Quaternion.identity;
+                        body.localScale = Vector3.one * 0.01f;
+                        break;
+                    }
+                    generatedMesh = MemberMeshes.BuildShell(stations, spec.Patch, spec.Thickness, generatedMesh);
+                    centre = generatedMesh.bounds.center;
+                    surfaceMetres = Vector2.one; // shell UVs are already in metres
+                    bodyFilter.sharedMesh = generatedMesh;
+                    body.localPosition = -centre;
+                    body.localRotation = Quaternion.identity;
+                    body.localScale = Vector3.one;
+                    break;
+                }
+                case MemberShape.Bar:
+                {
+                    // Square concrete column or beam: the unit cube stretched between the two ends.
+                    var direction = b - a;
+                    var length = Mathf.Max(direction.magnitude, 0.01f);
+                    centre = (a + b) * 0.5f;
+                    body.localPosition = Vector3.zero;
+                    body.localRotation = Quaternion.FromToRotation(Vector3.up, direction / length);
+                    body.localScale = new Vector3(spec.Thickness, length, spec.Thickness);
+                    surfaceMetres = new Vector2(spec.Thickness, length);
                     break;
                 }
                 case MemberShape.Strut:
@@ -159,16 +193,23 @@ namespace Fatiro.World
         }
 
         /// <summary>The member materialises: a bright flash that settles into its look while it grows into place.</summary>
-        public void Materialize()
+        public void Materialize(float delay = 0f)
         {
             if (materialize != null) StopCoroutine(materialize);
-            materialize = StartCoroutine(MaterializeRoutine());
+            materialize = StartCoroutine(MaterializeRoutine(delay));
         }
 
-        private IEnumerator MaterializeRoutine()
+        private IEnumerator MaterializeRoutine(float delay)
         {
             var pivot = bodyFilter.transform.parent;
             var target = currentColor;
+            if (delay > 0f)
+            {
+                // Wait unseen for its turn, then rise into place.
+                bodyRenderer.enabled = false;
+                yield return new WaitForSeconds(delay);
+                bodyRenderer.enabled = true;
+            }
             const float duration = 0.45f;
             for (var elapsed = 0f; elapsed < duration; elapsed += Time.deltaTime)
             {
@@ -272,8 +313,8 @@ namespace Fatiro.World
             var pivot = bodyFilter.transform.parent;
             pivot.localPosition = Vector3.zero;
             pivot.localRotation = Quaternion.identity;
-            // Arch views keep their generated mesh for reuse; other shapes keep the prefab mesh.
-            if (archMesh == null) bodyFilter.sharedMesh = sharedMesh;
+            // Arch and shell views keep their generated mesh for reuse; other shapes go back to the prefab mesh.
+            if (generatedMesh == null) bodyFilter.sharedMesh = sharedMesh;
         }
 
         private void Update()
@@ -288,7 +329,7 @@ namespace Fatiro.World
 
         private void OnDestroy()
         {
-            if (archMesh != null) Destroy(archMesh);
+            if (generatedMesh != null) Destroy(generatedMesh);
         }
 
         private IEnumerator FailRoutine(float delay)

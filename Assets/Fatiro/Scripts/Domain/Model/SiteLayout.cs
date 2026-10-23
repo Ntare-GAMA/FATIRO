@@ -60,6 +60,7 @@ namespace Fatiro.Domain
                     return new ResolvedGeometry(a, a, Math.Max(size.X, size.Z), size.X * size.Z);
                 }
                 case MemberShape.Panel:
+                case MemberShape.Shell:
                 {
                     var size = spec.PanelSize;
                     return new ResolvedGeometry(a, a, Math.Max(size.X, size.Z), size.X * size.Z);

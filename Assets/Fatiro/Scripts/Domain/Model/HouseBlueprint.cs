@@ -35,10 +35,11 @@ namespace Fatiro.Domain
     public sealed class HouseBlueprint
     {
         private readonly Dictionary<string, MemberSpec> byId = new Dictionary<string, MemberSpec>();
+        private readonly Dictionary<string, BuildComponent> componentOf = new Dictionary<string, BuildComponent>();
 
         public HouseBlueprint(string designId, int version, string name, string meaning, string description,
             string lesson, int difficulty, FoundationStyle foundation, float uphillReferenceZ,
-            IReadOnlyList<MemberSpec> members)
+            IReadOnlyList<MemberSpec> members, IReadOnlyList<ShellProfile> shells = null, string category = null)
         {
             DesignId = designId;
             Version = version;
@@ -50,12 +51,16 @@ namespace Fatiro.Domain
             Foundation = foundation ?? throw new ArgumentNullException(nameof(foundation));
             UphillReferenceZ = uphillReferenceZ;
             Members = members ?? throw new ArgumentNullException(nameof(members));
+            Shells = shells ?? Array.Empty<ShellProfile>();
+            Category = category ?? string.Empty;
 
             foreach (var member in members)
             {
                 if (byId.ContainsKey(member.Id))
                     throw new ArgumentException($"Duplicate member id {member.Id} in {designId}.");
                 byId.Add(member.Id, member);
+                if (member.Shape == MemberShape.Shell && (!member.Patch.IsSet || member.Patch.Profile >= Shells.Count))
+                    throw new ArgumentException($"Shell member {member.Id} has no valid shell patch.");
             }
 
             foreach (var member in members)
@@ -67,6 +72,28 @@ namespace Fatiro.Domain
                     if (!byId.ContainsKey(support))
                         throw new ArgumentException($"{member.Id} depends on unknown member {support}.");
             }
+
+            // Components in the order they first appear; each is placed in one go.
+            var grouped = new Dictionary<string, List<MemberSpec>>();
+            var order = new List<string>();
+            foreach (var member in members)
+            {
+                if (!grouped.TryGetValue(member.Component, out var list))
+                {
+                    list = new List<MemberSpec>();
+                    grouped[member.Component] = list;
+                    order.Add(member.Component);
+                }
+                list.Add(member);
+            }
+            var components = new List<BuildComponent>();
+            foreach (var key in order)
+            {
+                var component = new BuildComponent(key, grouped[key]);
+                components.Add(component);
+                foreach (var member in component.Members) componentOf[member.Id] = component;
+            }
+            Components = components;
         }
 
         public string DesignId { get; }
@@ -83,6 +110,15 @@ namespace Fatiro.Domain
 
         public IReadOnlyList<MemberSpec> Members { get; }
 
+        /// <summary>Lofted shells (bodies, roofs, canopies) that the design's shell members are cut from.</summary>
+        public IReadOnlyList<ShellProfile> Shells { get; }
+
+        /// <summary>Building components in construction order; each is placed in one go.</summary>
+        public IReadOnlyList<BuildComponent> Components { get; }
+
+        /// <summary>"Biomimetic" or "Rwandan classic", for grouping on the setup screen.</summary>
+        public string Category { get; }
+
         public bool HasDrainage
         {
             get
@@ -94,5 +130,7 @@ namespace Fatiro.Domain
         }
 
         public MemberSpec Get(string id) => byId.TryGetValue(id, out var spec) ? spec : null;
+
+        public BuildComponent ComponentOf(string memberId) => componentOf.TryGetValue(memberId, out var component) ? component : null;
     }
 }

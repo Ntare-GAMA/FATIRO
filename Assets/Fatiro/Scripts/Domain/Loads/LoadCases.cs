@@ -34,6 +34,9 @@ namespace Fatiro.Domain
     public sealed class DeadLoad : LoadCase
     {
         public const float RoofFinish = 1.0f;
+
+        /// <summary>A ferrocement or glass shell needs only a waterproof coat, not battens and a ceiling.</summary>
+        public const float ShellFinish = 0.3f;
         public const float FloorFinish = 1.5f;
 
         public DeadLoad() : base(1f, 1f, 1f) { }
@@ -45,7 +48,12 @@ namespace Fatiro.Domain
         public static float WeightOf(StructuralMember member)
         {
             var weight = member.SelfWeight;
-            if (member.Kind == MemberKind.Panel && member.Spec.IsRoof) weight += RoofFinish * member.Geometry.Area;
+            if (member.Kind == MemberKind.Panel && member.Spec.IsRoof)
+            {
+                var shell = member.Material.Id == MaterialLibrary.Ferrocement || member.Material.Id == MaterialLibrary.CharcoalFerrocement ||
+                            member.Material.Id == MaterialLibrary.Glass;
+                weight += (shell ? ShellFinish : RoofFinish) * member.Geometry.Area;
+            }
             weight += FloorFinish * member.Spec.TributaryArea;
             return weight;
         }

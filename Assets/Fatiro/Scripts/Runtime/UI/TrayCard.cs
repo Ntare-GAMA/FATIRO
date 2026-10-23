@@ -7,37 +7,37 @@ using UnityEngine.UI;
 namespace Fatiro.UI
 {
     /// <summary>
-    /// A member card in the build tray. Tap to select; drag it out over the scene and release on
-    /// the glowing ghost to place it (FR-10). Horizontal swipes still scroll the tray.
+    /// A component card in the build tray. Tap to select; drag it out over the scene and release on
+    /// the glowing ghost to build it (FR-10). Horizontal swipes still scroll the tray.
     /// </summary>
     public sealed class TrayCard : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         private ScrollRect scroll;
         private bool draggingMember;
 
-        public MemberSpec Spec { get; private set; }
-        public event Action<MemberSpec> Clicked;
-        public event Action<MemberSpec, Vector2> DragStarted;
+        public BuildComponent Component { get; private set; }
+        public event Action<BuildComponent> Clicked;
+        public event Action<BuildComponent, Vector2> DragStarted;
         public event Action<Vector2> Dragged;
         public event Action<Vector2> DragEnded;
 
-        public void Bind(MemberSpec spec, ScrollRect parentScroll)
+        public void Bind(BuildComponent component, ScrollRect parentScroll)
         {
-            Spec = spec;
+            Component = component;
             scroll = parentScroll;
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (!eventData.dragging) Clicked?.Invoke(Spec);
+            if (!eventData.dragging) Clicked?.Invoke(Component);
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            // Mostly-vertical drags pull the member out of the tray; sideways drags scroll the tray.
+            // Mostly-vertical drags pull the component out of the tray; sideways drags scroll the tray.
             var delta = eventData.delta;
             draggingMember = Mathf.Abs(delta.y) > Mathf.Abs(delta.x) * 0.8f;
-            if (draggingMember) DragStarted?.Invoke(Spec, eventData.position);
+            if (draggingMember) DragStarted?.Invoke(Component, eventData.position);
             else scroll?.OnBeginDrag(eventData);
         }
 

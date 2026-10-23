@@ -53,7 +53,9 @@ namespace Fatiro.Domain
             Vector3 panelEuler = default,
             float tributaryArea = 0f,
             bool isRoof = false,
-            string hint = null)
+            string hint = null,
+            string component = null,
+            ShellPatch patch = default)
         {
             if (string.IsNullOrEmpty(id)) throw new ArgumentException("Member id is required.", nameof(id));
             if (allowedMaterialIds == null || allowedMaterialIds.Length == 0)
@@ -80,6 +82,8 @@ namespace Fatiro.Domain
             TributaryArea = tributaryArea;
             IsRoof = isRoof;
             Hint = hint ?? string.Empty;
+            Component = string.IsNullOrEmpty(component) ? displayName : component;
+            Patch = patch;
         }
 
         public string Id { get; }
@@ -124,6 +128,12 @@ namespace Fatiro.Domain
 
         /// <summary>Short engineering note shown in the inspector.</summary>
         public string Hint { get; }
+
+        /// <summary>The building component this member belongs to, e.g. "Ground-floor walls". Built in one go (fast build).</summary>
+        public string Component { get; }
+
+        /// <summary>For shell members: which piece of the design's lofted shell this member is.</summary>
+        public ShellPatch Patch { get; }
 
         public bool AllowsMaterial(string materialId) => Array.IndexOf(AllowedMaterialIds, materialId) >= 0;
     }

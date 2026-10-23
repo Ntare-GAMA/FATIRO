@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Material_earth-block
   m_EditorClassIdentifier: Fatiro.Runtime::Fatiro.Content.MaterialData
   materialId: earth-block
-  displayName: Compressed-earth block
+  displayName: Clay brick
   axialStrength: 1.4
   bendingStrength: 0.25
   unitWeight: 1.8
@@ -22,4 +22,4 @@ MonoBehaviour:
   color: {r: 0.76, g: 0.45, b: 0.3, a: 1}
   renderMaterial: {fileID: 2100000, guid: 41a326451149ff2459fe27fe3905d67b, type: 2}
   tileMetres: 1.2
-  description: Cheap and local; good in compression, poor in bending.
+  description: 'Fired clay brick: cheap and local; good in compression, poor in bending.'

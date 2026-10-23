@@ -1,0 +1,3588 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56d950c01a6274438f8999a8bf6fb6c, type: 3}
+  m_Name: Design_BG-01
+  m_EditorClassIdentifier: Fatiro.Runtime::Fatiro.Content.HouseDesign
+  designId: BG-01
+  version: 1
+  displayName: Urugo
+  meaning: home
+  description: 'A single-storey family home: a concrete frame with fired-brick walls
+    on a stepped brick foundation, and an iron-sheet roof over two bedrooms and a
+    living room.'
+  lesson: Light iron-sheet roofs are lifted off by strong wind unless storm straps
+    tie them down to the walls.
+  difficulty: 1
+  accentColor: {r: 0.3, g: 0.7, b: 0.45, a: 1}
+  sortOrder: 3
+  foundationName: Pad footings
+  foundationInspiration: Reinforced-concrete pads under every column
+  foundationBearing: 1.2
+  foundationSlopeResistance: 0.6
+  foundationGrip: 1.1
+  uphillReferenceZ: -4
+  members:
+  - id: BG-FTG-A1
+    displayName: Footing A1
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: -5, y: 0, z: -4}
+    aGroundRelative: 1
+    b: {x: -5, y: 0, z: -4}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-FTG-A2
+    displayName: Footing A2
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: -5, y: 0, z: 0}
+    aGroundRelative: 1
+    b: {x: -5, y: 0, z: 0}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-FTG-A3
+    displayName: Footing A3
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: -5, y: 0, z: 4}
+    aGroundRelative: 1
+    b: {x: -5, y: 0, z: 4}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-FTG-B1
+    displayName: Footing B1
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 0, y: 0, z: -4}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: -4}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-FTG-B2
+    displayName: Footing B2
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 0, y: 0, z: 0}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: 0}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-FTG-B3
+    displayName: Footing B3
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 0, y: 0, z: 4}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: 4}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-FTG-C1
+    displayName: Footing C1
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 5, y: 0, z: -4}
+    aGroundRelative: 1
+    b: {x: 5, y: 0, z: -4}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-FTG-C2
+    displayName: Footing C2
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 5, y: 0, z: 0}
+    aGroundRelative: 1
+    b: {x: 5, y: 0, z: 0}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-FTG-C3
+    displayName: Footing C3
+    kind: 0
+    stage: 0
+    shape: 0
+    a: {x: 5, y: 0, z: 4}
+    aGroundRelative: 1
+    b: {x: 5, y: 0, z: 4}
+    bGroundRelative: 1
+    thickness: 0.5
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    - steel
+    supports: []
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.3, y: 0.5, z: 1.3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A reinforced-concrete pad that spreads a column's load into the hillside.
+    component: Concrete footings
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-FW-U1
+    displayName: Uphill foundation wall 1
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -5, y: 0, z: -4}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: -4}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-FTG-A1
+    - BG-FTG-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0.45
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick foundation wall stepping down the slope to carry a level floor. It
+      also ties the footings together.
+    component: Brick foundation walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-FW-U2
+    displayName: Uphill foundation wall 2
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: 0, y: 0, z: -4}
+    aGroundRelative: 1
+    b: {x: 5, y: 0, z: -4}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-FTG-B1
+    - BG-FTG-C1
+    extraSupports: []
+    required: 1
+    crownHeight: 0.45
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick foundation wall stepping down the slope to carry a level floor. It
+      also ties the footings together.
+    component: Brick foundation walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-FW-D1
+    displayName: Downhill foundation wall 1
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -5, y: 0, z: 4}
+    aGroundRelative: 1
+    b: {x: 0, y: 0, z: 4}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-FTG-A3
+    - BG-FTG-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0.45
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick foundation wall stepping down the slope to carry a level floor. It
+      also ties the footings together.
+    component: Brick foundation walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-FW-D2
+    displayName: Downhill foundation wall 2
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: 0, y: 0, z: 4}
+    aGroundRelative: 1
+    b: {x: 5, y: 0, z: 4}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-FTG-B3
+    - BG-FTG-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0.45
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick foundation wall stepping down the slope to carry a level floor. It
+      also ties the footings together.
+    component: Brick foundation walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-FW-L1
+    displayName: Left foundation wall 1
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -5, y: 0, z: -4}
+    aGroundRelative: 1
+    b: {x: -5, y: 0, z: 0}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-FTG-A1
+    - BG-FTG-A2
+    extraSupports: []
+    required: 1
+    crownHeight: 0.45
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick foundation wall stepping down the slope to carry a level floor. It
+      also ties the footings together.
+    component: Brick foundation walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-FW-L2
+    displayName: Left foundation wall 2
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: -5, y: 0, z: 0}
+    aGroundRelative: 1
+    b: {x: -5, y: 0, z: 4}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-FTG-A2
+    - BG-FTG-A3
+    extraSupports: []
+    required: 1
+    crownHeight: 0.45
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick foundation wall stepping down the slope to carry a level floor. It
+      also ties the footings together.
+    component: Brick foundation walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-FW-R1
+    displayName: Right foundation wall 1
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: 5, y: 0, z: -4}
+    aGroundRelative: 1
+    b: {x: 5, y: 0, z: 0}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-FTG-C1
+    - BG-FTG-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0.45
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick foundation wall stepping down the slope to carry a level floor. It
+      also ties the footings together.
+    component: Brick foundation walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-FW-R2
+    displayName: Right foundation wall 2
+    kind: 5
+    stage: 0
+    shape: 4
+    a: {x: 5, y: 0, z: 0}
+    aGroundRelative: 1
+    b: {x: 5, y: 0, z: 4}
+    bGroundRelative: 1
+    thickness: 0.3
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-FTG-C2
+    - BG-FTG-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0.45
+    panelSize: {x: 0.3, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Brick foundation wall stepping down the slope to carry a level floor. It
+      also ties the footings together.
+    component: Brick foundation walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-SLAB0-A1
+    displayName: Ground-floor slab A1
+    kind: 6
+    stage: 0
+    shape: 3
+    a: {x: -2.5, y: 0.37, z: -2}
+    aGroundRelative: 0
+    b: {x: -2.5, y: 0.37, z: -2}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - BG-FTG-A1
+    - BG-FTG-B1
+    - BG-FTG-A2
+    - BG-FTG-B2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5, y: 0.15, z: 4}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 20
+    isRoof: 0
+    hint: Concrete ground-floor slab on the brick foundation walls.
+    component: Ground-floor slab
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-SLAB0-A2
+    displayName: Ground-floor slab A2
+    kind: 6
+    stage: 0
+    shape: 3
+    a: {x: -2.5, y: 0.37, z: 2}
+    aGroundRelative: 0
+    b: {x: -2.5, y: 0.37, z: 2}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - BG-FTG-A2
+    - BG-FTG-B2
+    - BG-FTG-A3
+    - BG-FTG-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5, y: 0.15, z: 4}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 20
+    isRoof: 0
+    hint: Concrete ground-floor slab on the brick foundation walls.
+    component: Ground-floor slab
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-SLAB0-B1
+    displayName: Ground-floor slab B1
+    kind: 6
+    stage: 0
+    shape: 3
+    a: {x: 2.5, y: 0.37, z: -2}
+    aGroundRelative: 0
+    b: {x: 2.5, y: 0.37, z: -2}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - BG-FTG-B1
+    - BG-FTG-C1
+    - BG-FTG-B2
+    - BG-FTG-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5, y: 0.15, z: 4}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 20
+    isRoof: 0
+    hint: Concrete ground-floor slab on the brick foundation walls.
+    component: Ground-floor slab
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-SLAB0-B2
+    displayName: Ground-floor slab B2
+    kind: 6
+    stage: 0
+    shape: 3
+    a: {x: 2.5, y: 0.37, z: 2}
+    aGroundRelative: 0
+    b: {x: 2.5, y: 0.37, z: 2}
+    bGroundRelative: 0
+    thickness: 0.15
+    defaultMaterial: concrete
+    allowedMaterials:
+    - concrete
+    - timber
+    supports:
+    - BG-FTG-B2
+    - BG-FTG-C2
+    - BG-FTG-B3
+    - BG-FTG-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5, y: 0.15, z: 4}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 20
+    isRoof: 0
+    hint: Concrete ground-floor slab on the brick foundation walls.
+    component: Ground-floor slab
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-COL0-A1
+    displayName: Ground-floor column A1
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: -5, y: 0.29999998, z: -4}
+    aGroundRelative: 0
+    b: {x: -5, y: 3.3500001, z: -4}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-FTG-A1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-COL0-A2
+    displayName: Ground-floor column A2
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: -5, y: 0.29999998, z: 0}
+    aGroundRelative: 0
+    b: {x: -5, y: 3.3500001, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-FTG-A2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-COL0-A3
+    displayName: Ground-floor column A3
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: -5, y: 0.29999998, z: 4}
+    aGroundRelative: 0
+    b: {x: -5, y: 3.3500001, z: 4}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-FTG-A3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-COL0-B1
+    displayName: Ground-floor column B1
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 0.29999998, z: -4}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.3500001, z: -4}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-FTG-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-COL0-B2
+    displayName: Ground-floor column B2
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 0.29999998, z: 0}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.3500001, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-FTG-B2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-COL0-B3
+    displayName: Ground-floor column B3
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 0.29999998, z: 4}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.3500001, z: 4}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-FTG-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-COL0-C1
+    displayName: Ground-floor column C1
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 5, y: 0.29999998, z: -4}
+    aGroundRelative: 0
+    b: {x: 5, y: 3.3500001, z: -4}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-FTG-C1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-COL0-C2
+    displayName: Ground-floor column C2
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 5, y: 0.29999998, z: 0}
+    aGroundRelative: 0
+    b: {x: 5, y: 3.3500001, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-FTG-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-COL0-C3
+    displayName: Ground-floor column C3
+    kind: 1
+    stage: 1
+    shape: 5
+    a: {x: 5, y: 0.29999998, z: 4}
+    aGroundRelative: 0
+    b: {x: 5, y: 3.3500001, z: 4}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-FTG-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Reinforced-concrete column, cast storey by storey.
+    component: Ground-floor columns
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-BM0-XA1
+    displayName: Ring beam A1-B1
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: -5, y: 3.2, z: -4}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.2, z: -4}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-COL0-A1
+    - BG-COL0-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-BM0-XB1
+    displayName: Ring beam B1-C1
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 3.2, z: -4}
+    aGroundRelative: 0
+    b: {x: 5, y: 3.2, z: -4}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-COL0-B1
+    - BG-COL0-C1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-BM0-XA2
+    displayName: Ring beam A2-B2
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: -5, y: 3.2, z: 0}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.2, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-COL0-A2
+    - BG-COL0-B2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-BM0-XB2
+    displayName: Ring beam B2-C2
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 3.2, z: 0}
+    aGroundRelative: 0
+    b: {x: 5, y: 3.2, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-COL0-B2
+    - BG-COL0-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-BM0-XA3
+    displayName: Ring beam A3-B3
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: -5, y: 3.2, z: 4}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.2, z: 4}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-COL0-A3
+    - BG-COL0-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-BM0-XB3
+    displayName: Ring beam B3-C3
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 3.2, z: 4}
+    aGroundRelative: 0
+    b: {x: 5, y: 3.2, z: 4}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-COL0-B3
+    - BG-COL0-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-BM0-ZA1
+    displayName: Ring beam A1-A2
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: -5, y: 3.2, z: -4}
+    aGroundRelative: 0
+    b: {x: -5, y: 3.2, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-COL0-A1
+    - BG-COL0-A2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-BM0-ZA2
+    displayName: Ring beam A2-A3
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: -5, y: 3.2, z: 0}
+    aGroundRelative: 0
+    b: {x: -5, y: 3.2, z: 4}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-COL0-A2
+    - BG-COL0-A3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-BM0-ZB1
+    displayName: Ring beam B1-B2
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 3.2, z: -4}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.2, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-COL0-B1
+    - BG-COL0-B2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-BM0-ZB2
+    displayName: Ring beam B2-B3
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 0, y: 3.2, z: 0}
+    aGroundRelative: 0
+    b: {x: 0, y: 3.2, z: 4}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-COL0-B2
+    - BG-COL0-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-BM0-ZC1
+    displayName: Ring beam C1-C2
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 5, y: 3.2, z: -4}
+    aGroundRelative: 0
+    b: {x: 5, y: 3.2, z: 0}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-COL0-C1
+    - BG-COL0-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-BM0-ZC2
+    displayName: Ring beam C2-C3
+    kind: 2
+    stage: 1
+    shape: 5
+    a: {x: 5, y: 3.2, z: 0}
+    aGroundRelative: 0
+    b: {x: 5, y: 3.2, z: 4}
+    bGroundRelative: 0
+    thickness: 0.3
+    defaultMaterial: concrete
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-COL0-C2
+    - BG-COL0-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof ring beam
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0U1-1
+    displayName: Ground-floor uphill wall 1 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -5, y: 0.45, z: -4}
+    aGroundRelative: 0
+    b: {x: -3, y: 0.45, z: -4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-A1
+    - BG-COL0-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0U1-2
+    displayName: Ground-floor uphill wall 1 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -2, y: 0.45, z: -4}
+    aGroundRelative: 0
+    b: {x: 0, y: 0.45, z: -4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-A1
+    - BG-COL0-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0U1-SILL1
+    displayName: Ground-floor uphill wall 1 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -3, y: 0.45, z: -4}
+    aGroundRelative: 0
+    b: {x: -2, y: 0.45, z: -4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0U1-1
+    - BG-W0U1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 1.2, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0U1-LINTEL1
+    displayName: Ground-floor uphill wall 1 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -3, y: 2.55, z: -4}
+    aGroundRelative: 0
+    b: {x: -2, y: 2.55, z: -4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0U1-1
+    - BG-W0U1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.50000024, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0U2-1
+    displayName: Ground-floor uphill wall 2 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 0, y: 0.45, z: -4}
+    aGroundRelative: 0
+    b: {x: 2, y: 0.45, z: -4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-B1
+    - BG-COL0-C1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0U2-2
+    displayName: Ground-floor uphill wall 2 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 3, y: 0.45, z: -4}
+    aGroundRelative: 0
+    b: {x: 5, y: 0.45, z: -4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-B1
+    - BG-COL0-C1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0U2-SILL1
+    displayName: Ground-floor uphill wall 2 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 2, y: 0.45, z: -4}
+    aGroundRelative: 0
+    b: {x: 3, y: 0.45, z: -4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0U2-1
+    - BG-W0U2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 1.2, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0U2-LINTEL1
+    displayName: Ground-floor uphill wall 2 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 2, y: 2.55, z: -4}
+    aGroundRelative: 0
+    b: {x: 3, y: 2.55, z: -4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0U2-1
+    - BG-W0U2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.50000024, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0D1-1
+    displayName: Ground-floor downhill wall 1 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -5, y: 0.45, z: 4}
+    aGroundRelative: 0
+    b: {x: -3.4, y: 0.45, z: 4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-A3
+    - BG-COL0-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0D1-2
+    displayName: Ground-floor downhill wall 1 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -1.5999999, y: 0.45, z: 4}
+    aGroundRelative: 0
+    b: {x: 0, y: 0.45, z: 4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-A3
+    - BG-COL0-B3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0D1-SILL1
+    displayName: Ground-floor downhill wall 1 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -3.4, y: 0.45, z: 4}
+    aGroundRelative: 0
+    b: {x: -1.5999999, y: 0.45, z: 4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0D1-1
+    - BG-W0D1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.9, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0D1-LINTEL1
+    displayName: Ground-floor downhill wall 1 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -3.4, y: 2.55, z: 4}
+    aGroundRelative: 0
+    b: {x: -1.5999999, y: 2.55, z: 4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0D1-1
+    - BG-W0D1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.50000024, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0D2-1
+    displayName: Ground-floor downhill wall 2 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 0, y: 0.45, z: 4}
+    aGroundRelative: 0
+    b: {x: 0.9, y: 0.45, z: 4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-B3
+    - BG-COL0-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0D2-2
+    displayName: Ground-floor downhill wall 2 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 1.9, y: 0.45, z: 4}
+    aGroundRelative: 0
+    b: {x: 2.7, y: 0.45, z: 4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-B3
+    - BG-COL0-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0D2-3
+    displayName: Ground-floor downhill wall 2 3
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 4.1, y: 0.45, z: 4}
+    aGroundRelative: 0
+    b: {x: 5, y: 0.45, z: 4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-B3
+    - BG-COL0-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0D2-LINTEL1
+    displayName: Ground-floor downhill wall 2 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 0.9, y: 2.55, z: 4}
+    aGroundRelative: 0
+    b: {x: 1.9, y: 2.55, z: 4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0D2-1
+    - BG-W0D2-2
+    - BG-W0D2-3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.50000024, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0D2-SILL2
+    displayName: Ground-floor downhill wall 2 under window 2
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 2.7, y: 0.45, z: 4}
+    aGroundRelative: 0
+    b: {x: 4.1, y: 0.45, z: 4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0D2-1
+    - BG-W0D2-2
+    - BG-W0D2-3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.9, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0D2-LINTEL2
+    displayName: Ground-floor downhill wall 2 lintel 2
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 2.7, y: 2.55, z: 4}
+    aGroundRelative: 0
+    b: {x: 4.1, y: 2.55, z: 4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0D2-1
+    - BG-W0D2-2
+    - BG-W0D2-3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.50000024, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0L1-1
+    displayName: Ground-floor left wall 1 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -5, y: 0.45, z: -4}
+    aGroundRelative: 0
+    b: {x: -5, y: 0.45, z: -2.6}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-A1
+    - BG-COL0-A2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0L1-2
+    displayName: Ground-floor left wall 1 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -5, y: 0.45, z: -1.4000001}
+    aGroundRelative: 0
+    b: {x: -5, y: 0.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-A1
+    - BG-COL0-A2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0L1-SILL1
+    displayName: Ground-floor left wall 1 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -5, y: 0.45, z: -2.6}
+    aGroundRelative: 0
+    b: {x: -5, y: 0.45, z: -1.4000001}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0L1-1
+    - BG-W0L1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.9, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0L1-LINTEL1
+    displayName: Ground-floor left wall 1 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -5, y: 2.55, z: -2.6}
+    aGroundRelative: 0
+    b: {x: -5, y: 2.55, z: -1.4000001}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0L1-1
+    - BG-W0L1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.50000024, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0L2-1
+    displayName: Ground-floor left wall 2 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -5, y: 0.45, z: 0}
+    aGroundRelative: 0
+    b: {x: -5, y: 0.45, z: 1.4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-A2
+    - BG-COL0-A3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0L2-2
+    displayName: Ground-floor left wall 2 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: -5, y: 0.45, z: 2.6}
+    aGroundRelative: 0
+    b: {x: -5, y: 0.45, z: 4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-A2
+    - BG-COL0-A3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0L2-SILL1
+    displayName: Ground-floor left wall 2 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -5, y: 0.45, z: 1.4}
+    aGroundRelative: 0
+    b: {x: -5, y: 0.45, z: 2.6}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0L2-1
+    - BG-W0L2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.9, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0L2-LINTEL1
+    displayName: Ground-floor left wall 2 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: -5, y: 2.55, z: 1.4}
+    aGroundRelative: 0
+    b: {x: -5, y: 2.55, z: 2.6}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0L2-1
+    - BG-W0L2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.50000024, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0R1-1
+    displayName: Ground-floor right wall 1 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 5, y: 0.45, z: -4}
+    aGroundRelative: 0
+    b: {x: 5, y: 0.45, z: -2.6}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-C1
+    - BG-COL0-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0R1-2
+    displayName: Ground-floor right wall 1 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 5, y: 0.45, z: -1.4000001}
+    aGroundRelative: 0
+    b: {x: 5, y: 0.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-C1
+    - BG-COL0-C2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0R1-SILL1
+    displayName: Ground-floor right wall 1 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 5, y: 0.45, z: -2.6}
+    aGroundRelative: 0
+    b: {x: 5, y: 0.45, z: -1.4000001}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0R1-1
+    - BG-W0R1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.9, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0R1-LINTEL1
+    displayName: Ground-floor right wall 1 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 5, y: 2.55, z: -2.6}
+    aGroundRelative: 0
+    b: {x: 5, y: 2.55, z: -1.4000001}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0R1-1
+    - BG-W0R1-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.50000024, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0R2-1
+    displayName: Ground-floor right wall 2 1
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 5, y: 0.45, z: 0}
+    aGroundRelative: 0
+    b: {x: 5, y: 0.45, z: 1.4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-C2
+    - BG-COL0-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0R2-2
+    displayName: Ground-floor right wall 2 2
+    kind: 5
+    stage: 2
+    shape: 4
+    a: {x: 5, y: 0.45, z: 2.6}
+    aGroundRelative: 0
+    b: {x: 5, y: 0.45, z: 4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-COL0-C2
+    - BG-COL0-C3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Fired-brick infill wall between two columns. It stiffens the frame against
+      sway.
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0R2-SILL1
+    displayName: Ground-floor right wall 2 under window 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 5, y: 0.45, z: 1.4}
+    aGroundRelative: 0
+    b: {x: 5, y: 0.45, z: 2.6}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0R2-1
+    - BG-W0R2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.9, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0R2-LINTEL1
+    displayName: Ground-floor right wall 2 lintel 1
+    kind: 6
+    stage: 2
+    shape: 4
+    a: {x: 5, y: 2.55, z: 1.4}
+    aGroundRelative: 0
+    b: {x: 5, y: 2.55, z: 2.6}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: concrete
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-W0R2-1
+    - BG-W0R2-2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.2, y: 0.50000024, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Ground-floor walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-RAFTER-L1
+    displayName: Left rafter 1
+    kind: 2
+    stage: 3
+    shape: 5
+    a: {x: -5, y: 3.3500001, z: -4}
+    aGroundRelative: 0
+    b: {x: 0, y: 5.15, z: -4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-BM0-XA1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Roof rafter carrying the roof covering down to the ring beam.
+    component: Roof trusses
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-RAFTER-R1
+    displayName: Right rafter 1
+    kind: 2
+    stage: 3
+    shape: 5
+    a: {x: 5, y: 3.3500001, z: -4}
+    aGroundRelative: 0
+    b: {x: 0, y: 5.15, z: -4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-BM0-XB1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof trusses
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-RAFTER-L2
+    displayName: Left rafter 2
+    kind: 2
+    stage: 3
+    shape: 5
+    a: {x: -5, y: 3.3500001, z: 0}
+    aGroundRelative: 0
+    b: {x: 0, y: 5.15, z: 0}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-BM0-XA2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Roof rafter carrying the roof covering down to the ring beam.
+    component: Roof trusses
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-RAFTER-R2
+    displayName: Right rafter 2
+    kind: 2
+    stage: 3
+    shape: 5
+    a: {x: 5, y: 3.3500001, z: 0}
+    aGroundRelative: 0
+    b: {x: 0, y: 5.15, z: 0}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-BM0-XB2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof trusses
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-RAFTER-L3
+    displayName: Left rafter 3
+    kind: 2
+    stage: 3
+    shape: 5
+    a: {x: -5, y: 3.3500001, z: 4}
+    aGroundRelative: 0
+    b: {x: 0, y: 5.15, z: 4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-BM0-XA3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Roof rafter carrying the roof covering down to the ring beam.
+    component: Roof trusses
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-RAFTER-R3
+    displayName: Right rafter 3
+    kind: 2
+    stage: 3
+    shape: 5
+    a: {x: 5, y: 3.3500001, z: 4}
+    aGroundRelative: 0
+    b: {x: 0, y: 5.15, z: 4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - concrete
+    supports:
+    - BG-BM0-XB3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Roof trusses
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-ROOF-RU
+    displayName: Right uphill roof
+    kind: 6
+    stage: 3
+    shape: 6
+    a: {x: 2.8, y: 4.2620006, z: -2.3}
+    aGroundRelative: 0
+    b: {x: 2.8, y: 4.2620006, z: -2.3}
+    bGroundRelative: 0
+    thickness: 0.04
+    defaultMaterial: iron-sheet
+    allowedMaterials:
+    - iron-sheet
+    - clay-tile
+    supports:
+    - BG-RAFTER-R1
+    - BG-RAFTER-R2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5.232438, y: 0.04, z: 5.232438}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 'Corrugated iron sheets: light and cheap, but wind can lift them.'
+    component: Roof sheeting
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 1
+    patchAroundFrom: 0
+    patchAroundTo: 0.5
+  - id: BG-ROOF-LU
+    displayName: Left uphill roof
+    kind: 6
+    stage: 3
+    shape: 6
+    a: {x: -2.7999997, y: 4.262, z: -2.3}
+    aGroundRelative: 0
+    b: {x: -2.7999997, y: 4.262, z: -2.3}
+    bGroundRelative: 0
+    thickness: 0.04
+    defaultMaterial: iron-sheet
+    allowedMaterials:
+    - iron-sheet
+    - clay-tile
+    supports:
+    - BG-RAFTER-L1
+    - BG-RAFTER-L2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5.232438, y: 0.04, z: 5.232438}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 'Corrugated iron sheets: light and cheap, but wind can lift them.'
+    component: Roof sheeting
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 1
+    patchAroundFrom: 0.5
+    patchAroundTo: 1
+  - id: BG-ROOF-RD
+    displayName: Right downhill roof
+    kind: 6
+    stage: 3
+    shape: 6
+    a: {x: 2.8, y: 4.2620006, z: 2.3}
+    aGroundRelative: 0
+    b: {x: 2.8, y: 4.2620006, z: 2.3}
+    bGroundRelative: 0
+    thickness: 0.04
+    defaultMaterial: iron-sheet
+    allowedMaterials:
+    - iron-sheet
+    - clay-tile
+    supports:
+    - BG-RAFTER-R2
+    - BG-RAFTER-R3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5.232438, y: 0.04, z: 5.232438}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 'Corrugated iron sheets: light and cheap, but wind can lift them.'
+    component: Roof sheeting
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 1
+    patchTo: 2
+    patchAroundFrom: 0
+    patchAroundTo: 0.5
+  - id: BG-ROOF-LD
+    displayName: Left downhill roof
+    kind: 6
+    stage: 3
+    shape: 6
+    a: {x: -2.7999997, y: 4.262, z: 2.3}
+    aGroundRelative: 0
+    b: {x: -2.7999997, y: 4.262, z: 2.3}
+    bGroundRelative: 0
+    thickness: 0.04
+    defaultMaterial: iron-sheet
+    allowedMaterials:
+    - iron-sheet
+    - clay-tile
+    supports:
+    - BG-RAFTER-L2
+    - BG-RAFTER-L3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 5.232438, y: 0.04, z: 5.232438}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 1
+    hint: 'Corrugated iron sheets: light and cheap, but wind can lift them.'
+    component: Roof sheeting
+    hasPatch: 1
+    patchProfile: 0
+    patchFrom: 1
+    patchTo: 2
+    patchAroundFrom: 0.5
+    patchAroundTo: 1
+  - id: BG-GABLE-U
+    displayName: Uphill gable
+    kind: 6
+    stage: 3
+    shape: 6
+    a: {x: 0.000000033113693, y: 3.9499998, z: -4}
+    aGroundRelative: 0
+    b: {x: 0.000000033113693, y: 3.9499998, z: -4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-RAFTER-L1
+    - BG-RAFTER-R1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3, y: 0.2, z: 3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Brick gables
+    hasPatch: 1
+    patchProfile: 1
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 1
+  - id: BG-GABLE-D
+    displayName: Downhill gable
+    kind: 6
+    stage: 3
+    shape: 6
+    a: {x: 0.000000033113693, y: 3.9499998, z: 4}
+    aGroundRelative: 0
+    b: {x: 0.000000033113693, y: 3.9499998, z: 4}
+    bGroundRelative: 0
+    thickness: 0.2
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-RAFTER-L3
+    - BG-RAFTER-R3
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 3, y: 0.2, z: 3}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Brick gables
+    hasPatch: 1
+    patchProfile: 1
+    patchFrom: 1
+    patchTo: 1
+    patchAroundFrom: 0
+    patchAroundTo: 1
+  - id: BG-W0U1-WIN1
+    displayName: Ground-floor uphill wall 1 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: -2.5, y: 2.1, z: -4}
+    aGroundRelative: 0
+    b: {x: -2.5, y: 2.1, z: -4}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - BG-W0U1-1
+    - BG-W0U1-2
+    - BG-W0U1-SILL1
+    - BG-W0U1-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1, y: 0.06, z: 0.89999986}
+    panelEuler: {x: 90, y: -0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0U2-WIN1
+    displayName: Ground-floor uphill wall 2 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 2.5, y: 2.1, z: -4}
+    aGroundRelative: 0
+    b: {x: 2.5, y: 2.1, z: -4}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - BG-W0U2-1
+    - BG-W0U2-2
+    - BG-W0U2-SILL1
+    - BG-W0U2-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1, y: 0.06, z: 0.89999986}
+    panelEuler: {x: 90, y: -0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0D1-WIN1
+    displayName: Ground-floor downhill wall 1 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: -2.5, y: 1.95, z: 4}
+    aGroundRelative: 0
+    b: {x: -2.5, y: 1.95, z: 4}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - BG-W0D1-1
+    - BG-W0D1-2
+    - BG-W0D1-SILL1
+    - BG-W0D1-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.8, y: 0.06, z: 1.1999999}
+    panelEuler: {x: 90, y: -0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0D2-WIN2
+    displayName: Ground-floor downhill wall 2 window 2
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 3.4, y: 1.95, z: 4}
+    aGroundRelative: 0
+    b: {x: 3.4, y: 1.95, z: 4}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - BG-W0D2-1
+    - BG-W0D2-2
+    - BG-W0D2-3
+    - BG-W0D2-LINTEL1
+    - BG-W0D2-SILL2
+    - BG-W0D2-LINTEL2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.4, y: 0.06, z: 1.1999999}
+    panelEuler: {x: 90, y: -0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0L1-WIN1
+    displayName: Ground-floor left wall 1 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: -5, y: 1.95, z: -2}
+    aGroundRelative: 0
+    b: {x: -5, y: 1.95, z: -2}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - BG-W0L1-1
+    - BG-W0L1-2
+    - BG-W0L1-SILL1
+    - BG-W0L1-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.2, y: 0.06, z: 1.1999999}
+    panelEuler: {x: 90, y: -90, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0L2-WIN1
+    displayName: Ground-floor left wall 2 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: -5, y: 1.95, z: 2}
+    aGroundRelative: 0
+    b: {x: -5, y: 1.95, z: 2}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - BG-W0L2-1
+    - BG-W0L2-2
+    - BG-W0L2-SILL1
+    - BG-W0L2-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.2, y: 0.06, z: 1.1999999}
+    panelEuler: {x: 90, y: -90, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0R1-WIN1
+    displayName: Ground-floor right wall 1 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 5, y: 1.95, z: -2}
+    aGroundRelative: 0
+    b: {x: 5, y: 1.95, z: -2}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - BG-W0R1-1
+    - BG-W0R1-2
+    - BG-W0R1-SILL1
+    - BG-W0R1-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.2, y: 0.06, z: 1.1999999}
+    panelEuler: {x: 90, y: -90, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0R2-WIN1
+    displayName: Ground-floor right wall 2 window 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 5, y: 1.95, z: 2}
+    aGroundRelative: 0
+    b: {x: 5, y: 1.95, z: 2}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: window
+    allowedMaterials:
+    - window
+    supports:
+    - BG-W0R2-1
+    - BG-W0R2-2
+    - BG-W0R2-SILL1
+    - BG-W0R2-LINTEL1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.2, y: 0.06, z: 1.1999999}
+    panelEuler: {x: 90, y: -90, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Windows
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-W0D2-DOOR1
+    displayName: Ground-floor downhill wall 2 door 1
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 1.4, y: 1.5, z: 4}
+    aGroundRelative: 0
+    b: {x: 1.4, y: 1.5, z: 4}
+    bGroundRelative: 0
+    thickness: 0.06
+    defaultMaterial: door
+    allowedMaterials:
+    - door
+    supports:
+    - BG-W0D2-1
+    - BG-W0D2-2
+    - BG-W0D2-3
+    - BG-W0D2-LINTEL1
+    - BG-W0D2-SILL2
+    - BG-W0D2-LINTEL2
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1, y: 0.06, z: 2.1}
+    panelEuler: {x: 90, y: -0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 
+    component: Doors
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-DOWNPIPE-L
+    displayName: Left downpipe
+    kind: 7
+    stage: 4
+    shape: 1
+    a: {x: -5.48, y: 3.234, z: 4.36}
+    aGroundRelative: 0
+    b: {x: -5.48, y: 0.2, z: 4.36}
+    bGroundRelative: 1
+    thickness: 0.15
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - steel
+    - concrete
+    supports:
+    - BG-ROOF-LD
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 'Gutter and downpipe: carries roof water away so it never ponds.'
+    component: Gutters and downpipes
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-DOWNPIPE-R
+    displayName: Right downpipe
+    kind: 7
+    stage: 4
+    shape: 1
+    a: {x: 5.48, y: 3.234, z: 4.36}
+    aGroundRelative: 0
+    b: {x: 5.48, y: 0.2, z: 4.36}
+    bGroundRelative: 1
+    thickness: 0.15
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - steel
+    - concrete
+    supports:
+    - BG-ROOF-RD
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: 'Gutter and downpipe: carries roof water away so it never ponds.'
+    component: Gutters and downpipes
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-PART-1
+    displayName: Ground-floor partition 1
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: -5, y: 0.45, z: 0}
+    aGroundRelative: 0
+    b: {x: -3, y: 0.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.12
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-SLAB0-A1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.12, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Half-brick partition dividing the rooms.
+    component: Internal walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-PART-2
+    displayName: Ground-floor partition 2
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: -2.1, y: 0.45, z: 0}
+    aGroundRelative: 0
+    b: {x: 2.1, y: 0.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.12
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-SLAB0-A1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.12, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Half-brick partition dividing the rooms.
+    component: Internal walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-PART-3
+    displayName: Ground-floor partition 3
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: 3, y: 0.45, z: 0}
+    aGroundRelative: 0
+    b: {x: 5, y: 0.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.12
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-SLAB0-B1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.12, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Half-brick partition dividing the rooms.
+    component: Internal walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-PART-4
+    displayName: Ground-floor partition 4
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: 0, y: 0.45, z: -4}
+    aGroundRelative: 0
+    b: {x: 0, y: 0.45, z: 0}
+    bGroundRelative: 0
+    thickness: 0.12
+    defaultMaterial: earth-block
+    allowedMaterials:
+    - earth-block
+    - concrete
+    supports:
+    - BG-SLAB0-A1
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 0.12, y: 2.6000001, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Half-brick partition dividing the rooms.
+    component: Internal walls
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-STRAP-1
+    displayName: Storm strap 1
+    kind: 5
+    stage: 4
+    shape: 1
+    a: {x: 2.5, y: 3.3500001, z: -2}
+    aGroundRelative: 0
+    b: {x: 1.375, y: 4.26, z: -2}
+    bGroundRelative: 0
+    thickness: 0.05
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - BG-ROOF-RU
+    - BG-BM0-ZC1
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A steel strap tying the roof sheets down to the ring beam, so wind cannot
+      lift them.
+    component: Storm straps
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-STRAP-2
+    displayName: Storm strap 2
+    kind: 5
+    stage: 4
+    shape: 1
+    a: {x: -2.5, y: 3.3500001, z: -2}
+    aGroundRelative: 0
+    b: {x: -1.375, y: 4.26, z: -2}
+    bGroundRelative: 0
+    thickness: 0.05
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - BG-ROOF-LU
+    - BG-BM0-ZA1
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A steel strap tying the roof sheets down to the ring beam, so wind cannot
+      lift them.
+    component: Storm straps
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-STRAP-3
+    displayName: Storm strap 3
+    kind: 5
+    stage: 4
+    shape: 1
+    a: {x: 2.5, y: 3.3500001, z: 2}
+    aGroundRelative: 0
+    b: {x: 1.375, y: 4.26, z: 2}
+    bGroundRelative: 0
+    thickness: 0.05
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - BG-ROOF-RD
+    - BG-BM0-ZC2
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A steel strap tying the roof sheets down to the ring beam, so wind cannot
+      lift them.
+    component: Storm straps
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  - id: BG-STRAP-4
+    displayName: Storm strap 4
+    kind: 5
+    stage: 4
+    shape: 1
+    a: {x: -2.5, y: 3.3500001, z: 2}
+    aGroundRelative: 0
+    b: {x: -1.375, y: 4.26, z: 2}
+    bGroundRelative: 0
+    thickness: 0.05
+    defaultMaterial: steel
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    supports:
+    - BG-ROOF-LD
+    - BG-BM0-ZA2
+    extraSupports: []
+    required: 0
+    crownHeight: 0
+    panelSize: {x: 0, y: 0, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: A steel strap tying the roof sheets down to the ring beam, so wind cannot
+      lift them.
+    component: Storm straps
+    hasPatch: 0
+    patchProfile: 0
+    patchFrom: 0
+    patchTo: 0
+    patchAroundFrom: 0
+    patchAroundTo: 0
+  shells:
+  - name: Roof
+    stations:
+    - z: -4.6
+      baseY: 3.254
+      topY: 5.27
+      halfWidth: 5.6
+      roundness: 1
+      centreX: 0
+      baseOnGround: 0
+    - z: 0
+      baseY: 3.254
+      topY: 5.27
+      halfWidth: 5.6
+      roundness: 1
+      centreX: 0
+      baseOnGround: 0
+    - z: 4.6
+      baseY: 3.254
+      topY: 5.27
+      halfWidth: 5.6
+      roundness: 1
+      centreX: 0
+      baseOnGround: 0
+  - name: Gables
+    stations:
+    - z: -4
+      baseY: 3.3500001
+      topY: 5.15
+      halfWidth: 5
+      roundness: 1
+      centreX: 0
+      baseOnGround: 0
+    - z: 4
+      baseY: 3.3500001
+      topY: 5.15
+      halfWidth: 5
+      roundness: 1
+      centreX: 0
+      baseOnGround: 0
+  category: Rwandan classic
+  focusCases: 02000000
+  skin:
+    m_AssetGUID: acd6f176a2f03cb46bc5bcbc15a62a34
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0

@@ -65,10 +65,13 @@ namespace Fatiro.World
                 platformMesh = MemberMeshes.BuildPlatform(pad, Ground, 0.05f);
                 platformFilter.sharedMesh = platformMesh;
             }
+            // Props follow the slope; any standing where this design is built (bigger houses reach further) are cleared.
+            var clearing = new Rect(footprint.xMin - 1.2f, footprint.yMin - 1.2f, footprint.width + 2.4f, footprint.height + 2.4f);
             foreach (var tree in trees)
             {
                 var position = tree.localPosition;
                 tree.localPosition = new Vector3(position.x, Ground(position.z), position.z);
+                tree.gameObject.SetActive(!clearing.Contains(new Vector2(position.x, position.z)));
             }
 
             // Sit the bottom of the plot on the table surface.

@@ -28,6 +28,9 @@ namespace Fatiro.World
             }
         }
 
+        /// <summary>The design's shells resolved for this site; shell members cut their mesh from these.</summary>
+        public IReadOnlyList<ShellStation[]> Shells { get; set; }
+
         public IEnumerable<IPoolStats> Pools
         {
             get
@@ -41,7 +44,7 @@ namespace Fatiro.World
         {
             var view = memberPools[spec.Shape].Get(parent);
             ResetLocal(view.transform);
-            view.Bind(spec, geometry);
+            view.Bind(spec, geometry, Shells);
             view.ShowMaterial(surface);
             return view;
         }
@@ -56,7 +59,7 @@ namespace Fatiro.World
         {
             var view = ghostPools[spec.Shape].Get(parent);
             ResetLocal(view.transform);
-            view.Bind(spec, geometry);
+            view.Bind(spec, geometry, Shells);
             view.ShowAsGhost();
             return view;
         }
