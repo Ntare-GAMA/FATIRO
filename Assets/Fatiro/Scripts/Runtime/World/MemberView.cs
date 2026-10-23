@@ -47,6 +47,7 @@ namespace Fatiro.World
         private bool selected;
         private float pulse;
         private Vector3 pivotRest;
+        private Coroutine materialize;
 
         public MemberSpec Spec { get; private set; }
         public string MemberId => Spec?.Id;
@@ -146,6 +147,41 @@ namespace Fatiro.World
             }
         }
 
+        public static readonly Color BlueprintTint = new Color(0.27f, 0.86f, 1f, 0.16f);
+
+        /// <summary>Faint hologram of a member that is not built yet: part of the whole-house blueprint, not tappable.</summary>
+        public void ShowAsBlueprint()
+        {
+            Visual = MemberVisual.Ghost;
+            bodyRenderer.sharedMaterial = ghostMaterial;
+            if (bodyCollider != null) bodyCollider.enabled = false;
+            SetColor(BlueprintTint);
+        }
+
+        /// <summary>The member materialises: a bright flash that settles into its look while it grows into place.</summary>
+        public void Materialize()
+        {
+            if (materialize != null) StopCoroutine(materialize);
+            materialize = StartCoroutine(MaterializeRoutine());
+        }
+
+        private IEnumerator MaterializeRoutine()
+        {
+            var pivot = bodyFilter.transform.parent;
+            var target = currentColor;
+            const float duration = 0.45f;
+            for (var elapsed = 0f; elapsed < duration; elapsed += Time.deltaTime)
+            {
+                var t = elapsed / duration;
+                pivot.localScale = Vector3.one * Mathf.Lerp(0.8f, 1f, 1f - (1f - t) * (1f - t));
+                ApplyColor(Color.Lerp(new Color(0.85f, 1f, 1f, 1f), target, t));
+                yield return null;
+            }
+            pivot.localScale = Vector3.one;
+            ApplyColor(target);
+            materialize = null;
+        }
+
         public void ShowAsGhost(bool ready = false)
         {
             Visual = MemberVisual.Ghost;
@@ -164,6 +200,20 @@ namespace Fatiro.World
         }
 
         /// <summary>Colour by utilisation (FR-17): green below 70 %, amber to 100 %, red above.</summary>
+        /// <summary>Swaps the material (hologram or real) without losing the load colour currently shown.</summary>
+        public void ChangeSurface(MemberSurface look)
+        {
+            if (Visual == MemberVisual.Ghost) return;
+            if (Visual == MemberVisual.Material)
+            {
+                ShowMaterial(look);
+                return;
+            }
+            surface = look;
+            ApplySurface();
+            SetColor(currentColor);
+        }
+
         public void ShowUtilisation(float utilisation)
         {
             Visual = MemberVisual.Utilisation;
@@ -211,6 +261,9 @@ namespace Fatiro.World
 
         public void OnDespawned()
         {
+            if (materialize != null) StopCoroutine(materialize);
+            materialize = null;
+            bodyFilter.transform.parent.localScale = Vector3.one;
             if (failure != null) StopCoroutine(failure);
             failure = null;
             Spec = null;

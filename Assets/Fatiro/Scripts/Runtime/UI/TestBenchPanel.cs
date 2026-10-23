@@ -31,6 +31,9 @@ namespace Fatiro.UI
         private GameObject resultsCard;
         private Text verdict;
         private Text resultDetails;
+        private readonly List<(Image bar, Text value)> chart = new List<(Image, Text)>();
+        private const int ChartBars = 10;
+        private const float ChartHeight = 150f;
 
         public TestBenchPanel(UIContext context) : base(context) { }
 
@@ -46,8 +49,9 @@ namespace Fatiro.UI
             UIKit.Size(header.gameObject, minHeight: 100, preferredHeight: 100);
             var title = UIKit.Display(header.transform, "Igerageza  ·  Test bench", Theme.Subheading + 4);
             UIKit.Size(title.gameObject, flexibleWidth: 2.4f);
-            UIKit.Button(header.transform, "Move site", () => { Click(); Simulation.Reposition(); }, ButtonStyle.Ghost, 100, 26);
-            UIKit.Button(header.transform, "Pause", () => { Click(); Simulation.Pause(); }, ButtonStyle.Ghost, 100, 26);
+            UIKit.Size(UIKit.Button(header.transform, "Move site", () => { Click(); Simulation.Reposition(); }, ButtonStyle.Ghost, 100, 26).gameObject, minWidth: 140);
+            UIKit.Size(ViewToggle(header.transform, 100, 26).gameObject, minWidth: 140);
+            UIKit.Size(UIKit.Button(header.transform, "Pause", () => { Click(); Simulation.Pause(); }, ButtonStyle.Ghost, 100, 26).gameObject, minWidth: 140);
 
             var row = UIKit.HStack(bench.transform, 8);
             UIKit.Size(row.gameObject, minHeight: 110, preferredHeight: 110);
@@ -80,6 +84,56 @@ namespace Fatiro.UI
             resultsCard.SetActive(Session.LoadTests.LastResult != null);
         }
 
+        /// <summary>Bar chart of the most-loaded members: the dashboard view of where the structure is working hardest.</summary>
+        private void BuildChart(Transform parent)
+        {
+            UIKit.Label(parent, "MEMBER STRESS  //  TOP 10", 24, Theme.Muted, style: FontStyle.Bold);
+            var frame = UIKit.Panel(parent, new Color(0.27f, 0.86f, 1f, 0.05f), "Chart");
+            UIKit.Outline(frame, Theme.Line);
+            UIKit.Size(frame.gameObject, minHeight: ChartHeight + 50, preferredHeight: ChartHeight + 50);
+            var row = UIKit.HStack(frame.transform, 10, name: "Bars");
+            ((RectTransform)row.transform).Stretch(16, 10, 16, 40);
+            row.childForceExpandHeight = false;
+            row.childControlHeight = false;
+            row.childAlignment = TextAnchor.LowerCenter;
+            for (var i = 0; i < ChartBars; i++)
+            {
+                var bar = UIKit.Panel(row.transform, Theme.Primary, $"Bar {i + 1}");
+                bar.rectTransform.pivot = new Vector2(0.5f, 0f);
+                bar.rectTransform.sizeDelta = new Vector2(0, 10);
+                var value = UIKit.Label(bar.transform, string.Empty, 20, Theme.Text, TextAnchor.LowerCenter, FontStyle.Bold);
+                value.rectTransform.anchorMin = new Vector2(0, 1);
+                value.rectTransform.anchorMax = new Vector2(1, 1);
+                value.rectTransform.pivot = new Vector2(0.5f, 0f);
+                value.rectTransform.sizeDelta = new Vector2(0, 30);
+                chart.Add((bar, value));
+            }
+
+            // The 100 % capacity line: bars above it are failing.
+            var limit = UIKit.Panel(frame.transform, new Color(1f, 0.36f, 0.4f, 0.8f), "Capacity line", false);
+            limit.raycastTarget = false;
+            limit.rectTransform.anchorMin = new Vector2(0, 0);
+            limit.rectTransform.anchorMax = new Vector2(1, 0);
+            limit.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+            limit.rectTransform.sizeDelta = new Vector2(-20, 3);
+            limit.rectTransform.anchoredPosition = new Vector2(0, 40 + ChartHeight / 1.5f);
+        }
+
+        private void UpdateChart(List<MemberResult> worst)
+        {
+            for (var i = 0; i < chart.Count; i++)
+            {
+                var (bar, value) = chart[i];
+                var has = i < worst.Count;
+                bar.gameObject.SetActive(has);
+                if (!has) continue;
+                var utilisation = worst[i].Utilisation;
+                bar.rectTransform.sizeDelta = new Vector2(0, Mathf.Max(8f, Mathf.Min(utilisation, 1.5f) / 1.5f * ChartHeight));
+                bar.color = World.MemberView.UtilisationColor(utilisation) * new Color(1f, 1f, 1f, 0.85f);
+                value.text = $"{utilisation * 100f:0}";
+            }
+        }
+
         private void BuildResults()
         {
             var card = UIKit.Card(Root, Theme.Surface, 28, 8, "Results");
@@ -88,6 +142,7 @@ namespace Fatiro.UI
             UIKit.FitHeight(card.gameObject);
             verdict = UIKit.Label(card.transform, string.Empty, Theme.Subheading, style: FontStyle.Bold);
             resultDetails = UIKit.Label(card.transform, string.Empty, Theme.Small);
+            BuildChart(card.transform);
             UIKit.Legend(card.transform);
             resultsCard = card.gameObject;
             resultsCard.SetActive(false);
@@ -172,6 +227,7 @@ namespace Fatiro.UI
                 text.Append($"\nFirst to fail: <b>{first?.DisplayName}</b> ({result.Failed[0].FailureReason}). Tap members to inspect, then Modify & re-test.");
             }
             resultDetails.text = text.ToString();
+            UpdateChart(worst);
         }
 
         private static string Describe(LoadCaseKind kind) => kind switch

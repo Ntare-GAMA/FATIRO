@@ -987,6 +987,58 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 0
     hint: Carries all roof water to the cistern. Too small and the roof floods.
+  - id: EL-SIDE-WALL-L
+    displayName: Left body wall
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: -3, y: 3.8, z: 0}
+    aGroundRelative: 0
+    b: {x: -3, y: 3.8, z: 0}
+    bGroundRelative: 0
+    thickness: 0.1
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - EL-BELLY-L
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.6, y: 0.1, z: 5}
+    panelEuler: {x: 0, y: 0, z: 90}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Cladding that closes the side of the elephant's body.
+  - id: EL-SIDE-WALL-R
+    displayName: Right body wall
+    kind: 6
+    stage: 4
+    shape: 3
+    a: {x: 3, y: 3.8, z: 0}
+    aGroundRelative: 0
+    b: {x: 3, y: 3.8, z: 0}
+    bGroundRelative: 0
+    thickness: 0.1
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - EL-BELLY-R
+    extraSupports: []
+    required: 1
+    crownHeight: 0
+    panelSize: {x: 1.6, y: 0.1, z: 5}
+    panelEuler: {x: 0, y: 0, z: 90}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Cladding that closes the side of the elephant's body.
   - id: EL-REAR-WALL
     displayName: Rear wall
     kind: 6

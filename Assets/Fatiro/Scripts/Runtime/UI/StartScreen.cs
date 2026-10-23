@@ -44,9 +44,10 @@ namespace Fatiro.UI
 
             var content = UIKit.VStack(page, 30, 60, "Content").transform;
 
-            UIKit.Label(content, "MURAKAZA NEZA  ·  WELCOME", 26, Theme.Accent, style: FontStyle.Bold);
-            var title = UIKit.Display(content, "Fatiro", 150, Theme.Primary);
+            UIKit.Label(content, "MURAKAZA NEZA  //  WELCOME", 26, Theme.Accent, style: FontStyle.Bold);
+            var title = UIKit.Display(content, $"FATIRO {UIKit.Colour("AR", Theme.Primary)}", 150, Theme.Text);
             UIKit.Size(title.gameObject, minHeight: 150);
+            UIKit.Label(content, "ARCHITECTURAL SIMULATION  //  KIGALI, RWANDA", 28, Theme.Muted, style: FontStyle.Bold);
             UIKit.Label(content, "Experimental houses, tested on a thousand hills.", Theme.Subheading);
             UIKit.Label(content, "From <i>urufatiro</i>, Kinyarwanda for “foundation”. Build boldly, fail safely on screen, and learn why.",
                 Theme.Body, Theme.Muted);

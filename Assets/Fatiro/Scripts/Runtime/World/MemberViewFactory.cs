@@ -24,7 +24,7 @@ namespace Fatiro.World
                 var shape = pair.Key;
                 var prefab = pair.Value;
                 memberPools[shape] = new ObjectPool<MemberView>($"{shape} members", () => Create(prefab, ghostMaterial, debrisSpawner), storage, maxSize: 128);
-                ghostPools[shape] = new ObjectPool<MemberView>($"{shape} ghosts", () => Create(prefab, ghostMaterial, debrisSpawner), storage, prewarm: 1, maxSize: 8);
+                ghostPools[shape] = new ObjectPool<MemberView>($"{shape} ghosts", () => Create(prefab, ghostMaterial, debrisSpawner), storage, prewarm: 1, maxSize: 128);
             }
         }
 
@@ -58,6 +58,14 @@ namespace Fatiro.World
             ResetLocal(view.transform);
             view.Bind(spec, geometry);
             view.ShowAsGhost();
+            return view;
+        }
+
+        /// <summary>A faint, untappable hologram of an unbuilt member, part of the whole-house blueprint.</summary>
+        public MemberView SpawnBlueprint(MemberSpec spec, ResolvedGeometry geometry, Transform parent)
+        {
+            var view = SpawnGhost(spec, geometry, parent);
+            view.ShowAsBlueprint();
             return view;
         }
 

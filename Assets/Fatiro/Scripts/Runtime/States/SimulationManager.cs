@@ -19,6 +19,8 @@ namespace Fatiro.States
         bool CanEditStructure { get; }
         bool CanEndSession { get; }
         bool PausedByTracking { get; }
+        bool Hologram { get; }
+        void SetHologram(bool hologram);
 
         void StartNewSession();
         Task ConfirmSetup(HouseDesign design, int slopeDegrees, SoilType soil, BuildMode mode);
@@ -59,6 +61,8 @@ namespace Fatiro.States
         private readonly Dictionary<SimulationStateId, SimulationState> states = new Dictionary<SimulationStateId, SimulationState>();
         private SimulationState current;
         private SimulationStateId history = SimulationStateId.Building;
+        private readonly Dictionary<Renderer, Material[]> skinMaterials = new Dictionary<Renderer, Material[]>();
+        private Material hologramMaterial;
 
         public SimulationManager(SimulationContext context, InputRouter input)
         {
@@ -186,6 +190,8 @@ namespace Fatiro.States
                 var panel = await content.LoadAsync<GameObject>(AssetKeys.PanelPrefab, AssetScope.Session);
                 var arch = await content.LoadAsync<GameObject>(AssetKeys.ArchPrefab, AssetScope.Session);
                 var ghostMaterial = await content.LoadAsync<Material>(AssetKeys.GhostMaterial, AssetScope.Session);
+                hologramMaterial = await content.LoadAsync<Material>(AssetKeys.HologramMaterial, AssetScope.Session);
+                var lineMaterial = await content.LoadAsync<Material>(AssetKeys.HoloLineMaterial, AssetScope.Session);
                 var sitePrefab = await content.LoadAsync<GameObject>(AssetKeys.SitePrefab, AssetScope.Session);
                 var debris = await content.LoadAsync<GameObject>(AssetKeys.DebrisPrefab, AssetScope.Session);
                 var rain = await content.LoadAsync<GameObject>(AssetKeys.RainDropPrefab, AssetScope.Session);
@@ -210,6 +216,11 @@ namespace Fatiro.States
                 siteObject.SetActive(false);
 
                 Context.Entities.BeginSession(blueprint, Context.Site.Layout, Context.Materials, Context.Views, Context.Site.StructureRoot);
+                Context.Entities.HologramMaterial = hologramMaterial;
+                Context.Entities.SetHologram(Context.Data.Settings.Hologram);
+                Context.Site.SetHologram(Context.Data.Settings.Hologram);
+                WorldHud.Create(Context.Site.StructureRoot, Context.Site.Layout, Footprint(blueprint), setup.Design, lineMaterial,
+                    Context.AR.Camera, Context.Events, Context.Tasks, Context.LoadTests);
                 Context.Tasks.Begin(blueprint, setup.Mode);
                 Context.Build.ClearHistory();
                 Context.LoadTests.Reset();
@@ -418,6 +429,38 @@ namespace Fatiro.States
 
         // ---- Skin and cleanup -------------------------------------------------------------
 
+        public bool Hologram => Context.Data.Settings.Hologram;
+
+        /// <summary>Switches between the glowing hologram view and the real textured view, live.</summary>
+        public void SetHologram(bool hologram)
+        {
+            Context.Data.Settings.Hologram = hologram;
+            Context.Entities.SetHologram(hologram);
+            if (Context.Site != null) Context.Site.SetHologram(hologram);
+            ApplySkinLook();
+            Context.Events.Publish(new SettingsChanged());
+        }
+
+        /// <summary>In hologram view the creature skin glows like the rest; in real view it keeps its own materials.</summary>
+        private void ApplySkinLook()
+        {
+            if (Context.Skin == null) return;
+            foreach (var renderer in Context.Skin.GetComponentsInChildren<Renderer>(true))
+            {
+                if (!skinMaterials.ContainsKey(renderer)) skinMaterials[renderer] = renderer.sharedMaterials;
+                if (Hologram && hologramMaterial != null)
+                {
+                    var glowing = new Material[skinMaterials[renderer].Length];
+                    for (var i = 0; i < glowing.Length; i++) glowing[i] = hologramMaterial;
+                    renderer.sharedMaterials = glowing;
+                }
+                else
+                {
+                    renderer.sharedMaterials = skinMaterials[renderer];
+                }
+            }
+        }
+
         public void SetSkinVisible(bool visible)
         {
             if (Context.Skin != null) Context.Skin.SetActive(visible);
@@ -437,6 +480,8 @@ namespace Fatiro.States
             if (prefab == null || Context.Site == null || Context.Setup?.Design != design || Context.Skin != null) return;
             Context.Skin = UnityEngine.Object.Instantiate(prefab, Context.Site.StructureRoot);
             Context.Skin.name = $"{design.DisplayName} skin";
+            skinMaterials.Clear();
+            ApplySkinLook();
 
             // Animals lie along the hillside: pivot about the uphill edge, where the ground is at height 0.
             if (design.SkinFollowsSlope)
@@ -454,6 +499,7 @@ namespace Fatiro.States
             Context.Entities.Clear();
             if (Context.Skin != null) UnityEngine.Object.Destroy(Context.Skin);
             Context.Skin = null;
+            skinMaterials.Clear();
             Context.Views?.Clear();
             Context.Views = null;
             Context.Effects.Clear();

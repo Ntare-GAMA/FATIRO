@@ -117,7 +117,8 @@ namespace Fatiro.UI
                 heading.childForceExpandWidth = false;
                 heading.childAlignment = TextAnchor.LowerLeft;
                 var name = UIKit.Display(heading.transform, item.DisplayName, 64, Theme.Primary);
-                UIKit.Size(name.gameObject, preferredWidth: name.preferredWidth + 6);
+                name.horizontalOverflow = HorizontalWrapMode.Overflow;
+                UIKit.Size(name.gameObject, minWidth: name.preferredWidth + 12, preferredWidth: name.preferredWidth + 12);
                 var meaning = UIKit.Label(heading.transform, $"“{item.Meaning}”", Theme.Body, Theme.Accent, style: FontStyle.Italic);
                 UIKit.Size(meaning.gameObject, preferredWidth: meaning.preferredWidth + 6);
 

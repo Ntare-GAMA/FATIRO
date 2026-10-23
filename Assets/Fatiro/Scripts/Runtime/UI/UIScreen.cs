@@ -55,5 +55,21 @@ namespace Fatiro.UI
         protected virtual void OnHide() { }
 
         protected void Click() => Ui.Audio?.PlayTap();
+
+        /// <summary>Switch between the hologram view and the real textured view; the label shows the current view.</summary>
+        protected UnityEngine.UI.Button ViewToggle(Transform parent, float height, int fontSize)
+        {
+            UnityEngine.UI.Button button = null;
+            button = UIKit.Button(parent, ViewLabel(), () =>
+            {
+                Click();
+                Simulation.SetHologram(!Simulation.Hologram);
+                button.SetLabel(ViewLabel());
+            }, ButtonStyle.Ghost, height, fontSize);
+            Ui.Events.Subscribe<Fatiro.Core.SettingsChanged>(_ => button.SetLabel(ViewLabel()));
+            return button;
+        }
+
+        private string ViewLabel() => Simulation.Hologram ? "View: holo" : "View: real";
     }
 }

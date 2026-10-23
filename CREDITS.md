@@ -9,8 +9,7 @@
 | 2015 Dodge Challenger | Grzybek | Poly Pizza | CC-BY (see the model page) | Imodoka (car) skin |
 | 1994 Nissan 180MX | Grzybek | Poly Pizza | CC-BY (see the model page) | Car parked beside the site, for scale |
 | Bamboo 001 B | ambientCG | ambientcg.com | CC0 | Bamboo member texture |
-| DM Serif Display | Colophon Foundry | Google Fonts | SIL Open Font License 1.1 | Titles |
-| Lato | Łukasz Dziedzic | Google Fonts | SIL Open Font License 1.1 | Interface text |
+| Rajdhani | Indian Type Foundry | Google Fonts | SIL Open Font License 1.1 | Titles and interface text |
 
 Licence texts for the fonts are in `Assets/Fatiro/Content/Fonts`.
 

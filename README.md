@@ -112,7 +112,3 @@ Unity -batchmode -projectPath . -runTests -testPlatform PlayMode -testResults pl
 ## Disclaimer
 
 Fatiro AR is an educational simulator. Its structural model is deliberately simplified and must not be used for real construction decisions.
-=======
-# FATIRO
-Fatiro AR is a mobile augmented-reality simulation. In it, construction and engineering learners build experimental house forms at tabletop scale, then load-test them under Rwandan site conditions. Learners place a hillside plot on a real table and assemble a structure member by member in the correct construction sequence.
->>>>>>> 36e112157c1a8b4e037fd29414f5c88e591d5a75

@@ -18,6 +18,7 @@ namespace Fatiro.States
 
         private MemberSpec selected;
         private MemberView ghost;
+        private readonly System.Collections.Generic.List<MemberView> blueprint = new System.Collections.Generic.List<MemberView>();
         private bool dragging;
 
         public BuildingState(SimulationManager manager) : base(manager) { }
@@ -41,7 +42,11 @@ namespace Fatiro.States
             Context.Events.Unsubscribe<BuildProgressChanged>(OnProgressChanged);
             Context.Events.Unsubscribe<PlacementRejected>(OnRejected);
             dragging = false;
-            if (Manager.TransitionTarget != SimulationStateId.Paused) Select(null);
+            if (Manager.TransitionTarget != SimulationStateId.Paused)
+            {
+                Select(null);
+                ClearBlueprint();
+            }
         }
 
         public override void SelectTrayMember(MemberSpec spec) => Select(spec);
@@ -138,6 +143,7 @@ namespace Fatiro.States
 
             var material = Context.Entities.Material(Context.Entities.Member(spec.Id).Material.Id);
             Context.Effects.Spark(centre, material != null ? material.Color : Color.white);
+            Context.Entities.View(spec.Id)?.Materialize();
             // OnProgressChanged picks the next member.
         }
 
@@ -169,7 +175,29 @@ namespace Fatiro.States
             selected = spec;
             if (spec != null && !Context.Entities.IsPlaced(spec.Id))
                 ghost = Context.Views.SpawnGhost(spec, Context.Entities.Geometry(spec), Context.Site.StructureRoot);
+            RefreshBlueprint();
             Context.Events.Publish(new TraySelectionChanged(spec));
+        }
+
+        /// <summary>
+        /// The whole house floats as a faint hologram blueprint; the learner fills it in member by member.
+        /// The selected member is drawn separately as the bright, pulsing ghost.
+        /// </summary>
+        private void RefreshBlueprint()
+        {
+            ClearBlueprint();
+            foreach (var spec in Context.Blueprint.Members)
+            {
+                if (!spec.Required && Context.Tasks.Mode == BuildMode.GuidedBuild && !Context.Tasks.IsComplete) continue;
+                if (Context.Entities.IsPlaced(spec.Id) || (selected != null && spec.Id == selected.Id)) continue;
+                blueprint.Add(Context.Views.SpawnBlueprint(spec, Context.Entities.Geometry(spec), Context.Site.StructureRoot));
+            }
+        }
+
+        private void ClearBlueprint()
+        {
+            foreach (var view in blueprint) Context.Views?.ReleaseGhost(view);
+            blueprint.Clear();
         }
 
         /// <summary>True when the finger's ray passes within the snap radius of the ghost.</summary>

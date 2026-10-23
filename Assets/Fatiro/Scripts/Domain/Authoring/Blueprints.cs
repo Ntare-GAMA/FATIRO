@@ -110,6 +110,19 @@ namespace Fatiro.Domain
             b.Panel("PN-HEAD-ROOF", "Head roof", BuildStage.Roof, new Vector3(0f, 3.5f, 5.6f), new Vector3(3.0f, 0.08f, 3.2f),
                 new Vector3(4f, 0f, 0f), MaterialLibrary.Bamboo, On(head), isRoof: true);
 
+            // Timber-clad flank walls close the body between each pair of ribs, from the brick plinth up to the eaves.
+            for (var i = 0; i < z.Length - 1; i++)
+            {
+                foreach (var side in new[] { -1, 1 })
+                {
+                    var label = side < 0 ? "L" : "R";
+                    b.CladWall($"PN-FLANK-{label}{i + 1}", $"{(side < 0 ? "Left" : "Right")} flank wall {i + 1}",
+                        Endpoint.Ground(side * 2.75f, 0.7f, z[i]), Endpoint.Ground(side * 2.75f, 0.7f, z[i + 1]),
+                        System.Math.Min(crown[i], crown[i + 1]) - 1.45f, 0.12f, MaterialLibrary.Timber, On(paws[i], paws[i + 1]),
+                        hint: "Cladding that encloses the panther's body. It keeps the weather out but does not brace the ribs.");
+                }
+            }
+
             b.Panel("PN-HAUNCH-WALL", "Haunch wall", BuildStage.Envelope, new Vector3(0f, 2.3f, -4.1f), new Vector3(4.4f, 0.1f, 3.4f),
                 new Vector3(90f, 0f, 0f), MaterialLibrary.EarthBlock, On(ribs[0]), isRoof: false);
             b.Panel("PN-FACE-GLASS", "Face screen", BuildStage.Envelope, new Vector3(0f, 1.9f, 4.1f), new Vector3(4.4f, 0.06f, 2.8f),
@@ -222,6 +235,14 @@ namespace Fatiro.Domain
 
             b.Drain("EL-TRUNK", "Trunk downpipe", Endpoint.At(0f, 4.6f, 3.0f), Endpoint.Ground(0f, 0.5f, 5.6f), 0.25f, MaterialLibrary.Bamboo,
                 On(bodyFront, cistern), hint: "Carries all roof water to the cistern. Too small and the roof floods.");
+            // Clad side walls enclose the body between the belly beams and the roof.
+            foreach (var side in new[] { -1, 1 })
+            {
+                b.Panel(side < 0 ? "EL-SIDE-WALL-L" : "EL-SIDE-WALL-R", side < 0 ? "Left body wall" : "Right body wall", BuildStage.Envelope,
+                    new Vector3(side * 3.0f, belly + 0.8f, 0f), new Vector3(1.6f, 0.1f, 5.0f), new Vector3(0f, 0f, 90f), MaterialLibrary.Timber,
+                    On(side < 0 ? bellyLeft : bellyRight), isRoof: false, hint: "Cladding that closes the side of the elephant's body.");
+            }
+
             b.Panel("EL-REAR-WALL", "Rear wall", BuildStage.Envelope, new Vector3(0f, 4.4f, -2.55f), new Vector3(5.6f, 0.1f, 2.6f),
                 new Vector3(90f, 0f, 0f), MaterialLibrary.EarthBlock, On(bodyBack), isRoof: false);
             b.Panel("EL-FACE", "Face wall", BuildStage.Envelope, new Vector3(0f, 4.4f, 2.55f), new Vector3(5.6f, 0.08f, 2.6f),

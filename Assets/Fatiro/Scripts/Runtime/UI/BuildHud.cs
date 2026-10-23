@@ -80,11 +80,13 @@ namespace Fatiro.UI
             var header = UIKit.HStack(card.transform, 14);
             UIKit.Size(header.gameObject, minHeight: 110, preferredHeight: 110);
             title = UIKit.Label(header.transform, string.Empty, Theme.Subheading, style: FontStyle.Bold);
-            UIKit.Size(title.gameObject, flexibleWidth: 3);
+            UIKit.Size(title.gameObject, flexibleWidth: 2);
             var move = UIKit.Button(header.transform, "Move site", () => { Click(); Simulation.Reposition(); }, ButtonStyle.Ghost, 110, Theme.Small);
-            UIKit.Size(move.gameObject, minHeight: 110, flexibleWidth: 1);
+            UIKit.Size(move.gameObject, minWidth: 150, minHeight: 110, flexibleWidth: 1);
+            var view = ViewToggle(header.transform, 110, Theme.Small);
+            UIKit.Size(view.gameObject, minWidth: 150, minHeight: 110, flexibleWidth: 1);
             var pause = UIKit.Button(header.transform, "Pause", () => { Click(); Simulation.Pause(); }, ButtonStyle.Ghost, 110, Theme.Small);
-            UIKit.Size(pause.gameObject, minHeight: 110, flexibleWidth: 1);
+            UIKit.Size(pause.gameObject, minWidth: 150, minHeight: 110, flexibleWidth: 1);
 
             var chipRow = UIKit.HStack(card.transform, 8);
             UIKit.Size(chipRow.gameObject, minHeight: 64, preferredHeight: 64);
@@ -142,8 +144,8 @@ namespace Fatiro.UI
             {
                 var done = tasks.RequiredRemaining(stage) == 0;
                 var currentStage = !tasks.IsComplete && stage == tasks.CurrentStage;
-                chip.color = currentStage ? Theme.Sun : done ? Theme.Primary : Theme.SurfaceRaised;
-                label.color = currentStage ? Theme.Ink : done ? Theme.OnPrimary : Theme.Muted;
+                chip.color = currentStage ? Theme.Sun : done ? Theme.PrimaryDark : Theme.SurfaceRaised;
+                label.color = currentStage ? Theme.Ink : done ? Theme.Text : Theme.Muted;
                 label.text = EnumText.StageName(stage);
             }
 

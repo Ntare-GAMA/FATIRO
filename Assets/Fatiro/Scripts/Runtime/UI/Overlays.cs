@@ -40,9 +40,10 @@ namespace Fatiro.UI
         protected override void OnBuild()
         {
             card = UIKit.Panel(Root, Theme.SurfaceRaised, "Toast");
+            UIKit.Outline(card, Theme.Line);
             var rect = card.rectTransform;
-            rect.anchorMin = new Vector2(0.06f, 0.66f);
-            rect.anchorMax = new Vector2(0.94f, 0.66f);
+            rect.anchorMin = new Vector2(0.06f, 0.5f);
+            rect.anchorMax = new Vector2(0.94f, 0.5f);
             rect.sizeDelta = new Vector2(0, 120);
             card.raycastTarget = false;
             label = UIKit.Label(card.transform, string.Empty, Theme.Body, align: TextAnchor.MiddleCenter, style: FontStyle.Bold);
@@ -75,9 +76,9 @@ namespace Fatiro.UI
             label.text = message;
             card.color = kind switch
             {
-                ToastKind.Success => new Color(0.851f, 0.910f, 0.769f, 0.98f),
-                ToastKind.Warning => new Color(0.976f, 0.898f, 0.663f, 0.98f),
-                ToastKind.Error => new Color(0.953f, 0.835f, 0.796f, 0.98f),
+                ToastKind.Success => new Color(0.06f, 0.24f, 0.12f, 0.94f),
+                ToastKind.Warning => new Color(0.28f, 0.20f, 0.04f, 0.94f),
+                ToastKind.Error => new Color(0.30f, 0.06f, 0.08f, 0.94f),
                 _ => Theme.SurfaceRaised
             };
             hideAt = Time.unscaledTime + (queue.Count > 1 ? Lifetime * 0.6f : Lifetime);

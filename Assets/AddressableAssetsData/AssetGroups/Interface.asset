@@ -15,23 +15,23 @@ MonoBehaviour:
   m_GroupName: Interface
   m_GUID: 58b581582f496324197e26d8d3f778c3
   m_SerializeEntries:
-  - m_GUID: 3ff7a374e2223864982ebab1f2e9c872
-    m_Address: UI/Fonts/Display
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6e6bd9d213def994596116144105844d
+  - m_GUID: 1c7daaa9c144ba948a441f598f6794d9
     m_Address: UI/Fonts/Italic
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a0a76c08c5b08354cbf73ec15765990c
+  - m_GUID: 6b94bffda981c2e49ac1b84ab9e28f8e
+    m_Address: UI/Fonts/Body
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6ce3260c05ab7e4b91de5627c7fb7c6
     m_Address: UI/Fonts/Bold
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e3c0da3cca2c59b40bcabeb35ce19e0f
-    m_Address: UI/Fonts/Body
+  - m_GUID: f3a8900755bfde64f8588e9f86c8f3c5
+    m_Address: UI/Fonts/Display
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

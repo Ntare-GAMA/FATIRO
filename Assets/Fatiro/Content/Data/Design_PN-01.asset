@@ -1409,6 +1409,286 @@ MonoBehaviour:
     tributaryArea: 0
     isRoof: 1
     hint: 
+  - id: PN-FLANK-L1
+    displayName: Left flank wall 1
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: -2.75, y: 0.7, z: -4}
+    aGroundRelative: 1
+    b: {x: -2.75, y: 0.7, z: -2.4}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-PAW-1
+    - PN-PAW-2
+    extraSupports: []
+    required: 1
+    crownHeight: 2.55
+    panelSize: {x: 0.12, y: 1, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Cladding that encloses the panther's body. It keeps the weather out but
+      does not brace the ribs.
+  - id: PN-FLANK-R1
+    displayName: Right flank wall 1
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: 2.75, y: 0.7, z: -4}
+    aGroundRelative: 1
+    b: {x: 2.75, y: 0.7, z: -2.4}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-PAW-1
+    - PN-PAW-2
+    extraSupports: []
+    required: 1
+    crownHeight: 2.55
+    panelSize: {x: 0.12, y: 1, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Cladding that encloses the panther's body. It keeps the weather out but
+      does not brace the ribs.
+  - id: PN-FLANK-L2
+    displayName: Left flank wall 2
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: -2.75, y: 0.7, z: -2.4}
+    aGroundRelative: 1
+    b: {x: -2.75, y: 0.7, z: -0.8}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-PAW-2
+    - PN-PAW-3
+    extraSupports: []
+    required: 1
+    crownHeight: 2.35
+    panelSize: {x: 0.12, y: 1, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Cladding that encloses the panther's body. It keeps the weather out but
+      does not brace the ribs.
+  - id: PN-FLANK-R2
+    displayName: Right flank wall 2
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: 2.75, y: 0.7, z: -2.4}
+    aGroundRelative: 1
+    b: {x: 2.75, y: 0.7, z: -0.8}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-PAW-2
+    - PN-PAW-3
+    extraSupports: []
+    required: 1
+    crownHeight: 2.35
+    panelSize: {x: 0.12, y: 1, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Cladding that encloses the panther's body. It keeps the weather out but
+      does not brace the ribs.
+  - id: PN-FLANK-L3
+    displayName: Left flank wall 3
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: -2.75, y: 0.7, z: -0.8}
+    aGroundRelative: 1
+    b: {x: -2.75, y: 0.7, z: 0.8}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-PAW-3
+    - PN-PAW-4
+    extraSupports: []
+    required: 1
+    crownHeight: 2.1499999
+    panelSize: {x: 0.12, y: 1, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Cladding that encloses the panther's body. It keeps the weather out but
+      does not brace the ribs.
+  - id: PN-FLANK-R3
+    displayName: Right flank wall 3
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: 2.75, y: 0.7, z: -0.8}
+    aGroundRelative: 1
+    b: {x: 2.75, y: 0.7, z: 0.8}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-PAW-3
+    - PN-PAW-4
+    extraSupports: []
+    required: 1
+    crownHeight: 2.1499999
+    panelSize: {x: 0.12, y: 1, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Cladding that encloses the panther's body. It keeps the weather out but
+      does not brace the ribs.
+  - id: PN-FLANK-L4
+    displayName: Left flank wall 4
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: -2.75, y: 0.7, z: 0.8}
+    aGroundRelative: 1
+    b: {x: -2.75, y: 0.7, z: 2.4}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-PAW-4
+    - PN-PAW-5
+    extraSupports: []
+    required: 1
+    crownHeight: 1.95
+    panelSize: {x: 0.12, y: 1, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Cladding that encloses the panther's body. It keeps the weather out but
+      does not brace the ribs.
+  - id: PN-FLANK-R4
+    displayName: Right flank wall 4
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: 2.75, y: 0.7, z: 0.8}
+    aGroundRelative: 1
+    b: {x: 2.75, y: 0.7, z: 2.4}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-PAW-4
+    - PN-PAW-5
+    extraSupports: []
+    required: 1
+    crownHeight: 1.95
+    panelSize: {x: 0.12, y: 1, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Cladding that encloses the panther's body. It keeps the weather out but
+      does not brace the ribs.
+  - id: PN-FLANK-L5
+    displayName: Left flank wall 5
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: -2.75, y: 0.7, z: 2.4}
+    aGroundRelative: 1
+    b: {x: -2.75, y: 0.7, z: 4}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-PAW-5
+    - PN-PAW-6
+    extraSupports: []
+    required: 1
+    crownHeight: 1.8499999
+    panelSize: {x: 0.12, y: 1, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Cladding that encloses the panther's body. It keeps the weather out but
+      does not brace the ribs.
+  - id: PN-FLANK-R5
+    displayName: Right flank wall 5
+    kind: 6
+    stage: 4
+    shape: 4
+    a: {x: 2.75, y: 0.7, z: 2.4}
+    aGroundRelative: 1
+    b: {x: 2.75, y: 0.7, z: 4}
+    bGroundRelative: 1
+    thickness: 0.12
+    defaultMaterial: timber
+    allowedMaterials:
+    - bamboo
+    - timber
+    - steel
+    - earth-block
+    supports:
+    - PN-PAW-5
+    - PN-PAW-6
+    extraSupports: []
+    required: 1
+    crownHeight: 1.8499999
+    panelSize: {x: 0.12, y: 1, z: 0}
+    panelEuler: {x: 0, y: 0, z: 0}
+    tributaryArea: 0
+    isRoof: 0
+    hint: Cladding that encloses the panther's body. It keeps the weather out but
+      does not brace the ribs.
   - id: PN-HAUNCH-WALL
     displayName: Haunch wall
     kind: 6

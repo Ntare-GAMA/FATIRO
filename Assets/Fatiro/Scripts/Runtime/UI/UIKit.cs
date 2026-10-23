@@ -6,37 +6,38 @@ using UnityEngine.UI;
 namespace Fatiro.UI
 {
     /// <summary>
-    /// "Thousand hills" palette: tea-terrace greens, laterite terracotta, the sun yellow of the
-    /// Rwandan flag and Imigongo ink on warm paper.
+    /// Holographic palette: dark glass, neon cyan and lime light, amber highlights. Imigongo
+    /// patterns and Kinyarwanda labels are kept, redrawn as neon line art.
     /// </summary>
     public static class Theme
     {
-        public static readonly Color Paper = new Color(0.953f, 0.929f, 0.867f);
-        public static readonly Color Backdrop = Paper;
-        public static readonly Color Surface = new Color(0.984f, 0.969f, 0.925f, 0.97f);
-        public static readonly Color SurfaceRaised = new Color(0.914f, 0.882f, 0.796f, 1f);
-        public static readonly Color SurfaceSelected = new Color(0.851f, 0.910f, 0.769f, 1f);
-        public static readonly Color Primary = new Color(0.180f, 0.369f, 0.227f);
-        public static readonly Color PrimaryDark = new Color(0.118f, 0.247f, 0.153f);
-        public static readonly Color Leaf = new Color(0.498f, 0.651f, 0.314f);
-        public static readonly Color Accent = new Color(0.663f, 0.278f, 0.165f);
+        public static readonly Color Paper = new Color(0.016f, 0.043f, 0.063f, 0.97f);
+        public static readonly Color Backdrop = new Color(0.012f, 0.035f, 0.055f, 0.96f);
+        public static readonly Color Surface = new Color(0.024f, 0.085f, 0.118f, 0.84f);
+        public static readonly Color SurfaceRaised = new Color(0.055f, 0.150f, 0.200f, 0.88f);
+        public static readonly Color SurfaceSelected = new Color(0.035f, 0.300f, 0.360f, 0.92f);
+        public static readonly Color Primary = new Color(0.270f, 0.860f, 1.000f);
+        public static readonly Color PrimaryDark = new Color(0.050f, 0.330f, 0.420f, 0.95f);
+        public static readonly Color Leaf = new Color(0.720f, 0.950f, 0.250f);
+        public static readonly Color Accent = new Color(0.790f, 0.980f, 0.300f);
         public static readonly Color AccentDark = PrimaryDark;
-        public static readonly Color Sun = new Color(0.898f, 0.710f, 0.129f);
-        public static readonly Color Teal = new Color(0.247f, 0.498f, 0.478f);
-        public static readonly Color Ink = new Color(0.122f, 0.165f, 0.125f);
-        public static readonly Color Text = Ink;
-        public static readonly Color OnPrimary = new Color(0.984f, 0.969f, 0.925f);
-        public static readonly Color Muted = new Color(0.431f, 0.459f, 0.400f);
-        public static readonly Color Success = new Color(0.243f, 0.490f, 0.247f);
-        public static readonly Color Warning = new Color(0.718f, 0.475f, 0.122f);
-        public static readonly Color Danger = new Color(0.698f, 0.227f, 0.157f);
-        public static readonly Color Scrim = new Color(0.08f, 0.12f, 0.08f, 0.6f);
+        public static readonly Color Sun = new Color(1.000f, 0.780f, 0.250f);
+        public static readonly Color Teal = new Color(0.200f, 0.700f, 0.850f);
+        public static readonly Color Ink = new Color(0.010f, 0.050f, 0.070f);
+        public static readonly Color Text = new Color(0.860f, 0.960f, 1.000f);
+        public static readonly Color OnPrimary = new Color(0.880f, 0.985f, 1.000f);
+        public static readonly Color Muted = new Color(0.480f, 0.660f, 0.740f);
+        public static readonly Color Success = new Color(0.550f, 0.950f, 0.450f);
+        public static readonly Color Warning = new Color(1.000f, 0.780f, 0.250f);
+        public static readonly Color Danger = new Color(1.000f, 0.360f, 0.400f);
+        public static readonly Color Scrim = new Color(0f, 0.02f, 0.04f, 0.72f);
+        public static readonly Color Line = new Color(0.270f, 0.860f, 1.000f, 0.45f);
 
         public const int Title = 76;
         public const int Heading = 50;
         public const int Subheading = 40;
-        public const int Body = 36;
-        public const int Small = 30;
+        public const int Body = 38;
+        public const int Small = 31;
 
         /// <summary>About 48 dp on a typical phone at the 1080 × 1920 reference resolution (NFR-05).</summary>
         public const float TouchTarget = 128f;
@@ -137,7 +138,7 @@ namespace Fatiro.UI
             {
                 if (rounded != null) return rounded;
                 const int size = 64;
-                const float radius = 14f;
+                const float radius = 10f;
                 var texture = new Texture2D(size, size, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp, name = "Rounded UI" };
                 for (var y = 0; y < size; y++)
                 {
@@ -210,6 +211,74 @@ namespace Fatiro.UI
             return image;
         }
 
+        /// <summary>A thin glowing rim drawn over a panel, like the edge of a hologram.</summary>
+        public static Image Outline(Image panel, Color color)
+        {
+            var existing = panel.transform.Find("Outline");
+            var image = existing != null ? existing.GetComponent<Image>() : Overlay(panel.transform, "Outline", RoundedOutline);
+            image.color = color;
+            return image;
+        }
+
+        /// <summary>Bright L-shaped brackets on the four corners: the "targeting frame" look of the HUD.</summary>
+        public static Image Corners(Image panel, Color color)
+        {
+            var image = Overlay(panel.transform, "Corners", CornerBrackets);
+            image.color = color;
+            return image;
+        }
+
+        private static Image Overlay(Transform parent, string name, Sprite sprite)
+        {
+            var rect = Rect(name, parent).Stretch();
+            rect.SetAsLastSibling();
+            var image = rect.gameObject.AddComponent<Image>();
+            image.sprite = sprite;
+            image.type = Image.Type.Sliced;
+            image.pixelsPerUnitMultiplier = 1.2f;
+            image.raycastTarget = false;
+            rect.gameObject.AddComponent<LayoutElement>().ignoreLayout = true;
+            return image;
+        }
+
+        private static Sprite roundedOutline;
+        private static Sprite cornerBrackets;
+
+        private static Sprite RoundedOutline => roundedOutline ??= MakeFrameSprite("Outline", (x, y, size, radius) =>
+        {
+            var dx = Mathf.Max(0f, Mathf.Max(radius - x - 0.5f, x + 0.5f - (size - radius)));
+            var dy = Mathf.Max(0f, Mathf.Max(radius - y - 0.5f, y + 0.5f - (size - radius)));
+            var distance = Mathf.Sqrt(dx * dx + dy * dy);
+            var inside = Mathf.Clamp01(radius - distance + 0.5f);
+            var innerDistance = Mathf.Min(Mathf.Min(x + 0.5f, size - x - 0.5f), Mathf.Min(y + 0.5f, size - y - 0.5f));
+            var ring = dx > 0f && dy > 0f ? Mathf.Clamp01(2.5f - Mathf.Abs(radius - 1.25f - distance)) : Mathf.Clamp01(2.5f - innerDistance);
+            return inside * ring;
+        });
+
+        private static Sprite CornerBrackets => cornerBrackets ??= MakeFrameSprite("Corners", (x, y, size, radius) =>
+        {
+            const float length = 20f;
+            const float thickness = 3.5f;
+            var nearX = Mathf.Min(x + 0.5f, size - x - 0.5f);
+            var nearY = Mathf.Min(y + 0.5f, size - y - 0.5f);
+            var horizontal = nearY <= thickness && nearX <= length;
+            var vertical = nearX <= thickness && nearY <= length;
+            return horizontal || vertical ? 1f : 0f;
+        });
+
+        private static Sprite MakeFrameSprite(string name, System.Func<int, int, int, float, float> alpha)
+        {
+            const int size = 64;
+            const float radius = 10f;
+            var texture = new Texture2D(size, size, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp, name = name };
+            for (var y = 0; y < size; y++)
+            for (var x = 0; x < size; x++)
+                texture.SetPixel(x, y, new Color(1f, 1f, 1f, alpha(x, y, size, radius)));
+            texture.Apply();
+            return Sprite.Create(texture, new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), 100f, 0, SpriteMeshType.FullRect,
+                new Vector4(24, 24, 24, 24));
+        }
+
         public static Text Label(Transform parent, string text, int size = Theme.Body, Color? color = null,
             TextAnchor align = TextAnchor.MiddleLeft, FontStyle style = FontStyle.Normal, string name = "Label")
         {
@@ -234,6 +303,7 @@ namespace Fatiro.UI
             float height = Theme.TouchTarget, int fontSize = Theme.Body)
         {
             var background = Panel(parent, BackgroundFor(style), "Button " + text);
+            Outline(background, OutlineFor(style));
             var button = background.gameObject.AddComponent<Button>();
             var colours = button.colors;
             colours.normalColor = Color.white;
@@ -243,7 +313,7 @@ namespace Fatiro.UI
             button.colors = colours;
             if (onClick != null) button.onClick.AddListener(onClick);
 
-            var label = Label(background.transform, text, fontSize, TextFor(style), TextAnchor.MiddleCenter, FontStyle.Bold);
+            var label = Label(background.transform, text.ToUpperInvariant(), fontSize, TextFor(style), TextAnchor.MiddleCenter, FontStyle.Bold);
             label.rectTransform.Stretch(16, 4, 16, 4);
             label.horizontalOverflow = HorizontalWrapMode.Wrap;
             label.resizeTextForBestFit = true;
@@ -258,9 +328,9 @@ namespace Fatiro.UI
         {
             switch (style)
             {
-                case ButtonStyle.Primary: return Theme.Primary;
-                case ButtonStyle.Danger: return new Color(0.953f, 0.867f, 0.827f, 1f);
-                case ButtonStyle.Ghost: return new Color(0.122f, 0.165f, 0.125f, 0.07f);
+                case ButtonStyle.Primary: return new Color(0.27f, 0.86f, 1f, 0.24f);
+                case ButtonStyle.Danger: return new Color(1f, 0.36f, 0.40f, 0.16f);
+                case ButtonStyle.Ghost: return new Color(0.27f, 0.86f, 1f, 0.04f);
                 default: return Theme.SurfaceRaised;
             }
         }
@@ -271,16 +341,29 @@ namespace Fatiro.UI
             {
                 case ButtonStyle.Primary: return Theme.OnPrimary;
                 case ButtonStyle.Danger: return Theme.Danger;
-                default: return Theme.Ink;
+                case ButtonStyle.Ghost: return Theme.Muted;
+                default: return Theme.Text;
             }
         }
 
-        public static void SetLabel(this Button button, string text) => button.GetComponentInChildren<Text>().text = text;
+        public static void SetLabel(this Button button, string text) => button.GetComponentInChildren<Text>().text = text.ToUpperInvariant();
+
+        public static Color OutlineFor(ButtonStyle style)
+        {
+            switch (style)
+            {
+                case ButtonStyle.Primary: return Theme.Primary;
+                case ButtonStyle.Danger: return new Color(1f, 0.36f, 0.40f, 0.8f);
+                case ButtonStyle.Ghost: return new Color(0.27f, 0.86f, 1f, 0.22f);
+                default: return Theme.Line;
+            }
+        }
 
         public static void SetStyle(this Button button, ButtonStyle style)
         {
             button.GetComponent<Image>().color = BackgroundFor(style);
             button.GetComponentInChildren<Text>().color = TextFor(style);
+            Outline(button.GetComponent<Image>(), OutlineFor(style));
         }
 
         public static VerticalLayoutGroup VStack(Transform parent, float spacing = 20f, int padding = 0, string name = "Column")
@@ -326,6 +409,8 @@ namespace Fatiro.UI
         public static VerticalLayoutGroup Card(Transform parent, Color? color = null, int padding = 32, float spacing = 14f, string name = "Card")
         {
             var image = Panel(parent, color ?? Theme.Surface, name);
+            Outline(image, Theme.Line);
+            Corners(image, new Color(0.27f, 0.86f, 1f, 0.9f));
             var layout = image.gameObject.AddComponent<VerticalLayoutGroup>();
             layout.padding = new RectOffset(padding, padding, padding, padding);
             layout.spacing = spacing;
@@ -432,6 +517,7 @@ namespace Fatiro.UI
         public static InputField Input(Transform parent, string placeholder, UnityAction<string> onSubmit = null)
         {
             var background = Panel(parent, Theme.SurfaceRaised, "Input");
+            Outline(background, Theme.Line);
             Size(background.gameObject, minHeight: Theme.TouchTarget, preferredHeight: Theme.TouchTarget, flexibleWidth: 1);
             var text = Label(background.transform, string.Empty, Theme.Body);
             text.rectTransform.Stretch(28, 8, 28, 8);

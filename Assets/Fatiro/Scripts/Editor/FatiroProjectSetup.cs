@@ -192,6 +192,9 @@ namespace Fatiro.EditorTools
             public Material Rain;
             public Material Spark;
             public Material PlaneGrid;
+            public Material Hologram;
+            public Material HologramTerrain;
+            public Material HoloLine;
         }
 
         private static MaterialSet CreateMaterials()
@@ -204,7 +207,10 @@ namespace Fatiro.EditorTools
             {
                 Structure = SaveMaterial("Structure", lit, Color.white, smoothness: 0.25f),
                 Debris = SaveMaterial("Debris", lit, new Color(0.5f, 0.4f, 0.3f), smoothness: 0.1f),
-                Ghost = SaveMaterial("Ghost", unlit, MemberView.GhostTint, transparent: true),
+                Ghost = HologramMaterial("Ghost", MemberView.GhostTint, fill: 0.35f, grid: 0.6f),
+                Hologram = HologramMaterial("Hologram", new Color(0.27f, 0.86f, 1f, 0.95f), fill: 0.16f, grid: 0.8f),
+                HologramTerrain = HologramMaterial("HologramTerrain", new Color(0.27f, 0.86f, 1f, 0.6f), fill: 0.02f, grid: 0.45f, rim: 0.15f, width: 0.02f, scale: 0.5f),
+                HoloLine = HoloLineMaterial(),
                 Rain = SaveMaterial("RainDrop", unlit, new Color(0.55f, 0.8f, 1f, 0.85f), transparent: true),
                 Spark = SaveMaterial("Spark", unlit, new Color(1f, 0.9f, 0.5f, 0.8f), transparent: true),
                 Plot = SaveMaterial("Plot", particles, Color.white, smoothness: 0.05f),
@@ -218,6 +224,54 @@ namespace Fatiro.EditorTools
             EditorUtility.SetDirty(set.PlaneGrid);
             EditorUtility.SetDirty(set.Plot);
             return set;
+        }
+
+        /// <summary>A material using the Fatiro hologram shader (glowing rim, grid and scan lines).</summary>
+        private static Material HologramMaterial(string name, Color colour, float fill, float grid, float rim = 1.6f,
+            float width = 0.04f, float scale = 1f)
+        {
+            var shader = AssetDatabase.LoadAssetAtPath<Shader>($"{Generated}/Shaders/Hologram.shader");
+            var path = $"{MaterialsFolder}/{name}.mat";
+            var material = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (material == null)
+            {
+                material = new Material(shader);
+                AssetDatabase.CreateAsset(material, path);
+            }
+            material.shader = shader;
+            material.SetColor("_BaseColor", colour);
+            material.SetFloat("_Fill", fill);
+            material.SetFloat("_GridStrength", grid);
+            material.SetFloat("_RimStrength", rim);
+            material.SetFloat("_GridWidth", width);
+            material.SetFloat("_GridScale", scale);
+            material.enableInstancing = true;
+            EditorUtility.SetDirty(material);
+            return material;
+        }
+
+        /// <summary>Additive line material that honours vertex colour, for the glowing rings round the model.</summary>
+        private static Material HoloLineMaterial()
+        {
+            var shader = Shader.Find("Universal Render Pipeline/Particles/Unlit");
+            var path = $"{MaterialsFolder}/HoloLine.mat";
+            var material = AssetDatabase.LoadAssetAtPath<Material>(path);
+            if (material == null)
+            {
+                material = new Material(shader);
+                AssetDatabase.CreateAsset(material, path);
+            }
+            material.shader = shader;
+            material.SetFloat("_Surface", 1f);
+            material.SetFloat("_Blend", 2f);
+            material.SetFloat("_SrcBlend", (float)BlendMode.SrcAlpha);
+            material.SetFloat("_DstBlend", (float)BlendMode.One);
+            material.SetFloat("_ZWrite", 0f);
+            material.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
+            material.SetColor("_BaseColor", Color.white);
+            material.renderQueue = (int)RenderQueue.Transparent;
+            EditorUtility.SetDirty(material);
+            return material;
         }
 
         private static Material SaveMaterial(string name, Shader shader, Color color, bool transparent = false, float smoothness = 0.3f,
@@ -421,7 +475,7 @@ namespace Fatiro.EditorTools
                 Pad = MemberPrefab("Member_Pad", PrimitiveType.Cube, materials.Structure),
                 Panel = MemberPrefab("Member_Panel", PrimitiveType.Cube, materials.Structure),
                 Arch = MemberPrefab("Member_Arch", null, materials.Structure),
-                Site = SitePrefab(surfaces.Ground, surfaces.Platform),
+                Site = SitePrefab(surfaces.Ground, surfaces.Platform, materials.HologramTerrain),
                 Debris = DebrisPrefab(materials.Debris),
                 RainDrop = EffectPrefab<RainDrop>("FX_RainDrop", PrimitiveType.Sphere, materials.Rain),
                 Spark = EffectPrefab<SnapSpark>("FX_Spark", PrimitiveType.Sphere, materials.Spark),
@@ -520,18 +574,27 @@ namespace Fatiro.EditorTools
             new Scenery($"{ImportedModels}/Nissan180MX.fbx", 4.4f, 4.6f, -5.7f, 90f, false, carPaint: true)
         };
 
-        private static GameObject SitePrefab(Material[] groundMaterials, Material platformMaterial)
+        private static GameObject SitePrefab(Material[] groundMaterials, Material platformMaterial, Material hologramTerrain)
         {
             var root = new GameObject("Site_Plot");
             var content = new GameObject("Content").transform;
             content.SetParent(root.transform, false);
+            // Real view: textured terraces, platform and scenery. Hologram view: the same hillside as a glowing grid.
+            var realGround = new GameObject("Real ground").transform;
+            realGround.SetParent(content, false);
+            var hologramPlot = new GameObject("Hologram plot", typeof(MeshFilter), typeof(MeshRenderer));
+            hologramPlot.transform.SetParent(content, false);
+            var hologramRenderer = hologramPlot.GetComponent<MeshRenderer>();
+            hologramRenderer.sharedMaterials = new[] { hologramTerrain, hologramTerrain, hologramTerrain };
+            hologramRenderer.shadowCastingMode = ShadowCastingMode.Off;
+
             var plot = new GameObject("Plot", typeof(MeshFilter), typeof(MeshRenderer), typeof(MeshCollider));
-            plot.transform.SetParent(content, false);
+            plot.transform.SetParent(realGround, false);
             var renderer = plot.GetComponent<MeshRenderer>();
             renderer.sharedMaterials = groundMaterials;
             renderer.shadowCastingMode = ShadowCastingMode.Off;
             var platform = new GameObject("Building platform", typeof(MeshFilter), typeof(MeshRenderer));
-            platform.transform.SetParent(content, false);
+            platform.transform.SetParent(realGround, false);
             var platformRenderer = platform.GetComponent<MeshRenderer>();
             platformRenderer.sharedMaterial = platformMaterial;
             platformRenderer.shadowCastingMode = ShadowCastingMode.Off;
@@ -540,7 +603,7 @@ namespace Fatiro.EditorTools
 
             var trees = new List<Transform>();
             var sceneryRoot = new GameObject("Scenery").transform;
-            sceneryRoot.SetParent(content, false);
+            sceneryRoot.SetParent(realGround, false);
             var triangles = 0;
             foreach (var item in Hillside)
             {
@@ -571,6 +634,8 @@ namespace Fatiro.EditorTools
             serialized.FindProperty("plotFilter").objectReferenceValue = plot.GetComponent<MeshFilter>();
             serialized.FindProperty("plotCollider").objectReferenceValue = plot.GetComponent<MeshCollider>();
             serialized.FindProperty("platformFilter").objectReferenceValue = platform.GetComponent<MeshFilter>();
+            serialized.FindProperty("realGround").objectReferenceValue = realGround.gameObject;
+            serialized.FindProperty("hologramPlot").objectReferenceValue = hologramPlot.GetComponent<MeshFilter>();
             var treeArray = serialized.FindProperty("trees");
             treeArray.arraySize = trees.Count;
             for (var i = 0; i < trees.Count; i++) treeArray.GetArrayElementAtIndex(i).objectReferenceValue = trees[i];
@@ -883,6 +948,8 @@ namespace Fatiro.EditorTools
             Entry(settings, prefabs.Panel, session, AssetKeys.PanelPrefab);
             Entry(settings, prefabs.Arch, session, AssetKeys.ArchPrefab);
             Entry(settings, materialSet.Ghost, session, AssetKeys.GhostMaterial);
+            Entry(settings, materialSet.Hologram, session, AssetKeys.HologramMaterial);
+            Entry(settings, materialSet.HoloLine, session, AssetKeys.HoloLineMaterial);
             Entry(settings, prefabs.Site, session, AssetKeys.SitePrefab);
             Entry(settings, prefabs.Debris, session, AssetKeys.DebrisPrefab);
             Entry(settings, prefabs.RainDrop, session, AssetKeys.RainDropPrefab);
@@ -890,10 +957,10 @@ namespace Fatiro.EditorTools
 
             // Typefaces (SIL Open Font License): DM Serif Display for titles, Lato for text.
             var ui = Group(settings, "Interface", BundledAssetGroupSchema.BundlePackingMode.PackTogether);
-            Entry(settings, AssetDatabase.LoadAssetAtPath<Font>($"{Generated}/Fonts/DMSerifDisplay-Regular.ttf"), ui, AssetKeys.DisplayFont);
-            Entry(settings, AssetDatabase.LoadAssetAtPath<Font>($"{Generated}/Fonts/Lato-Regular.ttf"), ui, AssetKeys.BodyFont);
-            Entry(settings, AssetDatabase.LoadAssetAtPath<Font>($"{Generated}/Fonts/Lato-Bold.ttf"), ui, AssetKeys.BoldFont);
-            Entry(settings, AssetDatabase.LoadAssetAtPath<Font>($"{Generated}/Fonts/Lato-Italic.ttf"), ui, AssetKeys.ItalicFont);
+            Entry(settings, AssetDatabase.LoadAssetAtPath<Font>($"{Generated}/Fonts/Rajdhani-Bold.ttf"), ui, AssetKeys.DisplayFont);
+            Entry(settings, AssetDatabase.LoadAssetAtPath<Font>($"{Generated}/Fonts/Rajdhani-Medium.ttf"), ui, AssetKeys.BodyFont);
+            Entry(settings, AssetDatabase.LoadAssetAtPath<Font>($"{Generated}/Fonts/Rajdhani-SemiBold.ttf"), ui, AssetKeys.BoldFont);
+            Entry(settings, AssetDatabase.LoadAssetAtPath<Font>($"{Generated}/Fonts/Rajdhani-Regular.ttf"), ui, AssetKeys.ItalicFont);
 
             // One bundle per skin so a finished build loads only its own creature.
             var skinGroup = Group(settings, "Creature Skins", BundledAssetGroupSchema.BundlePackingMode.PackSeparately);

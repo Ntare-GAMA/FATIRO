@@ -13,6 +13,7 @@ namespace Fatiro.World
         public const int MinScale = 20;
         public const int MaxScale = 100;
 
+        private static readonly int WorldToModel = Shader.PropertyToID("_FatiroWorldToModel");
         private const float PlotMinX = -8f;
         private const float PlotMaxX = 8f;
         private const float PlotMinZ = -6.5f;
@@ -24,6 +25,10 @@ namespace Fatiro.World
         [SerializeField] private MeshCollider plotCollider;
         [Tooltip("Compacted building platform under the house footprint.")]
         [SerializeField] private MeshFilter platformFilter;
+        [Tooltip("Grass, platform and scenery: shown in the real view.")]
+        [SerializeField] private GameObject realGround;
+        [Tooltip("The same hillside drawn as a glowing grid: shown in the hologram view.")]
+        [SerializeField] private MeshFilter hologramPlot;
         [Tooltip("Scenery props; their X/Z are kept and their height follows the slope.")]
         [SerializeField] private Transform[] trees = new Transform[0];
 
@@ -50,6 +55,7 @@ namespace Fatiro.World
             plotMesh = MemberMeshes.BuildPlot(PlotMinX, PlotMaxX, PlotMinZ, PlotMaxZ, Ground, baseY);
             plotFilter.sharedMesh = plotMesh;
             if (plotCollider != null) plotCollider.sharedMesh = plotMesh;
+            if (hologramPlot != null) hologramPlot.sharedMesh = plotMesh;
 
             // Firm ground: a compacted platform cut into the hillside under the house, a metre wider all round.
             if (platformFilter != null)
@@ -71,10 +77,19 @@ namespace Fatiro.World
             SetScale(scaleDenominator);
         }
 
+        /// <summary>Hologram view shows the hillside as a glowing contour grid; real view shows terraces and scenery.</summary>
+        public void SetHologram(bool hologram)
+        {
+            if (realGround != null) realGround.SetActive(!hologram);
+            if (hologramPlot != null) hologramPlot.gameObject.SetActive(hologram);
+        }
+
         public void SetScale(int denominator)
         {
             ScaleDenominator = Mathf.Clamp(denominator, MinScale, MaxScale);
             transform.localScale = Vector3.one * WorldScale;
+            // The hologram shader draws its grid in building metres, whatever the tabletop scale.
+            Shader.SetGlobalFloat(WorldToModel, ScaleDenominator);
         }
 
         public void Pinch(float factor)

@@ -32,6 +32,8 @@ namespace Fatiro.Content
         public const string PanelPrefab = "Members/Panel";
         public const string ArchPrefab = "Members/Arch";
         public const string GhostMaterial = "Members/GhostMaterial";
+        public const string HologramMaterial = "Members/HologramMaterial";
+        public const string HoloLineMaterial = "FX/HoloLine";
         public const string SitePrefab = "Site/Plot";
         public const string DebrisPrefab = "FX/Debris";
         public const string RainDropPrefab = "FX/RainDrop";

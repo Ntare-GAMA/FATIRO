@@ -66,6 +66,18 @@ namespace Fatiro.Domain
             return id;
         }
 
+        /// <summary>
+        /// Non-structural cladding wall standing on the ground between two points and rising to a level top.
+        /// It encloses the house and catches wind, but braces nothing.
+        /// </summary>
+        public string CladWall(string id, string name, Endpoint a, Endpoint b, float topHeight, float thickness, string material,
+            string[] supports, string hint = null)
+        {
+            members.Add(new MemberSpec(id, name, MemberKind.Panel, BuildStage.Envelope, MemberShape.Block, a, b, thickness, material,
+                MaterialLibrary.Cladding, supports, crownHeight: topHeight, panelSize: new Vector3(thickness, 1f, 0f), hint: hint));
+            return id;
+        }
+
         public static string[] On(params string[] ids) => ids;
     }
 }
