@@ -117,18 +117,16 @@ namespace Fatiro.States
 
         private void HandleTap(Vector2 screenPosition)
         {
+            // The glowing outline wins: interior components (partitions, floors) sit behind walls that are
+            // already built, so a tap that passes through the outline anywhere builds it.
             var ray = Context.AR.Camera.ScreenPointToRay(screenPosition);
-            if (Physics.Raycast(ray, out var hit, 20f))
+            var hits = Physics.RaycastAll(ray, 20f);
+            foreach (var hit in hits)
             {
                 var view = hit.collider.GetComponentInParent<MemberView>();
                 if (view != null && ghosts.Contains(view))
                 {
                     TryBuildSelected();
-                    return;
-                }
-                if (view != null && view.Visual != MemberVisual.Ghost)
-                {
-                    Manager.SelectMember(view.MemberId);
                     return;
                 }
             }
@@ -138,7 +136,18 @@ namespace Fatiro.States
                 TryBuildSelected();
                 return;
             }
-            Manager.SelectMember(null);
+
+            // Otherwise a tap inspects the nearest built member.
+            MemberView nearest = null;
+            var nearestDistance = float.MaxValue;
+            foreach (var hit in hits)
+            {
+                var view = hit.collider.GetComponentInParent<MemberView>();
+                if (view == null || view.Visual == MemberVisual.Ghost || hit.distance >= nearestDistance) continue;
+                nearest = view;
+                nearestDistance = hit.distance;
+            }
+            Manager.SelectMember(nearest != null ? nearest.MemberId : null);
         }
 
         /// <summary>Builds the selected component; its pieces then rise one after another with a spark each.</summary>
