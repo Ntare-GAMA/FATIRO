@@ -58,7 +58,7 @@ Assets/Fatiro/Scripts
 │   ├── Building/     BuildSequence (stage order and prerequisite rules)
 │   ├── Scoring/      IScoringPolicy, WeightedScoringPolicy (40/40/20)
 │   ├── Session/      SessionRecord (DMP schema), LearnerProfile
-│   └── Authoring/    Blueprints for the three designs, MaterialLibrary
+│   └── Authoring/    Blueprints for the six designs, BlueprintBuilder, MaterialLibrary
 ├── Runtime/     Fatiro.Runtime — Unity layer
 │   ├── Bootstrap/    AppBootstrap composition root (dependency injection, no singletons)
 │   ├── Core/         EventBus (Observer), typed events, ObjectPool<T>
@@ -82,7 +82,7 @@ Commands flow down through interfaces (`ISimulationController`, `IARService`, `I
 |---|---|---|
 | State | `SimulationManager` + `SimulationState` subclasses | Each state accepts only legal inputs; pause returns to the previous state (shallow history) |
 | Observer | `EventBus` | UI, audio and autosave react to simulation events without coupling |
-| Command | `PlaceMemberCommand`, `RemoveMemberCommand`, `ChangeMaterialCommand` | Undo/redo of the last 20 build actions |
+| Command | `PlaceComponentCommand` (composite), `RemoveMemberCommand`, `ChangeMaterialCommand` | Undo/redo of the last 20 build actions; one undo removes a whole component |
 | Strategy | `ILoadCase`, `IScoringPolicy` | Load cases and scoring rules can be added without touching the solver or score manager |
 | Factory Method | `MemberFactory` | One place maps a member kind to its subclass and resolves its slope-dependent geometry |
 | Object Pool | `ObjectPool<T>` for member views, ghosts, debris, rain drops and sparks | No instantiate/destroy spikes during collapse and rain |
